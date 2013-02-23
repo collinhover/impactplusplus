@@ -7,7 +7,7 @@ Impact(JS) Extended (r1)
 A series of extensions and additions to the [Impact javascript engine](http://impactjs.com "ImpactJS")
 
 ####Core Goal
-The core goal of this project is to add some basic elements to Impact to make it easier and faster to start developing full featured games. Impact is a great engine, but it is fairly minimal to start. We've already created a slew of extra functionality, so why should you have to create it too?  
+The core goal of this project is to add some basic elements to Impact to make it easier and faster to start developing full featured games. Impact is a great engine, but it is fairly minimal to start. We've already created a slew of extra functionality, so why should you have to create it too? Also, don't forget to check out Jesse Freeman's [Impact Bootstrap](https://github.com/gamecook/Impact-Bootstrap "Impact-Bootstrap") for more plugins!  
 
 ####Features
 * Box2D Physics (v2.1a + performance/bug fixes)  
