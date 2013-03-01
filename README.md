@@ -1,4 +1,4 @@
-Impact(JS) Extended (r1)
+Impact(JS) Extended (r2)
 ========
   
 [See it in Action!](http://collinhover.github.com/mimic "Mimic")
@@ -12,13 +12,25 @@ The core goal of this project is to add some basic elements to Impact to make it
 We also don't want to overlap too much with Jesse Freeman's [Impact Bootstrap](https://github.com/gamecook/Impact-Bootstrap "Impact-Bootstrap"), so you should definitely check it out also!  
 
 ####Features
-* Box2D Physics (v2.1a + extra performance/bug fixes)  
+* Box2D Physics (v2.1a + lots of performance/bug fixes)  
+	* Physics ready entities  
+	* 60+ new tiles for the collision map  
+	* Debug draw
 * Utilities to convert Collision-maps to Box2D Physics shapes  
-* 60+ new tiles for the collision map  
-* Box2D Physics ready entities  
-* (Realtime) Dynamic Lighting with options for shadows, gradient, pixel perfect, and more  
-* Shadow casting entities  
-* Static and Moving Character classes (abstract)  
+	* Solid Shapes ( convex )
+	* Edge Shapes ( convex or concave )
+	* Climbable Shapes ( convex )
+	* One-way Shapes for up, down, left, or right ( convex )
+* Lighting
+	* Realtime and highly optimized  
+	* Dynamic alpha and/or color  
+	* Shadows  
+	* Entities can cast shadows fully, only from edges (hollow), or none
+	* Gradient or full  
+	* Pixel perfect  
+* Character classes (abstract)
+	* Static 
+	* Moving with options to jump, climb, and handle some preset animations
 * Cloneable Hierarchy class (abstract)  
 * Abilities class (based on Hierarchy)  
 * Huge list of Utility functions such as AABB intersections, Point-in-Polygon, and more  
