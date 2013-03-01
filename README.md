@@ -13,7 +13,7 @@ We also don't want to overlap too much with Jesse Freeman's [Impact Bootstrap](h
 
 ####Features
 * Box2D Physics (v2.1a + lots of performance/bug fixes)  
-	* Physics ready entities  
+	* Physics ready entities with multi-type collision ignore checks (pass-through)  
 	* 60+ new tiles for the collision map  
 	* Debug draw
 * Utilities to convert Collision-maps to Box2D Physics shapes  
@@ -22,7 +22,7 @@ We also don't want to overlap too much with Jesse Freeman's [Impact Bootstrap](h
 	* Climbable Shapes ( convex )
 	* One-way Shapes for up, down, left, or right ( convex )
 * Lighting
-	* Realtime and highly optimized  
+	* Realtime moving and highly optimized  
 	* Dynamic alpha and/or color  
 	* Shadows  
 	* Entities can cast shadows fully, only from edges (hollow), or none
