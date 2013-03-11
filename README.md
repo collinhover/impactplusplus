@@ -1,4 +1,4 @@
-Impact(JS) Extended (r2)
+Impact++ (r2)
 ========
   
 [See it in Action!](http://collinhover.github.com/mimic "Mimic")
@@ -40,7 +40,13 @@ We also don't want to overlap too much with Jesse Freeman's [Impact Bootstrap](h
 And more to come! If you have anything to add, please don't hesitate to make a pull request!   
 
 ##How to Use
-Download and merge the "lib" folder into your new or existing ImpactJS project directory (don't forget the ImpactJS engine), and have your main game extend "lib/game/core/game.js". Note that not all modules/classes will be loaded automatically, and you will need to require() them as needed.
+```
+Note that unlike Impact Bootstrap, not all modules/classes will be loaded automatically!
+```  
+* Download and merge the **lib** folder into your new or existing ImpactJS project directory
+* Don't forget the ImpactJS engine, we can't provide this
+* Have your main game extend **lib/plusplus/core/game.js**
+* Require modules from **lib/plusplus**  
   
 ##Contributors
 [Collin Hover](http://collinhover.com "Collin Hover")  
