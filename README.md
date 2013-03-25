@@ -1,4 +1,4 @@
-Impact++ (r2)
+Impact++ (r3)
 ========
   
 [See it in Action!](http://collinhover.github.com/mimic "Mimic")
@@ -12,15 +12,11 @@ The core goal of this project is to add some basic elements to Impact to make it
 We also don't want to overlap too much with Jesse Freeman's [Impact Bootstrap](https://github.com/gamecook/Impact-Bootstrap "Impact-Bootstrap"), so you should definitely check it out also!  
 
 ####Features
-* Box2D Physics (v2.1a + lots of performance/bug fixes)  
-	* Physics ready entities with multi-type collision ignore checks (pass-through)  
+* Extended support for Impact's default collision system
+* (optional) Box2D Physics (v2.1a + lots of performance/bug fixes)  
+	* Physics ready entities with multi-type collision ignore checks (pass-through)
 	* 60+ new tiles for the collision map  
 	* Debug draw
-* Utilities to convert Collision-maps to Box2D Physics shapes  
-	* Solid Shapes ( convex )
-	* Edge Shapes ( convex or concave )
-	* Climbable Shapes ( convex )
-	* One-way Shapes for up, down, left, or right ( convex )
 * Lighting
 	* Realtime moving and highly optimized  
 	* Dynamic alpha and/or color  
@@ -28,14 +24,28 @@ We also don't want to overlap too much with Jesse Freeman's [Impact Bootstrap](h
 	* Entities can cast shadows fully, only from edges (hollow), or none
 	* Gradient or full  
 	* Pixel perfect  
-* Character classes (abstract)
-	* Static 
-	* Moving with options to jump, climb, and handle some preset animations
+* Utilities to convert Collision-maps to shapes ( these are useful for lighting and shadows )
+	* Solid Shapes ( convex )
+	* Edge Shapes ( convex or concave )
+	* Climbable Shapes ( convex )
+	* One-way Shapes for up, down, left, or right ( convex )
+* Character
+	* Moving
+	* Jumping
+	* Climbing 
+	* Can handle slopes like pros
+* Entities
+	* Destructable entity
+	* Pain giving entity, including instagib version
+	* Particle entity, including color and debris particles
+	* Spawner entity for particle emitting or monster making
+	* Trigger entity ( and all the above are also triggers )
 * Cloneable Hierarchy class (abstract)  
 * Abilities class (based on Hierarchy)  
 * Huge list of Utility functions such as AABB intersections, Point-in-Polygon, and more  
 * SignalsJS library integration for a fantastic event system  
 * TWEENJS library integration  
+* Expanded debug draw  
   
 And more to come! If you have anything to add, please don't hesitate to make a pull request!   
 
@@ -45,8 +55,9 @@ Note that unlike Impact Bootstrap, not all modules/classes will be loaded automa
 ```  
 * Download and merge the **lib** folder into your new or existing ImpactJS project directory
 * Don't forget the ImpactJS engine, we can't provide this
-* Have your main game extend **lib/plusplus/core/game.js**
-* Require modules from **lib/plusplus**  
+* Now you have a choice:
+	* If using Impact's default physics, have your main game extend **lib/plusplus/core/game.js**
+	* For full featured physics, have your main game extend **lib/plusplus/physics/game.js**  
   
 ##Contributors
 [Collin Hover](http://collinhover.com "Collin Hover")  
