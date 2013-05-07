@@ -1,5 +1,16 @@
 Impact++ (r3)
 ========
+
+```
+Hold up!
+
+I'm glad you've found Impact++, but a major update is about to be dropped that includes:
+ + full documentation (and maybe demos too!)
+ + overhauls to many existing features and file structure
+ + lots of new entities
+ 
+ETA: late May, 2013.
+```
   
 [See it in Action!](http://collinhover.github.com/mimic "Mimic")
 
