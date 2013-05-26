@@ -1,0 +1,2781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Impact++ / Namespace: utilstile</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+		<script src="scripts/html5shiv.js"> </script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/main.css">
+</head>
+
+<body data-spy="scroll" data-target="#navdoc">
+	
+	<a href="http://github.com/collinhover/impactplusplus/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>	
+	
+	<div class="header">
+		<a href="index.html"><img src="img/banner_impactplusplus.png"></a>
+	</div>
+	
+	<div id="docs" class="container">
+		
+		<div class="row">
+			
+			<div class="span2">
+				<nav id="mainnav">
+					
+					<ul class="nav nav-list"><li id="navNamespaces" class="nav-header">Namespaces</li><li><a href="ig.html">ig</a></li><li><a href="ig.CONFIG.html">CONFIG</a></li><li><a href="ig.CONFIG.ENTITY.html">ENTITY</a></li><li><a href="ig.CONFIG.GESTURE.html">GESTURE</a></li><li><a href="ig.EntityExtended.GROUP.html">GROUP</a></li><li><a href="ig.EntityExtended.TYPE.html">TYPE</a></li><li><a href="ig.TWEEN.html">TWEEN</a></li><li><a href="ig.utils.html">utils</a></li><li><a href="ig.utilscolor.html">utilscolor</a></li><li><a href="ig.utilsdraw.html">utilsdraw</a></li><li><a href="ig.utilsintersection.html">utilsintersection</a></li><li><a href="ig.utilsmath.html">utilsmath</a></li><li><a href="ig.utilsphysics.html">utilsphysics</a></li><li><a href="ig.utilstile.html">utilstile</a></li><li><a href="ig.utilsvector2.html">utilsvector2</a></li></ul><ul class="nav nav-list"><li id="navAbilities" class="nav-header">Abilities</li><li><a href="ig.Ability.html">Ability</a></li><li><a href="ig.AbilityDamage.html">AbilityDamage</a></li><li><a href="ig.AbilityGlow.html">AbilityGlow</a></li><li><a href="ig.AbilityInteract.html">AbilityInteract</a></li><li><a href="ig.AbilityMelee.html">AbilityMelee</a></li><li><a href="ig.AbilityMimic.html">AbilityMimic</a></li><li><a href="ig.AbilityShoot.html">AbilityShoot</a></li></ul><ul class="nav nav-list"><li id="navCore" class="nav-header">Core</li><li><a href="ig.AnimationExtended.html">AnimationExtended</a></li><li><a href="ig.AnimationSheet.html">AnimationSheet</a></li><li><a href="ig.BackgroundMap.html">BackgroundMap</a></li><li><a href="ig.Camera.html">Camera</a></li><li><a href="ig.CollisionMap.html">CollisionMap</a></li><li><a href="ig.Entity.html">Entity</a></li><li><a href="ig.EntityExtended.html">EntityExtended</a></li><li><a href="ig.GameExtended.html">GameExtended</a></li><li><a href="ig.Hierarchy.html">Hierarchy</a></li><li><a href="ig.Image.html">Image</a></li><li><a href="ig.ImageDrawing.html">ImageDrawing</a></li><li><a href="ig.Input.html">Input</a></li><li><a href="ig.InputPoint.html">InputPoint</a></li><li><a href="ig.Layer.html">Layer</a></li><li><a href="ig.LoaderExtended.html">LoaderExtended</a></li><li><a href="ig.TimerExtended.html">TimerExtended</a></li></ul><ul class="nav nav-list"><li id="navAbstractities" class="nav-header">Abstractities</li><li><a href="ig.Character.html">Character</a></li><li><a href="ig.Demo.html">Demo</a></li><li><a href="ig.Door.html">Door</a></li><li><a href="ig.DoorUsable.html">DoorUsable</a></li><li><a href="ig.Effect.html">Effect</a></li><li><a href="ig.Lever.html">Lever</a></li><li><a href="ig.Particle.html">Particle</a></li><li><a href="ig.Player.html">Player</a></li><li><a href="ig.Projectile.html">Projectile</a></li><li><a href="ig.Shape.html">Shape</a></li><li><a href="ig.Spawner.html">Spawner</a></li><li><a href="ig.SpawnerCharacter.html">SpawnerCharacter</a></li><li><a href="ig.Tutorial.html">Tutorial</a></li></ul><ul class="nav nav-list"><li id="navEntities" class="nav-header">Entities</li><li><a href="ig.EntityAbilityUpgrade.html">EntityAbilityUpgrade</a></li><li><a href="ig.EntityCheckpoint.html">EntityCheckpoint</a></li><li><a href="ig.EntityDemoHold.html">EntityDemoHold</a></li><li><a href="ig.EntityDemoSwipe.html">EntityDemoSwipe</a></li><li><a href="ig.EntityDemoTap.html">EntityDemoTap</a></li><li><a href="ig.EntityDestructable.html">EntityDestructable</a></li><li><a href="ig.EntityDestructableCollide.html">EntityDestructableCollide</a></li><li><a href="ig.EntityDirection.html">EntityDirection</a></li><li><a href="ig.EntityDummy.html">EntityDummy</a></li><li><a href="ig.EntityEffectElectricity.html">EntityEffectElectricity</a></li><li><a href="ig.EntityEffectPow.html">EntityEffectPow</a></li><li><a href="ig.EntityExplosion.html">EntityExplosion</a></li><li><a href="ig.EntityLava.html">EntityLava</a></li><li><a href="ig.EntityLevelchange.html">EntityLevelchange</a></li><li><a href="ig.EntityLight.html">EntityLight</a></li><li><a href="ig.EntityPain.html">EntityPain</a></li><li><a href="ig.EntityPainInstagib.html">EntityPainInstagib</a></li><li><a href="ig.EntityParticleColor.html">EntityParticleColor</a></li><li><a href="ig.EntityParticleDebris.html">EntityParticleDebris</a></li><li><a href="ig.EntityShapeClimbable.html">EntityShapeClimbable</a></li><li><a href="ig.EntityShapeClimbableOneWay.html">EntityShapeClimbableOneWay</a></li><li><a href="ig.EntityShapeEdge.html">EntityShapeEdge</a></li><li><a href="ig.EntityShapeSolid.html">EntityShapeSolid</a></li><li><a href="ig.EntitySlime.html">EntitySlime</a></li><li><a href="ig.EntitySwitch.html">EntitySwitch</a></li><li><a href="ig.EntityTrigger.html">EntityTrigger</a></li><li><a href="ig.EntityTriggerConstant.html">EntityTriggerConstant</a></li><li><a href="ig.EntityTriggerController.html">EntityTriggerController</a></li><li><a href="ig.EntityTriggerInput.html">EntityTriggerInput</a></li><li><a href="ig.EntityTriggerReverse.html">EntityTriggerReverse</a></li><li><a href="ig.EntityTriggerReverseConstant.html">EntityTriggerReverseConstant</a></li><li><a href="ig.EntityTutorialHold.html">EntityTutorialHold</a></li><li><a href="ig.EntityTutorialSwipe.html">EntityTutorialSwipe</a></li><li><a href="ig.EntityTutorialTap.html">EntityTutorialTap</a></li><li><a href="ig.EntityVoid.html">EntityVoid</a></li></ul><ul class="nav nav-list"><li id="navHelpers" class="nav-header">Helpers</li><li><a href="ig.Signal.html">Signal</a></li><li><a href="ig.TWEEN.Tween.html">Tween</a></li></ul><ul class="nav nav-list"><li id="navUi" class="nav-header">Ui</li><li><a href="ig.UIElement.html">UIElement</a></li><li><a href="ig.UIInteractive.html">UIInteractive</a></li><li><a href="ig.UIMeter.html">UIMeter</a></li><li><a href="ig.UIOverlay.html">UIOverlay</a></li><li><a href="ig.UIOverlayPause.html">UIOverlayPause</a></li><li><a href="ig.UIText.html">UIText</a></li><li><a href="ig.UIToggle.html">UIToggle</a></li><li><a href="ig.UITogglePause.html">UITogglePause</a></li><li><a href="ig.UITracker.html">UITracker</a></li></ul>
+					
+				</nav>
+			</div>
+			
+			<div class="span10">
+				<div id="maincontent">
+					
+					<ul class="breadcrumb"><li><a href="index.html">Impact++</a><span class="divider">/</span></li><li><a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/helpers" target="_blank">helpers</a><span class="divider">/</span></li><li><a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/helpers/utilstile.js" target="_blank">utilstile.js</a> <small class="muted">(source)</small></li></ul>
+
+					<div class="row">
+
+						<div id="maincontentColumn2" class="span2">
+							
+							<div id="navdocs" data-spy="affix" data-offset-top="300"><div id="navdoc"><ul class="nav nav-list sidenav"><li class="nav-header">utilstile</li><li><a href="#docs">Overview <div class="icon-chevron-right pull-right"></div></a></li><li><a href="#members" type="button">Members <div class="icon-chevron-right pull-right"></div></a></li><li><a href="#methods" type="button">Methods <div class="icon-chevron-right pull-right"></div></a></li></ul></div><ul class="nav nav-list sidenav"><li class="nav-header"><img src="img/logo_impactplusplus_25.png"> Impact++</li><li><a href="#navNamespaces" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Namespaces</a></li><li><a href="#navAbilities" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Abilities</a></li><li><a href="#navCore" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Core</a></li><li><a href="#navAbstractities" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Abstractities</a></li><li><a href="#navEntities" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Entities</a></li><li><a href="#navHelpers" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Helpers</a></li><li><a href="#navUi" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Ui</a></li></ul></div>
+
+						</div>
+
+						<div id="maincontentColumn8" class="span8">
+						
+							
+
+
+
+
+<section id="doc">
+ 
+	<header id="overview">
+		
+		<div class="hero-unit">
+			
+			
+			
+			
+				<h3 class="ancestors"><a href="ig.html">ig</a>.</h3>
+			
+			
+			<h1>
+			utilstile
+			
+			</h1>
+			
+			
+			
+			<div class="container-overview">
+			
+			
+			
+			
+				
+					<p class="description">Static utilities for working with tiles and collision maps.<br>- shapes are extracted by <a href="ig.GameExtended.html#loadLevel">ig.GameExtended#loadLevel</a>, but the work is done by <a href="ig.utilstile.html#shapesFromCollisionMap">ig.utilstile.shapesFromCollisionMap</a><span class="alert alert-info"><strong>Tip:</strong> Impact++ can automatically convert collision maps into shapes (vertices, edges, etc).</span></p>
+				
+				
+				
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul class="unstyled">
+            <li>Collin Hover - collinhover.com</li>
+        </ul>
+    </dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utilstile.js, line 25
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+				
+				
+			
+			</div>
+			
+		</div>
+		
+	</header>  
+
+	<article>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			<div id="members" class="subsection">
+				<h3 class="subsection-title page-header">Members</h3>
+				
+				<dl>
+					
+<dt >
+    <h4 class="name" id="defaultTileSegmentsDef"><span class="type-signature">&lt;static, readonly> </span>defaultTileSegmentsDef<span class="type-signature"> :Object</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Definitions of tile types as segments so we don't have to recalculate each tile.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utilstile.js, line 50
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="defaultTileVerticesDef"><span class="type-signature">&lt;static, readonly> </span>defaultTileVerticesDef<span class="type-signature"> :Object</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Definitions of tile types as vertices so we don't have to recalculate each tile.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utilstile.js, line 43
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				</dl>
+			</div>
+		
+		
+		
+			<hr>
+			<div id="methods" class="subsection">
+			<h3 class="subsection-title page-header">Methods</h3>
+			
+			<dl>
+				
+
+	
+	<dt >
+		<h4 class="name" id="findShapedTileLine">
+			<span class="type-signature">&lt;static> </span>findShapedTileLine<span class="signature">(tiles, <span class="optional">horizontal</span>, <span class="optional">indexFrom</span>, <span class="optional">length</span>)</span><span class="type-signature"> &rarr; {Array}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Finds the first line in either horizontal or vertical direction from tiles.<span class="alert alert-info"><strong>Tip:</strong> when converting tiles to shapes, is usually better to call <a href="ig.utilstile.html#shapesFromCollisionMap">ig.utilstile.shapesFromCollisionMap</a>.</span>
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>tiles</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">shaped tiles to search.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>horizontal</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">line is horizontal, else vertical.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>indexFrom</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+            
+            <td class="description last">index in tiles to start from.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>length</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+            
+            <td class="description last">max length of line.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utilstile.js, line 506
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Array</span>
+
+}</span>
+
+list of tiles in line.
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="getNonDuplicateSegmentVertices">
+			<span class="type-signature">&lt;static> </span>getNonDuplicateSegmentVertices<span class="signature">(tile, tileData, tilesAllowed)</span><span class="type-signature"> &rarr; {Array}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Checks and returns all of a tile's non-duplicate segment vertices.<span class="alert alert-info"><strong>Tip:</strong> when converting tiles to shapes, is usually better to call <a href="ig.utilstile.html#shapesFromCollisionMap">ig.utilstile.shapesFromCollisionMap</a>.</span>
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>tile</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">shaped tile</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>tileData</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">tiles data (2D array).</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>tilesAllowed</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">tiles allowed to check against (flat array)</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utilstile.js, line 1213
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Array</span>
+
+}</span>
+
+list of vertices
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="getSegmentOverlapWithTile">
+			<span class="type-signature">&lt;static> </span>getSegmentOverlapWithTile<span class="signature">(vaA, vbA, normalCompare, tile)</span><span class="type-signature"> &rarr; {Boolean|Object}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Gets if a segment overlaps a tile edge.<span class="alert alert-info"><strong>Tip:</strong> when converting tiles to shapes, is usually better to call <a href="ig.utilstile.html#shapesFromCollisionMap">ig.utilstile.shapesFromCollisionMap</a>.</span>
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>vaA</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">segment vertex a</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>vbA</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">segment vertex b</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>normalCompare</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Vector2</span>
+|
+
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">facing normal of segment</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>tile</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">shaped tile to compare segment to</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utilstile.js, line 1384
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Boolean</span>
+|
+
+<span class="param-type">Object</span>
+
+}</span>
+
+no overlap = false, full overlap = true, partial overlap = object with area not overlapped
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="getTouchingTilesByDirection">
+			<span class="type-signature">&lt;static> </span>getTouchingTilesByDirection<span class="signature">(tile, direction, tileData, tilesAllowed)</span><span class="type-signature"> &rarr; {Array}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Gets touching tiles based on a direction.<span class="alert alert-info"><strong>Tip:</strong> when converting tiles to shapes, is usually better to call <a href="ig.utilstile.html#shapesFromCollisionMap">ig.utilstile.shapesFromCollisionMap</a>.</span>
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>tile</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">shaped tile</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>direction</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">direction to look (normalized)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>tileData</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">tiles data (2D array)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>tilesAllowed</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">tiles allowed to check against (flat array)</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utilstile.js, line 1289
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Array</span>
+
+}</span>
+
+all tiles directly touching a tile based on direction
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="isTileClimbable">
+			<span class="type-signature">&lt;static> </span>isTileClimbable<span class="signature">(tileId)</span><span class="type-signature"> &rarr; {Boolean}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Gets if a tile is climbable.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>tileId</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">tile id.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utilstile.js, line 68
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Boolean</span>
+
+}</span>
+
+whether tile is climbable
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="isTileClimbableOneWay">
+			<span class="type-signature">&lt;static> </span>isTileClimbableOneWay<span class="signature">(tileId)</span><span class="type-signature"> &rarr; {Boolean}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Gets if a tile is climbable and one way.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>tileId</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">tile id.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utilstile.js, line 79
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Boolean</span>
+
+}</span>
+
+whether tile is climbable and one way
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="isTileOneWay">
+			<span class="type-signature">&lt;static> </span>isTileOneWay<span class="signature">(tileId)</span><span class="type-signature"> &rarr; {Boolean}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Gets if a tile is one-way.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>tileId</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">tile id.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utilstile.js, line 57
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Boolean</span>
+
+}</span>
+
+whether tile is one-way
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="shapedTilesToShapes">
+			<span class="type-signature">&lt;static> </span>shapedTilesToShapes<span class="signature">(tiles, data, options)</span><span class="type-signature"> &rarr; {Array}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Converts a list of tiles with vertices into shapes.<span class="alert alert-info"><strong>Tip:</strong> when converting tiles to shapes, is usually better to call <a href="ig.utilstile.html#shapesFromCollisionMap">ig.utilstile.shapesFromCollisionMap</a>.</span>
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>tiles</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">shaped tiles to convert</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">2d list of all tiles in map</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">options object</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utilstile.js, line 310
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Array</span>
+
+}</span>
+
+list of shapes
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="shapeFromTile">
+			<span class="type-signature">&lt;static> </span>shapeFromTile<span class="signature">(map, ix, iy)</span><span class="type-signature"> &rarr; {Object}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Generates boolean for empty or, if solid, vertices and segments in clockwise order from a tile.<span class="alert alert-info"><strong>Tip:</strong> when converting tiles to shapes, is usually better to call <a href="ig.utilstile.html#shapesFromCollisionMap">ig.utilstile.shapesFromCollisionMap</a>.</span>
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>map</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">collision Map</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>ix</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">x position</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>iy</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">y Position</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utilstile.js, line 943
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Object</span>
+
+}</span>
+
+object with array of 0 to 5 vertices and array of 0 to 5 segments
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="shapesFromCollisionMap">
+			<span class="type-signature">&lt;static> </span>shapesFromCollisionMap<span class="signature">(map, options)</span><span class="type-signature"> &rarr; {Array}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Extracts all shapes from an impact collision map, with vertices in clockwise order.<br>- this method does its best to intelligently combine tiles into as big of shapes as it can<br>- shapes consist of an x and y position, and a settings object with an array of vertices and a size object
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>map</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="ig.CollisionMap.html">ig.CollisionMap</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">map data object</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">options object</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utilstile.js, line 125
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Array</span>
+
+}</span>
+
+array of shapes including a list of oneWays, edges, and climbables
+</div>
+
+
+
+        
+    
+    
+        <span class="label">Example</span>
+        
+    <pre class="prettyprint linenums"><code>// options is a plain objectoptions = {};// we can ignore climbable tiles when extracting shapesoptions.ignoreClimbables = true;// we can ignore one way tiles when extracting shapesoptions.ignoreOneWays = true;// we can ignore solid tiles when extracting shapesoptions.ignoreSolids = true;// we can keep the outer boundary edge shape when converting a collision map// but by default, the outer boundary is thrown away// this is because it is unlikely the player will ever be outside the level// so the outer boundary edge is usually uselessoptions.retainBoundaryOuter = true;// we can throw away the inner boundary edge shape// i.e. the edge shape on the inside of the outer boundaryoptions.discardBoundaryInner = true;// we can also throw away any shapes inside the inner boundary edge shapeoptions.discardBoundaryInner = true;// we can force rectangles to be created instead of contour shapes// this is useful when we may have concave shapes that don't play nice with bounding boxesoptions.rectangles = true;// we can force just climbables to be rectanglesoptions.contourClimbables = false;// we can force just solids to be rectanglesoptions.contourSolids = false;// we can force shapes to only be constructed by tiles of the same type / idoptions.ungrouped = false;// we can throw away all collinear vertices to improve performanceoptions.discardCollinear = true;// we can reverse the shape vertex order to counter-clockwiseoptions.reverse = true;</code></pre>
+
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="stepShapedTileHorizontally">
+			<span class="type-signature">&lt;static> </span>stepShapedTileHorizontally<span class="signature">(tiles, tileFrom)</span><span class="type-signature"> &rarr; {Object}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Attempts to step to the next tile horizontally.<span class="alert alert-info"><strong>Tip:</strong> when converting tiles to shapes, is usually better to call <a href="ig.utilstile.html#shapesFromCollisionMap">ig.utilstile.shapesFromCollisionMap</a>.</span>
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>tiles</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">shaped tiles to search</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>tileFrom</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">tile stepping from</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utilstile.js, line 554
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Object</span>
+
+}</span>
+
+next tile, or current tile if next not found
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="stepShapedTileVertically">
+			<span class="type-signature">&lt;static> </span>stepShapedTileVertically<span class="signature">(tiles, tileFrom)</span><span class="type-signature"> &rarr; {Object}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Attempts to step to the next tile vertically.<span class="alert alert-info"><strong>Tip:</strong> when converting tiles to shapes, is usually better to call <a href="ig.utilstile.html#shapesFromCollisionMap">ig.utilstile.shapesFromCollisionMap</a>.</span>
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>tiles</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">shaped tiles to search</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>tileFrom</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">tile stepping from</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utilstile.js, line 579
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Object</span>
+
+}</span>
+
+next tile, or current tile if next not found
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="verticesFromTile">
+			<span class="type-signature">&lt;static> </span>verticesFromTile<span class="signature">(map, ix, iy)</span><span class="type-signature"> &rarr; {Array}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Generates boolean for empty or, if solid, vertices in clockwise order from a tile.9<br>- this function makes some assumptions about tiles, such as being either 3, 4, or 5 sided, always having a corner, and being convex<span class="alert alert-info"><strong>Tip:</strong> when converting tiles to shapes, is usually better to call <a href="ig.utilstile.html#shapesFromCollisionMap">ig.utilstile.shapesFromCollisionMap</a>.</span>
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>map</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Collision Map</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>ix</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">x position</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>iy</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">y Position</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utilstile.js, line 1002
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Array</span>
+
+}</span>
+
+array of 0 to 5 vertices
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="verticesToContours">
+			<span class="type-signature">&lt;static> </span>verticesToContours<span class="signature">(vertices, options)</span><span class="type-signature"> &rarr; {Array}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Converts a list of vertices into contours.<span class="alert alert-info"><strong>Tip:</strong> when converting tiles to shapes, is usually better to call <a href="ig.utilstile.html#shapesFromCollisionMap">ig.utilstile.shapesFromCollisionMap</a>.</span>
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>vertices</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">list of vertices</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">options object</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utilstile.js, line 604
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Array</span>
+
+}</span>
+
+list of contours
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+			</dl>
+			</div>
+		
+		
+		
+		
+		
+	</article>
+
+</section>  
+
+
+
+
+							
+						</div>
+						
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+			
+	</div>
+
+	<footer>
+		<p class="muted">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Sun May 26 2013 16:16:44 GMT-0500 (CDT)</p>
+	</footer>
+	
+	<script src="scripts/linenumber.js"> </script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="scripts/jquery-1.9.1.min.js"><\/script>')</script>
+	<script src="scripts/bootstrap.min.js"> </script>
+	<script src="scripts/main.js"> </script>
+	
+</body>
+</html>

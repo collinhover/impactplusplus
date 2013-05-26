@@ -1,0 +1,3126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Impact++ / Namespace: utils</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+		<script src="scripts/html5shiv.js"> </script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/main.css">
+</head>
+
+<body data-spy="scroll" data-target="#navdoc">
+	
+	<a href="http://github.com/collinhover/impactplusplus/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>	
+	
+	<div class="header">
+		<a href="index.html"><img src="img/banner_impactplusplus.png"></a>
+	</div>
+	
+	<div id="docs" class="container">
+		
+		<div class="row">
+			
+			<div class="span2">
+				<nav id="mainnav">
+					
+					<ul class="nav nav-list"><li id="navNamespaces" class="nav-header">Namespaces</li><li><a href="ig.html">ig</a></li><li><a href="ig.CONFIG.html">CONFIG</a></li><li><a href="ig.CONFIG.ENTITY.html">ENTITY</a></li><li><a href="ig.CONFIG.GESTURE.html">GESTURE</a></li><li><a href="ig.EntityExtended.GROUP.html">GROUP</a></li><li><a href="ig.EntityExtended.TYPE.html">TYPE</a></li><li><a href="ig.TWEEN.html">TWEEN</a></li><li><a href="ig.utils.html">utils</a></li><li><a href="ig.utilscolor.html">utilscolor</a></li><li><a href="ig.utilsdraw.html">utilsdraw</a></li><li><a href="ig.utilsintersection.html">utilsintersection</a></li><li><a href="ig.utilsmath.html">utilsmath</a></li><li><a href="ig.utilsphysics.html">utilsphysics</a></li><li><a href="ig.utilstile.html">utilstile</a></li><li><a href="ig.utilsvector2.html">utilsvector2</a></li></ul><ul class="nav nav-list"><li id="navAbilities" class="nav-header">Abilities</li><li><a href="ig.Ability.html">Ability</a></li><li><a href="ig.AbilityDamage.html">AbilityDamage</a></li><li><a href="ig.AbilityGlow.html">AbilityGlow</a></li><li><a href="ig.AbilityInteract.html">AbilityInteract</a></li><li><a href="ig.AbilityMelee.html">AbilityMelee</a></li><li><a href="ig.AbilityMimic.html">AbilityMimic</a></li><li><a href="ig.AbilityShoot.html">AbilityShoot</a></li></ul><ul class="nav nav-list"><li id="navCore" class="nav-header">Core</li><li><a href="ig.AnimationExtended.html">AnimationExtended</a></li><li><a href="ig.AnimationSheet.html">AnimationSheet</a></li><li><a href="ig.BackgroundMap.html">BackgroundMap</a></li><li><a href="ig.Camera.html">Camera</a></li><li><a href="ig.CollisionMap.html">CollisionMap</a></li><li><a href="ig.Entity.html">Entity</a></li><li><a href="ig.EntityExtended.html">EntityExtended</a></li><li><a href="ig.GameExtended.html">GameExtended</a></li><li><a href="ig.Hierarchy.html">Hierarchy</a></li><li><a href="ig.Image.html">Image</a></li><li><a href="ig.ImageDrawing.html">ImageDrawing</a></li><li><a href="ig.Input.html">Input</a></li><li><a href="ig.InputPoint.html">InputPoint</a></li><li><a href="ig.Layer.html">Layer</a></li><li><a href="ig.LoaderExtended.html">LoaderExtended</a></li><li><a href="ig.TimerExtended.html">TimerExtended</a></li></ul><ul class="nav nav-list"><li id="navAbstractities" class="nav-header">Abstractities</li><li><a href="ig.Character.html">Character</a></li><li><a href="ig.Demo.html">Demo</a></li><li><a href="ig.Door.html">Door</a></li><li><a href="ig.DoorUsable.html">DoorUsable</a></li><li><a href="ig.Effect.html">Effect</a></li><li><a href="ig.Lever.html">Lever</a></li><li><a href="ig.Particle.html">Particle</a></li><li><a href="ig.Player.html">Player</a></li><li><a href="ig.Projectile.html">Projectile</a></li><li><a href="ig.Shape.html">Shape</a></li><li><a href="ig.Spawner.html">Spawner</a></li><li><a href="ig.SpawnerCharacter.html">SpawnerCharacter</a></li><li><a href="ig.Tutorial.html">Tutorial</a></li></ul><ul class="nav nav-list"><li id="navEntities" class="nav-header">Entities</li><li><a href="ig.EntityAbilityUpgrade.html">EntityAbilityUpgrade</a></li><li><a href="ig.EntityCheckpoint.html">EntityCheckpoint</a></li><li><a href="ig.EntityDemoHold.html">EntityDemoHold</a></li><li><a href="ig.EntityDemoSwipe.html">EntityDemoSwipe</a></li><li><a href="ig.EntityDemoTap.html">EntityDemoTap</a></li><li><a href="ig.EntityDestructable.html">EntityDestructable</a></li><li><a href="ig.EntityDestructableCollide.html">EntityDestructableCollide</a></li><li><a href="ig.EntityDirection.html">EntityDirection</a></li><li><a href="ig.EntityDummy.html">EntityDummy</a></li><li><a href="ig.EntityEffectElectricity.html">EntityEffectElectricity</a></li><li><a href="ig.EntityEffectPow.html">EntityEffectPow</a></li><li><a href="ig.EntityExplosion.html">EntityExplosion</a></li><li><a href="ig.EntityLava.html">EntityLava</a></li><li><a href="ig.EntityLevelchange.html">EntityLevelchange</a></li><li><a href="ig.EntityLight.html">EntityLight</a></li><li><a href="ig.EntityPain.html">EntityPain</a></li><li><a href="ig.EntityPainInstagib.html">EntityPainInstagib</a></li><li><a href="ig.EntityParticleColor.html">EntityParticleColor</a></li><li><a href="ig.EntityParticleDebris.html">EntityParticleDebris</a></li><li><a href="ig.EntityShapeClimbable.html">EntityShapeClimbable</a></li><li><a href="ig.EntityShapeClimbableOneWay.html">EntityShapeClimbableOneWay</a></li><li><a href="ig.EntityShapeEdge.html">EntityShapeEdge</a></li><li><a href="ig.EntityShapeSolid.html">EntityShapeSolid</a></li><li><a href="ig.EntitySlime.html">EntitySlime</a></li><li><a href="ig.EntitySwitch.html">EntitySwitch</a></li><li><a href="ig.EntityTrigger.html">EntityTrigger</a></li><li><a href="ig.EntityTriggerConstant.html">EntityTriggerConstant</a></li><li><a href="ig.EntityTriggerController.html">EntityTriggerController</a></li><li><a href="ig.EntityTriggerInput.html">EntityTriggerInput</a></li><li><a href="ig.EntityTriggerReverse.html">EntityTriggerReverse</a></li><li><a href="ig.EntityTriggerReverseConstant.html">EntityTriggerReverseConstant</a></li><li><a href="ig.EntityTutorialHold.html">EntityTutorialHold</a></li><li><a href="ig.EntityTutorialSwipe.html">EntityTutorialSwipe</a></li><li><a href="ig.EntityTutorialTap.html">EntityTutorialTap</a></li><li><a href="ig.EntityVoid.html">EntityVoid</a></li></ul><ul class="nav nav-list"><li id="navHelpers" class="nav-header">Helpers</li><li><a href="ig.Signal.html">Signal</a></li><li><a href="ig.TWEEN.Tween.html">Tween</a></li></ul><ul class="nav nav-list"><li id="navUi" class="nav-header">Ui</li><li><a href="ig.UIElement.html">UIElement</a></li><li><a href="ig.UIInteractive.html">UIInteractive</a></li><li><a href="ig.UIMeter.html">UIMeter</a></li><li><a href="ig.UIOverlay.html">UIOverlay</a></li><li><a href="ig.UIOverlayPause.html">UIOverlayPause</a></li><li><a href="ig.UIText.html">UIText</a></li><li><a href="ig.UIToggle.html">UIToggle</a></li><li><a href="ig.UITogglePause.html">UITogglePause</a></li><li><a href="ig.UITracker.html">UITracker</a></li></ul>
+					
+				</nav>
+			</div>
+			
+			<div class="span10">
+				<div id="maincontent">
+					
+					<ul class="breadcrumb"><li><a href="index.html">Impact++</a><span class="divider">/</span></li><li><a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/helpers" target="_blank">helpers</a><span class="divider">/</span></li><li><a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/helpers/utils.js" target="_blank">utils.js</a> <small class="muted">(source)</small></li></ul>
+
+					<div class="row">
+
+						<div id="maincontentColumn2" class="span2">
+							
+							<div id="navdocs" data-spy="affix" data-offset-top="300"><div id="navdoc"><ul class="nav nav-list sidenav"><li class="nav-header">utils</li><li><a href="#docs">Overview <div class="icon-chevron-right pull-right"></div></a></li><li><a href="#methods" type="button">Methods <div class="icon-chevron-right pull-right"></div></a></li></ul></div><ul class="nav nav-list sidenav"><li class="nav-header"><img src="img/logo_impactplusplus_25.png"> Impact++</li><li><a href="#navNamespaces" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Namespaces</a></li><li><a href="#navAbilities" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Abilities</a></li><li><a href="#navCore" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Core</a></li><li><a href="#navAbstractities" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Abstractities</a></li><li><a href="#navEntities" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Entities</a></li><li><a href="#navHelpers" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Helpers</a></li><li><a href="#navUi" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Ui</a></li></ul></div>
+
+						</div>
+
+						<div id="maincontentColumn8" class="span8">
+						
+							
+
+
+
+
+<section id="doc">
+ 
+	<header id="overview">
+		
+		<div class="hero-unit">
+			
+			
+			
+			
+				<h3 class="ancestors"><a href="ig.html">ig</a>.</h3>
+			
+			
+			<h1>
+			utils
+			
+			</h1>
+			
+			
+			
+			<div class="container-overview">
+			
+			
+			
+			
+				
+					<p class="description">Static utilities for general use.</p>
+				
+				
+				
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul class="unstyled">
+            <li>Collin Hover - collinhover.com</li>
+        </ul>
+    </dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utils.js, line 20
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+				
+				
+			
+			</div>
+			
+		</div>
+		
+	</header>  
+
+	<article>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			<hr>
+			<div id="methods" class="subsection">
+			<h3 class="subsection-title page-header">Methods</h3>
+			
+			<dl>
+				
+
+	
+	<dt >
+		<h4 class="name" id="addType">
+			<span class="type-signature">&lt;static> </span>addType<span class="signature">(recorder, entity, property, names, <span class="optional">typeListName</span>)</span><span class="type-signature"></span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Adds space separated type flags by name to a property of an entity.<br>- currently, Impact++ uses around 10 types/flags (see example)<br>- to avoid poor performance, only use this when initializing an entity<span class="alert alert-danger"><strong>IMPORTANT:</strong> maxes out at 32 types/flags due to the way Javascript handles bitwise operations.</span>
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>recorder</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Class</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">class object to record types in.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>entity</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Entity</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">entity to add types to.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>property</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">property name within entity to add types to.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>names</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">space separated names to create type for.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>typeListName</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">list name to store types in, defaults to TYPE.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utils.js, line 479
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+        <span class="label">Example</span>
+        
+    <pre class="prettyprint linenums"><code>// spawn an entityvar entity = ig.game.spawnEntity( ig.EntityExtended, 0, 0, { ...settings...} );// add a type to our new entityig.utils.addType( ig.EntityExtended, entity, 'type', "TYPE_NAME" );// use in dynamic checks for better performanceig.EntityExtended.TYPE.TYPE_NAME// and a check against the type of our new entity will return truthyentity.type & ig.EntityExtended.TYPE.TYPE_NAME</code></pre>
+
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="arrayCautiousAdd">
+			<span class="type-signature">&lt;static> </span>arrayCautiousAdd<span class="signature">(target, element)</span><span class="type-signature"> &rarr; {Array}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Add element to target array only if not already in array.<span class="alert"><strong>IMPORTANT:</strong> this modifies the array in place.</span>
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>target</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Target array</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Single value to add</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utils.js, line 79
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Array</span>
+
+}</span>
+
+Array containing elements
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="arrayCautiousAddMulti">
+			<span class="type-signature">&lt;static> </span>arrayCautiousAddMulti<span class="signature">(target, elements)</span><span class="type-signature"> &rarr; {Array}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Add elements to target array only if not already in array.<span class="alert"><strong>IMPORTANT:</strong> this modifies the array in place.</span>
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>target</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Target array</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>elements</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Single object or array of values to add</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utils.js, line 100
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Array</span>
+
+}</span>
+
+Array containing elements
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="arrayCautiousRemove">
+			<span class="type-signature">&lt;static> </span>arrayCautiousRemove<span class="signature">(target, element)</span><span class="type-signature"> &rarr; {Array}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Removes element from target array.<span class="alert"><strong>IMPORTANT:</strong> this modifies the array in place.</span>
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>target</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Target array</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Single value to remove</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utils.js, line 137
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Array</span>
+
+}</span>
+
+Array containing elements
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="arrayCautiousRemoveMulti">
+			<span class="type-signature">&lt;static> </span>arrayCautiousRemoveMulti<span class="signature">(target, elements)</span><span class="type-signature"> &rarr; {Array}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Removes elements from target array.<span class="alert"><strong>IMPORTANT:</strong> this modifies the array in place.</span>
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>target</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Target array</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>elements</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Single object or array of values to remove</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utils.js, line 158
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Array</span>
+
+}</span>
+
+Array containing elements
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="debounce">
+			<span class="type-signature">&lt;static> </span>debounce<span class="signature">(callback, <span class="optional">delay</span>)</span><span class="type-signature"> &rarr; {Function}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Debounce a function to execute only once delay reached between subsequent calls, based on Ben Alman's jQuery Throttle / Debounce.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Function</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">Callback function</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>delay</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">Delay in ms</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utils.js, line 346
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Function</span>
+
+}</span>
+
+Debounced function.
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="forEach">
+			<span class="type-signature">&lt;static> </span>forEach<span class="signature">(array, callback, args)</span><span class="type-signature"></span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Executes a callback on each item in an array, in the context of that item.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>array</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Array to iterate over</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Callback</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Callback to call</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>args</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Arguments to pass</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utils.js, line 194
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="getType">
+			<span class="type-signature">&lt;static> </span>getType<span class="signature">(recorder, names, <span class="optional">typeListName</span>)</span><span class="type-signature"></span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Gets a type flag by space separated names, and if does not exists, creates it.<br>- currently, Impact++ uses around 10 types/flags (see example)<br>- to avoid poor performance, only use this when initializing an entity<span class="alert alert-danger"><strong>IMPORTANT:</strong> maxes out at 32 types/flags due to the way Javascript handles bitwise operations.</span>
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>recorder</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Class</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">class / object to record types in.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>names</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">space separated names to create type for.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>typeListName</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">list name to store types in, defaults to TYPE.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utils.js, line 393
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+        <span class="label">Example</span>
+        
+    <pre class="prettyprint linenums"><code>// get / create a type during initig.utils.getType( ig.EntityExtended, "TYPE_NAME" );// use in dynamic checks for better performanceig.EntityExtended.TYPE.TYPE_NAME</code></pre>
+
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="indexOfProperties">
+			<span class="type-signature">&lt;static> </span>indexOfProperties<span class="signature">(array, properties, values)</span><span class="type-signature"> &rarr; {Number}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Find the index of an object in an array matching all property values.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>array</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Array to search.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>properties</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Property names.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>values</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Values to match.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utils.js, line 257
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Number</span>
+
+}</span>
+
+>= 0 if found, -1 if not
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="indexOfProperty">
+			<span class="type-signature">&lt;static> </span>indexOfProperty<span class="signature">(array, property, value)</span><span class="type-signature"> &rarr; {Number}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Find the index of an object in an array with property = value.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>array</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Array to search</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>property</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Property name</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Value of property to match</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utils.js, line 234
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Number</span>
+
+}</span>
+
+>= 0 if found, -1 if not
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="indexOfValue">
+			<span class="type-signature">&lt;static> </span>indexOfValue<span class="signature">(array, value)</span><span class="type-signature"> &rarr; {Number}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Find the index of value in an array.<span class="alert alert-info"><strong>Tip:</strong> in some cases, this may be faster than the native indexOf.</span>
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>array</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Array to search</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Value of property to match</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utils.js, line 211
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Number</span>
+
+}</span>
+
+>= 0 if found, -1 if not
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="isArray">
+			<span class="type-signature">&lt;static> </span>isArray<span class="signature">(target)</span><span class="type-signature"> &rarr; {Boolean}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Checks if target is array.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>target</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">target object</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utils.js, line 45
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Boolean</span>
+
+}</span>
+
+true if array, false if not
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="isNumber">
+			<span class="type-signature">&lt;static> </span>isNumber<span class="signature">(n)</span><span class="type-signature"> &rarr; {Boolean}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Checks if target is number.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>n</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">number</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utils.js, line 36
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Boolean</span>
+
+}</span>
+
+true if number, false if not
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="throttle">
+			<span class="type-signature">&lt;static> </span>throttle<span class="signature">(callback, <span class="optional">delay</span>, <span class="optional">trailing</span>)</span><span class="type-signature"> &rarr; {Function}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Throttle a function to execute no more than once per delay (its like a cooldown), based on Ben Alman's jQuery Throttle / Debounce.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Function</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">Callback function</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>delay</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">Delay in ms</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>trailing</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">Whether to allow a trailing execution</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utils.js, line 295
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.CONFIG.html#DURATION_THROTTLE">ig.CONFIG.DURATION_THROTTLE</a></li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Function</span>
+
+}</span>
+
+Throttled function.
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="toArray">
+			<span class="type-signature">&lt;static> </span>toArray<span class="signature">(target)</span><span class="type-signature"> &rarr; {Array}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Ensures an object is an array.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>target</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">target object</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utils.js, line 54
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Array</span>
+
+}</span>
+
+Array
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="toNotArray">
+			<span class="type-signature">&lt;static> </span>toNotArray<span class="signature">(target, <span class="optional">index</span>)</span><span class="type-signature"> &rarr; {*}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Ensures an object is not an array.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>target</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">target object</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+            
+            <td class="description last">index of array to use if target is an array.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utils.js, line 66
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">*</span>
+
+}</span>
+
+item at index of array
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="type">
+			<span class="type-signature">&lt;static> </span>type<span class="signature">(o)</span><span class="type-signature"> &rarr; {String}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Finds javascript type of object, slower than typeof or instanceof but sometimes necessary.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>o</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">target object</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		helpers/utils.js, line 27
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">String</span>
+
+}</span>
+
+Type of object
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+			</dl>
+			</div>
+		
+		
+		
+		
+		
+	</article>
+
+</section>  
+
+
+
+
+							
+						</div>
+						
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+			
+	</div>
+
+	<footer>
+		<p class="muted">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Sun May 26 2013 16:16:39 GMT-0500 (CDT)</p>
+	</footer>
+	
+	<script src="scripts/linenumber.js"> </script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="scripts/jquery-1.9.1.min.js"><\/script>')</script>
+	<script src="scripts/bootstrap.min.js"> </script>
+	<script src="scripts/main.js"> </script>
+	
+</body>
+</html>

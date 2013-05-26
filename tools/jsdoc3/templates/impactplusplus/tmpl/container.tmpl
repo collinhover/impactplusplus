@@ -1,0 +1,293 @@
+<?js
+    var self = this;
+    docs.forEach(function(doc, i) {
+?>
+
+<?js if (doc.kind === 'mainpage' || (doc.kind === 'package')) { ?>
+    <?js= self.partial('mainpage.tmpl', doc) ?>
+<?js } else if (doc.kind === 'source') { ?>
+    <?js= self.partial('source.tmpl', doc) ?>
+<?js } else { ?>
+
+<?js
+	var namespaces = self.find({kind: 'namespace', memberof: doc.longname});
+	var classes = self.find({kind: 'class', memberof: doc.longname}); 
+	var members = self.find({kind: 'member', memberof: title === 'Global' ? {isUndefined: true} : doc.longname});			
+	var methods = self.find({kind: 'function', memberof: title === 'Global' ? {isUndefined: true} : doc.longname});
+	var typedefs = self.find({kind: 'typedef', memberof: title === 'Global' ? {isUndefined: true} : doc.longname}); 
+	var events = self.find({kind: 'event', memberof: title === 'Global' ? {isUndefined: true} : doc.longname}); 
+		
+	var atleastTwo = Math.max( 0, !!( methods && methods.length )
+			+ !!( members && members.length )
+			+ !!( typedefs && typedefs.length )
+			+ !!( events && events.length ) - 1 );
+			
+	var isInheriting = !!( doc.augments && doc.augments.length )
+			&& ( !!( methods && methods.length ) 
+					|| !!( members && members.length )
+					|| !!( typedefs && typedefs.length )
+					|| !!( events && events.length ) );
+	
+	// parse and use doc paths
+	
+	var docpath = '';
+	var docfolders = '';
+	var docfolder = '';
+	var docfilename = '';
+	var docfileparts = '';
+	var docpath = '';
+	
+	if ( doc.meta && doc.meta.path ) {
+		
+		docpath = doc.meta.path;
+		docfolders = docpath.split( /\/|\\/ );
+		docfolder = docfolders[ docfolders.length - 1 ];
+		docfilename = doc.meta.filename;
+		docfileparts = docfilename.split( /\/|\\/ );
+		docfilename = docfileparts[ docfileparts.length - 1 ];
+	
+		// combine doc breadcumb with main breadcrumb
+		
+		doc.breadcrumb = self.breadcrumb;
+		
+		var idIndex = self.breadcrumb.lastIndexOf( '</ul>' );
+		var insertIndex;
+		
+		if ( idIndex !== -1 ) {
+		
+			insertIndex = idIndex;
+			
+			if ( insertIndex !== -1 ) {
+				
+				doc.breadcrumb = self.breadcrumb.slice( 0, insertIndex ) +  '<li><a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/' + docfolder + '" target="_blank">' + docfolder + '</a><span class="divider">/</span></li>';
+				doc.breadcrumb += '<li><a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/' + docfolder + '/' + docfilename + '" target="_blank">' + docfilename + '</a> <small class="muted">(source)</small></li>';
+				doc.breadcrumb += self.breadcrumb.slice( insertIndex );
+				
+			}
+			
+		}
+		
+	}
+	
+	// construct nav for doc
+	
+	var navDoc = '<div id="navdoc"><ul class="nav nav-list sidenav"><li class="nav-header">' +  doc.name + '</li>';
+	navDoc += '<li><a href="#docs">Overview <div class="icon-chevron-right pull-right"></div></a></li>';
+	
+	if ( members && members.length ) {
+		navDoc += '<li><a href="#members" type="button">Members <div class="icon-chevron-right pull-right"></div></a></li>';
+	}
+	
+	if ( methods && methods.length ) {
+		navDoc += '<li><a href="#methods" type="button">Methods <div class="icon-chevron-right pull-right"></div></a></li>';
+	}
+	
+	if ( events && events.length ) {
+		navDoc += '<li><a href="#typedefs" type="button">Type Defs <div class="icon-chevron-right pull-right"></div></a></li>';
+	}
+	
+	if ( events && events.length ) {
+		navDoc += '<li><a href="#events" type="button">Events <div class="icon-chevron-right pull-right"></div></a></li>';
+	}
+
+	if ( isInheriting ) {
+		navDoc += '<li><button class="btn btn-link" data-toggle="inherited"><div class="icon-eye-open"></div> inherited</a></li>';
+	}
+	
+	navDoc+= '</ul></div>';
+	
+	// combine doc nav with docs nav
+	
+	doc.nav = self.navDocs;
+	
+	idIndex = self.navDocs.indexOf( 'navdocs' );
+	
+	if ( idIndex !== -1 ) {
+	
+		insertIndex = self.navDocs.indexOf( '>', idIndex );
+		
+		if ( insertIndex !== -1 ) {
+			
+			doc.nav = self.navDocs.slice( 0, insertIndex + 1 ) + navDoc + self.navDocs.slice( insertIndex + 1 );
+			
+		}
+		
+	}
+?>
+<section id="doc">
+ 
+	<header id="overview">
+		
+		<div class="hero-unit">
+			
+			<?js if (doc.augments && doc.augments.length) { ?>
+			<ul id="extends" class="infoline unstyled inline">
+			<?js doc.augments.forEach(function(a) { ?>
+				<li><div class="icon-circle-arrow-down"></div> <?js= self.linkto(a, a) ?></li>
+			<?js }); ?>
+			</ul>
+			<?js } ?>
+			
+			<?js if (doc.ancestors && doc.ancestors.length) { ?>
+				<h3 class="ancestors"><?js= doc.ancestors.join('') ?></h3>
+			<?js } ?>
+			
+			<h1>
+			<?js= doc.name ?>
+			<?js if (doc.variation) { ?>
+				<sup class="variation"><?js= doc.variation ?></sup>
+			<?js } ?>
+			</h1>
+			
+			<?js if (doc.classdesc) { ?>
+				<div class="class-description"><?js= doc.classdesc ?></div>
+			<?js } ?>
+			
+			<div class="container-overview">
+			
+			<?js if (doc.kind === 'module' && doc.module) { ?>
+				<?js= self.partial('method.tmpl', doc.module) ?>
+			<?js } ?>
+			
+			<?js if (doc.kind === 'class') { ?>
+				<?js= self.partial('method.tmpl', doc) ?>
+			<?js } else { ?>
+				<?js if (doc.description) { ?>
+					<p class="description"><?js= doc.description ?></p>
+				<?js } ?>
+				
+				<?js= self.partial('details.tmpl', doc) ?>
+				
+				<?js if (doc.examples && doc.examples.length) { ?>
+					<?js= self.partial('examples.tmpl', doc.examples) ?>
+				<?js } ?>
+			<?js } ?>
+			</div>
+			
+		</div>
+		
+	</header>  
+
+	<article>
+		
+		<?js if (doc.mixes && doc.mixes.length) { ?>
+			<ul id="mixes" class="infoline unstyled inline">
+			<?js doc.mixes.forEach(function(a) { ?>
+				<li><div class="icon-random"></div> <?js= self.linkto(a, a) ?></li>
+			<?js }); ?>
+			</ul>
+		<?js } ?>
+		
+		<?js if (doc.requires && doc.requires.length) { ?>
+			<ul id="requires" class="infoline unstyled inline">
+			<?js doc.requires.forEach(function(a) { ?>
+				<li><div class="icon-file"></div> <?js= self.linkto(a, a) ?></li>
+			<?js }); ?>
+			</ul>
+		<?js } ?>
+		
+		<?js	
+				if (doc.kind !== 'globalobj' && (
+					( namespaces && namespaces.length )
+					|| ( classes && classes.length )
+					) ) { 
+		?>
+		
+		<div class="row">
+		
+			<?js
+				if (namespaces && namespaces.length) { 
+			?>
+				<div class="span3">
+					<h6 id="namespaces" class="infoline-title muted">Namespaces</h6>
+					
+					<dl><?js namespaces.forEach(function(n) { ?>
+						<dt><a href="namespaces.html#<?js= n.longname ?>"><?js= self.linkto(n.longname, n.name) ?></a></dt>
+						<dd><?js if (n.summary) { ?><?js= n.summary ?><?js } ?></dd>
+					<?js }); ?></dl>
+				</div>
+			<?js } ?>
+		
+		</div>
+		
+		<?js } ?>
+		
+		<?js
+			if (classes && classes.length) { 
+		?>
+			<div id="classes">
+				<h6 class="infoline-title muted">Classes</h6>
+				
+				<ul class="unstyled inline"><?js classes.forEach(function(c) { ?>
+					<li class="well well-small">
+						<?js= self.linkto(c.longname, c.name) ?>
+					</li>
+				<?js }); ?></ul>
+			</div>
+		<?js } ?>
+		
+		<?js
+			if (members && members.length && members.forEach) { 
+		?>
+			<div id="members" class="subsection">
+				<h3 class="subsection-title page-header">Members</h3>
+				
+				<dl><?js members.forEach(function(p) { ?>
+					<?js= self.partial('members.tmpl', p) ?>
+				<?js }); ?></dl>
+			</div>
+		<?js } ?>
+		
+		<?js
+			if (methods && methods.length && methods.forEach) { 
+		?>
+			<hr>
+			<div id="methods" class="subsection">
+			<h3 class="subsection-title page-header">Methods</h3>
+			
+			<dl><?js methods.forEach(function(m) { ?>
+				<?js= self.partial('method.tmpl', m) ?>
+			<?js }); ?></dl>
+			</div>
+		<?js } ?>
+		
+		<?js
+			if (typedefs && typedefs.length && typedefs.forEach) { 
+		?>
+			<hr>
+			<div id="types" class="subsection">
+				<h3 class="subsection-title page-header">Type Definitions</h3>
+				
+				<dl><?js typedefs.forEach(function(e) {
+						if (e.signature) {
+					?>
+						<?js= self.partial('method.tmpl', e) ?>
+					<?js
+						}
+						else {
+					?>
+						<?js= self.partial('members.tmpl', e) ?>
+					<?js
+						}
+					}); ?></dl>
+			</div>
+		<?js } ?>
+		
+		<?js
+			if (events && events.length && events.forEach) { 
+		?>
+			<hr>
+			<div id="events" class="subsection">
+				<h3 class="subsection-title page-header">Events</h3>
+				
+				<dl><?js events.forEach(function(e) { ?>
+					<?js= self.partial('method.tmpl', e) ?>
+				<?js }); ?></dl>
+			</div>
+		<?js } ?>
+	</article>
+
+</section>  
+<?js } ?>
+
+<?js }); ?>

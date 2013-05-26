@@ -1,79 +1,168 @@
-Impact++ (r3)
+Impact++ (r4)
 ========
 
-```
-Hold up!
-
-I'm glad you've found Impact++, but a major update is about to be dropped that includes:
- + full documentation (and maybe demos too!)
- + overhauls to many existing features and file structure
- + lots of new entities
- 
-ETA: late May, 2013.
-```
-  
-[See it in Action!](http://collinhover.github.com/mimic "Mimic")
-
 ####Overview
-A series of extensions and additions to the [Impact javascript engine](http://impactjs.com "ImpactJS")
-
-####Core Goal
-The core goal of this project is to add some basic elements to Impact to make it easier and faster to start developing full featured games. Impact is a great engine, but it is fairly minimal to start. We've already created a slew of extra functionality, so why should you have to create it too?  
+A series of extensions and additions to the [Impact javascript engine](http://impactjs.com "ImpactJS")  
   
-We also don't want to overlap too much with Jesse Freeman's [Impact Bootstrap](https://github.com/gamecook/Impact-Bootstrap "Impact-Bootstrap"), so you should definitely check it out also!  
+The core goal of this project is to expand ImpactJS to make it easier and faster to start developing full featured games. ImpactJS is a great engine, but it is fairly minimal to start, and our hope is that Impact++ will save you a few months of dev time! 
+  
+Impact++ is also partly a product of work on the game Mimic (which may or may not be released as of you reading this), which you can [see in action here!](http://collinhover.github.com/mimic "Mimic")
 
 ####Features
-* Extended support for Impact's default collision system
-* (optional) Box2D Physics (v2.1a + lots of performance/bug fixes)  
-	* Physics ready entities with multi-type collision ignore checks (pass-through)
-	* 60+ new tiles for the collision map  
-	* Debug draw
-* Lighting
-	* Realtime moving and highly optimized  
-	* Dynamic alpha and/or color  
-	* Shadows  
-	* Entities can cast shadows fully, only from edges (hollow), or none
-	* Gradient or full  
-	* Pixel perfect  
-* Utilities to convert Collision-maps to shapes ( these are useful for lighting and shadows )
-	* Solid Shapes ( convex )
-	* Edge Shapes ( convex or concave )
-	* Climbable Shapes ( convex )
-	* One-way Shapes for up, down, left, or right ( convex )
-* Character
-	* Moving
-	* Jumping
-	* Climbing 
-	* Can handle slopes like pros
-* Entities
-	* Destructable entity
-	* Pain giving entity, including instagib version
-	* Particle entity, including color and debris particles
-	* Spawner entity for particle emitting or monster making
-	* Trigger entity ( and all the above are also triggers )
-* Cloneable Hierarchy class (abstract)  
-* Abilities class (based on Hierarchy)  
-* Huge list of Utility functions such as AABB intersections, Point-in-Polygon, and more  
-* SignalsJS library integration for a fantastic event system  
-* TWEENJS library integration  
-* Expanded debug draw  
-  
-And more to come! If you have anything to add, please don't hesitate to make a pull request!   
+* Extended capability of ImpactJS's default classes to improve collisions, animations,...
+* ```ig.CONFIG``` data driven configuration to allow you to change parameters without rebuilding or modifying the library
+* ```ig.GameExtended``` game with layers, easy pausing, improved debugger,...
+* ```ig.EntityExtended``` entities with lots of extra helper functions, opt-in performance, inheritance friendly animations,...
+* ```ig.InputPoint``` input with multi-touch and gestures that works the same for mouse or touch
+* ```ig.Camera``` camera for screen control, smooth target transitions, atmospheric overlays,...
+* ```ig.UIElement``` a whole list of ui element entities to make text, buttons, overlays,...
+* ```ig.Ability``` abilities that are entirely modular, have a built in casting system, upgrades,...
+* ```ig.EntityLight``` lighting in real-time with shadows, dynamic alpha and/or color,...
+* ```ig.Character``` abstract character class with options for moving, jumping, climbing,...
+* ```ig.Player``` abstract player class with built in interaction and input handling,...
+* ```ig.Tutorial``` abstract tutorial class to help you show your players how to do things
+* ```ig.Spawner``` abstract spawner class with pooling for better performance
+* ```ig.Particle``` abstract particle class with fading in and/or out, random velocities,...
+* ```ig.EntityTrigger``` easy to use set of triggers for complex event driven behavior
+* ```ig.EntityCheckpoint``` checkpoint for automatic player respawning on death
+* ```ig.utils``` huge list of utility functions for vectors, drawing, intersections, math, tiles,...
+* and too much more to reasonably list here! 
 
 ##How to Use
-```
-Note that unlike Impact Bootstrap, not all modules/classes will be loaded automatically!
-```  
-* Download and merge the **lib** folder into your new or existing ImpactJS project directory
-* Don't forget the ImpactJS engine, we can't provide this
-* Now you have a choice:
-	* If using Impact's default physics, have your main game extend **lib/plusplus/core/game.js**
-	* For full featured physics, have your main game extend **lib/plusplus/physics/game.js**  
-  
-##Contributors
-[Collin Hover](http://collinhover.com "Collin Hover")  
+1. Download using one of the below links and extract the files.
+2. Copy the **impactplusplus/lib/plusplus** folder into your new or existing ImpactJS project **lib** directory.
+3. Either copy the **impactplusplus/lib/weltmeister/config.js** into your projet's **lib/weltmeister** directory...
+4. Or, if you have a custom Weltmeister config, add ```'lib/plusplus/entities/*.js'``` to the ```entityFiles``` setting. 
+5. Make sure you're comfortable with the [ImpactJS Documentation](http://impactjs.com/documentation)
+6. Dive into the [Impact++ Documentation](http://collinhover.github.com/impactplusplus)
 
----
-  
-*Copyright (C) 2013-Present Collin Hover and other contributors*  
-*For full license and information, see [LICENSE](https://github.com/collinhover/impactextended/blob/master/LICENSE).*
+####Download
+[
+![Download Zip](http://github.com/images/modules/download/zip.png)
+]
+(http://github.com/collinhover/impactplusplus/zipball/master/)
+[
+![Download Zip](http://github.com/images/modules/download/tar.png)
+]
+(http://github.com/collinhover/impactplusplus/tarball/master/)
+
+##Getting Started
+	// starting with Impact++ is simple!
+    // setup a main game file, such as 'game/main.js'
+    // that you load right after ImpactJS
+    // and inside this file...
+    // define that custom config first
+    ig.CONFIG = {
+        // one thing you'll probably want to set right away
+        // is your own logo (in base64) for the loader
+        LOADER_LOGO_SRC_MAIN: 'data:image/png;base64,...'
+    };
+    // setup the main module
+    ig.module(
+            'game.main'
+        )
+        // now require the appropriate files
+        .requires(
+            'plusplus.core.config',
+            'plusplus.core.loader',
+            'plusplus.core.game',
+            // don't forget to load your levels
+            'path.to.area1',
+            'path.to.area2',
+            'path.to.areaEtc'
+        )
+        // define the main module
+        .defines(function () {
+            "use strict";
+    
+            var _c = ig.CONFIG;
+    
+            // we probably want to go ahead and debug while developing
+    
+            if (_c.DEBUG) {
+    
+                ig.module(
+                        'game.game-debug'
+                    )
+                    .requires(
+                        'plusplus.debug.debug'
+                    )
+                    .defines(function () {
+    
+                        start();
+    
+                    });
+    
+            }
+            // and don't forget to turn off debugging
+            // in the config when releasing your game!
+            else {
+    
+                start();
+    
+            }
+    
+            function start() {
+    
+                // have your game class extend Impact++'s game class
+    
+                var game = ig.GameExtended.extend({
+    
+                    // override the game init function
+    
+                    init: function () {
+    
+                        this.parent();
+    
+                        // so we can load the first level
+                        // which of course you didn't forget to require above
+    
+                        this.loadLevel(ig.global.LevelArea1);
+    
+                    }
+    
+                });
+    
+                // now lets boot up impact with
+                // our game and config settings
+                ig.main(
+                    '#canvas',
+                    game,
+                    60,
+                    _c.GAME_WIDTH,
+                    _c.GAME_HEIGHT,
+                    _c.SCALE,
+                    ig.LoaderExtended
+                );
+    
+                // and resize to make sure everything looks fine
+    
+                ig.system.resize(
+                    ig.global.innerWidth * _c.CANVAS_WIDTH_PCT * ( 1 / _c.SCALE ),
+                    ig.global.innerHeight * _c.CANVAS_HEIGHT_PCT * ( 1 / _c.SCALE ),
+                    _c.SCALE
+                );
+    
+            }
+    
+        });
+
+##FAQ
+
+####Ejecta, Cocoonjs, etc?
+Impact++ has been built from day one to be portable / wrappable to iOS, Android, Win8, etc. Tests are ongoing, but the library does nothing that should need special handling when porting or wrapping your game code for distribution as a mobile app. Please let us know if you find any issues!
+
+####Design Philosophy
+* _Modularity_ - code should be reusable whenever possible
+* _Parametrize_ - projects should be able to change settings without modifying the library    
+* _Be device agnostic_ - do not rely on device specific functionality  
+* _Be browser agnostic_ - do not rely on browser specific functionality  
+* _Consistency_ - the codebase should look like a cohesive whole  
+* _Document_ - the codebase should be reasonably documented  
+* _Minimal code churn_ - no one enjoys updating projects that rely on a library with a lot of churn
+
+####Contributing
+We'd love it if you want to help make Impact++ better, so if you're interested take a look at [CONTRIBUTING](https://github.com/collinhover/impactplusplus/blob/master/CONTRIBUTING.md).
+
+####License
+Impact++ is licensed under the MIT license. For full license and information, see [LICENSE](https://github.com/collinhover/impactplusplus/blob/master/LICENSE.md),

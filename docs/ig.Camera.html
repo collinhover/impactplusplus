@@ -1,0 +1,2492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Impact++ / Class: Camera</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+		<script src="scripts/html5shiv.js"> </script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/main.css">
+</head>
+
+<body data-spy="scroll" data-target="#navdoc">
+	
+	<a href="http://github.com/collinhover/impactplusplus/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>	
+	
+	<div class="header">
+		<a href="index.html"><img src="img/banner_impactplusplus.png"></a>
+	</div>
+	
+	<div id="docs" class="container">
+		
+		<div class="row">
+			
+			<div class="span2">
+				<nav id="mainnav">
+					
+					<ul class="nav nav-list"><li id="navNamespaces" class="nav-header">Namespaces</li><li><a href="ig.html">ig</a></li><li><a href="ig.CONFIG.html">CONFIG</a></li><li><a href="ig.CONFIG.ENTITY.html">ENTITY</a></li><li><a href="ig.CONFIG.GESTURE.html">GESTURE</a></li><li><a href="ig.EntityExtended.GROUP.html">GROUP</a></li><li><a href="ig.EntityExtended.TYPE.html">TYPE</a></li><li><a href="ig.TWEEN.html">TWEEN</a></li><li><a href="ig.utils.html">utils</a></li><li><a href="ig.utilscolor.html">utilscolor</a></li><li><a href="ig.utilsdraw.html">utilsdraw</a></li><li><a href="ig.utilsintersection.html">utilsintersection</a></li><li><a href="ig.utilsmath.html">utilsmath</a></li><li><a href="ig.utilsphysics.html">utilsphysics</a></li><li><a href="ig.utilstile.html">utilstile</a></li><li><a href="ig.utilsvector2.html">utilsvector2</a></li></ul><ul class="nav nav-list"><li id="navAbilities" class="nav-header">Abilities</li><li><a href="ig.Ability.html">Ability</a></li><li><a href="ig.AbilityDamage.html">AbilityDamage</a></li><li><a href="ig.AbilityGlow.html">AbilityGlow</a></li><li><a href="ig.AbilityInteract.html">AbilityInteract</a></li><li><a href="ig.AbilityMelee.html">AbilityMelee</a></li><li><a href="ig.AbilityMimic.html">AbilityMimic</a></li><li><a href="ig.AbilityShoot.html">AbilityShoot</a></li></ul><ul class="nav nav-list"><li id="navCore" class="nav-header">Core</li><li><a href="ig.AnimationExtended.html">AnimationExtended</a></li><li><a href="ig.AnimationSheet.html">AnimationSheet</a></li><li><a href="ig.BackgroundMap.html">BackgroundMap</a></li><li><a href="ig.Camera.html">Camera</a></li><li><a href="ig.CollisionMap.html">CollisionMap</a></li><li><a href="ig.Entity.html">Entity</a></li><li><a href="ig.EntityExtended.html">EntityExtended</a></li><li><a href="ig.GameExtended.html">GameExtended</a></li><li><a href="ig.Hierarchy.html">Hierarchy</a></li><li><a href="ig.Image.html">Image</a></li><li><a href="ig.ImageDrawing.html">ImageDrawing</a></li><li><a href="ig.Input.html">Input</a></li><li><a href="ig.InputPoint.html">InputPoint</a></li><li><a href="ig.Layer.html">Layer</a></li><li><a href="ig.LoaderExtended.html">LoaderExtended</a></li><li><a href="ig.TimerExtended.html">TimerExtended</a></li></ul><ul class="nav nav-list"><li id="navAbstractities" class="nav-header">Abstractities</li><li><a href="ig.Character.html">Character</a></li><li><a href="ig.Demo.html">Demo</a></li><li><a href="ig.Door.html">Door</a></li><li><a href="ig.DoorUsable.html">DoorUsable</a></li><li><a href="ig.Effect.html">Effect</a></li><li><a href="ig.Lever.html">Lever</a></li><li><a href="ig.Particle.html">Particle</a></li><li><a href="ig.Player.html">Player</a></li><li><a href="ig.Projectile.html">Projectile</a></li><li><a href="ig.Shape.html">Shape</a></li><li><a href="ig.Spawner.html">Spawner</a></li><li><a href="ig.SpawnerCharacter.html">SpawnerCharacter</a></li><li><a href="ig.Tutorial.html">Tutorial</a></li></ul><ul class="nav nav-list"><li id="navEntities" class="nav-header">Entities</li><li><a href="ig.EntityAbilityUpgrade.html">EntityAbilityUpgrade</a></li><li><a href="ig.EntityCheckpoint.html">EntityCheckpoint</a></li><li><a href="ig.EntityDemoHold.html">EntityDemoHold</a></li><li><a href="ig.EntityDemoSwipe.html">EntityDemoSwipe</a></li><li><a href="ig.EntityDemoTap.html">EntityDemoTap</a></li><li><a href="ig.EntityDestructable.html">EntityDestructable</a></li><li><a href="ig.EntityDestructableCollide.html">EntityDestructableCollide</a></li><li><a href="ig.EntityDirection.html">EntityDirection</a></li><li><a href="ig.EntityDummy.html">EntityDummy</a></li><li><a href="ig.EntityEffectElectricity.html">EntityEffectElectricity</a></li><li><a href="ig.EntityEffectPow.html">EntityEffectPow</a></li><li><a href="ig.EntityExplosion.html">EntityExplosion</a></li><li><a href="ig.EntityLava.html">EntityLava</a></li><li><a href="ig.EntityLevelchange.html">EntityLevelchange</a></li><li><a href="ig.EntityLight.html">EntityLight</a></li><li><a href="ig.EntityPain.html">EntityPain</a></li><li><a href="ig.EntityPainInstagib.html">EntityPainInstagib</a></li><li><a href="ig.EntityParticleColor.html">EntityParticleColor</a></li><li><a href="ig.EntityParticleDebris.html">EntityParticleDebris</a></li><li><a href="ig.EntityShapeClimbable.html">EntityShapeClimbable</a></li><li><a href="ig.EntityShapeClimbableOneWay.html">EntityShapeClimbableOneWay</a></li><li><a href="ig.EntityShapeEdge.html">EntityShapeEdge</a></li><li><a href="ig.EntityShapeSolid.html">EntityShapeSolid</a></li><li><a href="ig.EntitySlime.html">EntitySlime</a></li><li><a href="ig.EntitySwitch.html">EntitySwitch</a></li><li><a href="ig.EntityTrigger.html">EntityTrigger</a></li><li><a href="ig.EntityTriggerConstant.html">EntityTriggerConstant</a></li><li><a href="ig.EntityTriggerController.html">EntityTriggerController</a></li><li><a href="ig.EntityTriggerInput.html">EntityTriggerInput</a></li><li><a href="ig.EntityTriggerReverse.html">EntityTriggerReverse</a></li><li><a href="ig.EntityTriggerReverseConstant.html">EntityTriggerReverseConstant</a></li><li><a href="ig.EntityTutorialHold.html">EntityTutorialHold</a></li><li><a href="ig.EntityTutorialSwipe.html">EntityTutorialSwipe</a></li><li><a href="ig.EntityTutorialTap.html">EntityTutorialTap</a></li><li><a href="ig.EntityVoid.html">EntityVoid</a></li></ul><ul class="nav nav-list"><li id="navHelpers" class="nav-header">Helpers</li><li><a href="ig.Signal.html">Signal</a></li><li><a href="ig.TWEEN.Tween.html">Tween</a></li></ul><ul class="nav nav-list"><li id="navUi" class="nav-header">Ui</li><li><a href="ig.UIElement.html">UIElement</a></li><li><a href="ig.UIInteractive.html">UIInteractive</a></li><li><a href="ig.UIMeter.html">UIMeter</a></li><li><a href="ig.UIOverlay.html">UIOverlay</a></li><li><a href="ig.UIOverlayPause.html">UIOverlayPause</a></li><li><a href="ig.UIText.html">UIText</a></li><li><a href="ig.UIToggle.html">UIToggle</a></li><li><a href="ig.UITogglePause.html">UITogglePause</a></li><li><a href="ig.UITracker.html">UITracker</a></li></ul>
+					
+				</nav>
+			</div>
+			
+			<div class="span10">
+				<div id="maincontent">
+					
+					<ul class="breadcrumb"><li><a href="index.html">Impact++</a><span class="divider">/</span></li><li><a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core" target="_blank">core</a><span class="divider">/</span></li><li><a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/camera.js" target="_blank">camera.js</a> <small class="muted">(source)</small></li></ul>
+
+					<div class="row">
+
+						<div id="maincontentColumn2" class="span2">
+							
+							<div id="navdocs" data-spy="affix" data-offset-top="300"><div id="navdoc"><ul class="nav nav-list sidenav"><li class="nav-header">Camera</li><li><a href="#docs">Overview <div class="icon-chevron-right pull-right"></div></a></li><li><a href="#members" type="button">Members <div class="icon-chevron-right pull-right"></div></a></li><li><a href="#methods" type="button">Methods <div class="icon-chevron-right pull-right"></div></a></li><li><button class="btn btn-link" data-toggle="inherited"><div class="icon-eye-open"></div> inherited</a></li></ul></div><ul class="nav nav-list sidenav"><li class="nav-header"><img src="img/logo_impactplusplus_25.png"> Impact++</li><li><a href="#navNamespaces" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Namespaces</a></li><li><a href="#navAbilities" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Abilities</a></li><li><a href="#navCore" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Core</a></li><li><a href="#navAbstractities" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Abstractities</a></li><li><a href="#navEntities" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Entities</a></li><li><a href="#navHelpers" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Helpers</a></li><li><a href="#navUi" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Ui</a></li></ul></div>
+
+						</div>
+
+						<div id="maincontentColumn8" class="span8">
+						
+							
+
+
+
+
+<section id="doc">
+ 
+	<header id="overview">
+		
+		<div class="hero-unit">
+			
+			
+			<ul id="extends" class="infoline unstyled inline">
+			
+				<li><div class="icon-circle-arrow-down"></div> ig.Class</li>
+			
+			</ul>
+			
+			
+			
+				<h3 class="ancestors"><a href="ig.html">ig</a>.</h3>
+			
+			
+			<h1>
+			Camera
+			
+			</h1>
+			
+			
+			
+			<div class="container-overview">
+			
+			
+			
+			
+				
+
+	
+	<code class="name constructor" id="Camera">
+		<span class="type-signature"></span>new Camera<span class="signature">()</span><span class="type-signature"></span>
+	</code>
+	
+<dd >
+    
+    
+    <p class="description">
+        Camera object for following objects and controlling screen.
+    </p>
+    
+
+   
+    
+    
+    
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul class="unstyled">
+            <li>Collin Hover - collinhover.com</li>
+        </ul>
+    </dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 32
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+			
+			</div>
+			
+		</div>
+		
+	</header>  
+
+	<article>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			<div id="members" class="subsection">
+				<h3 class="subsection-title page-header">Members</h3>
+				
+				<dl>
+					
+<dt >
+    <h4 class="name" id="alpha"><span class="type-signature"></span>alpha<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Atmosphere alpha value from 0 to 1.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>0.9</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 144
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="alphaDuration"><span class="type-signature"></span>alphaDuration<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Duration of atmosphere fade.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>1000</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 151
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="atmosphere"><span class="type-signature">&lt;readonly> </span>atmosphere<span class="type-signature"> :Boolean</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Whether camera is overlaying atmosphere ontop of game world.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>false</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 108
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="atmosphereOverlay"><span class="type-signature">&lt;readonly> </span>atmosphereOverlay<span class="type-signature"> :<a href="ig.EntityExtended.html">ig.EntityExtended</a></span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Atmosphere overlay entity.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>null</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 116
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="b"><span class="type-signature"></span>b<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Atmosphere blue value from 0 to 1.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>0</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 137
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="bounds"><span class="type-signature"></span>bounds<span class="type-signature"> :Object</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Bounds within which to stay relative to entity camera is following.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 39
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li>_ig.utilsintersection.bounds</li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="boundsPct"><span class="type-signature"></span>boundsPct<span class="type-signature"> :Object</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Bounds, as a percentage of screen size, within which to stay relative to entity camera is following.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 46
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li>_ig.utilsintersection.bounds</li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="changed"><span class="type-signature">&lt;readonly> </span>changed<span class="type-signature"> :Boolean</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Whether camera has been changed since last update.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 79
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="g"><span class="type-signature"></span>g<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Atmosphere green value from 0 to 1.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>0</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 130
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="keepCentered"><span class="type-signature"></span>keepCentered<span class="type-signature"> :Boolean</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Whether to always try to keep centered on entity camera is following.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>false</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 53
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="lerp"><span class="type-signature"></span>lerp<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        How quickly to interpolate to target camera location.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>0.025</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 65
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+        <span class="label">Example</span>
+        
+    <pre class="prettyprint linenums"><code>// set to 1 to snap cameracamera.lerp = 1;// set to 0.025 to move slowly and smoothlycamera.lerp = 0.025;</code></pre>
+
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="lightAmplification"><span class="type-signature"></span>lightAmplification<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Multiplier to amplify lights when cutting them out from atmosphere.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>3</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 158
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="lightBaseOnly"><span class="type-signature"></span>lightBaseOnly<span class="type-signature"> :Boolean</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Whether to draw light base shape (i.e. circle) or with shadows included, when cutting lights out of atmosphere.<br>- be careful when using this with characters that cast shadows!
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>false</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 166
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="lightsCutout"><span class="type-signature"></span>lightsCutout<span class="type-signature"> :Boolean</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Whether to cut lights out of atmosphere.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>true</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 173
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="onTransitioned"><span class="type-signature"></span>onTransitioned<span class="type-signature"> :<a href="ig.Signal.html">ig.Signal</a></span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Signal dispatched when camera finishes transitioning between entities to follow.<br>- created on init.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 180
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="r"><span class="type-signature"></span>r<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Atmosphere red value from 0 to 1.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>0</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 123
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="screenLast"><span class="type-signature">&lt;readonly> </span>screenLast<span class="type-signature"> :Object</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Last position of screen.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 100
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="transitionDuration"><span class="type-signature"></span>transitionDuration<span class="type-signature"> :Boolean</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Duration of transition when switching entities that camera is following.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>1</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 72
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="transitioning"><span class="type-signature">&lt;readonly> </span>transitioning<span class="type-signature"> :Boolean</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Whether camera is transitioning between entities to follow.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 86
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="transitionPct"><span class="type-signature">&lt;readonly> </span>transitionPct<span class="type-signature"> :Boolean</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Percent progress of transition.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 93
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				</dl>
+			</div>
+		
+		
+		
+			<hr>
+			<div id="methods" class="subsection">
+			<h3 class="subsection-title page-header">Methods</h3>
+			
+			<dl>
+				
+
+	
+	<dt >
+		<h4 class="name" id="addAtmosphere">
+			<span class="type-signature"></span>addAtmosphere<span class="signature">(<span class="optional">duration</span>)</span><span class="type-signature"></span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Creates and overlays atmosphere ontop of game world.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>duration</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">duration of fade.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 245
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="follow">
+			<span class="type-signature"></span>follow<span class="signature">(entity, <span class="optional">snap</span>)</span><span class="type-signature"></span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Starts following an entity.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>entity</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="ig.EntityExtended.html">ig.EntityExtended</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">entity to follow.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>snap</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">whether to snap to entity instead of transitioning.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 389
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="init">
+			<span class="type-signature"></span>init<span class="signature">(settings)</span><span class="type-signature"></span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Initializes camera.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>settings</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">settings for camera.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 202
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="removeAtmosphere">
+			<span class="type-signature"></span>removeAtmosphere<span class="signature">(<span class="optional">duration</span>)</span><span class="type-signature"></span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Fades and removes atmosphere.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>duration</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">duration of fade.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 271
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="reset">
+			<span class="type-signature"></span>reset<span class="signature">()</span><span class="type-signature"></span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Resets camera and game screen, then unfollows current entity that camera is following.
+    </p>
+    
+
+   
+    
+    
+    
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 213
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="resize">
+			<span class="type-signature"></span>resize<span class="signature">()</span><span class="type-signature"></span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Resizes camera.
+    </p>
+    
+
+   
+    
+    
+    
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 574
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="toggleAtmosphere">
+			<span class="type-signature"></span>toggleAtmosphere<span class="signature">(<span class="optional">duration</span>)</span><span class="type-signature"></span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Toggles atmosphere.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>duration</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">duration of fade.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 226
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="unfollow">
+			<span class="type-signature"></span>unfollow<span class="signature">()</span><span class="type-signature"></span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Stops following and/or transitioning to an entity.
+    </p>
+    
+
+   
+    
+    
+    
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 408
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="update">
+			<span class="type-signature"></span>update<span class="signature">()</span><span class="type-signature"></span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Updates camera.
+    </p>
+    
+
+   
+    
+    
+    
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 557
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="updateAtmosphere">
+			<span class="type-signature"></span>updateAtmosphere<span class="signature">()</span><span class="type-signature"></span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Updates atmosphere if camera changed or cutting lights out of atmosphere and lights changed.<br>- called automatically by camera's update.
+    </p>
+    
+
+   
+    
+    
+    
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 307
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+			
+				
+
+	
+	<dt >
+		<h4 class="name" id="updateFollow">
+			<span class="type-signature"></span>updateFollow<span class="signature">()</span><span class="type-signature"></span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Updates a follow in progress.<br>- called automatically by camera's update.
+    </p>
+    
+
+   
+    
+    
+    
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/camera.js, line 430
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+			</dl>
+			</div>
+		
+		
+		
+		
+		
+	</article>
+
+</section>  
+
+
+
+
+							
+						</div>
+						
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+			
+	</div>
+
+	<footer>
+		<p class="muted">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Sun May 26 2013 16:15:02 GMT-0500 (CDT)</p>
+	</footer>
+	
+	<script src="scripts/linenumber.js"> </script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="scripts/jquery-1.9.1.min.js"><\/script>')</script>
+	<script src="scripts/bootstrap.min.js"> </script>
+	<script src="scripts/main.js"> </script>
+	
+</body>
+</html>

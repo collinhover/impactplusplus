@@ -1,0 +1,2972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Impact++ / Namespace: CONFIG</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+		<script src="scripts/html5shiv.js"> </script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/main.css">
+</head>
+
+<body data-spy="scroll" data-target="#navdoc">
+	
+	<a href="http://github.com/collinhover/impactplusplus/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>	
+	
+	<div class="header">
+		<a href="index.html"><img src="img/banner_impactplusplus.png"></a>
+	</div>
+	
+	<div id="docs" class="container">
+		
+		<div class="row">
+			
+			<div class="span2">
+				<nav id="mainnav">
+					
+					<ul class="nav nav-list"><li id="navNamespaces" class="nav-header">Namespaces</li><li><a href="ig.html">ig</a></li><li><a href="ig.CONFIG.html">CONFIG</a></li><li><a href="ig.CONFIG.ENTITY.html">ENTITY</a></li><li><a href="ig.CONFIG.GESTURE.html">GESTURE</a></li><li><a href="ig.EntityExtended.GROUP.html">GROUP</a></li><li><a href="ig.EntityExtended.TYPE.html">TYPE</a></li><li><a href="ig.TWEEN.html">TWEEN</a></li><li><a href="ig.utils.html">utils</a></li><li><a href="ig.utilscolor.html">utilscolor</a></li><li><a href="ig.utilsdraw.html">utilsdraw</a></li><li><a href="ig.utilsintersection.html">utilsintersection</a></li><li><a href="ig.utilsmath.html">utilsmath</a></li><li><a href="ig.utilsphysics.html">utilsphysics</a></li><li><a href="ig.utilstile.html">utilstile</a></li><li><a href="ig.utilsvector2.html">utilsvector2</a></li></ul><ul class="nav nav-list"><li id="navAbilities" class="nav-header">Abilities</li><li><a href="ig.Ability.html">Ability</a></li><li><a href="ig.AbilityDamage.html">AbilityDamage</a></li><li><a href="ig.AbilityGlow.html">AbilityGlow</a></li><li><a href="ig.AbilityInteract.html">AbilityInteract</a></li><li><a href="ig.AbilityMelee.html">AbilityMelee</a></li><li><a href="ig.AbilityMimic.html">AbilityMimic</a></li><li><a href="ig.AbilityShoot.html">AbilityShoot</a></li></ul><ul class="nav nav-list"><li id="navCore" class="nav-header">Core</li><li><a href="ig.AnimationExtended.html">AnimationExtended</a></li><li><a href="ig.AnimationSheet.html">AnimationSheet</a></li><li><a href="ig.BackgroundMap.html">BackgroundMap</a></li><li><a href="ig.Camera.html">Camera</a></li><li><a href="ig.CollisionMap.html">CollisionMap</a></li><li><a href="ig.Entity.html">Entity</a></li><li><a href="ig.EntityExtended.html">EntityExtended</a></li><li><a href="ig.GameExtended.html">GameExtended</a></li><li><a href="ig.Hierarchy.html">Hierarchy</a></li><li><a href="ig.Image.html">Image</a></li><li><a href="ig.ImageDrawing.html">ImageDrawing</a></li><li><a href="ig.Input.html">Input</a></li><li><a href="ig.InputPoint.html">InputPoint</a></li><li><a href="ig.Layer.html">Layer</a></li><li><a href="ig.LoaderExtended.html">LoaderExtended</a></li><li><a href="ig.TimerExtended.html">TimerExtended</a></li></ul><ul class="nav nav-list"><li id="navAbstractities" class="nav-header">Abstractities</li><li><a href="ig.Character.html">Character</a></li><li><a href="ig.Demo.html">Demo</a></li><li><a href="ig.Door.html">Door</a></li><li><a href="ig.DoorUsable.html">DoorUsable</a></li><li><a href="ig.Effect.html">Effect</a></li><li><a href="ig.Lever.html">Lever</a></li><li><a href="ig.Particle.html">Particle</a></li><li><a href="ig.Player.html">Player</a></li><li><a href="ig.Projectile.html">Projectile</a></li><li><a href="ig.Shape.html">Shape</a></li><li><a href="ig.Spawner.html">Spawner</a></li><li><a href="ig.SpawnerCharacter.html">SpawnerCharacter</a></li><li><a href="ig.Tutorial.html">Tutorial</a></li></ul><ul class="nav nav-list"><li id="navEntities" class="nav-header">Entities</li><li><a href="ig.EntityAbilityUpgrade.html">EntityAbilityUpgrade</a></li><li><a href="ig.EntityCheckpoint.html">EntityCheckpoint</a></li><li><a href="ig.EntityDemoHold.html">EntityDemoHold</a></li><li><a href="ig.EntityDemoSwipe.html">EntityDemoSwipe</a></li><li><a href="ig.EntityDemoTap.html">EntityDemoTap</a></li><li><a href="ig.EntityDestructable.html">EntityDestructable</a></li><li><a href="ig.EntityDestructableCollide.html">EntityDestructableCollide</a></li><li><a href="ig.EntityDirection.html">EntityDirection</a></li><li><a href="ig.EntityDummy.html">EntityDummy</a></li><li><a href="ig.EntityEffectElectricity.html">EntityEffectElectricity</a></li><li><a href="ig.EntityEffectPow.html">EntityEffectPow</a></li><li><a href="ig.EntityExplosion.html">EntityExplosion</a></li><li><a href="ig.EntityLava.html">EntityLava</a></li><li><a href="ig.EntityLevelchange.html">EntityLevelchange</a></li><li><a href="ig.EntityLight.html">EntityLight</a></li><li><a href="ig.EntityPain.html">EntityPain</a></li><li><a href="ig.EntityPainInstagib.html">EntityPainInstagib</a></li><li><a href="ig.EntityParticleColor.html">EntityParticleColor</a></li><li><a href="ig.EntityParticleDebris.html">EntityParticleDebris</a></li><li><a href="ig.EntityShapeClimbable.html">EntityShapeClimbable</a></li><li><a href="ig.EntityShapeClimbableOneWay.html">EntityShapeClimbableOneWay</a></li><li><a href="ig.EntityShapeEdge.html">EntityShapeEdge</a></li><li><a href="ig.EntityShapeSolid.html">EntityShapeSolid</a></li><li><a href="ig.EntitySlime.html">EntitySlime</a></li><li><a href="ig.EntitySwitch.html">EntitySwitch</a></li><li><a href="ig.EntityTrigger.html">EntityTrigger</a></li><li><a href="ig.EntityTriggerConstant.html">EntityTriggerConstant</a></li><li><a href="ig.EntityTriggerController.html">EntityTriggerController</a></li><li><a href="ig.EntityTriggerInput.html">EntityTriggerInput</a></li><li><a href="ig.EntityTriggerReverse.html">EntityTriggerReverse</a></li><li><a href="ig.EntityTriggerReverseConstant.html">EntityTriggerReverseConstant</a></li><li><a href="ig.EntityTutorialHold.html">EntityTutorialHold</a></li><li><a href="ig.EntityTutorialSwipe.html">EntityTutorialSwipe</a></li><li><a href="ig.EntityTutorialTap.html">EntityTutorialTap</a></li><li><a href="ig.EntityVoid.html">EntityVoid</a></li></ul><ul class="nav nav-list"><li id="navHelpers" class="nav-header">Helpers</li><li><a href="ig.Signal.html">Signal</a></li><li><a href="ig.TWEEN.Tween.html">Tween</a></li></ul><ul class="nav nav-list"><li id="navUi" class="nav-header">Ui</li><li><a href="ig.UIElement.html">UIElement</a></li><li><a href="ig.UIInteractive.html">UIInteractive</a></li><li><a href="ig.UIMeter.html">UIMeter</a></li><li><a href="ig.UIOverlay.html">UIOverlay</a></li><li><a href="ig.UIOverlayPause.html">UIOverlayPause</a></li><li><a href="ig.UIText.html">UIText</a></li><li><a href="ig.UIToggle.html">UIToggle</a></li><li><a href="ig.UITogglePause.html">UITogglePause</a></li><li><a href="ig.UITracker.html">UITracker</a></li></ul>
+					
+				</nav>
+			</div>
+			
+			<div class="span10">
+				<div id="maincontent">
+					
+					<ul class="breadcrumb"><li><a href="index.html">Impact++</a><span class="divider">/</span></li><li><a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core" target="_blank">core</a><span class="divider">/</span></li><li><a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/config.js" target="_blank">config.js</a> <small class="muted">(source)</small></li></ul>
+
+					<div class="row">
+
+						<div id="maincontentColumn2" class="span2">
+							
+							<div id="navdocs" data-spy="affix" data-offset-top="300"><div id="navdoc"><ul class="nav nav-list sidenav"><li class="nav-header">CONFIG</li><li><a href="#docs">Overview <div class="icon-chevron-right pull-right"></div></a></li><li><a href="#members" type="button">Members <div class="icon-chevron-right pull-right"></div></a></li></ul></div><ul class="nav nav-list sidenav"><li class="nav-header"><img src="img/logo_impactplusplus_25.png"> Impact++</li><li><a href="#navNamespaces" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Namespaces</a></li><li><a href="#navAbilities" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Abilities</a></li><li><a href="#navCore" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Core</a></li><li><a href="#navAbstractities" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Abstractities</a></li><li><a href="#navEntities" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Entities</a></li><li><a href="#navHelpers" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Helpers</a></li><li><a href="#navUi" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Ui</a></li></ul></div>
+
+						</div>
+
+						<div id="maincontentColumn8" class="span8">
+						
+							
+
+
+
+
+<section id="doc">
+ 
+	<header id="overview">
+		
+		<div class="hero-unit">
+			
+			
+			
+			
+				<h3 class="ancestors"><a href="ig.html">ig</a>.</h3>
+			
+			
+			<h1>
+			CONFIG
+			
+			</h1>
+			
+			
+			
+			<div class="container-overview">
+			
+			
+			
+			
+				
+					<p class="description">Shared data object for library wide settings.<span class="alert alert-error"><strong>IMPORTANT:</strong> Don't modify config directly! (see example)</span></p>
+				
+				
+				
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul class="unstyled">
+            <li>Collin Hover - collinhover.com</li>
+        </ul>
+    </dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 11
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+				
+				
+					
+    <pre class="prettyprint linenums"><code>// define 'ig.CONFIG' before Impact++ loads its config// then your config will be automatically merged over Impact++'s configig.CONFIG = {.. your config ..};// my recommendation is to define ig.CONFIG in your main module file// right before your main module is definedig.module( 'game.main' )..</code></pre>
+
+				
+			
+			</div>
+			
+		</div>
+		
+	</header>  
+
+	<article>
+		
+		
+		
+		
+		
+		
+		
+		<div class="row">
+		
+			
+				<div class="span3">
+					<h6 id="namespaces" class="infoline-title muted">Namespaces</h6>
+					
+					<dl>
+						<dt><a href="namespaces.html#ig.CONFIG.ENTITY"><a href="ig.CONFIG.ENTITY.html">ENTITY</a></a></dt>
+						<dd></dd>
+					
+						<dt><a href="namespaces.html#ig.CONFIG.GESTURE"><a href="ig.CONFIG.GESTURE.html">GESTURE</a></a></dt>
+						<dd></dd>
+					</dl>
+				</div>
+			
+		
+		</div>
+		
+		
+		
+		
+		
+		
+			<div id="members" class="subsection">
+				<h3 class="subsection-title page-header">Members</h3>
+				
+				<dl>
+					
+<dt >
+    <h4 class="name" id="CANVAS_HEIGHT_PCT"><span class="type-signature">&lt;static> </span>CANVAS_HEIGHT_PCT<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        What percent of window height to fill.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>1</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 102
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="CANVAS_WIDTH_PCT"><span class="type-signature">&lt;static> </span>CANVAS_WIDTH_PCT<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        What percent of window width to fill.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>1</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 94
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="DEBUG"><span class="type-signature">&lt;static> </span>DEBUG<span class="type-signature"> :Boolean</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Whether to debug, including debug draw and debug panel.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>true</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 35
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="DIMMED_PAUSE"><span class="type-signature">&lt;static> </span>DIMMED_PAUSE<span class="type-signature"> :Boolean</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Whether game should dim on pause via overlay.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>true</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 252
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="DIMMER_ALPHA"><span class="type-signature">&lt;static> </span>DIMMER_ALPHA<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Alpha of pause dimmer overlay.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>0.75</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 268
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="DIMMER_COLOR"><span class="type-signature">&lt;static> </span>DIMMER_COLOR<span class="type-signature"> :String</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Color of pause dimmer overlay.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>"#333333"</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 260
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="DURATION_FADE"><span class="type-signature">&lt;static> </span>DURATION_FADE<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Fade tween duration.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>300</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 86
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="DURATION_THROTTLE"><span class="type-signature">&lt;static> </span>DURATION_THROTTLE<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Function throttle duration.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>500</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 52
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.utils.html#throttle">ig.utils.throttle</a></li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="DURATION_THROTTLE_MEDIUM"><span class="type-signature">&lt;static> </span>DURATION_THROTTLE_MEDIUM<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Function throttle duration medium.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>250</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 61
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.utils.html#throttle">ig.utils.throttle</a></li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="DURATION_THROTTLE_SHORT"><span class="type-signature">&lt;static> </span>DURATION_THROTTLE_SHORT<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Function throttle duration short.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>60</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 70
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.utils.html#throttle">ig.utils.throttle</a></li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="DURATION_TWEEN"><span class="type-signature">&lt;static> </span>DURATION_TWEEN<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        General tween duration.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>500</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 78
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="DYNAMIC"><span class="type-signature">&lt;static> </span>DYNAMIC<span class="type-signature"> :String</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Performance level where entities move but have no physics / collisions.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>"dynamic"</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 284
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="FONT_ALT_NAME"><span class="type-signature">&lt;static> </span>FONT_ALT_NAME<span class="type-signature"> :String</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Name of alt font. If empty, game will use main font.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>"font_hellovetica_white_8.png"</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 244
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="FONT_ALT_PATH"><span class="type-signature">&lt;static> </span>FONT_ALT_PATH<span class="type-signature"> :String</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Path to alt font. If empty, game will use main font.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 834
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="FONT_MAIN_NAME"><span class="type-signature">&lt;static> </span>FONT_MAIN_NAME<span class="type-signature"> :String</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Name of main font. If empty, game will not use a font.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>"font_04b03_white_8.png"</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 236
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="FONT_MAIN_PATH"><span class="type-signature">&lt;static> </span>FONT_MAIN_PATH<span class="type-signature"> :String</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Path to main font. If empty, game will not use a font.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 827
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="GAME_HEIGHT"><span class="type-signature">&lt;static> </span>GAME_HEIGHT<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Base height of game.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>240</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 118
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="GAME_WIDTH"><span class="type-signature">&lt;static> </span>GAME_WIDTH<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Base width of game.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>320</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 110
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="KINEMATIC"><span class="type-signature">&lt;static> </span>KINEMATIC<span class="type-signature"> :String</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Performance level where entities move and have full physics / collisions.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>"kinematic"</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 292
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="LAYERS_CUSTOM"><span class="type-signature">&lt;static> </span>LAYERS_CUSTOM<span class="type-signature"> :Object</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Custom layers to be added to game.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 330
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+        <span class="label">Example</span>
+        
+    <pre class="prettyprint linenums"><code>// adds a new layer with the name of 'foo' and sorted to topLAYERS_CUSTOM = {     foo: {         zIndex: 3     }};</code></pre>
+
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="LEVEL_MAX"><span class="type-signature">&lt;static> </span>LEVEL_MAX<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Max power / rank level in game. Be careful about going over 9000, as it may break things.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>4</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 338
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="LOADER_BAR"><span class="type-signature">&lt;static> </span>LOADER_BAR<span class="type-signature"> :Boolean</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Whether loader has a bar to show progress, placed in center of loader.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>true</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 166
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="LOADER_BAR_COLOR"><span class="type-signature">&lt;static> </span>LOADER_BAR_COLOR<span class="type-signature"> :String</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Loader progress bar color.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>"rgb(255,255,255)"</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 174
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="LOADER_BAR_HEIGHT_PCT"><span class="type-signature">&lt;static> </span>LOADER_BAR_HEIGHT_PCT<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Height, in percent, of loader progress bar relative to canvas height.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>0.025</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 190
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="LOADER_BAR_LINE_WIDTH"><span class="type-signature">&lt;static> </span>LOADER_BAR_LINE_WIDTH<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Loader progress outline width.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>3</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 198
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="LOADER_BAR_SPACE_PCT"><span class="type-signature">&lt;static> </span>LOADER_BAR_SPACE_PCT<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Space between loader progress bar outline and progress, in percent of canvas size.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>0.005</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 206
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="LOADER_BAR_WIDTH_PCT"><span class="type-signature">&lt;static> </span>LOADER_BAR_WIDTH_PCT<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Width, in percent, of loader progress bar relative to canvas height.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>0.25</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 182
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="LOADER_BG_COLOR"><span class="type-signature">&lt;static> </span>LOADER_BG_COLOR<span class="type-signature"> :String</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Loader background color.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>"#333333"</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 150
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="LOADER_FADE_COLOR"><span class="type-signature">&lt;static> </span>LOADER_FADE_COLOR<span class="type-signature"> :String</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Loader fade color.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>"#DDDDDD"</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 158
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="LOADER_LOGO_SRC_ALT"><span class="type-signature">&lt;static> </span>LOADER_LOGO_SRC_ALT<span class="type-signature"> :String</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Alt base64 image logo for loader. Placed in bottom center of loader.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 228
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="LOADER_LOGO_SRC_MAIN"><span class="type-signature">&lt;static> </span>LOADER_LOGO_SRC_MAIN<span class="type-signature"> :String</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Main base64 image logo for loader. Placed in top center of loader.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 221
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="LOADER_MAX_HEIGHT_PCT"><span class="type-signature">&lt;static> </span>LOADER_MAX_HEIGHT_PCT<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Max percent of canvas height that loader can take up. Loader will be scaled down to stay below this.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>0.5</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 142
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="LOADER_MAX_WIDTH_PCT"><span class="type-signature">&lt;static> </span>LOADER_MAX_WIDTH_PCT<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Max percent of canvas width that loader can take up. Loader will be scaled down to stay below this.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>0.5</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 134
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="LOADER_SPACE_PCT"><span class="type-signature">&lt;static> </span>LOADER_SPACE_PCT<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Percent of canvas to use as spacing between loader elements.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>0.02</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 214
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="PATH_TO_MEDIA"><span class="type-signature">&lt;static> </span>PATH_TO_MEDIA<span class="type-signature"> :String</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Media base directory. Used for dynamic media loading upon class instantiation.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>"media/"</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 43
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="PRECISION_PCT_ONE_SIDED"><span class="type-signature">&lt;static> </span>PRECISION_PCT_ONE_SIDED<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Precision when checking collision of one sided entities.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 377
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="PRECISION_ZERO"><span class="type-signature">&lt;static> </span>PRECISION_ZERO<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Precision when checking if numbers are close enough to zero.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 363
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="PRECISION_ZERO_TWEEN"><span class="type-signature">&lt;static> </span>PRECISION_ZERO_TWEEN<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Precision when checking if numbers are close enough to zero during a tween.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 370
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="RANKS"><span class="type-signature">&lt;static> </span>RANKS<span class="type-signature"> :Array</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Ranks in an array for easy iteration.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 841
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="RANKS_MAP"><span class="type-signature">&lt;static> </span>RANKS_MAP<span class="type-signature"> :Object</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Map of ranks based on max level.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+        <h5 class="subsection-title">Properties:</h5>
+        
+        <dl>
+
+<table class="props table table-bordered table-condensed">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>NONE</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">0</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>EASY</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">max level * 0.25</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>MEDIUM</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">max level * 0.5</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>HARD</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">max level * 0.75</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>IMPOSSIBLE</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">max level</td>
+        </tr>
+	
+	
+	</tbody>
+</table></dl>
+        
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 350
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="SCALE"><span class="type-signature">&lt;static> </span>SCALE<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Base scale of game.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>1</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 126
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="SCALE_PHYSICS"><span class="type-signature">&lt;static> </span>SCALE_PHYSICS<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Scale of box2d physics relative to game world. NOTE: box2d physics is stable but no longer developed.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 384
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="STATIC"><span class="type-signature">&lt;static> </span>STATIC<span class="type-signature"> :String</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Performance level where entities never move.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>"static"</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 276
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="Z_INDEX_ABOVE_PLAYER"><span class="type-signature">&lt;static> </span>Z_INDEX_ABOVE_PLAYER<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Z index for sorting entities above player.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>2</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 316
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="Z_INDEX_BELOW_PLAYER"><span class="type-signature">&lt;static> </span>Z_INDEX_BELOW_PLAYER<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Z index for sorting entities below player.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>0</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 300
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				
+					
+<dt >
+    <h4 class="name" id="Z_INDEX_PLAYER"><span class="type-signature">&lt;static> </span>Z_INDEX_PLAYER<span class="type-signature"> :Number</span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Z index for player, ideally above most other entities.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>1</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		core/config.js, line 308
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+				</dl>
+			</div>
+		
+		
+		
+		
+		
+		
+		
+	</article>
+
+</section>  
+
+
+
+
+							
+						</div>
+						
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+			
+	</div>
+
+	<footer>
+		<p class="muted">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Sun May 26 2013 16:15:05 GMT-0500 (CDT)</p>
+	</footer>
+	
+	<script src="scripts/linenumber.js"> </script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="scripts/jquery-1.9.1.min.js"><\/script>')</script>
+	<script src="scripts/bootstrap.min.js"> </script>
+	<script src="scripts/main.js"> </script>
+	
+</body>
+</html>
