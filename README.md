@@ -32,7 +32,9 @@ Impact++ is also partly a product of work on the game Mimic (which may or may no
 1. Download using one of the below links and extract the files.
 2. Copy the **impactplusplus/lib/plusplus** folder into your new or existing ImpactJS project **lib** directory.
 3. Either copy the **impactplusplus/lib/weltmeister/config.js** into your projet's **lib/weltmeister** directory...
-4. Or, if you have a custom Weltmeister config, add ```'lib/plusplus/entities/*.js'``` to the ```entityFiles``` setting. 
+4. Or, if you have a custom Weltmeister config:
+	* add ```'lib/plusplus/entities/*.js'``` to the ```entityFiles``` setting
+	* change the ```collisionTiles.path``` setting to ```'lib/weltmeister/collisiontiles_plusplus_64.png'```
 5. Make sure you're comfortable with the [ImpactJS Documentation](http://impactjs.com/documentation)
 6. Dive into the [Impact++ Documentation](http://collinhover.github.com/impactplusplus)
 
