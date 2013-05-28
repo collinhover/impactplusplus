@@ -236,7 +236,8 @@ function buildNav(members) {
 			if ( folderClasses.length > 0 ) {
 				
 				var cfolderCamel = cfolder.charAt( 0 ).toUpperCase() + cfolder.slice( 1 );
-				classNav += '<ul class="nav nav-list"><li id="nav' + cfolderCamel + '" class="nav-header">' + cfolderCamel + '</li>';
+				classNav += '<div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#nav' + cfolderCamel + 'Collapse">' + cfolderCamel + '</button>';
+				classNav += '<div id="nav' + cfolderCamel + 'Collapse" class="collapse"><ul class="nav nav-list"><li id="nav' + cfolderCamel + '" class="nav-header hidden-phone">' + cfolderCamel + '</li>';
 				
 				for ( var j = 0, jl = folderClasses.length; j < jl; j++ ) {
 					
@@ -246,7 +247,7 @@ function buildNav(members) {
 					
 				}
 				
-				classNav += '</ul>';
+				classNav += '</ul></div></div>';
 				
 			}
 			
@@ -255,14 +256,15 @@ function buildNav(members) {
     }
 	
     if (members.namespaces.length) {
-        nav += '<ul class="nav nav-list"><li id="navNamespaces" class="nav-header">Namespaces</li>';
+		nav += '<div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navNamspacesCollapse">Namespaces</button>';
+        nav += '<div id="navNamspacesCollapse" class="collapse"><ul class="nav nav-list"><li id="navNamespaces" class="nav-header hidden-phone">Namespaces</li>';
         members.namespaces.forEach(function(n) {
             if ( !hasOwnProp.call(seen, n.longname) ) {
                 nav += '<li>'+linkto(n.longname, n.name)+'</li>';
             }
             seen[n.longname] = true;
         });
-		nav += '</ul>';
+		nav += '</ul></div></div>';
     }
 	
 	if ( classNav ) {
@@ -343,7 +345,7 @@ function buildNav(members) {
 */
 function buildNavDocs ( nav ) {
 	
-	var navDocs = '<div id="navdocs" data-spy="affix" data-offset-top="300"><ul class="nav nav-list sidenav">';
+	var navDocs = '<div id="navdocs" class="hidden-phone" data-spy="affix" data-offset-top="300"><ul class="nav nav-list sidenav">';
 	navDocs += '<li class="nav-header"><img src="img/logo_impactplusplus_25.png"> Impact++</li>';
 	
 	var navLists = nav.split( '<ul' );
