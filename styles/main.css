@@ -117,25 +117,36 @@ dl {
 #docs {
 	padding-top: 30px;
 }
-#mainnav .nav {
+#mainnav .mainnav-list {
 	font-size: 13px;
 	padding: 0;
 	margin-bottom: -10px;
 	padding-bottom: 15px;
 	border-bottom: 1px solid #ddd;
 }
-#mainnav .nav:last-child {
+#mainnav .mainnav-list:last-child {
 	border-bottom: 0;
 	margin-bottom: 0;
-	padding-bottom: 0;
 }
 #mainnav .nav li {
 	line-height: 16px;
 }
-#mainnav .nav .nav-header {
+.mainnav-list .collapse {
+	height: auto;
+	overflow: visible;
+}
+.mainnav-list .btn-collapse {
+	width: 100%;
+	color: #999;
+}
+.mainnav-list .btn-collapse:hover {
+	color: #999;
+	text-decoration: none;
+}
+#mainnav .mainnav-list .nav-header {
 	padding-top: 30px;
 }
-#mainnav .nav:first-child .nav-header {
+#mainnav .mainnav-list:first-child .nav-header{
 	margin-top: -30px;
 }
 #doc {
@@ -238,12 +249,20 @@ footer {
 }
 
 @media (max-width: 767px) {
+	.header {
+		margin-left: -20px;
+		margin-right: -20px;
+	}
 	.dl-horizontal dt {
 		width: auto;
 	}
 	.dl-horizontal dd {
 		margin-left: 20px;
 		float: none;
+	}
+	.mainnav-list .collapse {
+		height: 0;
+		overflow: hidden;
 	}
 	#mainnav {
 		text-align: center;
@@ -253,9 +272,6 @@ footer {
 	}
 	#mainnav .nav li {
 		line-height: inherit;
-	}
-	#navdocs {
-		display: none;
 	}
 	#maincontentColumn2 {
 		width: auto;
