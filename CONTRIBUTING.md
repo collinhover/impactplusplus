@@ -10,7 +10,7 @@ Please submit pull requests via feature branches using the semi-standard workflo
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Create tests to verify bugs or features (use [Jasmine](https://github.com/pivotal/jasmine)).
+(when necessary). Create tests to verify bugs or features (use [Jasmine](https://github.com/pivotal/jasmine)).
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
