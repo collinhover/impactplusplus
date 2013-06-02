@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-    <title>Impact++ / Namespace: TYPE</title>
+    <title>Impact++ / Namespace: CHARACTER</title>
     
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -39,13 +39,13 @@
 			<div class="span10">
 				<div id="maincontent">
 					
-					<ul class="breadcrumb"><li><a href="index.html">Impact++</a><span class="divider">/</span></li><li><a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core" target="_blank">core</a><span class="divider">/</span></li><li><a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js" target="_blank">entity.js</a> <small class="muted">(source)</small></li></ul>
+					<ul class="breadcrumb"><li><a href="index.html">Impact++</a><span class="divider">/</span></li><li><a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core" target="_blank">core</a><span class="divider">/</span></li><li><a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/config.js" target="_blank">config.js</a> <small class="muted">(source)</small></li></ul>
 
 					<div class="row">
 
 						<div id="maincontentColumn2" class="span2">
 							
-							<div id="navdocs" class="hidden-phone" data-spy="affix" data-offset-top="300"><div id="navdoc"><ul class="nav nav-list sidenav"><li class="nav-header">TYPE</li><li><a href="#docs">Overview <div class="icon-chevron-right pull-right"></div></a></li><li><a href="#members" type="button">Members <div class="icon-chevron-right pull-right"></div></a></li></ul></div><ul class="nav nav-list sidenav"><li class="nav-header"><img src="img/logo_impactplusplus_25.png"> Impact++</li><li><a href="#navNamespaces" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Namespaces</a></li><li><a href="#navNamespaces" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Namespaces</a></li><li><a href="#navAbilities" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Abilities</a></li><li><a href="#navCore" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Core</a></li><li><a href="#navAbstractities" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Abstractities</a></li><li><a href="#navEntities" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Entities</a></li><li><a href="#navHelpers" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Helpers</a></li><li><a href="#navUi" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Ui</a></li></ul></div>
+							<div id="navdocs" class="hidden-phone" data-spy="affix" data-offset-top="300"><div id="navdoc"><ul class="nav nav-list sidenav"><li class="nav-header">CHARACTER</li><li><a href="#docs">Overview <div class="icon-chevron-right pull-right"></div></a></li><li><a href="#members" type="button">Members <div class="icon-chevron-right pull-right"></div></a></li></ul></div><ul class="nav nav-list sidenav"><li class="nav-header"><img src="img/logo_impactplusplus_25.png"> Impact++</li><li><a href="#navNamespaces" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Namespaces</a></li><li><a href="#navNamespaces" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Namespaces</a></li><li><a href="#navAbilities" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Abilities</a></li><li><a href="#navCore" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Core</a></li><li><a href="#navAbstractities" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Abstractities</a></li><li><a href="#navEntities" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Entities</a></li><li><a href="#navHelpers" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Helpers</a></li><li><a href="#navUi" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Ui</a></li></ul></div>
 
 						</div>
 
@@ -65,11 +65,11 @@
 			
 			
 			
-				<h3 class="ancestors"><a href="ig.html">ig</a><a href="ig.EntityExtended.html">.EntityExtended</a>.</h3>
+				<h3 class="ancestors"><a href="ig.html">ig</a><a href="ig.CONFIG.html">.CONFIG</a>.</h3>
 			
 			
 			<h1>
-			TYPE
+			CHARACTER
 			
 			</h1>
 			
@@ -81,7 +81,7 @@
 			
 			
 				
-					<p class="description">Bitwise flags for entities that check against other entities of a specific type.<br>- this integrates the previous type system, so it can be used safely in its place<br>- some flags are already defined for convenience<br>- up to 32 flags can be defined<span class="alert alert-info"><strong>Tip:</strong> any class can have it's own TYPE flags! Ex: Abilities have their own set of TYPE flags at <a href="ig.Ability.html#TYPE">ig.Ability.TYPE</a></span></p>
+					<p class="description">Character base configuration settings.<span class="alert alert-error"><strong>IMPORTANT:</strong> Don't modify config directly! (see example)</span></p>
 				
 				
 				
@@ -97,6 +97,13 @@
     
     
     
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul class="unstyled">
+            <li>Collin Hover - collinhover.com</li>
+        </ul>
+    </dd>
+    
     
     
     
@@ -107,27 +114,22 @@
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		core/entity.js, line 3279
+		core/config.js, line 738
 	</li></ul></dd>
     
     
     
     
     
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul class="unstyled">
-            <li><a href="ig.utils.html#getType">ig.utils.getType</a></li>
-        
-            <li><a href="ig.utils.html#addType">ig.utils.addType</a></li>
-        </ul>
-    </dd>
-    
     
     
 </dl>
 
 				
+				
+					
+    <pre class="prettyprint linenums"><code>// in order to add your own custom configuration to Impact++// edit the file defining ig.CONFIG_USER, 'plusplus.config-user'// ig.CONFIG_USER is never modified by Impact++ (it is strictly for your use)// ig.CONFIG_USER is automatically merged over Impact++'s config</code></pre>
+
 				
 			
 			</div>
@@ -153,14 +155,14 @@
 				<dl>
 					
 <dt >
-    <h4 class="name" id="A"><span class="type-signature">&lt;static> </span>A<span class="type-signature"> :Bitflag</span></h4>
+    <h4 class="name" id="HEALTH"><span class="type-signature">&lt;static> </span>HEALTH<span class="type-signature"> :Number</span></h4>
     
     
 </dt>
 <dd >
     
     <p class="description">
-        A type flag.
+        Health statistic.
     </p>
     
     
@@ -185,335 +187,14 @@
     
     
     
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		core/entity.js, line 3374
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-				
-					
-<dt >
-    <h4 class="name" id="B"><span class="type-signature">&lt;static> </span>B<span class="type-signature"> :Bitflag</span></h4>
-    
-    
-</dt>
-<dd >
-    
-    <p class="description">
-        B type flag.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>1</li></ul></dd>
     
     
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		core/entity.js, line 3381
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-				
-					
-<dt >
-    <h4 class="name" id="BOTH"><span class="type-signature">&lt;static> </span>BOTH<span class="type-signature"> :Bitflag</span></h4>
-    
-    
-</dt>
-<dd >
-    
-    <p class="description">
-        BOTH type flag for both A and B types.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		core/entity.js, line 3388
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-				
-					
-<dt >
-    <h4 class="name" id="DAMAGEABLE"><span class="type-signature">&lt;static> </span>DAMAGEABLE<span class="type-signature"> :Bitflag</span></h4>
-    
-    
-</dt>
-<dd >
-    
-    <p class="description">
-        DAMAGEABLE type flag.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		core/entity.js, line 3402
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-				
-					
-<dt >
-    <h4 class="name" id="INTERACTIVE"><span class="type-signature">&lt;static> </span>INTERACTIVE<span class="type-signature"> :Bitflag</span></h4>
-    
-    
-</dt>
-<dd >
-    
-    <p class="description">
-        INTERACTIVE type flag.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		core/entity.js, line 3395
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-				
-					
-<dt >
-    <h4 class="name" id="NONE"><span class="type-signature">&lt;static> </span>NONE<span class="type-signature"> :Bitflag</span></h4>
-    
-    
-</dt>
-<dd >
-    
-    <p class="description">
-        NONE type flag.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		core/entity.js, line 3367
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-				
-					
-<dt >
-    <h4 class="name" id="UI"><span class="type-signature">&lt;static> </span>UI<span class="type-signature"> :Bitflag</span></h4>
-    
-    
-</dt>
-<dd >
-    
-    <p class="description">
-        UI type flag.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		ui/ui-element.js, line 445
+		core/config.js, line 958
 	</li></ul></dd>
     
     
@@ -558,7 +239,7 @@
 	</div>
 
 	<footer>
-		<p class="muted">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Sat Jun 01 2013 21:59:31 GMT-0500 (CDT)</p>
+		<p class="muted">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Sat Jun 01 2013 21:59:02 GMT-0500 (CDT)</p>
 	</footer>
 	
 	<script src="scripts/linenumber.js"> </script>

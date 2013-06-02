@@ -53,12 +53,6 @@ Impact++ is also partly a product of work on the game Mimic (which may or may no
     // setup a main game file, such as 'game/main.js'
     // that you load right after ImpactJS
     // and inside this file...
-    // define that custom config first
-    ig.CONFIG = {
-        // one thing you'll probably want to set right away
-        // is your own logo (in base64) for the loader
-        LOADER_LOGO_SRC_MAIN: 'data:image/png;base64,...'
-    };
     // setup the main module
     ig.module(
             'game.main'
@@ -154,14 +148,24 @@ Impact++ is also partly a product of work on the game Mimic (which may or may no
 ####Ejecta, Cocoonjs, etc?
 Impact++ has been built from day one to be portable / wrappable to iOS, Android, Win8, etc. Tests are ongoing, but the library does nothing that should need special handling when porting or wrapping your game code for distribution as a mobile app. Please let us know if you find any issues!
 
+####Custom Settings
+    // edit the user config file at 'plusplus/config-user.js'
+	// then you can set values
+	// for any of the properties that appear in ig.CONFIG
+	// and they will automatically be merged
+	// over the base settings
+    ig.CONFIG_USER = {
+        // for example, one thing you'll probably want to set right away
+        // is your own logo (in base64) for the loader
+        LOADER_LOGO_SRC_MAIN: 'data:image/png;base64,...'
+    };
+	
 ####Design Philosophy
-* _Modularity_ - code should be reusable whenever possible
+* _Modularity_ - code should be reusable whenever possible  
 * _Parametrize_ - projects should be able to change settings without modifying the library    
-* _Be device agnostic_ - do not rely on device specific functionality  
-* _Be browser agnostic_ - do not rely on browser specific functionality  
+* _Be agnostic_ - do not rely on device or browser specific functionality  
 * _Consistency_ - the codebase should look like a cohesive whole  
 * _Document_ - the codebase should be reasonably documented  
-* _Minimal code churn_ - no one enjoys updating projects that rely on a library with a lot of churn
 
 ####Contributing
 We'd love it if you want to help make Impact++ better, so if you're interested take a look at [CONTRIBUTING](https://github.com/collinhover/impactplusplus/blob/master/CONTRIBUTING.md).
