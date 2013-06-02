@@ -159,6 +159,9 @@ Impact++ has been built from day one to be portable / wrappable to iOS, Android,
         // is your own logo (in base64) for the loader
         LOADER_LOGO_SRC_MAIN: 'data:image/png;base64,...'
     };
+
+####Examples
+You will find example ImpactJS levels, to give you an idea of how you might use some features of Impact++, in the 'examples/levels' directory. Copy them into your 'lib/game/levels' directory and load them up through Weltmeister. Don't forget to add your player entity to the example levels before trying them out!  
 	
 ####Design Philosophy
 * _Modularity_ - code should be reusable whenever possible  
