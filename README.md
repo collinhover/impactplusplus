@@ -162,7 +162,7 @@ Impact++ has been built from day one to be portable / wrappable to iOS, Android,
 
 ####Examples
 You will find example ImpactJS levels, to give you an idea of how you might use some features of Impact++, in the 'examples/levels' directory. Copy them into your 'lib/game/levels' directory and load them up through Weltmeister. Don't forget to add your player entity to the example levels before trying them out!  
-	
+
 ####Design Philosophy
 * _Modularity_ - code should be reusable whenever possible  
 * _Parametrize_ - projects should be able to change settings without modifying the library    
@@ -174,4 +174,4 @@ You will find example ImpactJS levels, to give you an idea of how you might use 
 We'd love it if you want to help make Impact++ better, so if you're interested take a look at [CONTRIBUTING](https://github.com/collinhover/impactplusplus/blob/master/CONTRIBUTING.md).
 
 ####License
-Impact++ is licensed under the MIT license. For full license and information, see [LICENSE](https://github.com/collinhover/impactplusplus/blob/master/LICENSE.md),
+Impact++ is licensed under the MIT license. For full license and information, see [LICENSE](https://github.com/collinhover/impactplusplus/blob/master/LICENSE.md).
