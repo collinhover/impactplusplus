@@ -137,7 +137,7 @@
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 32
+		entities/light.js, line 76
 	</li></ul></dd>
     
     
@@ -159,6 +159,11 @@
     
     
     
+    
+        <span class="label">Example</span>
+        
+    <pre class="prettyprint linenums"><code>// creating lights is easy// lets make one at the center of the worldvar light = ig.game.spawnEntity( ig.EntityLight, 0, 0 );// lights in Impact++ are not quite like 3D lights// the difference being, you can actually see the light// except our light is too small, so lets fix itlight.radius = 60;// a light's appearance is controlled by r, g, b, and alpha// so lets make it redlight.g = 0;light.b = 0;// for performance, lights are cached and static// however, you can change its alpha dynamically// but not its color, unless...light.dynamicColor = true;// one of the coolest features is shadow castinglight.castsShadows = true;// but by default, all entities don't cast shadows// unless we make them opaquevar dummy = ig.game.spawnEntity( ig.EntityDummy, 20, 0, {     // it is important to note     // that you should define opaque     // when you create the entity     // and not after     // as Impact++ keeps a list     // of all opaque entities     // (to improve performance)     // and this list only changes     // when an entity is added or removed     opaque: true});// now the above will work provided our light and dummy// are added to the game at the same time// because static lights only calculate shadows once// but we can change thislight.performance = ig.CONFIG.DYNAMIC;// however, if our dummy is not staticdummy.performance = ig.CONFIG.KINEMATIC;// our light will ignore it, unless...light.castsShadowsDynamic = true;// also, to get shadows based on your level// i.e. have your light cast shadows on the collision map// you'll need to check out the game's "shapesPasses" property</code></pre>
+
     
 </dd>
 
@@ -222,7 +227,7 @@
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 62
+		entities/light.js, line 106
 	</li></ul></dd>
     
     
@@ -526,7 +531,7 @@
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 114
+		entities/light.js, line 158
 	</li></ul></dd>
     
     
@@ -1326,7 +1331,7 @@
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 107
+		entities/light.js, line 151
 	</li></ul></dd>
     
     
@@ -1913,7 +1918,7 @@
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 148
+		entities/light.js, line 192
 	</li></ul></dd>
     
     
@@ -1970,7 +1975,7 @@
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 157
+		entities/light.js, line 201
 	</li></ul></dd>
     
     
@@ -2717,7 +2722,7 @@
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 172
+		entities/light.js, line 216
 	</li></ul></dd>
     
     
@@ -2774,7 +2779,7 @@
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 122
+		entities/light.js, line 166
 	</li></ul></dd>
     
     
@@ -3085,7 +3090,7 @@
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 100
+		entities/light.js, line 144
 	</li></ul></dd>
     
     
@@ -3142,7 +3147,7 @@
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 139
+		entities/light.js, line 183
 	</li></ul></dd>
     
     
@@ -3504,7 +3509,7 @@
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 187
+		entities/light.js, line 231
 	</li></ul></dd>
     
     
@@ -3558,7 +3563,7 @@
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 194
+		entities/light.js, line 238
 	</li></ul></dd>
     
     
@@ -3612,7 +3617,7 @@
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 201
+		entities/light.js, line 245
 	</li></ul></dd>
     
     
@@ -3666,7 +3671,7 @@
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 208
+		entities/light.js, line 252
 	</li></ul></dd>
     
     
@@ -3782,7 +3787,7 @@
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 165
+		entities/light.js, line 209
 	</li></ul></dd>
     
     
@@ -3839,7 +3844,7 @@
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 68
+		entities/light.js, line 112
 	</li></ul></dd>
     
     
@@ -5267,7 +5272,7 @@
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 131
+		entities/light.js, line 175
 	</li></ul></dd>
     
     
@@ -5324,7 +5329,7 @@
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 93
+		entities/light.js, line 137
 	</li></ul></dd>
     
     
@@ -5381,7 +5386,7 @@
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 86
+		entities/light.js, line 130
 	</li></ul></dd>
     
     
@@ -5628,7 +5633,7 @@
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 180
+		entities/light.js, line 224
 	</li></ul></dd>
     
     
@@ -5685,7 +5690,7 @@
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 77
+		entities/light.js, line 121
 	</li></ul></dd>
     
     
@@ -7733,7 +7738,7 @@ angle
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 592
+		entities/light.js, line 636
 	</li></ul></dd>
     
     
@@ -8635,7 +8640,7 @@ whether changed or not.
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 332
+		entities/light.js, line 376
 	</li></ul></dd>
     
     
@@ -8879,7 +8884,7 @@ whether changed or not.
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 391
+		entities/light.js, line 435
 	</li></ul></dd>
     
     
@@ -8952,7 +8957,7 @@ whether changed or not.
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 425
+		entities/light.js, line 469
 	</li></ul></dd>
     
     
@@ -9383,7 +9388,7 @@ distance
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 730
+		entities/light.js, line 774
 	</li></ul></dd>
     
     
@@ -10110,7 +10115,7 @@ tween object.
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 529
+		entities/light.js, line 573
 	</li></ul></dd>
     
     
@@ -10231,7 +10236,7 @@ tween object.
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 778
+		entities/light.js, line 822
 	</li></ul></dd>
     
     
@@ -10304,7 +10309,7 @@ tween object.
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 275
+		entities/light.js, line 319
 	</li></ul></dd>
     
     
@@ -10400,7 +10405,7 @@ entity's bounds.
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 293
+		entities/light.js, line 337
 	</li></ul></dd>
     
     
@@ -11123,7 +11128,7 @@ layer this entity is on.
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 266
+		entities/light.js, line 310
 	</li></ul></dd>
     
     
@@ -11395,7 +11400,7 @@ position top.
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 314
+		entities/light.js, line 358
 	</li></ul></dd>
     
     
@@ -11491,7 +11496,7 @@ total horizontal size.
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 323
+		entities/light.js, line 367
 	</li></ul></dd>
     
     
@@ -12155,7 +12160,7 @@ vertices.
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 226
+		entities/light.js, line 270
 	</li></ul></dd>
     
     
@@ -14098,7 +14103,7 @@ whether damage was applied.
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 657
+		entities/light.js, line 701
 	</li></ul></dd>
     
     
@@ -14734,7 +14739,7 @@ whether damage was applied.
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 238
+		entities/light.js, line 282
 	</li></ul></dd>
     
     
@@ -16160,7 +16165,7 @@ tween object.
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 708
+		entities/light.js, line 752
 	</li></ul></dd>
     
     
@@ -16474,7 +16479,7 @@ tween object.
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		entities/light.js, line 719
+		entities/light.js, line 763
 	</li></ul></dd>
     
     
@@ -16534,7 +16539,7 @@ tween object.
 	</div>
 
 	<footer>
-		<p class="muted">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Tue Jun 11 2013 12:42:08 GMT-0500 (CDT)</p>
+		<p class="muted">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Wed Jun 12 2013 15:12:00 GMT-0500 (CDT)</p>
 	</footer>
 	
 	<script src="scripts/linenumber.js"> </script>
