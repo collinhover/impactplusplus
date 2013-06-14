@@ -65,7 +65,21 @@ var self = this;
     <?js if (data.meta) {?>
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		<?js if ( data.meta.path ) {
+		
+			docpath = data.meta.path;
+			docfolders = docpath.split( /\/|\\/ );
+			docfolder = docfolders[ docfolders.length - 1 ];
+			docfilename = data.meta.filename;
+			docfileparts = docfilename.split( /\/|\\/ );
+			docfilename = docfileparts[ docfileparts.length - 1 ];
+			
+		?>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/<?js= docfolder ?>/<?js= docfilename ?>#L<?js= meta.lineno ?>" target="_blank"><?js= self.linkto(meta.filename) ?>, <?js= self.linkto(meta.filename, 'line ' + meta.lineno, null, 'line' + meta.lineno) ?></a>
+		<?js } else {?>
 		<?js= self.linkto(meta.filename) ?>, <?js= self.linkto(meta.filename, 'line ' + meta.lineno, null, 'line' + meta.lineno) ?>
+		<?js } ?>
 	</li></ul></dd>
     <?js } ?>
     

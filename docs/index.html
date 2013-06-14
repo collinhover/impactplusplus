@@ -87,10 +87,6 @@
 
 <ul><li>Extended capability of ImpactJS&#39;s default classes to improve collisions, animations,...</li><li><code>ig.CONFIG</code> data driven configuration to allow you to change parameters without rebuilding or modifying the library</li><li><code>ig.GameExtended</code> game with layers, easy pausing, improved debugger,...</li><li><code>ig.EntityExtended</code> entities with lots of extra helper functions, opt-in performance, inheritance friendly animations,...</li><li><code>ig.InputPoint</code> input with multi-touch and gestures that works the same for mouse or touch</li><li><code>ig.Camera</code> camera for screen control, smooth target transitions, atmospheric overlays,...</li><li><code>ig.UIElement</code> a whole list of ui element entities to make text, buttons, overlays,...</li><li><code>ig.Ability</code> abilities that are entirely modular, have a built in casting system, upgrades,...</li><li><code>ig.EntityLight</code> lighting in real-time with shadows, dynamic alpha and/or color,...</li><li><code>ig.Character</code> abstract character class with options for moving, jumping, climbing,...</li><li><code>ig.Player</code> abstract player class with built in interaction and input handling,...</li><li><code>ig.Tutorial</code> abstract tutorial class to help you show your players how to do things</li><li><code>ig.Spawner</code> abstract spawner class with pooling for better performance</li><li><code>ig.Particle</code> abstract particle class with fading in and/or out, random velocities,...</li><li><code>ig.EntityTrigger</code> easy to use set of triggers for complex event driven behavior</li><li><code>ig.EntityCheckpoint</code> checkpoint for automatic player respawning on death</li><li><code>ig.utils</code> huge list of utility functions for vectors, drawing, intersections, math, tiles,...</li><li>and too much more to reasonably list here!</li></ul>
 
-<h2>How to Use</h2>
-
-<ol><li>Download using one of the below links and extract the files.</li><li>Copy the <strong>impactplusplus/lib/plusplus</strong> folder into your new or existing ImpactJS project <strong>lib</strong> directory.</li><li>Either copy the <strong>impactplusplus/lib/weltmeister/config.js</strong> into your projet&#39;s <strong>lib/weltmeister</strong> directory...</li><li>Or, if you have a custom Weltmeister config:<ul><li>add <code>&#39;lib/plusplus/entities/*.js&#39;</code> to the <code>entityFiles</code> setting</li><li>change the <code>collisionTiles.path</code> setting to <code>&#39;lib/weltmeister/collisiontiles_plusplus_64.png&#39;</code></li></ul></li><li>Make sure you&#39;re comfortable with the <a href="http://impactjs.com/documentation">ImpactJS Documentation</a></li><li>Dive into the <a href="http://collinhover.github.com/impactplusplus">Impact++ Documentation</a></li></ol>
-
 <h4>Download</h4>
 
 <p><a href="http://github.com/collinhover/impactplusplus/zipball/master/">
@@ -102,221 +98,17 @@
 
 <h2>Getting Started</h2>
 
-<h4>1. ig.GameExtended</h4>
+<h4>First Steps</h4>
 
-<pre><code>// starting with Impact++ is simple!
-// setup a main game file, such as &#39;game/main.js&#39;
-// that you load right after ImpactJS
-// and inside this file...
-// setup the main module
-ig.module(
-    &#39;game.main&#39;
-)
-// now require the appropriate files
-.requires(
-    &#39;plusplus.core.config&#39;,
-    &#39;plusplus.core.loader&#39;,
-    &#39;plusplus.core.game&#39;,
-    // don&#39;t forget to load your levels
-    &#39;path.to.area1&#39;,
-    &#39;path.to.area2&#39;,
-    &#39;path.to.areaEtc&#39;
-)
-// define the main module
-.defines(function () {
-    &quot;use strict&quot;;
+<ol><li>Download using one of the &quot;Download&quot; links and extract the files.</li><li>Copy the <strong>impactplusplus/lib/plusplus</strong> folder into your new or existing ImpactJS project <strong>lib</strong> directory.</li><li>Either copy the <strong>impactplusplus/lib/weltmeister/config.js</strong> into your projet&#39;s <strong>lib/weltmeister</strong> directory...</li><li>Or, if you have a custom Weltmeister config:<ul><li>add <code>&#39;lib/plusplus/entities/*.js&#39;</code> to the <code>entityFiles</code> setting</li><li>change the <code>collisionTiles.path</code> setting to <code>&#39;lib/weltmeister/collisiontiles_plusplus_64.png&#39;</code></li></ul></li><li>Make sure you&#39;re comfortable with the <a href="http://impactjs.com/documentation">ImpactJS Documentation</a></li><li>Load up the Impact++ Jump N&#39; Run demo (see below) to review the basics</li><li>Dive into the <a href="http://collinhover.github.com/impactplusplus">Impact++ Documentation</a></li></ol>
 
-    var _c = ig.CONFIG;
+<h4>Demo: Jump N&#39; Run</h4>
 
-    // we probably want to go ahead and debug while developing
+<p>Check out the Jump N&#39; Run demo for an overview of getting started with Impact++, located in the &#39;examples/jumpnrun&#39; directory. Don&#39;t forget to copy the ImpactJS engine and Weltmeister files into the Jump N&#39; Run directory!</p>
 
-    if (_c.DEBUG) {
+<h4>Feature Examples</h4>
 
-        ig.module(
-                &#39;game.game-debug&#39;
-            )
-            .requires(
-                &#39;plusplus.debug.debug&#39;
-            )
-            .defines(function () {
-
-                start();
-
-            });
-
-    }
-    // and don&#39;t forget to turn off debugging
-    // in the config when releasing your game!
-    else {
-
-        start();
-
-    }
-
-    function start() {
-
-        // have your game class extend Impact++&#39;s game class
-
-        var game = ig.GameExtended.extend({
-
-            // override the game init function
-
-            init: function () {
-
-                this.parent();
-
-                // so we can load the first level
-                // which of course you didn&#39;t forget to require above
-
-                this.loadLevel(ig.global.LevelArea1);
-
-            }
-
-        });
-
-        // now lets boot up impact with
-        // our game and config settings
-        ig.main(
-            &#39;#canvas&#39;,
-            game,
-            60,
-            _c.GAME_WIDTH,
-            _c.GAME_HEIGHT,
-            _c.SCALE,
-            ig.LoaderExtended
-        );
-
-        // and resize to make sure everything looks fine
-
-        ig.system.resize(
-            ig.global.innerWidth * _c.CANVAS_WIDTH_PCT * ( 1 / _c.SCALE ),
-            ig.global.innerHeight * _c.CANVAS_HEIGHT_PCT * ( 1 / _c.SCALE ),
-            _c.SCALE
-        );
-
-    }
-
-});</code></pre>
-
-<h4>2. ig.EntityExtended</h4>
-
-<pre><code>// Impact++&#39;s entity is hugely expanded
-// to add great amounts of utility
-// so all of your entities
-// need to extend ig.EntityExtended
-// for proper stability
-ig.module(
-    &#39;game.entities.example&#39;
-)
-// now require the appropriate files
-.requires(
-    &#39;plusplus.core.entity&#39;,
-    // if you want to use the config
-    // don&#39;t forget to require it
-    &#39;plusplus.core.config&#39;
-)
-// define the main module
-.defines(function () {
-    &quot;use strict&quot;;
-
-    var _c = ig.CONFIG;
-
-   ig.EntityExample = ig.global.EntityExample = ig.EntityExtended.extend({...});
-
-});</code></pre>
-
-<h4>3. (optional) ig.Character</h4>
-
-<pre><code>// characters might need all kinds of extras
-// like moving, jumping, climbing, abilities, etc
-// to take advantage of these extend ig.Character
-ig.module(
-    &#39;game.entities.example-character&#39;
-)
-// now require the appropriate files
-.requires(
-    // note that anything in abstractities
-    // is an abstract entity that needs to be extended
-    &#39;plusplus.abstractities.character&#39;,
-    // if you want to use the config
-    // don&#39;t forget to require it
-    &#39;plusplus.core.config&#39;
-)
-// define the main module
-.defines(function () {
-    &quot;use strict&quot;;
-
-    var _c = ig.CONFIG;
-
-    ig.EntityExampleCharacter = ig.global.EntityExampleCharacter = ig.Character.extend({...});
-
-});</code></pre>
-
-<h4>4. (optional) ig.Player</h4>
-
-<pre><code>// players might need some basic functionality
-// like input handling, camera following, etc
-// to take advantage of these extend ig.Player
-ig.module(
-    &#39;game.entities.example-player&#39;
-)
-// now require the appropriate files
-.requires(
-    // note that anything in abstractities
-    // is an abstract entity that needs to be extended
-    &#39;plusplus.abstractities.player&#39;,
-    // if you want to use the config
-    // don&#39;t forget to require it
-    &#39;plusplus.core.config&#39;
-)
-// define the main module
-.defines(function () {
-    &quot;use strict&quot;;
-
-    var _c = ig.CONFIG;
-
-    ig.EntityExamplePlayer = ig.global.EntityExamplePlayer = ig.Player.extend({...});
-
-});</code></pre>
-
-<h4>5. (optional) ig.Ability</h4>
-
-<pre><code>// all games involve entities doing things
-// to do things the best way use abilities
-ig.module(
-    &#39;game.abilities.example-ability&#39;
-)
-// now require the appropriate files
-.requires(
-    // for example, we want to shoot
-    &#39;plusplus.abilities.ability-shoot&#39;,
-    // don&#39;t forget a projectile entity
-    &#39;game.entities.example-projectile&#39;,
-    // if you want to use the config
-    // don&#39;t forget to require it
-    &#39;plusplus.core.config&#39;
-)
-// define the main module
-.defines(function () {
-    &quot;use strict&quot;;
-
-    var _c = ig.CONFIG;
-
-    ig.ExampleAbility = ig.global.ExampleAbility = ig.AbilityShoot.extend({
-
-        // we made an entity
-        // that will serve as our projectile
-        // to be shot when this ability activates
-        spawningEntity: ig.ExampleProjectile,
-
-        // velocity based on the direction
-        // of the offset passed to the ability activate
-        // see ig.Player for ability use example
-        offsetVelX: 60
-
-    });
-
-});</code></pre>
+<p>You will find example levels demoing various advanced features of Impact++ in the &#39;examples/levels&#39; directory. Copy them into your &#39;lib/game/levels&#39; directory and load them up through Weltmeister. Don&#39;t forget to add your player entity to the example levels before trying them out!</p>
 
 <h2>FAQ</h2>
 
@@ -336,10 +128,6 @@ ig.CONFIG_USER = {
 	// is your own logo (in base64) for the loader
 	LOADER_LOGO_SRC_MAIN: &#39;data:image/png;base64,...&#39;
 };</code></pre>
-
-<h4>Examples</h4>
-
-<p>You will find example ImpactJS levels, to give you an idea of how you might use some features of Impact++, in the &#39;examples/levels&#39; directory. Copy them into your &#39;lib/game/levels&#39; directory and load them up through Weltmeister. Don&#39;t forget to add your player entity to the example levels before trying them out!</p>
 
 <h4>Design Philosophy</h4>
 
@@ -373,7 +161,7 @@ ig.CONFIG_USER = {
 	</div>
 
 	<footer>
-		<p class="muted">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Wed Jun 12 2013 15:11:00 GMT-0500 (CDT)</p>
+		<p class="muted">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Fri Jun 14 2013 01:03:55 GMT-0500 (CDT)</p>
 	</footer>
 	
 	<script src="scripts/linenumber.js"> </script>
