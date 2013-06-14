@@ -1,0 +1,2 @@
+####Impact++ Physics
+These files are a stable implementation of ImpactJS + Box2D with tweaks, including a base entity, character, and player classes. They are no longer maintained or documented for a variety of reasons, but feel free to use them should you need extensive physics in your game. Good luck!
