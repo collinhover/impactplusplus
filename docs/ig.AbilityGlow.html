@@ -18,11 +18,13 @@
 
 <body data-spy="scroll" data-target="#navdoc">
 	
-	<a href="http://github.com/collinhover/impactplusplus/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>	
-	
-	<div class="header">
+	<div id="header">
 		<a href="index.html"><img src="img/banner_impactplusplus.png"></a>
+		<a href='http://github.com/collinhover/impactplusplus/' id="forkBtn"><img src="img/fork_impactplusplus.png" alt="Fork me on GitHub"></a>
+		<button id="demoBtn" data-path="demo/index.html"><img src="img/demo_impactplusplus.png" alt="Demo Impact++"></div>
 	</div>
+	
+	<iframe id="demo" class="hidden"></iframe>
 	
 	<div id="docs" class="container">
 		
@@ -45,7 +47,7 @@
 
 						<div id="maincontentColumn2" class="span2">
 							
-							<div id="navdocs" class="hidden-phone" data-spy="affix" data-offset-top="300"><div id="navdoc"><ul class="nav nav-list sidenav"><li class="nav-header">AbilityGlow</li><li><a href="#docs">Overview <div class="icon-chevron-right pull-right"></div></a></li><li><a href="#members" type="button">Members <div class="icon-chevron-right pull-right"></div></a></li><li><a href="#methods" type="button">Methods <div class="icon-chevron-right pull-right"></div></a></li><li><button class="btn btn-link" data-toggle="inherited"><div class="icon-eye-open"></div> inherited</a></li></ul></div><ul class="nav nav-list sidenav"><li class="nav-header"><img src="img/logo_impactplusplus_25.png"> Impact++</li><li><a href="#navNamespaces" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Namespaces</a></li><li><a href="#navAbilities" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Abilities</a></li><li><a href="#navCore" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Core</a></li><li><a href="#navAbstractities" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Abstractities</a></li><li><a href="#navEntities" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Entities</a></li><li><a href="#navHelpers" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Helpers</a></li><li><a href="#navUi" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Ui</a></li></ul></div>
+							<div id="navdocs" class="hidden-phone"><div id="navdoc"><ul class="nav nav-list sidenav"><li class="nav-header">AbilityGlow</li><li><a href="#docs">Overview <div class="icon-chevron-right pull-right"></div></a></li><li><a href="#members" type="button">Members <div class="icon-chevron-right pull-right"></div></a></li><li><a href="#methods" type="button">Methods <div class="icon-chevron-right pull-right"></div></a></li><li><button class="btn btn-link" data-toggle="inherited"><div class="icon-eye-open"></div> inherited</a></li></ul></div><ul class="nav nav-list sidenav"><li class="nav-header"><img src="img/logo_impactplusplus_25.png"> Impact++</li><li><a href="#navNamespaces" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Namespaces</a></li><li><a href="#navAbilities" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Abilities</a></li><li><a href="#navCore" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Core</a></li><li><a href="#navAbstractities" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Abstractities</a></li><li><a href="#navEntities" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Entities</a></li><li><a href="#navHelpers" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Helpers</a></li><li><a href="#navUi" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Ui</a></li></ul></div>
 
 						</div>
 
@@ -3455,7 +3457,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1434" target="_blank">abilities/ability.js, line 1434</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1459" target="_blank">abilities/ability.js, line 1459</a>
 		
 	</li></ul></dd>
     
@@ -3607,7 +3609,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1351" target="_blank">abilities/ability.js, line 1351</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1376" target="_blank">abilities/ability.js, line 1376</a>
 		
 	</li></ul></dd>
     
@@ -3829,7 +3831,7 @@ Whether a check is true.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1411" target="_blank">abilities/ability.js, line 1411</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1436" target="_blank">abilities/ability.js, line 1436</a>
 		
 	</li></ul></dd>
     
@@ -4627,7 +4629,7 @@ Whether entity can pay energy cost.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1486" target="_blank">abilities/ability.js, line 1486</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1511" target="_blank">abilities/ability.js, line 1511</a>
 		
 	</li></ul></dd>
     
@@ -5147,7 +5149,7 @@ Whether entity can pay energy cost.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/glow.js#L187" target="_blank">abilities/glow.js, line 187</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/glow.js#L196" target="_blank">abilities/glow.js, line 196</a>
 		
 	</li></ul></dd>
     
@@ -5339,7 +5341,7 @@ if entity is close enough to entityTarget
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/glow.js#L158" target="_blank">abilities/glow.js, line 158</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/glow.js#L169" target="_blank">abilities/glow.js, line 169</a>
 		
 	</li></ul></dd>
     
@@ -5639,7 +5641,7 @@ if entity is close enough to entityTarget
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1465" target="_blank">abilities/ability.js, line 1465</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1490" target="_blank">abilities/ability.js, line 1490</a>
 		
 	</li></ul></dd>
     
@@ -6221,7 +6223,7 @@ if entity is close enough to entityTarget
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1420" target="_blank">abilities/ability.js, line 1420</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1445" target="_blank">abilities/ability.js, line 1445</a>
 		
 	</li></ul></dd>
     
@@ -7824,6 +7826,82 @@ Whether current entityTarget can (or should) be dropped.
 				
 
 	
+	<dt >
+		<h4 class="name" id="showLight">
+			<span class="type-signature"></span>showLight<span class="signature">()</span><span class="type-signature"></span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Shows light after it is added to game.
+    </p>
+    
+
+   
+    
+    
+    
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/glow.js#L145" target="_blank">abilities/glow.js, line 145</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+			
+				
+
+	
 	<dt class="inherited hidden">
 		<h4 class="name" id="unblockRegen">
 			<span class="type-signature"></span>unblockRegen<span class="signature">(entity)</span><span class="type-signature"></span>
@@ -8156,7 +8234,7 @@ Whether current entityTarget can (or should) be dropped.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1444" target="_blank">abilities/ability.js, line 1444</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1469" target="_blank">abilities/ability.js, line 1469</a>
 		
 	</li></ul></dd>
     
@@ -8210,7 +8288,7 @@ Whether current entityTarget can (or should) be dropped.
 	</div>
 
 	<footer>
-		<p class="muted">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Fri Jun 14 2013 01:04:00 GMT-0500 (CDT)</p>
+		<p class="muted">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Sun Jun 23 2013 23:04:23 GMT-0500 (CDT)</p>
 	</footer>
 	
 	<script src="scripts/linenumber.js"> </script>

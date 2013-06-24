@@ -106,50 +106,65 @@ ig.module(
              **/
             activate: function () {
 
-                var me = this;
-
-                // properties
-
                 var entityOptions = this.entityOptions || this.entity;
                 var gs = entityOptions.glowSettings || {};
 
-                // create new light as needed
+                // create light
 
-                if (!this.light) {
+               this.light = ig.game.spawnEntity(ig.EntityLight, this.entity.bounds.minX + this.entity.bounds.width * 0.5, this.entity.bounds.minY + this.entity.bounds.height * 0.5, ig.merge({
+					radius: Math.max(this.entity.totalSizeX, this.entity.totalSizeY) * 0.5 * ( gs.sizeMod || this.sizeMod ),
+					r: _ut.isNumber(gs.r) ? gs.r : this.r,
+					g: _ut.isNumber(gs.g) ? gs.g : this.g,
+					b: _ut.isNumber(gs.b) ? gs.b : this.b,
+					alpha: _ut.isNumber(gs.alpha) ? gs.alpha : this.alpha
+				}, gs.light));
 
-                    this.light = ig.game.spawnEntity(ig.EntityLight, this.entity.bounds.minX + this.entity.bounds.width * 0.5, this.entity.bounds.minY + this.entity.bounds.height * 0.5, ig.merge({
-                        radius: Math.max(this.entity.totalSizeX, this.entity.totalSizeY) * 0.5 * ( gs.sizeMod || this.sizeMod ),
-                        r: this.r,
-                        g: this.g,
-                        b: this.b,
-                        alpha: 0
-                    }, gs.light));
-
-                    // light follows this automatically
-
-                    this.light.moveToEntity(this.entity, {
-                        matchPerformance: true
-                    });
-
-                }
-
-                // tween to target alpha
-
-                this.light.fadeTo(_ut.isNumber(gs.alpha) ? gs.alpha : this.alpha, {
-                    duration: _ut.isNumber(gs.fadeInDuration) ? gs.fadeInDuration : this.fadeInDuration,
-                    tween: this.lightTween,
-                    onComplete: function () {
-
-                        me.lightTween = undefined;
-
-                    }
-                });
+                // show light
+				
+				if ( !this.light.added ) {
+					
+					this.light.onAdded.addOnce( this.showLight, this );
+					
+				}
+				else {
+					
+					this.showLight();
+					
+				}
+				
 
                 this.parent();
 
                 return this.light;
 
             },
+			
+			/**
+			 * Shows light after it is added to game.
+			 */
+			showLight: function () {
+
+                var entityOptions = this.entityOptions || this.entity;
+                var gs = entityOptions.glowSettings || {};
+				
+				if ( this.light ) {
+
+					// light follows entity automatically
+
+					this.light.moveToEntity(this.entity, {
+						matchPerformance: true
+					});
+					
+					// fade light
+					
+					this.light.alpha = 0;
+					this.light.fadeTo(this.light.resetState.alpha, {
+						duration: _ut.isNumber(gs.fadeInDuration) ? gs.fadeInDuration : this.fadeInDuration
+					});
+					
+				}
+				
+			},
 
             /**
              * Fades light out and destroys it.
@@ -158,20 +173,18 @@ ig.module(
             deactivate: function () {
 
                 var light = this.light;
-                var lightTween = this.lightTween;
                 var entityOptions = this.entityOptions || this.entity;
                 var gs = entityOptions.glowSettings || {};
 
                 // remove light
 
-                this.light = this.lightTween = undefined;
+                this.light = undefined;
 
                 if (light) {
 
                     // tween out and remove when complete
 
                     light.fadeToDeath({
-                        tween: lightTween,
                         duration: _ut.isNumber(gs.fadeOutDuration) ? gs.fadeOutDuration : this.fadeOutDuration
                     });
 

@@ -346,7 +346,7 @@ function buildNav(members) {
 function buildNavDocs ( nav ) {
 	
 	var headersSeen = {};
-	var navDocs = '<div id="navdocs" class="hidden-phone" data-spy="affix" data-offset-top="300"><ul class="nav nav-list sidenav">';
+	var navDocs = '<div id="navdocs" class="hidden-phone"><ul class="nav nav-list sidenav">';
 	navDocs += '<li class="nav-header"><img src="img/logo_impactplusplus_25.png"> Impact++</li>';
 	
 	var navLists = nav.split( '<ul' );

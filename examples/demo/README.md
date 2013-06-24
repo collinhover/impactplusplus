@@ -1,0 +1,2 @@
+####Impact++ Demo
+This is the live demo used in the Impact++ documentation, and all code is minified. For the actual source code of this demo (with lots of comments), check out the "examples/jumpnrun" directory.

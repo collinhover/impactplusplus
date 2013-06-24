@@ -1326,8 +1326,33 @@ ig.module(
                 // target is not self and not fixed
 
                 if (target && this.entity !== target && !target.fixed) {
+					
+					var entityCenterX;
+					var targetCenterX;
+					
+					if ( this.entity.added ) {
+						
+						entityCenterX = this.entity.bounds.minX + this.entity.bounds.width * 0.5;
+						
+					}
+					else {
+						
+						entityCenterX = this.entity.pos.x + this.entity.size.x * 0.5;
+						
+					}
+					
+					if ( target.added ) {
+						
+						targetCenterX = target.bounds.minX + target.bounds.width * 0.5;
+						
+					}
+					else {
+						
+						targetCenterX = target.pos.x + target.size.x * 0.5;
+						
+					}
 
-                    if (this.entity.bounds.minX + this.entity.bounds.width * 0.5 > target.bounds.minX + target.bounds.width * 0.5 ) {
+                    if ( entityCenterX > targetCenterX ) {
 
                         this.entity.flip = true;
 
