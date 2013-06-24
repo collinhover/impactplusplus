@@ -1,104 +1,11 @@
-/*ig.module(
-	'game.entities.player'
-)
-.requires(
-	'impact.entity'
-)
-.defines(function(){
-
-EntityPlayer = ig.Entity.extend({
-	
-	// The players (collision) size is a bit smaller than the animation
-	// frames, so we have to move the collision box a bit (offset)
-	size: {x: 8, y:14},
-	offset: {x: 4, y: 2},
-	
-	maxVel: {x: 100, y: 200},
-	friction: {x: 600, y: 0},
-	
-	type: ig.Entity.TYPE.A, // Player friendly group
-	checkAgainst: ig.Entity.TYPE.NONE,
-	collides: ig.Entity.COLLIDES.PASSIVE,
-	
-	animSheet: new ig.AnimationSheet( 'media/player.png', 16, 16 ),	
-	
-	
-	// These are our own properties. They are not defined in the base
-	// ig.Entity class. We just use them internally for the Player
-	flip: false,
-	accelGround: 400,
-	accelAir: 200,
-	jump: 200,
-	health: 10,
-	flip: false,
-	
-	init: function( x, y, settings ) {
-		this.parent( x, y, settings );
-		
-		// Add the animations
-		this.addAnim( 'idle', 1, [0] );
-		this.addAnim( 'run', 0.07, [0,1,2,3,4,5] );
-		this.addAnim( 'jump', 1, [9] );
-		this.addAnim( 'fall', 0.4, [6,7] );
-	},
-	
-	
-	update: function() {
-		
-		// move left or right
-		var accel = this.standing ? this.accelGround : this.accelAir;
-		if( ig.input.state('left') ) {
-			this.accel.x = -accel;
-			this.flip = true;
-		}
-		else if( ig.input.state('right') ) {
-			this.accel.x = accel;
-			this.flip = false;
-		}
-		else {
-			this.accel.x = 0;
-		}
-		
-		
-		// jump
-		if( this.standing && ig.input.pressed('jump') ) {
-			this.vel.y = -this.jump;
-		}
-		
-		// shoot
-		if( ig.input.pressed('shoot') ) {
-			ig.game.spawnEntity( EntitySlimeGrenade, this.pos.x, this.pos.y, {flip:this.flip} );
-		}
-		
-		// set the current animation, based on the player's speed
-		if( this.vel.y < 0 ) {
-			this.currentAnim = this.anims.jump;
-		}
-		else if( this.vel.y > 0 ) {
-			this.currentAnim = this.anims.fall;
-		}
-		else if( this.vel.x != 0 ) {
-			this.currentAnim = this.anims.run;
-		}
-		else {
-			this.currentAnim = this.anims.idle;
-		}
-		
-		this.currentAnim.flip.x = this.flip;
-		
-		
-		// move!
-		this.parent();
-	}
-});*/
-
-// players might need some basic functionality
-// like input handling, camera following, etc
-// to take advantage of these extend ig.Player
+/** 
+ * Players might need some basic functionality
+ * like input handling, camera following, etc
+ * to take advantage of these extend ig.Player
+ */
 ig.module(
     'game.entities.player'
 )
-// now require the appropriate files
 .requires(
     // note that anything in abstractities
     // is an abstract entity that needs to be extended
@@ -115,9 +22,9 @@ ig.module(
 	// if you want to use the config
     // don't forget to require it
     'plusplus.core.config',
+	// and some utils
 	'plusplus.helpers.utils'
 )
-// define the main module
 .defines(function () {
     "use strict";
 	
@@ -133,7 +40,7 @@ ig.module(
 		
 		animSheet: new ig.AnimationSheet( _c.PATH_TO_MEDIA + 'player.png', 16, 16 ),	
 		
-		// add animations
+		// animations the Impact++ way
 		
 		animSettings: {
 			idle: {
@@ -157,31 +64,77 @@ ig.module(
 		// settings for glow
 		
 		glowSettings: {
+			// these directly correlate
+			// to ig.Entity light properties
 			light: {
+				// the light should move with player
 				performance: _c.DYNAMIC,
+				// cast shadows only on static entities
 				castsShadows: true
 			}
 		},
+		
+		// use this method to add properties
+		// that need to be initialized one time
+		// before the entity is added to the game
 		
 		initProperties: function () {
 			
 			this.parent();
 			
-			this.abilities.addDescendants( [
-				new ig.AbilityGlow( this, {
-					sizeMod: 10
-				}),
-				new ig.GrenadeLauncher( this )
-			]);
+			this.glow = new ig.AbilityGlow( this );
+			this.shoot = new ig.GrenadeLauncher( this );
+			
+			this.abilities.addDescendants( [ this.glow, this.shoot ]);
+			
+		},
+		
+		// use this method to change an entity internally
+		
+		updateChanges: function() {
+			
+			// check if shooting
+			
+			if (ig.input.pressed('shoot')) {
+
+				this.shoot.execute( { x: this.flip ? this.bounds.minX : this.bounds.maxX, y: this.bounds.minY + this.bounds.height * 0.5 } );
+
+			}
+			
+			// swipe to jump
+			
+			if (ig.input.state('swipe')) {
+
+				// find all inputs that are swiping
+
+				var inputPoints = ig.input.getInputPoints([ 'swiping' ], [ true ]);
+
+				for (var i = 0, il = inputPoints.length; i < il; i++) {
+
+					var inputPoint = inputPoints[ i ];
+					
+					if (inputPoint.swipingUp) {
+
+						this.jump();
+
+					}
+
+				}
+
+			}
+			
+			this.parent();
 			
 		}
 		
 	});
 
 	/**
-	 * Projectile for player shoot ability.
+	 * Projectile for player shoot ability that explodes. This should probably have its own module!
 	 **/
 	ig.EntitySlimeGrenade = ig.global.EntitySlimeGrenade = ig.Projectile.extend({
+		
+		// lite collides to get knocked around
 		
 		collides: ig.Entity.COLLIDES.LITE,
 		
@@ -190,6 +143,8 @@ ig.module(
 		offset: {x: 2, y: 2},
 			
 		animSheet: new ig.AnimationSheet( _c.PATH_TO_MEDIA + 'slime-grenade.png', 8, 8 ),
+		
+		// animations the Impact++ way
 		
 		animSettings: {
 			idle: {
@@ -222,7 +177,7 @@ ig.module(
                     entity: this,
 					spawnCountMax: 10,
 					spawnSettings: {
-						animTileOffset: ig.EntityParticleColor.colorOffsets.GREEN
+						animTileOffset: ig.EntityParticleColor.colorOffsets.YELLOW
 					}
                 });
 				
@@ -235,17 +190,28 @@ ig.module(
 	});
 	
 	/**
-	 * Ability for shooting grenades.
+	 * Ability for shooting grenades. This should probably have its own module!
 	 **/
 	ig.GrenadeLauncher = ig.AbilityShoot.extend( {
+	
+		// this ability spawns a slime grenade
 		
 		spawningEntity: ig.EntitySlimeGrenade,
+		
+		// velocity towards offset direction
 		
 		offsetVelX: 200,
 		offsetVelY: 200,
 		
+		// velocity relative to the entity using the ability
+		// this helps for running and gunning
+		
 		relativeVelPctX: 1,
 		relativeVelPctY: 0.5,
+		
+		// use this method to add types for checks
+		// since we are using bitwise flags
+		// we can take advantage of the fact that they can be added
 		
 		initTypes: function () {
 

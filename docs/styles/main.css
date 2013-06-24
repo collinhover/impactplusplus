@@ -1,9 +1,37 @@
-.header {
+#header {
+	position: relative;
 	padding-top: 20px;
-	padding-bottom: 20px;
+	padding-bottom: 40px;
 	text-align: center;
 	background: #222;
-	border-bottom: 3px solid #444;
+	border-bottom: solid 4px #333;
+}
+#forkBtn, #demoBtn {
+	background: none;
+	border: none;
+	padding: 0;
+	position: absolute;
+	width: 128px;
+	height: 128px;
+	bottom: -34px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+}
+#forkBtn {
+	right: 132px;
+}
+#demoBtn {
+	left: 132px;
+}
+#demo {
+	width: 100%;
+	height: 480px;
+	border: 0;
+}
+#demo:not(.hidden) {
+	display: block;
+	border-bottom: solid 4px #333;
 }
 .subtext {
 	font-family: Georgia, Times, "Times New Roman", serif;
@@ -249,7 +277,7 @@ footer {
 }
 
 @media (max-width: 767px) {
-	.header {
+	#header {
 		margin-left: -20px;
 		margin-right: -20px;
 	}
