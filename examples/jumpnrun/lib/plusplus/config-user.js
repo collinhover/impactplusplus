@@ -20,7 +20,7 @@ ig.module(
         ig.CONFIG_USER = {
 			
 			// make it bigger!
-			SCALE: 5
+			SCALE: 3
 			
 		};
 
