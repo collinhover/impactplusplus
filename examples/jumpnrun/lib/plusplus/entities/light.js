@@ -384,11 +384,17 @@ ig.module(
                 }
 
                 if (this.changed || this._changedAdd) {
-
+					
+					if ( this.performance === _c.STATIC ) {
+						
+						this.changed = false;
+						
+					}
+					
                     // redraw basic light if scale changed
 
                     if (this._changedSize || this.scaleComputedAt !== ig.system.scale) {
-
+						
                         this._changedSize = false;
                         this.scaleComputedAt = ig.system.scale;
 
@@ -403,7 +409,7 @@ ig.module(
                     }
 
                     if (this.castsShadows) {
-
+						
                         // cast all shadows
 
                         this.castShadows();
@@ -608,7 +614,7 @@ ig.module(
                 }
 
                 // items changed, light is changed
-
+				
                 this.changed |= numItemsPrefind !== this.items.length;
 
             },
@@ -683,7 +689,7 @@ ig.module(
                     this.forEachSample(function (position) {
 
                         for (i = 0, il = items.length; i < il; i++) {
-
+							
                             items[ i ].castShadows(me, contextCast, position, bounds);
 
                         }
@@ -741,7 +747,7 @@ ig.module(
                     this._alphaLast = this.alpha;
 
                 }
-
+				
                 this.parent(force);
 
             },
