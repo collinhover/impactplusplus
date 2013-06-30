@@ -77,6 +77,24 @@ Impact++ has been built from day one to be portable / wrappable to iOS, Android,
 * _Consistency_ - the codebase should look like a cohesive whole
 * _Document_ - the codebase should be reasonably documented
 
+##Migration
+####r4 -> r5
+**Breaking changes**
+* ```ig.CONFIG.DYNAMIC``` to ```ig.CONFIG.MOVING```
+* ```ig.CONFIG.KINEMATIC``` to ```ig.CONFIG.DYNAMIC```
+* ```ig.UIElement.resize``` to ```ig.UIElement.refresh```
+* ```ig.UIElement.onResized``` to ```ig.UIElement.onRefreshed```
+* ```ig.UIElement.refresh``` calls (in order) ```ig.UIElement.resize``` and ```ig.UIElement.reposition```
+* ```ig.utilsdraw.fillPolygon``` no longer takes fill parameters, instead it assumes fillStyle has already been set
+**Non-breaking changes**
+* ```ig.BackgroundMap``` expanded to ```ig.BackgroundMapExtended```
+* ```ig.CONFIG.AUTO_SORT_LAYERS``` added
+* ```ig.CONFIG.PRERENDER_MAPS``` added
+* ```ig.Layer.ready``` added
+* ```ig.Door.locked``` and ```ig.Door.autoLock``` added
+* ```ig.EntitySwitch.stuck``` to ```ig.EntitySwitch.broken```
+* ```ig.EntitySwitch.autoStuck``` to ```ig.EntitySwitch.autoBreak```
+
 ####Contributing
 We'd love it if you want to help make Impact++ better, so if you're interested take a look at [CONTRIBUTING](https://github.com/collinhover/impactplusplus/blob/master/CONTRIBUTING.md).
 
