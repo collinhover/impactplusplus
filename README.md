@@ -79,21 +79,25 @@ Impact++ has been built from day one to be portable / wrappable to iOS, Android,
 
 ##Migration
 ####r4 -> r5
-**Breaking changes**
-* ```ig.CONFIG.DYNAMIC``` to ```ig.CONFIG.MOVING```
-* ```ig.CONFIG.KINEMATIC``` to ```ig.CONFIG.DYNAMIC```
-* ```ig.UIElement.resize``` to ```ig.UIElement.refresh```
-* ```ig.UIElement.onResized``` to ```ig.UIElement.onRefreshed```
+* ```ig.CONFIG.DYNAMIC``` renamed ```ig.CONFIG.MOVING```
+* ```ig.CONFIG.KINEMATIC``` renamed ```ig.CONFIG.DYNAMIC```
+* ```ig.EntityExtended.ready``` now called by way of ```ig.EntityExtended.adding``` for proper execution order
+* ```ig.EntityLight``` settings now determined by ```ig.CONFIG.LIGHT``` for easier control
+* ```ig.UIElement.vertical``` moved to ```ig.UIMeter.vertical```
+* ```ig.UIElement.linkAlign``` now controls how far inside or outside of linkedTo a linked UI element is offset
+* ```ig.UIElement.resize``` renamed ```ig.UIElement.refresh```
+* ```ig.UIElement.onResized``` renamed ```ig.UIElement.onRefreshed```
 * ```ig.UIElement.refresh``` calls (in order) ```ig.UIElement.resize``` and ```ig.UIElement.reposition```
+* ```ig.UIText``` no longer positions to center by default (but still align to center by default)
+* ```ig.EntityConversation``` completely redone
 * ```ig.utilsdraw.fillPolygon``` no longer takes fill parameters, instead it assumes fillStyle has already been set
-**Non-breaking changes**
 * ```ig.BackgroundMap``` expanded to ```ig.BackgroundMapExtended```
 * ```ig.CONFIG.AUTO_SORT_LAYERS``` added
 * ```ig.CONFIG.PRERENDER_MAPS``` added
 * ```ig.Layer.ready``` added
 * ```ig.Door.locked``` and ```ig.Door.autoLock``` added
-* ```ig.EntitySwitch.stuck``` to ```ig.EntitySwitch.broken```
-* ```ig.EntitySwitch.autoStuck``` to ```ig.EntitySwitch.autoBreak```
+* ```ig.EntitySwitch.stuck``` renamed ```ig.EntitySwitch.broken```
+* ```ig.EntitySwitch.autoStuck``` renamed ```ig.EntitySwitch.autoBreak```
 
 ####Contributing
 We'd love it if you want to help make Impact++ better, so if you're interested take a look at [CONTRIBUTING](https://github.com/collinhover/impactplusplus/blob/master/CONTRIBUTING.md).
