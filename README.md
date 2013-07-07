@@ -82,7 +82,13 @@ Impact++ has been built from day one to be portable / wrappable to iOS, Android,
 * ```ig.CONFIG.DYNAMIC``` renamed ```ig.CONFIG.MOVING```
 * ```ig.CONFIG.KINEMATIC``` renamed ```ig.CONFIG.DYNAMIC```
 * ```ig.EntityExtended.ready``` now called by way of ```ig.EntityExtended.adding``` for proper execution order
+* ```ig.EntityExtended._ungroundedFor``` renamed ```ig.EntityExtended.ungroundedFor```
+* ```ig.EntityExtended.ungroundedFor``` no longer increases when climbing
+* ```ig.AnimationExtended``` can now play in reverse
+* ```ig.AnimationExtended.update``` reworked so stop pauses instead of sets frame to end
 * ```ig.EntityLight``` settings now determined by ```ig.CONFIG.LIGHT``` for easier control
+* ```ig.EntityDestructable``` now no longer damageable or targetable
+* ```ig.EntityDestructableDamage``` is now damageable and targetable
 * ```ig.UIElement.vertical``` moved to ```ig.UIMeter.vertical```
 * ```ig.UIElement.linkAlign``` now controls how far inside or outside of linkedTo a linked UI element is offset
 * ```ig.UIElement.resize``` renamed ```ig.UIElement.refresh```
