@@ -89,6 +89,7 @@ Impact++ has been built from day one to be portable / wrappable to iOS, Android,
 * ```ig.EntityLight``` settings now determined by ```ig.CONFIG.LIGHT``` for easier control
 * ```ig.EntityDestructable``` now no longer damageable or targetable
 * ```ig.EntityDestructableDamage``` is now damageable and targetable
+* ```ig.Ability's castSettings.entity``` renamed ```ig.Ability's castSettings.entityClass```
 * ```ig.UIElement.vertical``` moved to ```ig.UIMeter.vertical```
 * ```ig.UIElement.linkAlign``` now controls how far inside or outside of linkedTo a linked UI element is offset
 * ```ig.UIElement.resize``` renamed ```ig.UIElement.refresh```
