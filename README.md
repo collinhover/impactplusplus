@@ -81,30 +81,33 @@ Impact++ has been built from day one to be portable / wrappable to iOS, Android,
 ####r4 -> r5
 * ```ig.CONFIG.DYNAMIC``` renamed ```ig.CONFIG.MOVING```
 * ```ig.CONFIG.KINEMATIC``` renamed ```ig.CONFIG.DYNAMIC```
+* ```ig.CONFIG.AUTO_SORT_LAYERS``` added
+* ```ig.CONFIG.PRERENDER_MAPS``` added
 * ```ig.EntityExtended.ready``` now called by way of ```ig.EntityExtended.adding``` for proper execution order
 * ```ig.EntityExtended._ungroundedFor``` renamed ```ig.EntityExtended.ungroundedFor```
 * ```ig.EntityExtended.ungroundedFor``` no longer increases when climbing
+* ```ig.EntityTrigger``` now properly chains triggers (check your trigger targets if you are getting strange behavior)
+* ```ig.EntityTrigger.triggering``` added to help prevent triggers from infinitely looping
 * ```ig.AnimationExtended``` can now play in reverse
 * ```ig.AnimationExtended.update``` reworked so stop pauses instead of sets frame to end
 * ```ig.EntityLight``` settings now determined by ```ig.CONFIG.LIGHT``` for easier control
 * ```ig.EntityDestructable``` now no longer damageable or targetable
 * ```ig.EntityDestructableDamage``` is now damageable and targetable
 * ```ig.Ability's castSettings.entity``` renamed ```ig.Ability's castSettings.entityClass```
+* ```ig.Ability's castSettings.entityClass``` is no longer stored for reuse
+* ```ig.utilsdraw.fillPolygon``` no longer takes fill parameters, instead it assumes fillStyle has already been set
+* ```ig.BackgroundMap``` expanded to ```ig.BackgroundMapExtended```
+* ```ig.Layer.ready``` added
+* ```ig.Door.locked``` and ```ig.Door.autoLock``` added
+* ```ig.EntitySwitch.stuck``` renamed ```ig.EntitySwitch.broken```
+* ```ig.EntitySwitch.autoStuck``` renamed ```ig.EntitySwitch.autoBreak``
 * ```ig.UIElement.vertical``` moved to ```ig.UIMeter.vertical```
 * ```ig.UIElement.linkAlign``` now controls how far inside or outside of linkedTo a linked UI element is offset
 * ```ig.UIElement.resize``` renamed ```ig.UIElement.refresh```
 * ```ig.UIElement.onResized``` renamed ```ig.UIElement.onRefreshed```
 * ```ig.UIElement.refresh``` calls (in order) ```ig.UIElement.resize``` and ```ig.UIElement.reposition```
-* ```ig.UIText``` no longer positions to center by default (but still align to center by default)
-* ```ig.EntityConversation``` completely redone
-* ```ig.utilsdraw.fillPolygon``` no longer takes fill parameters, instead it assumes fillStyle has already been set
-* ```ig.BackgroundMap``` expanded to ```ig.BackgroundMapExtended```
-* ```ig.CONFIG.AUTO_SORT_LAYERS``` added
-* ```ig.CONFIG.PRERENDER_MAPS``` added
-* ```ig.Layer.ready``` added
-* ```ig.Door.locked``` and ```ig.Door.autoLock``` added
-* ```ig.EntitySwitch.stuck``` renamed ```ig.EntitySwitch.broken```
-* ```ig.EntitySwitch.autoStuck``` renamed ```ig.EntitySwitch.autoBreak```
+* ```ig.UIText``` no longer positions to center by default (but still aligns to center by default)
+* ```ig.EntityConversation``` completely reworked
 
 ####Contributing
 We'd love it if you want to help make Impact++ better, so if you're interested take a look at [CONTRIBUTING](https://github.com/collinhover/impactplusplus/blob/master/CONTRIBUTING.md).
