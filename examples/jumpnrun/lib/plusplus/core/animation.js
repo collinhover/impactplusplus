@@ -263,6 +263,10 @@ ig.module(
              **/
             playFromStart: function (once) {
 
+                if ((once == undefined) && (this.once != undefined)) {
+                    once = this.once;
+                }
+
                 this.stop = false;
                 this.rewind(once);
 
@@ -275,6 +279,10 @@ ig.module(
              **/
             rewind: function (once) {
 
+                if ((once == undefined) && (this.once != undefined)) {
+                    once = this.once;
+                }
+                
                 this.once = once;
 
                 return this.parent();
