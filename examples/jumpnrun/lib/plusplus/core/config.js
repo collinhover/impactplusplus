@@ -330,12 +330,12 @@ ig.module(
         ig.CONFIG.STATIC = "static";
 
         /**
-         * Performance level where entities move but have no physics / collisions.
+         * Performance level where entities move and collide only with other entities, but have no physics step such as velocity, accel, and collision map.
          * @type {String}
          * @default
          * @memberof ig.CONFIG
          */
-        ig.CONFIG.DYNAMIC = "dynamic";
+        ig.CONFIG.MOVABLE = "movable";
 
         /**
          * Performance level where entities move and have full physics / collisions.
@@ -343,7 +343,7 @@ ig.module(
          * @default
          * @memberof ig.CONFIG
          */
-        ig.CONFIG.KINEMATIC = "kinematic";
+        ig.CONFIG.DYNAMIC = "dynamic";
 
         /**
          * Z index overlays, which should be below everything else on their layer.
@@ -919,13 +919,13 @@ ig.module(
         ig.CONFIG.LIGHT.CASTS_SHADOWS = false;
 
         /**
-         * Whether light should cast shadows on dynamic objects that are {@link ig.EntityExtended#opaque}.
+         * Whether light should cast shadows on movable objects that are {@link ig.EntityExtended#opaque}.
          * <br>- <strong>IMPORTANT:</strong> casting shadows can have a higher performance cost, use carefully!
          * @type Boolean
          * @default
          * @memberof ig.CONFIG.LIGHT
          */
-        ig.CONFIG.LIGHT.CASTS_SHADOWS_DYNAMIC = false;
+        ig.CONFIG.LIGHT.CASTS_SHADOWS_MOVABLE = false;
 
         /**
          * Red value from 0 to 1.

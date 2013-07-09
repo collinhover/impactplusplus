@@ -206,9 +206,9 @@ ig.module(
             /**
              * @override
              **/
-            changePerformanceKinematic: function () {
+            changePerformanceDynamic: function () {
 
-                // change to entities layer if kinematic (i.e. uses physics) and on ui layer
+                // change to entities layer if dynamic (i.e. uses physics) and on ui layer
 
                 if (this.layerName === 'ui') {
 
@@ -337,7 +337,7 @@ ig.module(
 
             /**
              * Pseudo refresh when changed to make sure linkedTo elements update appropriately.
-             * <br>- only affects dynamic or kinematic UI elements
+             * <br>- only affects movable or dynamic UI elements
              * @override
              **/
             recordChanges: function ( force ) {

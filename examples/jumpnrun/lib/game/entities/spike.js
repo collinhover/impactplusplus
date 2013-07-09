@@ -30,7 +30,7 @@ ig.module(
 		
 		// full physics performance
 		
-		performance: _c.KINEMATIC,
+		performance: _c.DYNAMIC,
 		
 		animSheet: new ig.AnimationSheet( 'media/spike.png', 16, 9 ),
 		

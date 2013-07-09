@@ -50,9 +50,9 @@ ig.module(
             /**
              * Player has full performance.
              * @type String
-             * @default kinematic
+             * @default dynamic
              */
-            performance: _c.KINEMATIC,
+            performance: _c.DYNAMIC,
 
             /**
              * Player entity should be persistent across levels.

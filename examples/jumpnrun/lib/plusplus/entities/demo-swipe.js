@@ -24,9 +24,9 @@ ig.module(
             /**
              * Swipe demo will likely move.
              * @override
-             * @default dynamic
+             * @default movable
              */
-            performance: _c.DYNAMIC,
+            performance: _c.MOVABLE,
 
             /**
              * @override

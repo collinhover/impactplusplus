@@ -68,7 +68,7 @@ ig.module(
 			// to ig.Entity light properties
 			light: {
 				// the light should move with player
-				performance: _c.DYNAMIC,
+				performance: _c.MOVABLE,
 				// cast shadows only on static entities
 				castsShadows: true
 			}

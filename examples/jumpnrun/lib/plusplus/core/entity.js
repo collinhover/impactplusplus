@@ -119,8 +119,8 @@ ig.module(
             /**
              * How entity should perform during update.
              * <br>- static will only update animation
-             * <br>- dynamic can move but does not collide with collision map
-             * <br>- kinematic does full update, including movement and collision map checks
+             * <br>- movable can move but does not collide with collision map
+             * <br>- dynamic does full update, including movement and collision map checks
              * <span class="alert"><strong>IMPORTANT:</strong> this directly correlates to the complexity of entity's update and whether it collides with collision map.</span>
              * @type String
              * @default static
@@ -130,7 +130,7 @@ ig.module(
             /**
              * Whether is fixed in screen vs inside world space.
              * <br>- this is particularly useful for UI elements
-             * <span class="alert"><strong>IMPORTANT:</strong> fixed elements cannot have kinematic performance!</span>
+             * <span class="alert"><strong>IMPORTANT:</strong> fixed elements cannot have dynamic performance!</span>
              * @type Boolean
              * @default
              */
@@ -643,7 +643,7 @@ ig.module(
 
             /**
              * Whether entity is tweening to another entity.
-             * <span class="alert"><strong>IMPORTANT:</strong> this is automatically disabled with kinematic entities!</span>
+             * <span class="alert"><strong>IMPORTANT:</strong> this is automatically disabled with dynamic entities!</span>
              * @type Boolean
              * @default
              * @readonly
@@ -1062,9 +1062,9 @@ ig.module(
                 this.totalSizeX = this.getTotalSizeX();
                 this.totalSizeY = this.getTotalSizeY();
 
-                // kinematic (i.e. uses physics) cannot be fixed
+                // dynamic (i.e. uses physics) cannot be fixed
 
-                if (this.performance === _c.KINEMATIC) {
+                if (this.performance === _c.DYNAMIC) {
 
                     this.fixed = false;
 
@@ -1236,16 +1236,16 @@ ig.module(
 
                 this.performanceLast = this.performance;
 
-                // dynamic
-                if (this.performance === _c.DYNAMIC) {
+                // movable
+                if (this.performance === _c.MOVABLE) {
 
-                    this.changePerformanceDynamic();
+                    this.changePerformanceMovable();
 
                 }
-                // kinematic
-                else if (this.performance === _c.KINEMATIC) {
+                // dynamic
+                else if (this.performance === _c.DYNAMIC) {
 
-                    this.changePerformanceKinematic();
+                    this.changePerformanceDynamic();
 
                 }
                 // default to static
@@ -1264,15 +1264,15 @@ ig.module(
             },
 
             /**
-             * Called when performance changed to dynamic.
+             * Called when performance changed to movable.
              **/
-            changePerformanceDynamic: function () {
+            changePerformanceMovable: function () {
             },
 
             /**
-             * Called when performance changed to kinematic.
+             * Called when performance changed to dynamic.
              **/
-            changePerformanceKinematic: function () {
+            changePerformanceDynamic: function () {
             },
 
             /**
@@ -1592,12 +1592,12 @@ ig.module(
             },
 
             /**
-             * Calculates if entity is handling its own movement, i.e. kinematic, moving to, etc.
+             * Calculates if entity is handling its own movement, i.e. dynamic, moving to, etc.
              * @returns {Boolean} if is handling own movement.
              **/
             getIsMovingSelf: function () {
 
-                return this.performance === _c.KINEMATIC || this.movingTo;
+                return this.performance === _c.DYNAMIC || this.movingTo;
 
             },
 
@@ -2600,11 +2600,11 @@ ig.module(
 
                         var performance = entity.performance;
 
-                        // kinematic to dynamic for proper follow
+                        // dynamic to movable for proper follow
 
-                        if (performance === _c.KINEMATIC) {
+                        if (performance === _c.DYNAMIC) {
 
-                            performance = _c.DYNAMIC;
+                            performance = _c.MOVABLE;
 
                         }
 
@@ -2636,7 +2636,7 @@ ig.module(
 
                     }
 
-                    // no need to constantly follow if this entity is not dynamic or entity to follow is static, and not lerping or tweening
+                    // no need to constantly follow if this entity is not movable or entity to follow is static, and not lerping or tweening
 
                     if (( this.performance === _c.STATIC || entity.performance === _c.STATIC ) && !settings.lerp && !settings.tween) {
 
@@ -3250,8 +3250,8 @@ ig.module(
              * <br>- paused entities don't update at all
              * <br>- frozen entities don't update except to do (@link ig.EntityExtended#updateCleanup} (useful for triggers)
              * <br>- static performance entities only check if visible and do (@link ig.EntityExtended#updateVisible}
-             * <br>- dynamic performance entities ignore collision map but do move and check for changes via (@link ig.EntityExtended#updateChanges} and (@link ig.EntityExtended#recordChanges}
-             * <br>- kinematic performance entities move, check for changes, collide with collision map, and have physics forces via (@link ig.EntityExtended#updateVelocity}
+             * <br>- movable performance entities ignore collision map but do move and check for changes via (@link ig.EntityExtended#updateChanges} and (@link ig.EntityExtended#recordChanges}
+             * <br>- dynamic performance entities move, check for changes, collide with collision map, and have physics forces via (@link ig.EntityExtended#updateVelocity}
              * <span class="alert"><strong>IMPORTANT:</strong> (@link ig.EntityExtended#performance} has nothing to do with entity to entity collisions, which is defined by (@link ig.EntityExtended#collides}.</span>
              **/
             update: function () {
@@ -3285,7 +3285,7 @@ ig.module(
 
                             // physics entities
 
-                            if (this.performance === _c.KINEMATIC && !this._killed) {
+                            if (this.performance === _c.DYNAMIC && !this._killed) {
 
                                 // gravity
 

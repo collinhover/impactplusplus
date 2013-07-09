@@ -30,9 +30,9 @@ ig.module(
             /**
              * Particle performance should allow for full collision map interaction.
              * @override
-             * @default kinematic
+             * @default dynamic
              */
-            performance: _c.KINEMATIC,
+            performance: _c.DYNAMIC,
 
             /**
              * @override
