@@ -61,10 +61,10 @@ ig.module(
         'plusplus.core.game'
     ).requires(
         'impact.game',
-        'impact.font',
         'plusplus.core.config',
         'plusplus.core.timer',
         'plusplus.core.image',
+        'plusplus.core.font',
         'plusplus.core.background-map',
         'plusplus.core.collision-map',
         'plusplus.core.animation',
@@ -139,14 +139,21 @@ ig.module(
              * <br>- If font path is undefined, loads nothing and creates no font.
              * @type ig.Font
              */
-            font: ( _c.FONT_MAIN_PATH ? new ig.Font(_c.FONT_MAIN_PATH) : null ),
+            font: ( _c.FONT.MAIN_PATH ? new ig.Font(_c.FONT.MAIN_PATH) : null ),
 
             /**
              * Alternative font.
-             * <br>- If font path is undefined, loads nothing and creates no font.
+             * <br>- If font path is undefined, will copy main font.
              * @type ig.Font
              */
-            fontAlt: ( _c.FONT_ALT_PATH ? new ig.Font(_c.FONT_ALT_PATH) : ( _c.FONT_MAIN_PATH ? new ig.Font(_c.FONT_MAIN_PATH) : null ) ),
+            fontAlt: ( _c.FONT.ALT_PATH ? new ig.Font(_c.FONT.ALT_PATH) : ( _c.FONT.MAIN_PATH ? new ig.Font(_c.FONT.MAIN_PATH) : null ) ),
+
+            /**
+             * Chat font.
+             * <br>- If font path is undefined, will copy main font.
+             * @type ig.Font
+             */
+            fontChat: ( _c.FONT.CHAT_PATH ? new ig.Font(_c.FONT.CHAT_PATH) : ( _c.FONT.MAIN_PATH ? new ig.Font(_c.FONT.MAIN_PATH) : null ) ),
 
             /**
              * List of layers, sorted by zIndex.
@@ -326,7 +333,7 @@ ig.module(
 
                 this.addLayer(new ig.Layer('backgroundMaps', {
                     preRender: _c.PRERENDER_BACKGROUND_LAYER,
-                    noUpdate: true
+                    noUpdate: _c.NO_UPDATE_BACKGROUND_LAYER
                 }));
 
                 this.addLayer(new ig.Layer('lights'));
@@ -335,7 +342,7 @@ ig.module(
 
                 this.addLayer(new ig.Layer('foregroundMaps', {
                     preRender: _c.PRERENDER_FOREGROUND_LAYER,
-                    noUpdate: true
+                    noUpdate: _c.NO_UPDATE_FOREGROUND_LAYER
                 }));
 
                 // overlay should always be second from top
@@ -343,16 +350,17 @@ ig.module(
 
                 this.addLayer(new ig.Layer('overlay', {
                     zIndex: 1,
-                    autoSort: true
+                    ignorePause: _c.IGNORE_PAUSE_OVERLAY_LAYER,
+                    autoSort: _c.AUTO_SORT_OVERLAY_LAYER
                 }));
 
                 // ui always on top and automatically sorted
 
                 this.addLayer(new ig.Layer('ui', {
                     zIndex: 2,
-                    clearOnLoad: _c.UI_LAYER_CLEAR_ON_LOAD,
-                    ignorePause: _c.UI_LAYER_IGNORES_PAUSE,
-                    autoSort: true
+                    clearOnLoad: _c.CLEAR_ON_LOAD_UI_LAYER,
+                    ignorePause: _c.IGNORE_PAUSE_UI_LAYER,
+                    autoSort: _c.AUTO_SORT_UI_LAYER
                 }));
 
                 // setup custom layers
@@ -534,7 +542,7 @@ ig.module(
                         }
                         else {
 
-                            newMap = new ig.BackgroundMap(ld.tilesize, ld.data, ld.tilesetName);
+                            newMap = new ig.BackgroundMapExtended(ld.tilesize, ld.data, ld.tilesetName);
                             newMap.anims = this.backgroundAnims[ld.tilesetName] || {};
                             newMap.repeat = ld.repeat;
                             newMap.distance = ld.distance;
@@ -568,20 +576,11 @@ ig.module(
 
                     this._levelBuilding = false;
 
-                    // set all layer items ready
+                    // set all layers ready
 
                     for (i = 0, il = this.layers.length; i < il; i++) {
 
-                        layer = this.layers[i];
-                        items = layer.items;
-
-                        if (layer.numEntities) {
-
-                            for (j = 0, jl = items.length; j < jl; j++) {
-                                items[ j ].ready();
-                            }
-
-                        }
+                        this.layers[i].ready();
                     }
 
                     // find player
@@ -614,18 +613,6 @@ ig.module(
 
                     }
 
-                    // snap camera to player
-
-                    if (this.camera && player) {
-
-                        this.camera.follow( player, true );
-
-                    }
-
-                    // record changed
-
-                    this.hasLevel = this.dirtyEntities = this.dirtyLights = true;
-
                     // ensure unpaused
 
                     this.unpause( true );
@@ -644,6 +631,18 @@ ig.module(
                         this.transitioner = undefined;
 
                     }
+
+                    // snap camera to center on player
+
+                    if (this.camera && player) {
+
+                        this.camera.follow( player, true, true );
+
+                    }
+
+                    // record changed
+
+                    this.hasLevel = this.dirtyEntities = this.dirtyLights = true;
 
                 }
 
@@ -1097,20 +1096,12 @@ ig.module(
 
                 item.added = true;
 
-                // item not just swapping layers
+                // item not just swapping layers and game is not building a level
 
-                if (!item._layerChange) {
-
-                    // if spawning after game is ready, trigger ready immediately
-
-                    if (item.ready && !this._levelBuilding ) {
-
-                        item.ready();
-
-                    }
+                if (!item._layerChange && !this._levelBuilding) {
 
                     // handle this pause state (normally this won't be needed)
-                    // helps when item was paused and added to an unpaused layer
+                    // helps when item paused state does not match layer paused state
 
                     if (layer.paused) {
 
@@ -1121,9 +1112,17 @@ ig.module(
                         }
 
                     }
-                    else if (item.unpause) {
+                    else if (item.paused && item.unpause) {
 
                         item.unpause();
+
+                    }
+
+                    // do adding
+
+                    if (item.adding ) {
+
+                        item.adding();
 
                     }
 

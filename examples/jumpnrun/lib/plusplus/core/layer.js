@@ -2,6 +2,7 @@ ig.module(
         'plusplus.core.layer'
     )
     .requires(
+        'plusplus.core.config',
         'plusplus.core.entity',
         'plusplus.core.background-map',
         'plusplus.entities.light',
@@ -9,6 +10,7 @@ ig.module(
     )
     .defines(function () {
 
+        var _c = ig.CONFIG;
         var _ut = ig.utils;
 
         /**
@@ -66,7 +68,7 @@ ig.module(
              * @type Boolean
              * @default
              */
-            preRender: false,
+            preRender: _c.PRERENDER_MAPS,
 
             /**
              * List of layer items.
@@ -104,7 +106,7 @@ ig.module(
              * @type Boolean
              * @default
              */
-            autoSort: false,
+            autoSort: _c.AUTO_SORT_LAYERS,
 
             /**
              * Function to sort by, defaults to game sortBy.
@@ -133,6 +135,7 @@ ig.module(
             /**
              * Whether layer has been changed since last update.
              * @type Boolean
+             * @readonly
              */
             changed: true,
 
@@ -140,6 +143,7 @@ ig.module(
              * Whether layer is paused.
              * <span class="alert"><strong>IMPORTANT:</strong> does not guarantee that all items are paused or unpaused!</span>
              * @type Boolean
+             * @readonly
              */
             paused: false,
 
@@ -154,6 +158,7 @@ ig.module(
             /**
              * Whether layer should be sorted on next update.
              * @type Boolean
+             * @readonly
              */
             dirtySort: false,
 
@@ -196,7 +201,7 @@ ig.module(
                     // clear items
 
                     this.items = [];
-                    this.itemsTargetable.length = this.itemsInteractive.length = this.itemsOpaque.length = this.itemsLight.length = 0;
+                    this.itemsTargetable.length = this.itemsInteractive.length = this.itemsOpaque.length = this.itemsLight.length = this.numBackgroundMaps = this.numEntities = this.numEntitiesChecking = 0;
 
                     // remove all items
 
@@ -212,6 +217,125 @@ ig.module(
                         else {
 
                             ig.game.removeItem( item );
+
+                        }
+
+                    }
+
+                }
+
+            },
+
+            /**
+             * Sets layer as ready.
+             */
+            ready: function () {
+
+                var i, il;
+                var item;
+
+                if ( this.items.length > 0 ) {
+
+                    // do sort
+
+                    if ( this.autoSort ) {
+
+                        this.items.sort(this.sortBy);
+
+                    }
+
+                    // merge all prerendered maps into a single map
+                    // when using more than 1 map, this improves performance greatly
+
+                    if ( this.preRender && this.numBackgroundMaps > 1 ) {
+
+                        var mergers = [];
+                        var merger;
+
+                        for (i = 0, il = this.items.length; i < il; i++) {
+
+                            item = this.items[ i ];
+
+                            if ( item instanceof ig.BackgroundMap ) {
+
+                                // map must be prerendered but not repeated
+
+                                if ( item.preRender && !item.repeat ) {
+
+                                    // start new merger if needed
+
+                                    if ( !merger ) {
+
+                                        merger = [];
+
+                                    }
+
+                                    merger.push( item );
+
+                                }
+                                // when a map is not prerendered
+                                // break merger and add to list of mergers
+                                // so that correct rendering order is preserved
+                                else if ( merger && merger.length > 1 ) {
+
+                                    mergers.push( merger );
+                                    merger = undefined;
+
+                                }
+
+                            }
+
+                        }
+
+                        // add last merger to list of mergers
+
+                        if ( merger && merger.length > 1 ) {
+
+                            mergers.push( merger );
+
+                        }
+
+                        // merge each list of maps into the first of the list
+
+                        for ( i = 0, il = mergers.length; i < il; i++ ) {
+
+                            merger = mergers[ i ];
+
+                            var map = merger[ 0 ];
+
+                            // map must be extended background map
+
+                            if ( !( map instanceof ig.BackgroundMapExtended ) ) {
+
+                                map = merger[ 0 ] = new ig.BackgroundMapExtended( map.tilesize, map.data, map.tilesetName );
+
+                            }
+
+                            for ( var j = 1, jl = merger.length; j < jl; j++ ) {
+
+                                item = merger[ j ];
+
+                                map.merge( item );
+
+                                // remove item from layer as it is no longer needed
+
+                                this.removeItem( item );
+
+                            }
+
+                        }
+
+                    }
+
+                    // set all items adding
+
+                    for (i = 0, il = this.items.length; i < il; i++) {
+
+                        item = this.items[ i ];
+
+                        if (item.adding ) {
+
+                            item.adding();
 
                         }
 
@@ -381,7 +505,7 @@ ig.module(
              **/
             pause: function () {
 
-                if (!this.ignorePause && this.paused !== true) {
+                if (!this.ignorePause) {
 
                     // layer properties
 
@@ -412,23 +536,19 @@ ig.module(
              **/
             unpause: function () {
 
-                if (this.paused !== false) {
+                this.paused = false;
 
-                    this.paused = false;
+                // items
 
-                    // items
+                var items = this.items;
 
-                    var items = this.items;
+                for (var i = 0, il = items.length; i < il; i++) {
 
-                    for (var i = 0, il = items.length; i < il; i++) {
+                    var item = items[ i ];
 
-                        var item = items[ i ];
+                    if (item.unpause) {
 
-                        if (item.unpause) {
-
-                            item.unpause();
-
-                        }
+                        item.unpause();
 
                     }
 
@@ -449,6 +569,9 @@ ig.module(
              * Updates layer and all items.
              */
             update: function () {
+
+                var i, il;
+                var item;
 
                 this.changed = this.changedLights = false;
 
@@ -474,9 +597,9 @@ ig.module(
 
                     // update items
 
-                    for (var i = 0, il = this.items.length; i < il; i++) {
+                    for (i = 0, il = this.items.length; i < il; i++) {
 
-                        var item = this.items[ i ];
+                        item = this.items[ i ];
 
                         // always do update to let item handle pause state
 
@@ -538,6 +661,8 @@ ig.module(
             draw: function () {
 
                 if (!this.noDraw && this.items.length > 0) {
+
+                    // draw each item
 
                     for (var i = 0, il = this.items.length; i < il; i++) {
 

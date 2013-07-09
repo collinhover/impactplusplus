@@ -129,6 +129,20 @@ ig.module(
             transitioning: false,
 
             /**
+             * Whether camera is transitioning instantly.
+             * @type Boolean
+             * @readonly
+             */
+            transitioningInstantly: false,
+
+            /**
+             * Whether camera is transitioning to the center.
+             * @type Boolean
+             * @readonly
+             */
+            transitioningCenter: false,
+
+            /**
              * Percent progress of transition.
              * @type Number
              * @readonly
@@ -500,7 +514,7 @@ ig.module(
 
                     if ( this.changed || ( this.lightsCutout && ( ig.game.dirtyLights || ig.game.changedLights ) ) ) {
 
-                        this.atmosphereOverlay.resize(true);
+                        this.atmosphereOverlay.refresh(true);
 
                         // cut each light out of atmosphere
 
@@ -547,10 +561,11 @@ ig.module(
              * Starts following an entity.
              * @param {ig.EntityExtended} entity entity to follow.
              * @param {Boolean} [snap] whether to snap to entity instead of transitioning.
+             * @param {Boolean} [center] whether to center on entity.
              **/
-            follow: function (entity, snap) {
+            follow: function (entity, snap, center) {
 
-                if (this.entity !== entity || snap === true) {
+                if (this.entity !== entity || snap || center) {
 
                     this.unfollow();
 
@@ -558,15 +573,27 @@ ig.module(
 
                     if ( this.entity ) {
 
-                        this.transitioning = !snap;
+                        this.transitioning = true;
+                        this.transitioningInstantly = snap;
+                        this.transitioningCenter = center;
                         this._transitionTime = 0;
                         _utv2.copy(this._transitionFrom, ig.game.screen);
+                        _uti.boundsCopy(this._boundsScreen, this.bounds, ig.game.screen.x, ig.game.screen.y);
 
                     }
 
                 }
 
-                if ( this.transitioning !== true && this.entity ) {
+                if ( this.transitioning ) {
+
+                    if ( this.transitioningInstantly ) {
+
+                        this.updateFollow();
+
+                    }
+
+                }
+                else if ( this.entity ) {
 
                     this.onTransitioned.dispatch( this );
 
@@ -589,7 +616,7 @@ ig.module(
 
                     this.transitioning = false;
 
-                    _uti.boundsCopy(this._boundsScreen, this.bounds, screen.x, screen.y);
+                    _uti.boundsCopy(this._boundsScreen, this.bounds, ig.game.screen.x, ig.game.screen.y);
 
                 }
 
@@ -637,7 +664,7 @@ ig.module(
 
                     this.transitioning = false;
 
-                    _uti.boundsCopy(this._boundsScreen, this.bounds, screen.x, screen.y);
+                    _uti.boundsCopy(this._boundsScreen, this.bounds, ig.game.screen.x, ig.game.screen.y);
 
                 }
 
@@ -673,39 +700,49 @@ ig.module(
 
                         this.changed = true;
 
-                        // set transitionDuration
+                        if ( this.transitioningInstantly ) {
 
-                        if ( this._transitionTime === 0 ) {
+                            this.transitionPct = 1;
 
-                            if ( this.transitionDistance > 0 ) {
+                        }
+                        else {
 
-                                var dx = ( screenNextX - this._boundsScreen.minX );
-                                var dy = ( screenNextY - this._boundsScreen.minY );
-                                var distance = Math.sqrt( dx * dx + dy * dy );
+                            // set transitionDuration
 
-                                this._transitionDuration = ( this.transitionDuration * ( distance / this.transitionDistance ) ).limit( this.transitionDurationMin, this.transitionDurationMax );
+                            if ( this._transitionTime === 0 ) {
+
+                                if ( this.transitionDistance > 0 ) {
+
+                                    var dx = ( screenNextX - this._boundsScreen.minX );
+                                    var dy = ( screenNextY - this._boundsScreen.minY );
+                                    var distance = Math.sqrt( dx * dx + dy * dy );
+
+                                    this._transitionDuration = ( this.transitionDuration * ( distance / this.transitionDistance ) ).limit( this.transitionDurationMin, this.transitionDurationMax );
+
+                                }
+                                else {
+
+                                    this._transitionDuration = this.transitionDuration;
+
+                                }
 
                             }
-                            else {
 
-                                this._transitionDuration = this.transitionDuration;
-
-                            }
+                            this._transitionTime += ig.system.tick;
+                            this.transitionPct = this._transitionTime / this._transitionDuration;
 
                         }
 
-                        this._transitionTime += ig.system.tick;
-                        this.transitionPct = this._transitionTime / this._transitionDuration;
                         var value = _tw.Easing.Quadratic.InOut(this.transitionPct);
 
                         if (screenNextX < this._boundsScreen.minX) {
 
-                            screen.x = this._transitionFrom.x + ( screenNextX - this._boundsScreen.minX ) * value;
+                            screen.x = this._transitionFrom.x + ( screenNextX - ( this._boundsScreen.minX + ( this.transitioningCenter ? this._boundsScreen.width * 0.5 : 0 ) ) ) * value;
 
                         }
                         else if (screenNextX > this._boundsScreen.maxX) {
 
-                            screen.x = this._transitionFrom.x + ( screenNextX - this._boundsScreen.maxX ) * value;
+                            screen.x = this._transitionFrom.x + ( screenNextX - ( this._boundsScreen.maxX - ( this.transitioningCenter ? this._boundsScreen.width * 0.5 : 0 ) ) ) * value;
 
                         }
                         else {
@@ -716,12 +753,12 @@ ig.module(
 
                         if (screenNextY < this._boundsScreen.minY) {
 
-                            screen.y = this._transitionFrom.y + ( screenNextY - this._boundsScreen.minY ) * value;
+                            screen.y = this._transitionFrom.y + ( screenNextY - ( this._boundsScreen.minY + ( this.transitioningCenter ? this._boundsScreen.height * 0.5 : 0 ) ) ) * value;
 
                         }
                         else if (screenNextY > this._boundsScreen.maxY) {
 
-                            screen.y = this._transitionFrom.y + ( screenNextY - this._boundsScreen.maxY ) * value;
+                            screen.y = this._transitionFrom.y + ( screenNextY - ( this._boundsScreen.maxY - ( this.transitioningCenter ? this._boundsScreen.height * 0.5 : 0 ) ) ) * value;
 
                         }
                         else {
@@ -734,7 +771,7 @@ ig.module(
 
                         if (this.transitionPct >= 1 || ( noteX && noteY )) {
 
-                            this.transitioning = false;
+                            this.transitioning = this.transitioningInstantly = this.transitioningCenter = false;
                             _uti.boundsCopy(this._boundsScreen, this.bounds, screen.x, screen.y);
 
                             this.onTransitioned.dispatch();
@@ -746,41 +783,41 @@ ig.module(
 
                         // get actual screen next position
 
-                        if (screenNextX < this._boundsScreen.minX) {
-
-                            screen.x += screenNextX - this._boundsScreen.minX;
-
-                        }
-                        else if (screenNextX > this._boundsScreen.maxX) {
-
-                            screen.x += screenNextX - this._boundsScreen.maxX;
-
-                        }
-                        else if (this.keepCentered) {
+                        if (this.keepCentered ) {
 
                             screen.x += ( screenNextX - screen.x ) * this.lerp;
-
-                        }
-
-                        if (screenNextY < this._boundsScreen.minY) {
-
-                            screen.y += screenNextY - this._boundsScreen.minY;
-
-                        }
-                        else if (screenNextY > this._boundsScreen.maxY) {
-
-                            screen.y += screenNextY - this._boundsScreen.maxY;
-
-                        }
-                        else if (this.keepCentered) {
-
                             screen.y += ( screenNextY - screen.y ) * this.lerp;
 
                         }
+                        else {
 
-                        // check if screenLast and next are not near equal
+                            if (screenNextX < this._boundsScreen.minX) {
 
-                        if (!_utm.almostEqual(screen.x, this.screenLast.x, _c.PRECISION_ZERO)) {
+                                screen.x += screenNextX - this._boundsScreen.minX;
+
+                            }
+                            else if (screenNextX > this._boundsScreen.maxX) {
+
+                                screen.x += screenNextX - this._boundsScreen.maxX;
+
+                            }
+
+                            if (screenNextY < this._boundsScreen.minY) {
+
+                                screen.y += screenNextY - this._boundsScreen.minY;
+
+                            }
+                            else if (screenNextY > this._boundsScreen.maxY) {
+
+                                screen.y += screenNextY - this._boundsScreen.maxY;
+
+                            }
+
+                        }
+
+                        // check if screenLast and next are not equal
+
+                        if ( screen.x - this.screenLast.x !== 0 ) {
 
                             this.changed = true;
                             this.screenLast.x = screen.x;
@@ -788,7 +825,7 @@ ig.module(
 
                         }
 
-                        if (!_utm.almostEqual(screen.y, this.screenLast.y, _c.PRECISION_ZERO)) {
+                        if ( screen.y - this.screenLast.y !== 0 ) {
 
                             this.changed = true;
                             this.screenLast.y = screen.y;
@@ -804,6 +841,8 @@ ig.module(
 
                     screen.x += this.shakeOffset.x;
                     screen.y += this.shakeOffset.y;
+
+                    this.changed = true;
 
                 }
 

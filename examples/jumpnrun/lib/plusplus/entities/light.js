@@ -134,28 +134,28 @@ ig.module(
              * @type Number
              * @default
              */
-            r: 1,
+            r: _c.LIGHT.R,
 
             /**
              * Green value from 0 to 1.
              * @type Number
              * @default
              */
-            g: 1,
+            g: _c.LIGHT.G,
 
             /**
              * Blue value from 0 to 1.
              * @type Number
              * @default
              */
-            b: 1,
+            b: _c.LIGHT.B,
 
             /**
              * Alpha value from 0 to 1.
              * @type Number
              * @default
              */
-            alpha: 0.25,
+            alpha: _c.LIGHT.ALPHA,
 
             /**
              * Whether color can change dynamically in addition to alpha.
@@ -166,13 +166,12 @@ ig.module(
             dynamicColor: false,
 
             /**
-             * Whether light should be scaled pixel perfectly
-             * <br>- <strong>IMPORTANT:</strong> pixel perfect scaling has a very high performance cost, use carefully!
-             * <br>- this is useful when you need to keep the visual style consistently pixelated
+             * Whether light should be drawn and scaled pixel perfectly.
+             * <span class="alert alert-danger"><strong>IMPORTANT:</strong> pixel perfect scaling has a very high performance cost, use carefully!</span>
              * @type Boolean
              * @default
              */
-            pixelPerfect: false,
+            pixelPerfect: _c.LIGHT.PIXEL_PERFECT,
 
             /**
              * Whether light should be gradient or flat shaded.
@@ -180,7 +179,7 @@ ig.module(
              * @type Boolean
              * @default
              */
-            gradient: true,
+            gradient: _c.LIGHT.GRADIENT,
 
             /**
              * Whether light should cast shadows on objects that are {@link ig.EntityExtended#opaque}.
@@ -189,7 +188,7 @@ ig.module(
              * @type Boolean
              * @default
              */
-            castsShadows: false,
+            castsShadows: _c.LIGHT.CASTS_SHADOWS,
 
             /**
              * Whether light should cast shadows on dynamic objects that are {@link ig.EntityExtended#opaque}.
@@ -198,7 +197,7 @@ ig.module(
              * @type Boolean
              * @default
              */
-            castsShadowsDynamic: false,
+            castsShadowsDynamic: _c.LIGHT.CASTS_SHADOWS_DYNAMIC,
 
             /**
              * List of items to cast shadows with.
@@ -213,7 +212,7 @@ ig.module(
              * @type Number
              * @default
              */
-            diffuse: 0.9,
+            diffuse: _c.LIGHT.DIFFUSE,
 
             /**
              * Number of passes to make when casting shadows.
@@ -221,7 +220,7 @@ ig.module(
              * @type Number
              * @default
              */
-            samples: 1,
+            samples: _c.LIGHT.SAMPLES,
 
             /**
              * Off screen canvas to cache complete light to improve performance.
@@ -393,7 +392,7 @@ ig.module(
 					
                     // redraw basic light if scale changed
 
-                    if (this._changedSize || this.scaleComputedAt !== ig.system.scale) {
+                    if (this._changedSize || this.scaleComputedAt !== ig.system.scale || ( this.castsShadows && !this.imageCast ) ) {
 						
                         this._changedSize = false;
                         this.scaleComputedAt = ig.system.scale;

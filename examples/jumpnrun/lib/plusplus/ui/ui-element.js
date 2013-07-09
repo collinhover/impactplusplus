@@ -2,6 +2,7 @@ ig.module(
         'plusplus.ui.ui-element'
     )
     .requires(
+        'plusplus.core.config',
         'plusplus.core.entity',
         'plusplus.helpers.signals',
         'plusplus.helpers.utils',
@@ -9,6 +10,7 @@ ig.module(
     )
     .defines(function () {
 
+        var _c = ig.CONFIG;
         var _ut = ig.utils;
         var _utv2 = ig.utilsvector2;
 
@@ -48,13 +50,6 @@ ig.module(
              * @default
              */
             fixed: true,
-
-            /**
-             * Whether UI element should act as if it is vertical instead of horizontal
-             * @type Boolean
-             * @default
-             */
-            vertical: false,
 
             /**
              * Whether to treat position as a percentage of screen size.
@@ -101,13 +96,36 @@ ig.module(
             marginAsPctSmallest: true,
 
             /**
+             * Total horizontal margin, calculated during resize.
+             * @type Number
+             * @default
+             * @readonly
+             */
+            totalMarginX: 0,
+
+            /**
+             * Total vertical margin, calculated during resize.
+             * @type Number
+             * @default
+             * @readonly
+             */
+            totalMarginY: 0,
+
+            /**
              * Another UI element to link to.
              * <span class="alert alert-info"><strong>Tip:</strong> this allows for UI element chaining and pseudo parent/child transforms.</span>
-             * <br>- a linked element will always resize and reposition after the element it is linked to
+             * <br>- a linked element will always refresh after the element it is linked to
              * @type ig.UIElement
              * @default
              */
             linkedTo: null,
+
+            /**
+             * Alignment in percent used to offset the element based on {@link ig.UIElement#linkedTo}'s size.
+             * @type Vector2
+             * @default 0%
+             */
+            linkAlign: _utv2.vector(),
 
             /**
              * Signal dispatched when UI element activated.
@@ -124,11 +142,18 @@ ig.module(
             onDeactivated: null,
 
             /**
-             * Signal dispatched when UI element is resized.
+             * Signal dispatched when UI element is refreshed.
              * <br>- created on init.
              * @type ig.Signal
              */
-            onResized: null,
+            onRefreshed: null,
+
+            /**
+             * Whether build needs change.
+             * @type Boolean
+             * @default
+             */
+            dirtyBuild: true,
 
             /**
              * @override
@@ -150,20 +175,20 @@ ig.module(
 
                 this.onActivated = new ig.Signal();
                 this.onDeactivated = new ig.Signal();
-                this.onResized = new ig.Signal();
+                this.onRefreshed = new ig.Signal();
 
             },
 
             /**
              * Called after UI element is added to game world.
-             * <br>- calls first resize via {@link ig.UIElement#resize} or {@link ig.UIElement#link} if linked to another element.
+             * <br>- calls first refresh via {@link ig.UIElement#refresh} or {@link ig.UIElement#link} if linked to another element.
              * @override
              **/
             ready: function () {
 
                 this.parent();
 
-                ig.game.onResized.add(this.resize, this);
+                ig.game.onResized.add(this.refresh, this);
 
                 if (this.linkedTo) {
 
@@ -172,7 +197,7 @@ ig.module(
                 }
                 else {
 
-                    this.resize(true);
+                    this.refresh(true);
 
                 }
 
@@ -222,9 +247,9 @@ ig.module(
             },
 
             /**
-             * Links ui element to another entity, making original resize after the element it is linked to.
+             * Links ui element to another entity, making original refresh after the element it is linked to.
              * <span class="alert alert-info"><strong>Tip:</strong> this allows for UI element chaining and pseudo parent/child transforms.</span>
-             * <br>- a linked element will always resize and reposition after the element it is linked to
+             * <br>- a linked element will always refresh after the element it is linked to
              * @param {ig.EntityExtended} entity to link to.
              **/
             link: function (entity) {
@@ -241,22 +266,22 @@ ig.module(
 
                     if (this.linkedTo instanceof ig.UIElement) {
 
-                        // swap listen to game resize with listen to linked resize
+                        // swap listen to game refresh with listen to linked refresh
 
-                        ig.game.onResized.remove(this.resize, this);
-                        this.linkedTo.onResized.add(this.resize, this);
+                        ig.game.onResized.remove(this.refresh, this);
+                        this.linkedTo.onRefreshed.add(this.refresh, this);
                         this.linkedTo.onRemoved.add(this.unlink, this);
 
                     }
                     else {
 
-                        ig.game.onResized.add(this.resize, this);
+                        ig.game.onResized.add(this.refresh, this);
 
                     }
 
-                    // resize self
+                    // refresh self
 
-                    this.resize(true);
+                    this.refresh(true);
 
                 }
 
@@ -264,23 +289,23 @@ ig.module(
 
             /**
              * Unlinks ui element from linked element.
-             * @param {Boolean} [resize=true] whether to resize after unlinking.
+             * @param {Boolean} [refresh=true] whether to refresh after unlinking.
              **/
-            unlink: function (resize) {
+            unlink: function (refresh) {
 
                 if (this.linkedTo instanceof ig.UIElement) {
 
-                    this.linkedTo.onResized.remove(this.resize, this);
+                    this.linkedTo.onRefreshed.remove(this.refresh, this);
                     this.linkedTo.onRemoved.remove(this.unlink, this);
-                    ig.game.onResized.add(this.resize, this);
+                    ig.game.onResized.add(this.refresh, this);
 
                 }
 
-                // resize self
+                // refresh self
 
-                if (resize !== false) {
+                if (refresh !== false) {
 
-                    this.resize(true);
+                    this.refresh(true);
 
                 }
 
@@ -293,7 +318,7 @@ ig.module(
 
                 this.unlink(false);
 
-                ig.game.onResized.remove(this.resize, this);
+                ig.game.onResized.remove(this.refresh, this);
 
                 if ( !ig.game.hasLevel ) {
 
@@ -301,8 +326,8 @@ ig.module(
                     this.onActivated.forget();
                     this.onDeactivated.removeAll();
                     this.onDeactivated.forget();
-                    this.onResized.removeAll();
-                    this.onResized.forget();
+                    this.onRefreshed.removeAll();
+                    this.onRefreshed.forget();
 
                 }
 
@@ -311,16 +336,51 @@ ig.module(
             },
 
             /**
-             * Repositions element when screen or linked to is resized.
-             * @param {Boolean} [force] whether to force resize.
+             * Pseudo refresh when changed to make sure linkedTo elements update appropriately.
+             * <br>- only affects dynamic or kinematic UI elements
+             * @override
              **/
-            resize: function (force) {
+            recordChanges: function ( force ) {
+
+                this.parent( force );
+
+                if ( this.changed ) {
+
+                    this.onRefreshed.dispatch(this);
+
+                }
+
+            },
+
+            /**
+             * Refreshes element size, position, etc when screen is resized or linked to is refreshed.
+             * @param {Boolean} [force] whether to force.
+             **/
+            refresh: function (force) {
+
+                force = this.reposition( force ) || force;
+                force = this.resize( force ) || force;
+
+                if ( this.dirtyBuild || force ) {
+
+                    this.rebuild();
+
+                }
+
+                this.onRefreshed.dispatch(this);
+
+                return force;
+
+            },
+            /**
+             * Refreshes position.
+             * @param {Boolean} [force] whether to force.
+             */
+            reposition: function ( force ) {
 
                 // reposition only if not moving self
 
                 if (!this.getIsMovingSelf()) {
-
-                    this.recordLast();
 
                     // position relative to linked
 
@@ -329,14 +389,33 @@ ig.module(
                         this.pos.x = this.linkedTo.boundsDraw.minX;
                         this.pos.y = this.linkedTo.boundsDraw.minY;
 
-                        if (this.vertical) {
+                        if ( this.linkAlign.x !== 0 ) {
 
-                            this.pos.x += ( 1 - this.align.x ) * this.linkedTo.totalSizeX;
+                            if ( this.linkAlign.x < 0 ) {
+
+                                this.pos.x += this.linkAlign.x * this.boundsDraw.width;
+
+                            }
+                            else {
+
+                                this.pos.x += this.linkAlign.x * this.linkedTo.boundsDraw.width;
+
+                            }
 
                         }
-                        else {
 
-                            this.pos.y += ( 1 - this.align.y ) * this.linkedTo.totalSizeY;
+                        if ( this.linkAlign.y !== 0 ) {
+
+                            if ( this.linkAlign.y < 0 ) {
+
+                                this.pos.y += this.linkAlign.y * this.boundsDraw.height;
+
+                            }
+                            else {
+
+                                this.pos.y += this.linkAlign.y * this.linkedTo.boundsDraw.height;
+
+                            }
 
                         }
 
@@ -344,18 +423,33 @@ ig.module(
                     // convert pct to position
                     else if (this.posAsPct) {
 
-                        this.pos.x = Math.round(this.posPct.x * ig.system.width);
-                        this.pos.y = Math.round(this.posPct.y * ig.system.height);
+                        this.pos.x = this.posPct.x * ig.system.width;
+                        this.pos.y = this.posPct.y * ig.system.height;
 
                     }
 
-                    // check if changed
-
-                    this.recordChanges(force);
-
                 }
 
-                // redo textures if texturized
+            },
+
+            /**
+             * Refreshes size.
+             * @param {Boolean} [force] whether to force.
+             */
+            resize: function ( force ) {
+
+                this.recordChanges(force);
+                this.recordLast();
+
+            },
+
+            /**
+             * Refreshes element components.
+             * <br>- only called when primary refresh changes element
+             */
+            rebuild: function () {
+
+                this.dirtyBuild = false;
 
                 if (this.textured) {
 
@@ -366,8 +460,6 @@ ig.module(
                     }
 
                 }
-
-                this.onResized.dispatch(this);
 
             },
 
@@ -389,17 +481,18 @@ ig.module(
 
                 var pos = this.parent();
 
-                // add aligned size
+                this.totalMarginX = this.marginAsPct ? Math.round(this.margin.x * ( this.marginAsPctSmallest ? ig.system.size : ig.system.width )) : this.margin.x;
 
-                pos += -this.align.x * this.totalSizeX;
+                pos -= this.align.x * this.totalSizeX;
 
-                // add aligned margin
+                if ( this.linkedTo ) {
 
-                var margin = this.marginAsPct ? Math.round(this.margin.x * ( this.marginAsPctSmallest ? ig.system.size : ig.system.width )) : this.margin.x;
+                    pos += this.linkAlign.x * this.totalMarginX;
 
-                if (!this.linkedTo || this.vertical) {
+                }
+                else {
 
-                    pos += ( 1 - this.align.x ) * margin - this.align.x * margin;
+                    pos += ( 1 - this.align.x ) * this.totalMarginX - this.align.x * this.totalMarginX;
 
                 }
 
@@ -415,17 +508,18 @@ ig.module(
 
                 var pos = this.parent();
 
-                // add aligned size
+                this.totalMarginY = this.marginAsPct ? Math.round(this.margin.y * ( this.marginAsPctSmallest ? ig.system.size : ig.system.height )) : this.margin.y;
 
-                pos += -this.align.y * this.totalSizeY;
+                pos -= this.align.y * this.totalSizeY;
 
-                // add aligned margin
+                if ( this.linkedTo ) {
 
-                var margin = this.marginAsPct ? Math.round(this.margin.y * ( this.marginAsPctSmallest ? ig.system.size : ig.system.height )) : this.margin.y;
+                    pos += this.linkAlign.y * this.totalMarginY;
 
-                if (!this.linkedTo || !this.vertical) {
+                }
+                else {
 
-                    pos += ( 1 - this.align.y ) * margin - this.align.y * margin;
+                    pos += ( 1 - this.align.y ) * this.totalMarginY - this.align.y * this.totalMarginY;
 
                 }
 
@@ -441,7 +535,7 @@ ig.module(
 
                 this.align.x = this.align.y = this.margin.x = this.margin.y = 0;
 
-                this.unlink();
+                this.unlink( false );
 
                 this.parent( entity, settings );
 

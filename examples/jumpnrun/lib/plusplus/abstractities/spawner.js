@@ -427,23 +427,28 @@ ig.module(
 
                 this.linkSpawned(entity);
 
-                if (this.spawnAtRandomPosition) {
+                var width = entity.bounds.width;
+                var height = entity.bounds.height;
+                var spawnAtWidth = this.spawnAt.bounds.width;
+                var spawnAtHeight = this.spawnAt.bounds.height;
 
-                    entity.pos.x = Math.random().map(0, 1, this.spawnAt.bounds.minX, this.spawnAt.bounds.maxX);
-                    entity.pos.y = Math.random().map(0, 1, this.spawnAt.bounds.minY, this.spawnAt.bounds.maxY);
+                if (this.spawnAtRandomPosition ) {
+
+                    entity.pos.x = Math.random().map(0, 1, this.spawnAt.bounds.minX, this.spawnAt.bounds.maxX - width );
+                    entity.pos.y = Math.random().map(0, 1, this.spawnAt.bounds.minY, this.spawnAt.bounds.maxY - height );
 
                 }
                 else {
 
-                    entity.pos.x = this.spawnAt.bounds.minX + this.spawnAt.bounds.width * 0.5;
-                    entity.pos.y = this.spawnAt.bounds.minY + this.spawnAt.bounds.height * 0.5;
+                    entity.pos.x = this.spawnAt.bounds.minX + spawnAtWidth * 0.5;
+                    entity.pos.y = this.spawnAt.bounds.minY + spawnAtHeight * 0.5;
 
                 }
 
                 // center spawned based on size
 
-                entity.pos.x -= entity.bounds.width * 0.5;
-                entity.pos.y -= entity.bounds.height * 0.5;
+                entity.pos.x -= width * 0.5;
+                entity.pos.y -= height * 0.5;
 
                 // snap to bottom of spawn
 
@@ -451,12 +456,12 @@ ig.module(
 
                     if ( this.spawnAtSide.y > 0 ) {
 
-                        entity.pos.y = this.spawnAt.bounds.maxY - entity.bounds.height - this.spawnAt.bounds.height * 0.5 * ( 1 - this.spawnAtSide.y );
+                        entity.pos.y = this.spawnAt.bounds.maxY - height - spawnAtHeight * 0.5 * ( 1 - this.spawnAtSide.y );
 
                     }
                     else if ( this.spawnAtSide.y < 0 ) {
 
-                        entity.pos.y = this.spawnAt.bounds.minY + this.spawnAt.bounds.height * 0.5 * ( 1 + this.spawnAtSide.y );
+                        entity.pos.y = this.spawnAt.bounds.minY + spawnAtHeight * 0.5 * ( 1 + this.spawnAtSide.y );
 
                     }
 
@@ -527,7 +532,7 @@ ig.module(
              * Kills spawner and, if {@link ig.Spawner#spawnedDieWith}, also kills all spawned entities.
              * @override
              **/
-            kill: function () {
+            kill: function ( silent ) {
 
                 // update all entities
 
@@ -549,7 +554,7 @@ ig.module(
 
                 this.entities.length = 0;
 
-                this.parent();
+                this.parent( silent );
 
             },
 

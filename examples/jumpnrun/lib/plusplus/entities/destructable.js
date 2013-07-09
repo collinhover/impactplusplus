@@ -4,13 +4,11 @@ ig.module(
     .requires(
         'plusplus.entities.explosion',
         'plusplus.entities.particle-debris',
-        'plusplus.helpers.utils',
         'plusplus.helpers.utilsvector2'
     )
     .defines(function () {
         "use strict";
 
-        var _ut = ig.utils;
         var _utv2 = ig.utilsvector2;
 
         /**
@@ -35,13 +33,6 @@ ig.module(
              * @default fixed
              */
             collides: ig.Entity.COLLIDES.FIXED,
-
-            /**
-             * Destructable should be able to be targeted.
-             * @override
-             * @default
-             */
-            targetable: true,
 
             /**
              * Destructable spawns {@link ig.EntityParticleDebris} when killed.
@@ -78,18 +69,6 @@ ig.module(
             triggerable: false,
 
             /**
-             * <br>- adds {@link ig.EntityExtended.TYPE.DAMAGEABLE} to {@link ig.EntityExtended#type}
-             * @override
-             */
-            initTypes: function () {
-
-                this.parent();
-
-                _ut.addType(ig.EntityExtended, this, 'type', "DAMAGEABLE");
-
-            },
-
-            /**
              * Destructable is killed on activate.
              * @override
              */
@@ -105,18 +84,18 @@ ig.module(
              * Destructable is automatically triggered when killed to spawn debris.
              * @override
              */
-            kill: function () {
+            kill: function ( silent ) {
 
                 // make sure we've triggered
 
                 if (!this.activated) {
 
-                    this.trigger();
+                    this.trigger( this );
 
                 }
                 else {
 
-                    this.parent();
+                    this.parent( silent );
 
                 }
 

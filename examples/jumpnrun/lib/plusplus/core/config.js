@@ -131,6 +131,38 @@ ig.module(
         ig.CONFIG.SCALE = 1;
 
         /**
+         * Whether to automatically sort layers.
+         * @type {Boolean}
+         * @default
+         * @memberof ig.CONFIG
+         */
+        ig.CONFIG.AUTO_SORT_LAYERS = false;
+
+        /**
+         * Whether to automatically sort overlay layer.
+         * @type {Boolean}
+         * @default
+         * @memberof ig.CONFIG
+         */
+        ig.CONFIG.AUTO_SORT_OVERLAY_LAYER = true;
+
+        /**
+         * Whether to automatically sort ui layer.
+         * @type {Boolean}
+         * @default
+         * @memberof ig.CONFIG
+         */
+        ig.CONFIG.AUTO_SORT_UI_LAYER = true;
+
+        /**
+         * Whether to automatically prerender maps.
+         * @type {Boolean}
+         * @default
+         * @memberof ig.CONFIG
+         */
+        ig.CONFIG.PRERENDER_MAPS = true;
+
+        /**
          * Whether to set background layer to automatically prerender maps.
          * @type {Boolean}
          * @default
@@ -148,12 +180,12 @@ ig.module(
 
         /**
          * Whether ui layer clears between levels.
-         * <span class="alert alert-info"><strong>Tip:</strong> set this to false if your UI should not be destroyed when changing levels.</span>
+         * <span class="alert alert-info"><strong>Tip:</strong> set this to true if your UI should be destroyed when changing levels.</span>
          * @type {Boolean}
          * @default
          * @memberof ig.CONFIG
          */
-        ig.CONFIG.UI_LAYER_CLEAR_ON_LOAD = true;
+        ig.CONFIG.CLEAR_ON_LOAD_UI_LAYER = false;
 
         /**
          * Whether ui layer ignores game pause.
@@ -161,7 +193,31 @@ ig.module(
          * @default
          * @memberof ig.CONFIG
          */
-        ig.CONFIG.UI_LAYER_IGNORES_PAUSE = true;
+        ig.CONFIG.IGNORE_PAUSE_UI_LAYER = true;
+
+        /**
+         * Whether overlay layer ignores game pause.
+         * @type {Boolean}
+         * @default
+         * @memberof ig.CONFIG
+         */
+        ig.CONFIG.IGNORE_PAUSE_OVERLAY_LAYER = false;
+
+        /**
+         * Whether background layer skips update.
+         * @type {Boolean}
+         * @default
+         * @memberof ig.CONFIG
+         */
+        ig.CONFIG.NO_UPDATE_BACKGROUND_LAYER = true;
+
+        /**
+         * Whether foreground layer skips update.
+         * @type {Boolean}
+         * @default
+         * @memberof ig.CONFIG
+         */
+        ig.CONFIG.NO_UPDATE_FOREGROUND_LAYER = true;
 
         /**
          * Max percent of canvas width that loader can take up. Loader will be scaled down to stay below this.
@@ -264,22 +320,6 @@ ig.module(
          * @memberof ig.CONFIG
          */
         ig.CONFIG.LOADER_LOGO_SRC_ALT = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QUGFCwN01BpQgAAACZpVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVAgb24gYSBNYWOV5F9bAAADT0lEQVR42u3du27UQBiG4VlkUSCuIRU9QhuKpMpFUFOkTcl1bElLTcFFUCUFsai4EwqEEFAkGwkL4zE+zeF5qxw2m43z/+98Y896dmGA/X7/KyBb2rbd/ev7jxyiulEACgA1szPm150JGMAQAAWAejOAMZ8BoACgACZwe9aG27PW0WQAVB0CuxY4vdk7wgyA6qaBTMAAyIRmjV/CCAyAmjJAX+d3YQIGQMkGiDUBIzAASjYAEzAAFMA4U7i6yAAoLQOMzQKyAQOgRAMwwbjjseTfywCV05TQKbIBAyDHDDA1C+SeDVLIQAxgCCgrRad8BvH6cBmuD5cKAGYBRc8Sjl1+/ubdH1/vfs4AqGMWkMq4nPos4Xicvr96G0II4fGHq8VfNwMwQHorglI3Qt8Yv9TxYQCUYYDSTFACDMAA+a0HKNUES2ULBkCaBkjVBDVlAwaoHAUwYKbS35+gAGSAdG4Vm0u3zZUNtkj9DIB0DVCrCWQAMAATMAA2oHEI5jdVnxFSSP0MgHwyQG5ZIMdswAAMkM+mUUuZ4OuPuz64+PRi1M99fPk5hBDC0+ZntiZgAAbIb9u4uU0wtUP7Xs+a6/sZAPUYYC4TzN2R759/CSGE8OzJt2yyAANUThZnAuc+g7ZUJ568Ptx9cD/m9xkrJRMwgAyQ/+bRY7PA0h2Y004pDFA5RRTA6c1+k65K8Z4/DIB8ZwFT0/7RAmtdPUzxnj8MgHwNkGpHpbiShwHgPEBq8/Ecd0VjAAbYzgBrja2xJvjf15PzfogMwADlZoDYDl16TSADgAFiOnKtq3TdtXpL4X0BSJ6q3hv4cK0gXPnPMwBWywBb7Y4VO69P7X0GDAAZYA5iz+hNXUfgDiFggC2Z65pCjfsGMIBZQHpnAvs6uuSVOQwABqh57x4GQD0GAANAAUABQAFAAUABQAFAAaCiAsj19iol3BaGAfBAMqeCh7qq79Lw0OPGPr77uOP3x/780OtI5ZI2A1ROs3XHdzuh23F9n8d24NDiktjOnPp8Y38fA6BsA5RGrKlkADDAkrOHoc6L7eDY5xvKJLGzFAZA3ecB5ppFgAGgAKAAEJcBul+wTLxs2rbdMQAUABQA/pYBZIKyx3wGgAKAAsA9vwE+PY+Xd5MPtQAAAABJRU5ErkJggg==";
-
-        /**
-         * Name of main font. If empty, game will not use a font.
-         * @type {String}
-         * @default
-         * @memberof ig.CONFIG
-         */
-        ig.CONFIG.FONT_MAIN_NAME = "font_04b03_white_8.png";
-
-        /**
-         * Name of alt font. If empty, game will use main font.
-         * @type {String}
-         * @default
-         * @memberof ig.CONFIG
-         */
-        ig.CONFIG.FONT_ALT_NAME = "font_hellovetica_white_8.png";
 
         /**
          * Performance level where entities never move.
@@ -469,6 +509,7 @@ ig.module(
         /**
          * Precision when checking if numbers are close enough to zero.
          * @type {Number}
+         * @default
          * @memberof ig.CONFIG
          */
         ig.CONFIG.PRECISION_ZERO = 0.01;
@@ -476,6 +517,7 @@ ig.module(
         /**
          * Precision when checking if numbers are close enough to zero during a tween.
          * @type {Number}
+         * @default
          * @memberof ig.CONFIG
          */
         ig.CONFIG.PRECISION_ZERO_TWEEN = 0.1;
@@ -483,6 +525,7 @@ ig.module(
         /**
          * Precision when checking collision of one sided entities.
          * @type {Number}
+         * @default
          * @memberof ig.CONFIG
          */
         ig.CONFIG.PRECISION_PCT_ONE_SIDED = 0.01;
@@ -493,6 +536,62 @@ ig.module(
          * @memberof ig.CONFIG
          */
         ig.CONFIG.SCALE_PHYSICS = 0.1;
+
+        /**
+         * Font base configuration settings.
+         * <span class="alert alert-error"><strong>IMPORTANT:</strong> Don't modify config directly! (see example)</span>
+         * @example
+         * // in order to add your own custom configuration to Impact++
+         * // edit the file defining ig.CONFIG_USER, 'plusplus.config-user'
+         * // ig.CONFIG_USER is never modified by Impact++ (it is strictly for your use)
+         * // ig.CONFIG_USER is automatically merged over Impact++'s config
+         * @static
+         * @readonly
+         * @memberof ig.CONFIG
+         * @namespace ig.CONFIG.FONT
+         * @author Collin Hover - collinhover.com
+         **/
+        ig.CONFIG.FONT = {};
+
+        /**
+         * Name of main font. If empty, game will not use a font.
+         * @type {String}
+         * @default
+         * @memberof ig.CONFIG.FONT
+         */
+        ig.CONFIG.FONT.MAIN_NAME = "font_04b03_white_8.png";
+
+        /**
+         * Name of alt font. If empty, game will use main font.
+         * @type {String}
+         * @default
+         * @memberof ig.CONFIG.FONT
+         */
+        ig.CONFIG.FONT.ALT_NAME = "";
+
+        /**
+         * Name of alt font. If empty, game will use main font.
+         * @type {String}
+         * @default
+         * @memberof ig.CONFIG.FONT
+         */
+        ig.CONFIG.FONT.CHAT_NAME = "";
+
+        /**
+         * Font scale that overrides system scale.
+         * @type {Number}
+         * @default
+         * @memberof ig.CONFIG.FONT
+         */
+        ig.CONFIG.FONT.SCALE = 1;
+
+        /**
+         * Whether fonts should ignore system scale.
+         * @type {Boolean}
+         * @default
+         * @memberof ig.CONFIG.FONT
+         */
+        ig.CONFIG.FONT.IGNORE_SCALE = false;
 
         /**
          * Gesture configuration settings.
@@ -777,6 +876,107 @@ ig.module(
         ig.CONFIG.ENTITY.DIFFUSE = 1;
 
         /**
+         * Light base configuration settings.
+         * <span class="alert alert-error"><strong>IMPORTANT:</strong> Don't modify config directly! (see example)</span>
+         * @example
+         * // in order to add your own custom configuration to Impact++
+         * // edit the file defining ig.CONFIG_USER, 'plusplus.config-user'
+         * // ig.CONFIG_USER is never modified by Impact++ (it is strictly for your use)
+         * // ig.CONFIG_USER is automatically merged over Impact++'s config
+         * @static
+         * @readonly
+         * @memberof ig.CONFIG
+         * @namespace ig.CONFIG.LIGHT
+         * @author Collin Hover - collinhover.com
+         **/
+        ig.CONFIG.LIGHT = {};
+
+        /**
+         * Whether light should be drawn and scaled pixel perfectly.
+         * <span class="alert alert-danger"><strong>IMPORTANT:</strong> pixel perfect scaling has a very high performance cost, use carefully!</span>
+         * @type Boolean
+         * @default
+         * @memberof ig.CONFIG.LIGHT
+         */
+        ig.CONFIG.LIGHT.PIXEL_PERFECT = false;
+
+        /**
+         * Whether light should be gradient or flat shaded.
+         * <br>- when false, this works well in combination with {@link ig.CONFIG.LIGHT#PIXEL_PERFECT}
+         * @type Boolean
+         * @default
+         * @memberof ig.CONFIG.LIGHT
+         */
+        ig.CONFIG.LIGHT.GRADIENT = true;
+
+        /**
+         * Whether light should cast shadows on objects that are {@link ig.EntityExtended#opaque}.
+         * <br>- <strong>IMPORTANT:</strong> casting shadows can have a higher performance cost, use carefully!
+         * @type Boolean
+         * @default
+         * @memberof ig.CONFIG.LIGHT
+         */
+        ig.CONFIG.LIGHT.CASTS_SHADOWS = false;
+
+        /**
+         * Whether light should cast shadows on dynamic objects that are {@link ig.EntityExtended#opaque}.
+         * <br>- <strong>IMPORTANT:</strong> casting shadows can have a higher performance cost, use carefully!
+         * @type Boolean
+         * @default
+         * @memberof ig.CONFIG.LIGHT
+         */
+        ig.CONFIG.LIGHT.CASTS_SHADOWS_DYNAMIC = false;
+
+        /**
+         * Red value from 0 to 1.
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.LIGHT
+         */
+        ig.CONFIG.LIGHT.R = 1;
+
+        /**
+         * Green value from 0 to 1.
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.LIGHT
+         */
+        ig.CONFIG.LIGHT.G = 1;
+
+        /**
+         * Blue value from 0 to 1.
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.LIGHT
+         */
+        ig.CONFIG.LIGHT.B = 1;
+
+        /**
+         * Alpha value from 0 to 1.
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.LIGHT
+         */
+        ig.CONFIG.LIGHT.ALPHA = 0.25;
+
+        /**
+         * How much light should get through objects that are {@link ig.EntityExtended#opaque}.
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.LIGHT
+         */
+        ig.CONFIG.LIGHT.DIFFUSE = 0.9;
+
+        /**
+         * Number of passes to make when casting shadows.
+         * <br>- <strong>IMPORTANT:</strong> casting shadows can have a higher performance cost, use carefully!
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.LIGHT
+         */
+        ig.CONFIG.LIGHT.SAMPLES = 1;
+
+        /**
          * Character base configuration settings.
          * <span class="alert alert-error"><strong>IMPORTANT:</strong> Don't modify config directly! (see example)</span>
          * @example
@@ -970,6 +1170,14 @@ ig.module(
         ig.CONFIG.CHARACTER.UNGROUNDED_FOR_THRESHOLD = 0.1;
 
         /**
+         * Duration after character leaves ground to start playing fall animation.
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.ENTITY
+         */
+        ig.CONFIG.CHARACTER.UNGROUNDED_FOR_AND_FALLING_THRESHOLD = 0.25;
+
+        /**
          * Amount of acceleration control while climbing.
          * @type Number
          * @default
@@ -1056,6 +1264,216 @@ ig.module(
          */
         ig.CONFIG.CHARACTER.EXPLODING_DEATH_PARTICLE_COUNT = 10;
 
+        /**
+         * Overlay base configuration settings.
+         * <span class="alert alert-error"><strong>IMPORTANT:</strong> Don't modify config directly! (see example)</span>
+         * @example
+         * // in order to add your own custom configuration to Impact++
+         * // edit the file defining ig.CONFIG_USER, 'plusplus.config-user'
+         * // ig.CONFIG_USER is never modified by Impact++ (it is strictly for your use)
+         * // ig.CONFIG_USER is automatically merged over Impact++'s config
+         * @static
+         * @readonly
+         * @memberof ig.CONFIG
+         * @namespace ig.CONFIG.OVERLAY
+         * @author Collin Hover - collinhover.com
+         **/
+        ig.CONFIG.OVERLAY = {};
+
+        /**
+         * Red value from 0 to 1.
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.OVERLAY
+         */
+        ig.CONFIG.OVERLAY.R = 0;
+
+        /**
+         * Green value from 0 to 1.
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.OVERLAY
+         */
+        ig.CONFIG.OVERLAY.G = 0;
+
+        /**
+         * Blue value from 0 to 1.
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.OVERLAY
+         */
+        ig.CONFIG.OVERLAY.B = 0;
+
+        /**
+         * Alpha value from 0 to 1.
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.OVERLAY
+         */
+        ig.CONFIG.OVERLAY.ALPHA = 0.8;
+
+        /**
+         * Whether overlay should be drawn and scaled pixel perfectly.
+         * <span class="alert alert-danger"><strong>IMPORTANT:</strong> pixel perfect scaling has a very high performance cost, use carefully!</span>
+         * @type Boolean
+         * @default
+         * @memberof ig.CONFIG.OVERLAY
+         */
+        ig.CONFIG.OVERLAY.PIXEL_PERFECT = false;
+
+        /**
+         * Text bubble base configuration settings.
+         * <span class="alert alert-error"><strong>IMPORTANT:</strong> Don't modify config directly! (see example)</span>
+         * @example
+         * // in order to add your own custom configuration to Impact++
+         * // edit the file defining ig.CONFIG_USER, 'plusplus.config-user'
+         * // ig.CONFIG_USER is never modified by Impact++ (it is strictly for your use)
+         * // ig.CONFIG_USER is automatically merged over Impact++'s config
+         * @static
+         * @readonly
+         * @memberof ig.CONFIG
+         * @namespace ig.CONFIG.TEXT_BUBBLE
+         * @author Collin Hover - collinhover.com
+         **/
+        ig.CONFIG.TEXT_BUBBLE = {};
+
+        /**
+         * Horizontal size.
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.TEXT_BUBBLE
+         */
+        ig.CONFIG.TEXT_BUBBLE.SIZE_X = 120;
+
+        /**
+         * Vertical size.
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.TEXT_BUBBLE
+         */
+        ig.CONFIG.TEXT_BUBBLE.SIZE_Y = 70;
+
+        /**
+         * Whether should size as a percent of screen.
+         * @type Boolean
+         * @default
+         * @memberof ig.CONFIG.TEXT_BUBBLE
+         */
+        ig.CONFIG.TEXT_BUBBLE.SIZE_AS_PCT = false;
+
+        /**
+         * Horizontal size in percent of screen.
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.TEXT_BUBBLE
+         */
+        ig.CONFIG.TEXT_BUBBLE.SIZE_PCT_X = 0.2;
+
+        /**
+         * Vertical size in percent of screen.
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.TEXT_BUBBLE
+         */
+        ig.CONFIG.TEXT_BUBBLE.SIZE_PCT_Y = 0.2;
+
+        /**
+         * Corner radius, i.e. roundness of box corners.
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.TEXT_BUBBLE
+         */
+        ig.CONFIG.TEXT_BUBBLE.CORNER_RADIUS = 5;
+
+        /**
+         * Whether to treat corner radius as a percentage of size between 0 and 1.
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.TEXT_BUBBLE
+         */
+        ig.CONFIG.TEXT_BUBBLE.CORNER_RADIUS_AS_PCT = false;
+
+        /**
+         * Whether text bubble should be drawn and scaled pixel perfectly.
+         * <span class="alert alert-danger"><strong>IMPORTANT:</strong> pixel perfect scaling has a very high performance cost, use carefully!</span>
+         * @type Boolean
+         * @default
+         * @memberof ig.CONFIG.TEXT_BUBBLE
+         */
+        ig.CONFIG.TEXT_BUBBLE.PIXEL_PERFECT = false;
+
+        /**
+         * Red value from 0 to 1.
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.TEXT_BUBBLE
+         */
+        ig.CONFIG.TEXT_BUBBLE.R = 0.9;
+
+        /**
+         * Green value from 0 to 1.
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.TEXT_BUBBLE
+         */
+        ig.CONFIG.TEXT_BUBBLE.G = 0.9;
+
+        /**
+         * Blue value from 0 to 1.
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.TEXT_BUBBLE
+         */
+        ig.CONFIG.TEXT_BUBBLE.B = 0.9;
+
+        /**
+         * Alpha value from 0 to 1.
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.TEXT_BUBBLE
+         */
+        ig.CONFIG.TEXT_BUBBLE.ALPHA = 1;
+
+        /**
+         * Length of triangle extending from bubble.
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.TEXT_BUBBLE
+         */
+        ig.CONFIG.TEXT_BUBBLE.TRIANGLE_LENGTH = 10;
+
+        /**
+         * Width of triangle extending from bubble.
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.TEXT_BUBBLE
+         */
+        ig.CONFIG.TEXT_BUBBLE.TRIANGLE_WIDTH = 12;
+
+        /**
+         * Padding on the inside of text bubble to keep text spaced away from sides.
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.TEXT_BUBBLE
+         */
+        ig.CONFIG.TEXT_BUBBLE.PADDING_X = 6;
+
+        /**
+         * Padding on the inside of text bubble to keep text spaced away from sides.
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.TEXT_BUBBLE
+         */
+        ig.CONFIG.TEXT_BUBBLE.PADDING_Y = 6;
+
+        /**
+         * Whether to shrink to text size.
+         * @type Boolean
+         * @default
+         * @memberof ig.CONFIG.TEXT_BUBBLE
+         */
+        ig.CONFIG.TEXT_BUBBLE.SHRINK_TO_TEXT = true;
+
         // merge in user config over this config
 
         ig.merge( ig.CONFIG, ig.CONFIG_USER );
@@ -1067,14 +1485,21 @@ ig.module(
          * @type {String}
          * @memberof ig.CONFIG
          */
-        ig.CONFIG.FONT_MAIN_PATH = ig.CONFIG.FONT_MAIN_NAME ? ig.CONFIG.PATH_TO_MEDIA + ig.CONFIG.FONT_MAIN_NAME : '';
+        ig.CONFIG.FONT.MAIN_PATH = ig.CONFIG.FONT.MAIN_NAME ? ig.CONFIG.PATH_TO_MEDIA + ig.CONFIG.FONT.MAIN_NAME : '';
 
         /**
          * Path to alt font. If empty, game will use main font.
          * @type {String}
          * @memberof ig.CONFIG
          */
-        ig.CONFIG.FONT_ALT_PATH = ig.CONFIG.FONT_ALT_NAME ? ig.CONFIG.PATH_TO_MEDIA + ig.CONFIG.FONT_ALT_NAME : '';
+        ig.CONFIG.FONT.ALT_PATH = ig.CONFIG.FONT.ALT_NAME ? ig.CONFIG.PATH_TO_MEDIA + ig.CONFIG.FONT.ALT_NAME : '';
+
+        /**
+         * Path to alt font. If empty, game will use main font.
+         * @type {String}
+         * @memberof ig.CONFIG
+         */
+        ig.CONFIG.FONT.CHAT_PATH = ig.CONFIG.FONT.CHAT_NAME ? ig.CONFIG.PATH_TO_MEDIA + ig.CONFIG.FONT.CHAT_NAME : '';
 
         /**
          * Ranks in an array for easy iteration.

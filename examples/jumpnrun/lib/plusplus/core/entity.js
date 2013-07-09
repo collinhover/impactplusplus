@@ -14,6 +14,7 @@ ig.module(
         'plusplus.helpers.utilsvector2',
         'plusplus.helpers.utilsintersection',
         'plusplus.helpers.utilsdraw',
+        'plusplus.helpers.utilscolor',
         'plusplus.helpers.utilstile'
     )
     .defines(function () {
@@ -26,6 +27,7 @@ ig.module(
         var _utv2 = ig.utilsvector2;
         var _uti = ig.utilsintersection;
         var _utd = ig.utilsdraw;
+        var _utc = ig.utilscolor;
         var _utt = ig.utilstile;
 
         /**
@@ -224,22 +226,31 @@ ig.module(
              * // previous method of adding animations
              * // this would likely be hardcoded into the init method
              * this.addAnim( 'idle', 0.25, [0,1] );
-             * // improved (?) method of adding animations
-             * // this would be defined in the class properties
+             * // new (and improved?) method of adding animations
+             * // which would be defined in the class properties
+             * // properties match the parameters passed to {@link ig.AnimationExtended#init}
              * animSettings: {
              *      idle: {
+             *          // sequence frames 0 and 1
              *          sequence: [0,1],
-             *          frameTime: 0.25
+             *          // quarter second per frame
+             *          frameTime: 0.25,
+             *          // play only once
+             *          once: true,
+             *          // do not play immediately
+             *          stop: true
+             *          // play animation in reverse
+             *          reverse: true
              *      }
              * }
-             * // and then to easily change the idle sequence in a descendant class
-             * // while retaining the original frame time
+             * // then to easily change the sequence in a descendant class
+             * // while retaining the original properties
              * animSettings: {
              *      idle: {
              *          sequence: [3,4,5,6]
              *      }
              * }
-             * // and if we just need the default idle animation
+             * // if we just need the default idle animation
              * animSettings: true
              */
             animSettings: null,
@@ -756,6 +767,8 @@ ig.module(
 
             _verticesFound: false,
 
+            _overridedAnim: false,
+
             /**
              * Replaces new entity with current persistent entity of same name, if exists.
              * @param {Number} x x position.
@@ -766,7 +779,7 @@ ig.module(
             staticInstantiate: function( x, y, settings ) {
 
                 var entity;
-                var name = this.name || (settings || {}).name;
+                var name = this.name || ( settings && settings.name );
 
                 if ( name ) {
 
@@ -928,7 +941,7 @@ ig.module(
 
                 }
 
-                this.addAnim(name || ( typeof this.animInit === 'string' ? this.animInit : 'idle' ), settings.frameTime || this.animFrameTime, sequence);
+                this.addAnim(name || ( typeof this.animInit === 'string' ? this.animInit : 'idle' ), settings.frameTime || this.animFrameTime, sequence, settings.stop, settings.once, settings.reverse );
 
             },
 
@@ -939,9 +952,11 @@ ig.module(
              * @param {Number} frameTime duration per frame
              * @param {Array} sequence indices of animation sheet tiles
              * @param {Boolean} [stop] don't play
+             * @param {Boolean} [once] whether to play once
+             * @param {Boolean} [reverse] whether to play in reverse
              * @see ig.Entity.
              */
-            addAnim: function (name, frameTime, sequence, stop) {
+            addAnim: function (name, frameTime, sequence, stop, once, reverse ) {
 
                 if (!this.animSheet) {
 
@@ -949,7 +964,7 @@ ig.module(
 
                 }
 
-                var animation = new ig.AnimationExtended(this.animSheet, frameTime, sequence, stop);
+                var animation = new ig.AnimationExtended(this.animSheet, frameTime, sequence, stop, once, reverse);
 
                 this.anims[name] = animation;
 
@@ -1100,6 +1115,20 @@ ig.module(
 
             /**
              * Called by game when entity added to game world.
+             * <span class="alert"><strong>IMPORTANT:</strong> for stability, do not override this method, instead use {@link ig.EntityExtended#ready}</span>
+             * @see ig.Entity.
+             * @private
+             **/
+            adding: function () {
+
+                this.ready();
+
+                this.onAdded.dispatch(this);
+
+            },
+
+            /**
+             * Called automatically when entity added to game world.
              * <br>- records reset state, via {@link ig.EntityExtended#recordResetState}
              * <br>- plays spawn animation if present, via {@link ig.EntityExtended#animOverride}
              * @see ig.Entity.
@@ -1113,10 +1142,6 @@ ig.module(
                 // update reset state
 
                 this.recordResetState();
-
-                // set added
-
-                this.onAdded.dispatch(this);
 
                 // play spawn animation
 
@@ -1144,23 +1169,24 @@ ig.module(
 
                 // set initial animation
 
-                if (this.animInit instanceof ig.Animation) {
+                if (this.animInit instanceof ig.Animation ) {
 
                     this.currentAnim = this.animInit;
-                    this.currentAnim.playFromStart();
+
+                    if ( !this.animInit.stop ) {
+
+                        this.currentAnim.playFromStart();
+
+                    }
 
                 }
                 else if (this.animInit) {
 
-                    if (this.anims[ this.animInit ]) {
+                    this.currentAnim = this.anims[ this.animInit ];
 
-                        this.currentAnim = this.anims[ this.animInit ];
+                    if ( this.currentAnim && !this.currentAnim.stop ) {
+
                         this.currentAnim.playFromStart();
-
-                    }
-                    else {
-
-                        this.currentAnim = undefined;
 
                     }
 
@@ -1169,7 +1195,7 @@ ig.module(
 
                     this.currentAnim = this.anims[ 'idle' ] || this.currentAnim;
 
-                    if ( this.currentAnim ) {
+                    if ( this.currentAnim && !this.currentAnim.stop ) {
 
                         this.currentAnim.playFromStart();
 
@@ -1733,8 +1759,13 @@ ig.module(
              * settings = {};
              * // use an animation from another entity
              * settings.entity = otherEntity;
-             * // loop overriding animation and don't auto release override
+             * // don't auto release override
+             * settings.lock = true;
+             * // loop overriding animation
+             * // also does not auto release override
              * settings.loop = true;
+             * // play animation in reverse
+             * settings.reverse = true;
              * // call a function when override completes
              * settings.callback = function () {...};
              * // call the callback in a context
@@ -1745,6 +1776,7 @@ ig.module(
                 settings = settings || {};
                 var entity = settings.entity || this;
                 var loop = settings.loop;
+                var lock = settings.lock;
 
                 // entity has animation
 
@@ -1761,12 +1793,18 @@ ig.module(
                         this.overridingAnimContext = settings.context;
                         this.overridingAnimFrozen = this.frozen;
 
-                        this.overridingAnim = entity.anims[ animName ];
+                        // store current to be restored when anim released
 
-                        // listen for complete of animation if not looping to automatically release override
-                        // looping an override can be dangerous as it requires a manual release of override
+                        this._overridedAnim = this.currentAnim;
 
-                        if (!loop) {
+                        // set current to overriding
+
+                        this.currentAnim = this.overridingAnim = entity.anims[ animName ];
+
+                        // listen for complete of animation if not looping or locked to automatically release override
+                        // not allowing this can be dangerous as it requires a manual release of override
+
+                        if (!loop && !lock) {
 
                             this.overridingAnim.onCompleted.addOnce(this.animRelease, this);
 
@@ -1784,7 +1822,7 @@ ig.module(
 
                     // play from start and only play once
 
-                    this.overridingAnim.playFromStart(!loop);
+                    this.overridingAnim.playFromStart(!loop, settings.reverse);
 
                 }
                 // release override
@@ -1820,7 +1858,9 @@ ig.module(
                     this.overridingAnim.onCompleted.remove(this.animRelease, this);
                     this.overridingAnim.stop = true;
 
-                    this.overridingAnimName = this.overridingAnim = this.overridingAnimCallback = this.overridingAnimContext = undefined;
+                    this.currentAnim = this._overridedAnim;
+
+                    this.overridingAnimName = this.overridingAnim = this._overridedAnim = this.overridingAnimCallback = this.overridingAnimContext = undefined;
 
                 }
 
@@ -2139,6 +2179,12 @@ ig.module(
 
                 // draw each contour
 
+                if (!light.pixelPerfect) {
+
+                    context.fillStyle = _utc.RGBAToCSS( 1, 1, 1, alpha );
+
+                }
+
                 for (i = 0, il = contours.length; i < il; i++) {
 
                     contour = contours[ i ];
@@ -2150,7 +2196,7 @@ ig.module(
                     }
                     else {
 
-                        _utd.fillPolygon(context, contour.vertices, -contextBounds.minX, -contextBounds.minY, 1, 1, 1, alpha, ig.system.scale);
+                        _utd.fillPolygon(context, contour.vertices, -contextBounds.minX, -contextBounds.minY, ig.system.scale);
 
                     }
 
@@ -2487,8 +2533,13 @@ ig.module(
              * settings.matchPerformance = true;
              * // to move to only once
              * settings.once = true;
-             * // to follow at the bottom right instead of center
-             * settings.offsetPct = { x: 0.5, y: 0.5 };
+             * // follow defaults to aligning at center of followed
+             * // to follow at the top left instead of center
+             * settings.align = { x: 0, y: 0 };
+             * // to follow offset by 10 px
+             * settings.offset = { x: 10, y: 10 };
+             * // to follow above
+             * settings.offsetPct = { x: 0, y: -1 };
              * // to follow at a random offset between -0.25 and 0.25 on both axes
              * settings.randomOffsetPct = { x: 0.25, y: 0.25 };
              * // a lerp between 0 and 1 will cause a smooth follow
@@ -2587,9 +2638,10 @@ ig.module(
 
                     // no need to constantly follow if this entity is not dynamic or entity to follow is static, and not lerping or tweening
 
-                    if (( this.performance !== _c.DYNAMIC || entity.performance === _c.STATIC ) && !settings.lerp && !settings.tween) {
+                    if (( this.performance === _c.STATIC || entity.performance === _c.STATIC ) && !settings.lerp && !settings.tween) {
 
                         this.moveToPosition(entity, settings);
+                        this.recordChanges();
 
                     }
                     else {
@@ -2688,26 +2740,67 @@ ig.module(
              **/
             moveToPosition: function (entity, settings) {
 
-                var halfWidth = this.bounds.width * 0.5;
-                var halfHeight = this.bounds.height * 0.5;
-                var targetHalfWidth = entity.bounds.width * 0.5;
-                var targetHalfHeight = entity.bounds.height * 0.5;
+                var targetX = 0;
+                var targetY = 0;
+                var alignX = 0.5;
+                var alignY = 0.5;
 
-                var targetX;
-                var targetY;
+                if ( settings ) {
+
+                    var align = settings.align;
+
+                    if ( align ) {
+
+                        if ( typeof align.x !== 'undefined' ) {
+
+                            alignX = align.x;
+
+                        }
+
+                        if ( typeof align.y !== 'undefined' ) {
+
+                            alignY = align.y;
+
+                        }
+
+                    }
+
+                    var offset = settings.offset;
+
+                    if (offset) {
+
+                        targetX += offset.x || 0;
+                        targetY += offset.y || 0;
+
+                        this.flip = entity.flip;
+
+                    }
+
+                    var offsetPct = settings.offsetPct;
+
+                    if (offsetPct) {
+
+                        var offsetX = offsetPct.x || 0;
+                        var offsetY = offsetPct.y || 0;
+
+                        targetX += ( offsetX * entity.bounds.width * 0.5 + offsetX * this.bounds.width * 0.5 ) * ( entity.flip ? -1 : 1 );
+                        targetY += offsetY * entity.bounds.height * 0.5 + offsetY * this.bounds.height * 0.5;
+
+                        this.flip = entity.flip;
+
+                    }
+
+                }
+
+                targetX += entity.bounds.minX + alignX * ( entity.bounds.width - this.bounds.width );
+                targetY += entity.bounds.minY + alignY * ( entity.bounds.height - this.bounds.height );
 
                 if ( this.fixed ) {
 
-                    if ( entity.fixed ) {
+                    if ( !entity.fixed ) {
 
-                        targetX = entity.bounds.minX + targetHalfWidth - halfWidth;
-                        targetY = entity.bounds.minY + targetHalfHeight - halfHeight;
-
-                    }
-                    else {
-
-                        targetX = entity.bounds.minX + targetHalfWidth - halfWidth - ig.game.screen.x;
-                        targetY = entity.bounds.minY + targetHalfHeight - halfHeight - ig.game.screen.y;
+                        targetX -= ig.game.screen.x;
+                        targetY -= ig.game.screen.y;
 
                     }
 
@@ -2716,39 +2809,8 @@ ig.module(
 
                     if ( entity.fixed ) {
 
-                        targetX = ig.game.screen.x + entity.bounds.minX + targetHalfWidth - halfWidth;
-                        targetY = ig.game.screen.y + entity.bounds.minY + targetHalfHeight - halfHeight;
-
-                    }
-                    else {
-
-                        targetX = entity.bounds.minX + targetHalfWidth - halfWidth;
-                        targetY = entity.bounds.minY + targetHalfHeight - halfHeight;
-
-                    }
-
-                }
-
-                if (settings) {
-
-                    // offsets
-
-                    var offsetPctX;
-                    var offsetPctY;
-
-                    var offsetPct = settings.offsetPct;
-
-                    if (offsetPct) {
-
-                        offsetPctX = offsetPct.x || 0;
-                        offsetPctY = offsetPct.y || 0;
-
-                        targetX += ( offsetPctX * targetHalfWidth + offsetPctX * halfWidth ) * ( entity.flip ? -1 : 1 );
-                        targetY += offsetPctY * targetHalfHeight + offsetPctY * halfHeight;
-
-                        // flip with entity
-
-                        this.flip = entity.flip;
+                        targetX += ig.game.screen.x;
+                        targetY += ig.game.screen.y;
 
                     }
 
@@ -2794,6 +2856,7 @@ ig.module(
 
             /**
              * Called when moved to complete.
+             * @returns {Boolean} true when move is completed, otherwise is continuing sequence.
              **/
             moveToComplete: function () {
 
@@ -2817,6 +2880,8 @@ ig.module(
                         this.onMovedTo.dispatch(this);
 
                     }
+
+                    return true;
 
                 }
 
@@ -3396,13 +3461,18 @@ ig.module(
              **/
             updateVisible: function () {
 
-                // animation
+                // ensure current animation is overridden
 
                 if (this.overridingAnim && this.currentAnim !== this.overridingAnim) {
 
+                    // store current to be restored when anim released
+
+                    this._overridedAnim = this.currentAnim;
                     this.currentAnim = this.overridingAnim;
 
                 }
+
+                // update animation
 
                 if (this.currentAnim) {
 

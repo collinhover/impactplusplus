@@ -119,8 +119,8 @@ ig.module(
 					// link to pause
 					linkedTo: togglePause,
 					
-					// set vertical so it is positioned next to linked
-					vertical: true,
+					// set to align next to linked
+					linkAlign: { x: 1, y: 0 },
 					
 					activateCallback: function () {
 						
@@ -151,8 +151,8 @@ ig.module(
 					// link
 					linkedTo: toggleGfxMin,
 					
-					// set vertical so it is positioned next to linked
-					vertical: true,
+					// set to align next to linked
+					linkAlign: { x: 1, y: 0 },
 					
 					activateCallback: function () {
 						

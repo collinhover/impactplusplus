@@ -242,7 +242,8 @@ ig.module(
                     // check position and alignment
 
                     this.textSettings.posPct = this.textSettings.posPct || _utv2.vector(0.5, 0.9);
-                    this.textSettings.align = this.textSettings.align || _utv2.vector(0.5, 1);
+                    this.textSettings.align = this.textSettings.align || this.textSettings.posPct;
+                    this.textSettings.linkAlign = this.textSettings.linkAlign || this.textSettings.align;
 
                 }
 

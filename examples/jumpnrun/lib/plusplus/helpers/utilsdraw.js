@@ -2,14 +2,12 @@ ig.module(
         'plusplus.helpers.utilsdraw'
     )
     .requires(
-        'plusplus.helpers.utilsintersection',
-        'plusplus.helpers.utilscolor'
+        'plusplus.helpers.utilsintersection'
     )
     .defines(function () {
         "use strict";
 
         var _uti = ig.utilsintersection;
-        var _utc = ig.utilscolor;
 
         /**
          * Static utilities for drawing.
@@ -21,40 +19,40 @@ ig.module(
 
         /**
          * Pixel perfectly fills a polygon defined by vertices in context with r, g, b, a (optionally, add color instead of set color).
-         * @param {CanvasContext2D} context context to draw into.
+         * @param {CanvasRenderingContext2D} context context to draw into.
          * @param {Object} boundsContext bounds of context to draw into.
-         * @param {Array} vertices polygon vertices.
+         * @param {Array} vertices polygon vertices, in absolute or relative coordinates.
          * @param {Number} r red.
          * @param {Number} g green.
          * @param {Number} b blue.
          * @param {Number} a alpha.
          * @param {Boolean} [add=false] add to existing color.
          * @param {Object} [boundsVertices=boundsContext] bounds of polygon.
-         * @param {Boolean} [stabilize=false] whether to stabilize for rounding error.
+         * @param {Boolean} [stabilize=true] whether to stabilize for rounding error.
          **/
         ig.utilsdraw.pixelFillPolygon = function (context, boundsContext, vertices, r, g, b, a, add, boundsVertices, stabilize) {
 
             // find bounding box of vertices
 
-            var bminX = boundsContext.minX;
-            var bminY = boundsContext.minY;
+            var bminX = boundsContext.minX | 0;
+            var bminY = boundsContext.minY | 0;
 
             var minX, minY, maxX, maxY;
 
             if (boundsVertices) {
 
-                minX = Math.floor(boundsVertices.minX);
-                minY = Math.floor(boundsVertices.minY);
-                maxX = Math.ceil(boundsVertices.maxX);
-                maxY = Math.ceil(boundsVertices.maxY);
+                minX = boundsVertices.minX | 0;
+                minY = boundsVertices.minY | 0;
+                maxX = Math.ceil( boundsVertices.maxX );
+                maxY = Math.ceil( boundsVertices.maxY );
 
             }
             else {
 
                 minX = bminX;
                 minY = bminY;
-                maxX = boundsContext.maxX;
-                maxY = boundsContext.maxY;
+                maxX = Math.ceil( boundsContext.maxX );
+                maxY = Math.ceil( boundsContext.maxY );
 
             }
 
@@ -62,7 +60,7 @@ ig.module(
 
             // extra 1 is for stability with rounding
 
-            if (stabilize) {
+            if ( stabilize !== false ) {
 
                 imageX = minX - bminX - 1;
                 imageY = minY - bminY - 1;
@@ -79,10 +77,10 @@ ig.module(
 
             }
 
-            var r255 = r * 255;
-            var g255 = g * 255;
-            var b255 = b * 255;
-            var a255 = a * 255;
+            var r255 = r * 255 | 0;
+            var g255 = g * 255 | 0;
+            var b255 = b * 255 | 0;
+            var a255 = a * 255 | 0;
 
             // draw inside vertices
 
@@ -135,17 +133,14 @@ ig.module(
 
         /**
          * Fills a polygon defined by vertices in context.
-         * @param {CanvasContext2D} context context to draw into.
+         * <span class="alert"><strong>IMPORTANT:</strong> this method assumes the context's fillStyle is already set!</span>
+         * @param {CanvasRenderingContext2D} context context to draw into.
          * @param {Array} vertices polygon vertices.
-         * @param {Number} offsetX x offset.
-         * @param {Number} offsetY y offset.
-         * @param {Number} r red.
-         * @param {Number} g green.
-         * @param {Number} b blue.
-         * @param {Number} a alpha.
-         * @param {Number} scale scale after offset.
+         * @param {Number} [offsetX=0] x offset.
+         * @param {Number} [offsetY=0] y offset.
+         * @param {Number} [scale=1] scale after offset.
          **/
-        ig.utilsdraw.fillPolygon = function (context, vertices, offsetX, offsetY, r, g, b, a, scale) {
+        ig.utilsdraw.fillPolygon = function (context, vertices, offsetX, offsetY, scale) {
 
             offsetX = offsetX || 0;
             offsetY = offsetY || 0;
@@ -153,7 +148,6 @@ ig.module(
 
             var vertex = vertices[ 0 ];
 
-            context.fillStyle = _utc.RGBAToCSS(r, g, b, a);
             context.beginPath();
             context.moveTo(( vertex.x + offsetX ) * scale, ( vertex.y + offsetY ) * scale);
 
@@ -163,6 +157,132 @@ ig.module(
             }
 
             context.fill();
+
+        };
+
+        /**
+         * Fills a rounded rectangle in context.
+         * <span class="alert"><strong>IMPORTANT:</strong> this method assumes the context's fillStyle is already set!</span>
+         * @param {CanvasRenderingContext2D} context
+         * @param {Number} x top left x position
+         * @param {Number} y top left y position
+         * @param {Number} width rect width
+         * @param {Number} height rect height
+         * @param {Number} radius corner radius
+         */
+        ig.utilsdraw.fillRoundedRect = function (context, x, y, width, height, radius ) {
+
+            context.beginPath();
+            context.moveTo(x + radius, y);
+            context.lineTo(x + width - radius, y);
+            context.quadraticCurveTo(x + width, y, x + width, y + radius);
+            context.lineTo(x + width, y + height - radius);
+            context.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+            context.lineTo(x + radius, y + height);
+            context.quadraticCurveTo(x, y + height, x, y + height - radius);
+            context.lineTo(x, y + radius);
+            context.quadraticCurveTo(x, y, x + radius, y);
+            context.closePath();
+
+            context.fill();
+
+        };
+
+        /**
+         * Pixel perfectly fills a rounded rectangle in context.
+         * @param {CanvasRenderingContext2D} context
+         * @param {Object} boundsContext bounds of context to draw into.
+         * @param {Number} x top left x position
+         * @param {Number} y top left y position
+         * @param {Number} width rect width
+         * @param {Number} height rect height
+         * @param {Number} radius corner radius
+         * @param {Number} r red.
+         * @param {Number} g green.
+         * @param {Number} b blue.
+         * @param {Number} a alpha.
+         * @param {Number} [precision=dynamic] precision of curves in number of vertices.
+         * @param {Boolean} [add=false] add to existing color.
+         * @param {Boolean} [stabilize=true] whether to stabilize for rounding error.
+         */
+        ig.utilsdraw.pixelFillRoundedRect = function (context, boundsContext, x, y, width, height, radius, r, g, b, a, precision, add, stabilize ) {
+
+            if ( typeof precision === 'undefined' ) {
+
+                precision = Math.round( radius * 0.25 );
+
+            }
+
+            var anglePerVertex = Math.PI * 0.5 / ( precision + 1 );
+            var addCornerVertices = function ( cx, cy, angle ) {
+
+                for ( var i = 0; i < precision; i++ ) {
+
+                    angle += anglePerVertex;
+
+                    vertices.push( { x: cx + radius * Math.cos(angle), y: cy + radius * Math.sin(angle) } );
+
+                }
+
+            }
+
+            // define vertices to approximate shape
+
+            var vertices = [];
+
+            // top edge
+
+            vertices.push( { x: x + radius, y: y } );
+            vertices.push( { x: x + width - radius, y: y } );
+
+            // top right corner
+
+            if ( precision > 0 ) {
+
+                addCornerVertices( x + width - radius, y + radius, Math.PI * 1.5);
+
+            }
+
+            // right edge
+
+            vertices.push( { x: x + width, y: y + radius } );
+            vertices.push( { x: x + width, y: y + height - radius } );
+
+            // bottom right corner
+
+            if ( precision > 0 ) {
+
+                addCornerVertices( x + width - radius, y + height - radius, 0 );
+
+            }
+
+            // bottom edge
+
+            vertices.push( { x: x + width - radius, y: y + height } );
+            vertices.push( { x: x + radius, y: y + height } );
+
+            // bottom left corner
+
+            if ( precision > 0 ) {
+
+                addCornerVertices( x + radius, y + height - radius, Math.PI * 0.5);
+
+            }
+
+            // left edge
+
+            vertices.push( { x: x, y: y + height - radius } );
+            vertices.push( { x: x, y: y + radius } );
+
+            // top left corner
+
+            if ( precision > 0 ) {
+
+                addCornerVertices( x + radius, y + radius, Math.PI);
+
+            }
+
+            ig.utilsdraw.pixelFillPolygon( context, boundsContext, vertices, r, g, b, a, add, ig.utilsintersection.bounds( x, y, width, height ), stabilize );
 
         };
 

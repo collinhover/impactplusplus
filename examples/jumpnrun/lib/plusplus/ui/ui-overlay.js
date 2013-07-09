@@ -2,19 +2,23 @@ ig.module(
         'plusplus.ui.ui-overlay'
     )
     .requires(
-        'impact.font',
+        'plusplus.core.font',
         'plusplus.core.config',
         'plusplus.core.image-drawing',
         'plusplus.ui.ui-element',
         'plusplus.ui.ui-text',
+        'plusplus.helpers.utilsintersection',
         'plusplus.helpers.utilsvector2',
+        'plusplus.helpers.utilsdraw',
         'plusplus.helpers.utilscolor'
     )
     .defines(function () {
         "use strict";
 
         var _c = ig.CONFIG;
+        var _uti = ig.utilsintersection;
         var _utv2 = ig.utilsvector2;
+        var _utd = ig.utilsdraw;
         var _utc = ig.utilscolor;
 
         /**
@@ -63,13 +67,6 @@ ig.module(
             zIndex: _c.Z_INDEX_OVERLAY,
 
             /**
-             * Overlays should be slightly transparent.
-             * @override
-             * @default
-             */
-            alpha: 0.8,
-
-            /**
              * Whether to treat size as a percentage of screen size in values from 0 to 1.
              * @type Boolean
              * @default
@@ -99,27 +96,34 @@ ig.module(
 
             /**
              * Fill red value from 0 to 1.
-             * <br>- overriden by {@link ig.UIOverlay#fillStyle}
+             * <br>- overriden by all other fill properties
              * @type Number
              * @default
              */
-            r: 0,
+            r: _c.OVERLAY.R,
 
             /**
              * Fill green value from 0 to 1.
-             * <br>- overriden by {@link ig.UIOverlay#fillStyle}
+             * <br>- overriden by all other fill properties
              * @type Number
              * @default
              */
-            g: 0,
+            g: _c.OVERLAY.G,
 
             /**
              * Fill blue value from 0 to 1.
-             * <br>- overriden by {@link ig.UIOverlay#fillStyle}
+             * <br>- overriden by all other fill properties
              * @type Number
              * @default
              */
-            b: 0,
+            b: _c.OVERLAY.B,
+
+            /**
+             * Overlays should be slightly transparent.
+             * @override
+             * @default
+             */
+            alpha: _c.OVERLAY.ALPHA,
 
             /**
              * Fill style (color, pattern, etc).
@@ -143,7 +147,7 @@ ig.module(
              * @type Boolean
              * @default
              */
-            radial: false,
+            gradientRadial: false,
 
             /**
              * Whether linear gradient should be horizontal or vertical.
@@ -151,7 +155,7 @@ ig.module(
              * @type Boolean
              * @default
              */
-            horizontal: false,
+            gradientHorizontal: false,
 
             /**
              * Whether radial gradient should cover, i.e. use max dimension, or contain, i.e. use min dimension.
@@ -160,6 +164,28 @@ ig.module(
              * @default
              */
             cover: false,
+
+            /**
+             * Corner radius, i.e. roundness of box corners
+             * @type Number
+             * @default
+             */
+            cornerRadius: 0,
+
+            /**
+             * Whether to treat corner radius as a percentage of size between 0 and 1.
+             * @type Boolean
+             * @default
+             */
+            cornerRadiusAsPct: false,
+
+            /**
+             * Whether overlay should be filled pixel perfectly.
+             * <span class="alert"><strong>IMPORTANT:</strong> when true, only the r, g, b, and alpha properties are used to fill!</span>
+             * @type Boolean
+             * @default
+             */
+            pixelPerfect: _c.OVERLAY.PIXEL_PERFECT,
 
             /**
              * Text to show with overlay.
@@ -171,12 +197,27 @@ ig.module(
             message: null,
 
             /**
+             * Message entity class.
+             * @type ig.EntityExtended
+             * @default
+             */
+            messageEntity: ig.UIText,
+
+            /**
              * Settings object for message.
-             * <br>- directly corresponds to properties of {@link ig.UIText}
              * @type Object
              * @default
              */
             textSettings: null,
+
+            /**
+             * Settings object for message move to when overlay is moving to.
+             * @type Object
+             * @default
+             */
+            textMoveToSettings: {
+                matchPerformance: true
+            },
 
             /**
              * Initializes animations and fill if needed.
@@ -191,7 +232,7 @@ ig.module(
                 if (this.filled) {
 
                     this.fill = new ig.ImageDrawing({
-                        ignoreScale: true
+                        ignoreScale: !this.pixelPerfect
                     });
 
                 }
@@ -199,23 +240,43 @@ ig.module(
             },
 
             /**
-             * Called just after entity added to game world and creates message if needed.
+             * Creates overlay message.
              * @override
              **/
             ready: function () {
 
-                this.parent();
+                // check if text/message is string and correct
+
+                if ( typeof this.text === 'string' ) {
+
+                    this.textSettings = this.textSettings || {};
+                    this.textSettings.text = this.text;
+                    this.text = undefined;
+
+                }
+
+                if ( typeof this.message === 'string' ) {
+
+                    this.textSettings = this.textSettings || {};
+                    this.textSettings.text = this.message;
+                    this.message = undefined;
+
+                }
 
                 // spawn message
 
-                if (this.textSettings) {
+                if (this.textSettings && this.textSettings.text && this.textSettings.text.length > 0 ) {
 
-                    this.textSettings.layerName = this.textSettings.layerName || this.layerName;
-
-                    this.message = ig.game.spawnEntity(this.message || ig.UIText, 0, 0, this.textSettings);
-                    this.message.alpha = this.alpha;
+                    this.message = ig.game.spawnEntity(this.message || this.messageEntity, 0, 0, ig.merge( {
+                        layerName: this.layerName,
+                        fixed: this.fixed,
+                        alpha: this.alpha,
+                        linkedTo: this
+                    }, this.textSettings ) );
 
                 }
+
+                this.parent();
 
             },
 
@@ -238,7 +299,7 @@ ig.module(
                         // recalculate total size
 
                         this.totalSizeX = this.getTotalSizeX();
-                        force = true;
+                        force = this.dirtyBuild = true;
 
                     }
 
@@ -246,23 +307,120 @@ ig.module(
 
                         this.size.y = sizeY;
                         this.totalSizeY = this.getTotalSizeY();
-                        force = true;
+                        force = this.dirtyBuild = true;
 
                     }
 
                 }
 
-                // fill fallback
+                return this.parent( force );
 
-                if (this.fill && force) {
+            },
 
-                    var scaledSizeX = this.size.x * ig.system.scale;
-                    var scaledSizeY = this.size.y * ig.system.scale;
+            /**
+             * @override
+             */
+            rebuild: function () {
 
-                    this.fill.setDimensions(scaledSizeX, scaledSizeY);
+                this.refill();
 
-                    var context = this.fill.dataContext;
-                    var fillStyle;
+                // delay finalize of fill until after refill
+                // this allows any classes that extent overlay
+                // to modify fill without having to re-finalize
+
+                if ( this.pixelPerfect ) {
+
+                    this.fill.finalize();
+
+                }
+
+                this.parent();
+
+            },
+
+            /**
+             * Refreshes fill.
+             * @param {Number} [width=boundsDraw.width] width to fill
+             * @param {Number} [height=boundsDraw.height] height to fill
+             */
+            refill: function ( width, height ) {
+
+                if ( this.fill ) {
+
+                    if ( typeof width === 'undefined' ) {
+
+                        width = this.boundsDraw.width;
+
+                    }
+
+                    if ( typeof height === 'undefined' ) {
+
+                        height = this.boundsDraw.height;
+
+                    }
+
+                    if ( this.pixelPerfect ) {
+
+                        this.fill.setDimensions(this.boundsDraw.width, this.boundsDraw.height);
+
+                        var context = this.fill.context;
+
+                        if ( this.cornerRadius > 0 ) {
+
+                            _utd.pixelFillRoundedRect(
+                                context,
+                                _uti.bounds( 0, 0, this.fill.width, this.fill.height ),
+                                0, 0, width, height,
+                                this.cornerRadiusAsPct ? Math.min( width, height ) * this.cornerRadius : this.cornerRadius,
+                                this.r, this.g, this.b, this.alpha
+                            );
+
+                        }
+                        else {
+
+                            context.fillStyle = this.getFillStyle();
+                            context.fillRect(0, 0, width, height);
+
+                        }
+
+                    }
+                    else {
+
+                        width *= ig.system.scale;
+                        height *= ig.system.scale;
+
+                        this.fill.setDimensions(this.boundsDraw.width * ig.system.scale, this.boundsDraw.height * ig.system.scale);
+
+                        var context = this.fill.dataContext;
+
+                        context.fillStyle = this.getFillStyle();
+
+                        if ( this.cornerRadius > 0 ) {
+
+                            _utd.fillRoundedRect( context, 0, 0, width, height, this.cornerRadiusAsPct ? Math.min( width, height ) * this.cornerRadius : this.cornerRadius );
+
+                        }
+                        else {
+
+                            context.fillRect(0, 0, width, height);
+
+                        }
+
+                    }
+
+                }
+
+            },
+
+            /**
+             * Calculates fill style.
+             * @returns {*} fill style
+             */
+            getFillStyle: function () {
+
+                var fillStyle;
+
+                if ( !this.pixelPerfect ) {
 
                     // fill with predefined style
                     if (this.fillStyle) {
@@ -273,40 +431,87 @@ ig.module(
                     // fill with gradient
                     else if (this.fillColors) {
 
-                        if (this.radial) {
+                        var scaledWidth = this.boundsDraw.width * ig.system.scale;
+                        var scaledHeight = this.boundsDraw.height * ig.system.scale;
 
-                            fillStyle = _utc.radialGradient(this.cover ? Math.max(scaledSizeX, scaledSizeY) : Math.min(scaledSizeX, scaledSizeY), this.fillColors);
+                        if (this.gradientRadial) {
+
+                            fillStyle = _utc.radialGradient(this.cover ? Math.max(scaledWidth, scaledHeight) : Math.min(scaledWidth, scaledHeight), this.fillColors);
 
                         }
                         else {
 
-                            if (this.horizontal) {
+                            if (this.gradientHorizontal) {
 
-                                fillStyle = _utc.linearGradient(0, 0, scaledSizeX, 0, this.fillColors);
+                                fillStyle = _utc.linearGradient(0, 0, scaledWidth, 0, this.fillColors);
 
                             }
                             else {
 
-                                fillStyle = _utc.linearGradient(0, 0, 0, scaledSizeY, this.fillColors);
+                                fillStyle = _utc.linearGradient(0, 0, 0, scaledHeight, this.fillColors);
 
                             }
 
                         }
 
                     }
-                    // fallback to r,g,b
-                    else {
-
-                        fillStyle = _utc.RGBToCSS(this.r, this.g, this.b);
-
-                    }
-
-                    context.fillStyle = fillStyle;
-                    context.fillRect(0, 0, scaledSizeX, scaledSizeY);
 
                 }
 
-                this.parent(force);
+                // fallback to r,g,b
+
+                if ( !fillStyle ) {
+
+                    fillStyle = _utc.RGBToCSS(this.r, this.g, this.b);
+
+                }
+
+                return fillStyle;
+
+            },
+
+            /**
+             * @override
+             */
+            moveToEntity: function ( entity, settings ) {
+
+                this.parent( entity, settings );
+
+                if ( this.message && !this.fixed ) {
+
+                    this.message.moveToEntity( this, this.textMoveToSettings );
+
+                }
+
+            },
+
+            /**
+             * @override
+             */
+            pause: function () {
+
+                this.parent();
+
+                if ( this.message ) {
+
+                    this.message.pause();
+
+                }
+
+            },
+
+            /**
+             * @override
+             */
+            unpause: function () {
+
+                this.parent();
+
+                if ( this.message ) {
+
+                    this.message.unpause();
+
+                }
 
             },
 
@@ -351,7 +556,25 @@ ig.module(
 
                         }
 
-                        this.fill.draw(0, 0);
+                        // fixed in screen
+
+                        if (this.fixed) {
+
+                            this.fill.draw(
+                                this.boundsDraw.minX,
+                                this.boundsDraw.minY
+                            );
+
+                        }
+                        // default draw
+                        else {
+
+                            this.fill.draw(
+                                this.boundsDraw.minX - ig.game.screen.x,
+                                this.boundsDraw.minY - ig.game.screen.y
+                            );
+
+                        }
 
                         if (this.alpha !== 1) {
 

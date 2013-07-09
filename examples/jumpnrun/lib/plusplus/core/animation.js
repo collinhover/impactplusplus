@@ -57,11 +57,57 @@ ig.module(
             once: false,
 
             /**
+             * Whether animation should play in reverse.
+             * @type Boolean
+             * @default
+             */
+            reverse: false,
+
+            /**
+             * Entity being textured.
+             * @type ig.EntityExtended
+             * @readonly
+             */
+            texturing: null,
+
+            /**
+             * Size of textures, usually matching {@link ig.AnimationExtended#texturing} size.
+             * @type Number
+             * @default
+             */
+            textureWidth: 0,
+
+            /**
+             * Size of textures, usually matching {@link ig.AnimationExtended#texturing} size.
+             * @type Number
+             * @default
+             */
+            textureHeight: 0,
+
+            /**
+             * Size of textures scaled to system scale.
+             * @type Number
+             * @default
+             */
+            textureWidthScaled: 0,
+
+            /**
+             * Size of textures scaled to system scale.
+             * @type Number
+             * @default
+             */
+            textureHeightScaled: 0,
+
+            /**
              * Signal dispatched when animation completes.
              * <br>- created on init.
              * @type ig.Signal
              */
             onCompleted: null,
+
+            // internal properties, do not modify
+
+            _texturingDeferred: false,
 
             /**
              * Initializes animation.
@@ -70,13 +116,15 @@ ig.module(
              * @param {Array} sequence sequence of frame indices.
              * @param {Boolean} [stop] begin stopped.
              * @param {Boolean} [once] whether to play once.
+             * @param {Boolean} [reverse] whether to play in reverse.
              * @see ig.Animation.
              **/
-            init: function (sheet, frameTime, sequence, stop, once) {
+            init: function (sheet, frameTime, sequence, stop, once, reverse) {
 
                 this.parent(sheet, frameTime, sequence, stop);
 
-                this.once = once || this.once;
+                this.once = typeof once !== 'undefined' ? once : this.once;
+                this.reverse = typeof reverse !== 'undefined' ? reverse : this.reverse;
                 this.onCompleted = new ig.Signal();
 
             },
@@ -117,7 +165,7 @@ ig.module(
 
                 if (!this.sheet.image.loaded) {
 
-                    this.texturingDeferred = entity;
+                    this._texturingDeferred = entity;
 
                     this.sheet.image.onLoaded.addOnce(this._texturizeDeferred, this);
 
@@ -224,9 +272,9 @@ ig.module(
              */
             _texturizeDeferred: function () {
 
-                this.texturize(this.texturingDeferred);
+                this.texturize(this._texturingDeferred);
 
-                this.texturingDeferred = undefined;
+                this._texturingDeferred = undefined;
 
             },
 
@@ -251,7 +299,7 @@ ig.module(
 
                     this.sheet.image.onLoaded.remove(this._texturizeDeferred, this);
 
-                    this.texturing = this.textureWidth = this.textureHeight = this.textureWidthScaled = this.textureHeightScaled = this.texturingDeferred = undefined;
+                    this.texturing = this.textureWidth = this.textureHeight = this.textureWidthScaled = this.textureHeightScaled = this._texturingDeferred = undefined;
 
                 }
 
@@ -260,22 +308,25 @@ ig.module(
             /**
              * Unstops and rewinds animation.
              * @param {Boolean} [once] whether should play only once.
+             * @param {Boolean} [reverse] whether should play in reverse.
              **/
-            playFromStart: function (once) {
+            playFromStart: function (once, reverse) {
 
                 this.stop = false;
-                this.rewind(once);
+                this.rewind(once, reverse);
 
             },
 
             /**
              * Rewinds animation to start.
              * @param {Boolean} [once] whether should play only once.
+             * @param {Boolean} [reverse] whether should play in reverse.
              * @see ig.Animation.
              **/
-            rewind: function (once) {
+            rewind: function (once, reverse) {
 
-                this.once = once;
+                this.once = typeof once !== 'undefined' ? once : this.once;
+                this.reverse = typeof reverse !== 'undefined' ? reverse : this.reverse;
 
                 return this.parent();
 
@@ -287,35 +338,43 @@ ig.module(
              **/
             update: function () {
 
-                var loopCountLast = this.loopCount;
+                if ( !this.stop ) {
 
-                var frameTotal = Math.floor(this.timer.delta() / this.frameTime);
-                this.loopCount = Math.floor(frameTotal / this.sequence.length);
-                if (this.stop && this.loopCount > 0) {
-                    this.frame = this.sequence.length - 1;
-                }
-                else {
-                    this.frame = frameTotal % this.sequence.length;
-                }
+                    var loopCountLast = this.loopCount;
+                    var frameTotal = Math.floor(this.timer.delta() / this.frameTime);
+                    this.loopCount = Math.floor(frameTotal / this.sequence.length);
 
-                // check if completed
+                    if ( this.reverse ) {
 
-                if (this.loopCount > loopCountLast) {
+                        this.frame = ( this.sequence.length - 1 ) - ( frameTotal % this.sequence.length );
 
-                    if (this.once) {
+                    }
+                    else {
 
-                        this.once = false;
-                        this.stop = true;
-
-                        this.frame = this.sequence.length - 1;
+                        this.frame = frameTotal % this.sequence.length;
 
                     }
 
-                    this.onCompleted.dispatch();
+                    // check if completed
+
+                    if (this.loopCount > loopCountLast) {
+
+                        if (this.once) {
+
+                            this.once = false;
+                            this.stop = true;
+
+                            this.frame = this.sequence.length - 1;
+
+                        }
+
+                        this.onCompleted.dispatch();
+
+                    }
+
+                    this.tile = this.sequence[ this.frame ];
 
                 }
-
-                this.tile = this.sequence[ this.frame ];
 
             },
 

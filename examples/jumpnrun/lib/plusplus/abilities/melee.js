@@ -47,7 +47,7 @@ ig.module(
                 moving: true,
                 effects: [
                     {
-                        entity: ig.EntityEffectPow,
+                        entityClass: ig.EntityEffectPow,
                         ignoreDuration: true,
                         followTarget: true,
                         followSettings: {

@@ -37,7 +37,7 @@ ig.module(
 
                 if (!this._killed && this.action && ( ig.input.pressed(this.action) || ig.input.released(this.action) )) {
 
-                    this.trigger();
+                    this.trigger( this );
 
                 }
 
