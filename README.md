@@ -80,57 +80,57 @@ Impact++ has been built from day one to be portable / wrappable to iOS, Android,
 
 ##Migration
 ####r4 -> r5
-* Load up Impact++ by requiring ```'plusplus.core.plusplus'``` instead of several separate modules
+* Load up Impact++ by requiring 'plusplus.core.plusplus' instead of several separate modules
 
-* ```ig.CONFIG.DYNAMIC``` renamed ```ig.CONFIG.MOVING```
-* ```ig.CONFIG.KINEMATIC``` renamed ```ig.CONFIG.DYNAMIC```
-* ```ig.CONFIG.AUTO_SORT_LAYERS``` added
-* ```ig.CONFIG.PRERENDER_MAPS``` added
+* ig.CONFIG.DYNAMIC renamed ig.CONFIG.MOVING
+* ig.CONFIG.KINEMATIC renamed ig.CONFIG.DYNAMIC
+* ig.CONFIG.AUTO_SORT_LAYERS added
+* ig.CONFIG.PRERENDER_MAPS added
   
-* Collision tiles completely reworked, **all half tiles removed** (use offset instead)
+* Collision tiles completely reworked, all half tiles removed (use offset instead)
 * Climbable collision tiles are now climbable AND stairs
 * Collision visualization tiles now in 4 sizes: 64 px, 32 px, 16 px, and 8 px
   
-* ```ig.EntityExtended.ready``` now called by way of ```ig.EntityExtended.adding``` for proper execution order
-* ```ig.EntityExtended._ungroundedFor``` renamed ```ig.EntityExtended.ungroundedFor```
-* ```ig.EntityExtended.ungroundedFor``` no longer increases when climbing
-* ```ig.EntityExtended.moveToPosition``` renamed ```ig.EntityExtended.moveToEntityPosition```
-* ```ig.EntityExtended.moveToHere``` renamed ```ig.EntityExtended.moveToStop```
+* ig.EntityExtended.ready now called by way of ig.EntityExtended.adding for proper execution order
+* ig.EntityExtended._ungroundedFor renamed ig.EntityExtended.ungroundedFor
+* ig.EntityExtended.ungroundedFor no longer increases when climbing
+* ig.EntityExtended.moveToPosition renamed ig.EntityExtended.moveToEntityPosition
+* ig.EntityExtended.moveToHere renamed ig.EntityExtended.moveToStop
   
-* ```ig.Character.moveToLocation``` removed and replaced with pathfinding
-* ```ig.pathfinding``` added, use ```ig.Character.canPathfind`` with ```ig.EntityExtended.moveToEntity``` for magic!
+* ig.Character.moveToLocation removed and replaced with pathfinding
+* ig.pathfinding added, use ig.Character.canPathfind with ig.EntityExtended.moveToEntity for magic!
   
-* ```ig.EntityTrigger``` now properly chains triggers (check your trigger targets if you are getting strange behavior)
-* ```ig.EntityTrigger.triggering``` added to help prevent triggers from infinitely looping
+* ig.EntityTrigger now properly chains triggers (check your trigger targets if you are getting strange behavior)
+* ig.EntityTrigger.triggering added to help prevent triggers from infinitely looping
   
-* ```ig.AnimationExtended``` can now play in reverse
-* ```ig.AnimationExtended.update``` reworked so stop pauses instead of sets frame to end
+* ig.AnimationExtended can now play in reverse
+* ig.AnimationExtended.update reworked so stop pauses instead of sets frame to end
   
-* ```ig.EntityLight``` settings now determined by ```ig.CONFIG.LIGHT``` for easier control
-* ```ig.utilsdraw.fillPolygon``` no longer takes fill parameters, instead it assumes fillStyle has already been set
+* ig.EntityLight settings now determined by ig.CONFIG.LIGHT for easier control
+* ig.utilsdraw.fillPolygon no longer takes fill parameters, instead it assumes fillStyle has already been set
   
-* ```ig.EntityDestructable``` now no longer damageable or targetable or collidable
-* ```ig.EntityDestructableCollide``` is now collidable
-* ```ig.EntityDestructableDamage``` is now damageable and targetable
+* ig.EntityDestructable now no longer damageable or targetable or collidable
+* ig.EntityDestructableCollide is now collidable
+* ig.EntityDestructableDamage is now damageable and targetable
   
-* ```ig.Ability's castSettings.entity``` renamed ```ig.Ability's castSettings.entityClass```
-* ```ig.Ability's castSettings.entityClass``` is no longer stored for reuse
+* ig.Ability's castSettings.entity renamed ig.Ability's castSettings.entityClass
+* ig.Ability's castSettings.entityClass is no longer stored for reuse
   
-* ```ig.UIElement.vertical``` moved to ```ig.UIMeter.vertical```
-* ```ig.UIElement.linkAlign``` now controls how far inside or outside of linkedTo a linked UI element is offset
-* ```ig.UIElement.resize``` renamed ```ig.UIElement.refresh```
-* ```ig.UIElement.onResized``` renamed ```ig.UIElement.onRefreshed```
-* ```ig.UIElement.refresh``` calls (in order) ```ig.UIElement.resize``` and ```ig.UIElement.reposition```
-* ```ig.UIText``` no longer positions to center by default (but still aligns to center by default)
-* ```ig.EntityConversation``` completely reworked
+* ig.UIElement.vertical moved to ig.UIMeter.vertical
+* ig.UIElement.linkAlign now controls how far inside or outside of linkedTo a linked UI element is offset
+* ig.UIElement.resize renamed ig.UIElement.refresh
+* ig.UIElement.onResized renamed ig.UIElement.onRefreshed
+* ig.UIElement.refresh calls (in order) ig.UIElement.resize and ig.UIElement.reposition
+* ig.UIText no longer positions to center by default (but still aligns to center by default)
+* ig.EntityConversation completely reworked
   
-* ```ig.BackgroundMap``` expanded to ```ig.BackgroundMapExtended```
-* ```ig.Layer.ready``` added
-* ```ig.Door.locked``` and ```ig.Door.autoLock``` added
-* ```ig.EntitySwitch.stuck``` renamed ```ig.EntitySwitch.broken```
-* ```ig.EntitySwitch.autoStuck``` renamed ```ig.EntitySwitch.autoBreak``
+* ig.BackgroundMap expanded to ig.BackgroundMapExtended
+* ig.Layer.ready added
+* ig.Door.locked and ig.Door.autoLock added
+* ig.EntitySwitch.stuck renamed ig.EntitySwitch.broken
+* ig.EntitySwitch.autoStuck renamed ig.EntitySwitch.autoBreak
 
-* ```ig.utilsintersection``` bounds methods can be optionally passed a bounds object to help with garbage collection
+* ig.utilsintersection bounds methods can be optionally passed a bounds object to help with garbage collection
 
 ####Contributing
 We'd love it if you want to help make Impact++ better, so if you're interested take a look at [CONTRIBUTING](https://github.com/collinhover/impactplusplus/blob/master/CONTRIBUTING.md).
