@@ -80,6 +80,8 @@ Impact++ has been built from day one to be portable / wrappable to iOS, Android,
 
 ##Migration
 ####r4 -> r5
+* Load up Impact++ by requiring ```'plusplus.core.plusplus'``` instead of several separate modules
+
 * ```ig.CONFIG.DYNAMIC``` renamed ```ig.CONFIG.MOVING```
 * ```ig.CONFIG.KINEMATIC``` renamed ```ig.CONFIG.DYNAMIC```
 * ```ig.CONFIG.AUTO_SORT_LAYERS``` added

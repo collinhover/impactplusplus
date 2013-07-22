@@ -37,7 +37,7 @@ ig.module(
 		// animations the Impact++ way
 		
 		animSettings: {
-			crawl: {
+			run: {
 				frameTime: 0.08,
 				sequence: [0,1,2]
 			}

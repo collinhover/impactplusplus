@@ -41,13 +41,7 @@ ig.module(
             messageMoveToSettings: {
                 matchPerformance: true,
                 offsetPct: _utv2.vector( 0, 2 )
-            },
-
-            /**
-             * @override
-             * @default
-             */
-            cameraFollows: false
+            }
 
         } );
 

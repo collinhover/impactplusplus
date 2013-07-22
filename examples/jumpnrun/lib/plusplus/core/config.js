@@ -996,7 +996,7 @@ ig.module(
          * Base horizontal size of characters that can also affect many calculations, ex: melee ability distance.
          * @type Number
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          */
         ig.CONFIG.CHARACTER.SIZE_X = 32;
 
@@ -1004,7 +1004,7 @@ ig.module(
          * Base vertical size of characters that can also affect many calculations, ex: melee ability distance.
          * @type Number
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          */
         ig.CONFIG.CHARACTER.SIZE_Y = 32;
 
@@ -1012,7 +1012,7 @@ ig.module(
          * Horizontal offset of characters allows visual overlap with walls to give some depth.
          * @type Number
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          */
         ig.CONFIG.CHARACTER.SIZE_OFFSET_X = 0;
 
@@ -1020,7 +1020,7 @@ ig.module(
          * Vertical offset of characters allows visual overlap with floor / ceiling to give some depth.
          * @type Number
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          */
         ig.CONFIG.CHARACTER.SIZE_OFFSET_Y = 0;
 
@@ -1028,7 +1028,7 @@ ig.module(
          * Max x velocity while in air.
          * @type Number
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          */
         ig.CONFIG.CHARACTER.MAX_VEL_UNGROUNDED_X = 100;
 
@@ -1036,7 +1036,7 @@ ig.module(
          * Max y velocity while in air.
          * @type Number
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          */
         ig.CONFIG.CHARACTER.MAX_VEL_UNGROUNDED_Y = 200;
 
@@ -1044,7 +1044,7 @@ ig.module(
          * Max x velocity while on ground.
          * @type Number
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          */
         ig.CONFIG.CHARACTER.MAX_VEL_GROUNDED_X = 100;
 
@@ -1052,7 +1052,7 @@ ig.module(
          * Max y velocity while on ground.
          * @type Number
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          */
         ig.CONFIG.CHARACTER.MAX_VEL_GROUNDED_Y = 100;
 
@@ -1060,7 +1060,7 @@ ig.module(
          * Max x velocity while climbing.
          * @type Number
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          */
         ig.CONFIG.CHARACTER.MAX_VEL_CLIMBING_X = 75;
 
@@ -1068,7 +1068,7 @@ ig.module(
          * Max y velocity while climbing.
          * @type Number
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          */
         ig.CONFIG.CHARACTER.MAX_VEL_CLIMBING_Y = 75;
 
@@ -1076,7 +1076,7 @@ ig.module(
          * Horizontal friction while in air.
          * @type Number
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          */
         ig.CONFIG.CHARACTER.FRICTION_UNGROUNDED_X = 0;
 
@@ -1084,7 +1084,7 @@ ig.module(
          * Vertical friction while in air.
          * @type Number
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          */
         ig.CONFIG.CHARACTER.FRICTION_UNGROUNDED_Y = 0;
 
@@ -1092,7 +1092,7 @@ ig.module(
          * Horizontal friction while on ground.
          * @type Number
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          */
         ig.CONFIG.CHARACTER.FRICTION_GROUNDED_X = 1600;
 
@@ -1100,7 +1100,7 @@ ig.module(
          * Vertical friction while on ground.
          * @type Number
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          */
         ig.CONFIG.CHARACTER.FRICTION_GROUNDED_Y = 1600;
 
@@ -1108,7 +1108,7 @@ ig.module(
          * Movement speed applied to horizontal acceleration.
          * @type Number
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          */
         ig.CONFIG.CHARACTER.SPEED_X = 750;
 
@@ -1116,15 +1116,23 @@ ig.module(
          * Movement speed applied to vertical acceleration.
          * @type Number
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          */
         ig.CONFIG.CHARACTER.SPEED_Y = 750;
+
+        /**
+         * Whether character is able to jump.
+         * @type Boolean
+         * @default
+         * @memberof ig.CONFIG.CHARACTER
+         */
+        ig.CONFIG.CHARACTER.CAN_JUMP = true;
 
         /**
          * Number of update steps to apply jump force.
          * @type Number
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          * @example
          * // jump is short
          * character.jumpSteps = 1;
@@ -1137,7 +1145,7 @@ ig.module(
          * Speed modifier to apply on each jump step.
          * @type Number
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          * @example
          * // jump is slow and not very high
          * character.jumpForce = 1;
@@ -1150,7 +1158,7 @@ ig.module(
          * Amount of acceleration control while in air.
          * @type Number
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          * @example
          * // no control of direction while in air
          * character.jumpControl = 0;
@@ -1165,7 +1173,7 @@ ig.module(
          * <br>- this does not allow another jump while jumping
          * @type Number
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          */
         ig.CONFIG.CHARACTER.UNGROUNDED_FOR_THRESHOLD = 0.1;
 
@@ -1173,15 +1181,23 @@ ig.module(
          * Duration after character leaves ground to start playing fall animation.
          * @type Number
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          */
         ig.CONFIG.CHARACTER.UNGROUNDED_FOR_AND_FALLING_THRESHOLD = 0.25;
+
+        /**
+         * Whether character is able to climb.
+         * @type Boolean
+         * @default
+         * @memberof ig.CONFIG.CHARACTER
+         */
+        ig.CONFIG.CHARACTER.CAN_CLIMB = true;
 
         /**
          * Amount of acceleration control while climbing.
          * @type Number
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          * @example
          * // no control of direction while climbing
          * character.climbingControl = 0;
@@ -1191,12 +1207,57 @@ ig.module(
         ig.CONFIG.CHARACTER.CLIMBING_CONTROL = 1;
 
         /**
-         * How long character will continue to try to move to something while stuck.
+         * Whether character is able to pathfind.
+         * @type Boolean
+         * @default
+         * @memberof ig.CONFIG.CHARACTER
+         */
+        ig.CONFIG.CHARACTER.CAN_PATHFIND = true;
+
+        /**
+         * Whether character will try to pathfind to areas it thinks are unreachable.
+         * @type Boolean
+         * @default
+         * @memberof ig.CONFIG.CHARACTER
+         */
+        ig.CONFIG.CHARACTER.PATHFIND_UNREACHABLE = false;
+
+        /**
+         * Whether character will try to pathfind around colliding entities.
+         * @type Boolean
+         * @default
+         * @memberof ig.CONFIG.CHARACTER
+         */
+        ig.CONFIG.CHARACTER.PATHFIND_AROUND_ENTITIES = true;
+
+        /**
+         * How far character should search for pathfinding.
+         * <br>- set to <= 0 for infinite distance
+         * <br>- this helps cull paths that lead too far away from the target
+         * <span class="alert alert-info"><strong>Tip:</strong> for best results, pathfinding distance should be >= reaction distance!</span>
          * @type Number
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          */
-        ig.CONFIG.CHARACTER.MOVE_TO_STUCK_FOR_THRESHOLD = 0.5;
+        ig.CONFIG.CHARACTER.PATHFINDING_DISTANCE = 100;
+
+        /**
+         * Delay in seconds between pathfinding when has no path.
+         * <span class="alert alert-danger"><strong>IMPORTANT:</strong> setting this to a low value may cause a high number of pathfinding requests, which can be performance intensive!</span>
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.CHARACTER
+         */
+        ig.CONFIG.CHARACTER.PATHFINDING_DELAY = 1;
+
+        /**
+         * Delay in seconds between pathfinding when following a path.
+         * <span class="alert alert-danger"><strong>IMPORTANT:</strong> setting this to a low value may cause a high number of pathfinding requests, which can be performance intensive!</span>
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.CHARACTER
+         */
+        ig.CONFIG.CHARACTER.PATHFINDING_UPDATE_DELAY = 0.2;
 
         /**
          * Health statistic.
@@ -1210,7 +1271,7 @@ ig.module(
          * Energy statistic, by default used in abilities.
          * @type Number
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          */
         ig.CONFIG.CHARACTER.ENERGY = 1;
 
@@ -1218,7 +1279,7 @@ ig.module(
          * Amount of health a character should regenerate per tick.
          * @type Number
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          */
         ig.CONFIG.CHARACTER.REGEN_RATE_HEALTH = 0;
 
@@ -1226,7 +1287,7 @@ ig.module(
          * Amount of energy a character should regenerate per tick.
          * @type Number
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          */
         ig.CONFIG.CHARACTER.REGEN_RATE_ENERGY = 0;
 
@@ -1235,7 +1296,7 @@ ig.module(
          * <br>- explosions are created through an {@link ig.EntityExplosion}
          * @type Boolean
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          */
         ig.CONFIG.CHARACTER.EXPLODING_DAMAGE = true;
 
@@ -1243,7 +1304,7 @@ ig.module(
          * Number of particles to create for explosion when character damaged.
          * @type Number
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          */
         ig.CONFIG.CHARACTER.EXPLODING_DAMAGE_PARTICLE_COUNT = 3;
 
@@ -1252,7 +1313,7 @@ ig.module(
          * <br>- explosions are created through an {@link ig.EntityExplosion}
          * @type Boolean
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          */
         ig.CONFIG.CHARACTER.EXPLODING_DEATH = true;
 
@@ -1260,9 +1321,195 @@ ig.module(
          * Number of particles to create for explosion when character killed.
          * @type Number
          * @default
-         * @memberof ig.CONFIG.ENTITY
+         * @memberof ig.CONFIG.CHARACTER
          */
         ig.CONFIG.CHARACTER.EXPLODING_DEATH_PARTICLE_COUNT = 10;
+
+        /**
+         * Creature base configuration settings.
+         * <span class="alert alert-error"><strong>IMPORTANT:</strong> Don't modify config directly! (see example)</span>
+         * @example
+         * // in order to add your own custom configuration to Impact++
+         * // edit the file defining ig.CONFIG_USER, 'plusplus.config-user'
+         * // ig.CONFIG_USER is never modified by Impact++ (it is strictly for your use)
+         * // ig.CONFIG_USER is automatically merged over Impact++'s config
+         * @static
+         * @readonly
+         * @memberof ig.CONFIG
+         * @namespace ig.CONFIG.CREATURE
+         * @author Collin Hover - collinhover.com
+         **/
+        ig.CONFIG.CREATURE = {};
+
+        /**
+         * How far creature should search for targets.
+         * <span class="alert alert-info"><strong>Tip:</strong> for best results, reaction distance should be <= pathfinding distance!</span>
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.CREATURE
+         */
+        ig.CONFIG.CREATURE.REACTION_DISTANCE = 100;
+
+        /**
+         * Delay in seconds between updates of creature targets.
+         * <span class="alert"><strong>IMPORTANT:</strong> be careful about setting this value too low, as it can cause large performance hits.</span>
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.CREATURE
+         */
+        ig.CONFIG.CREATURE.REACTION_DELAY = 0.2;
+
+        /**
+         * Whether creatures flee.
+         * @type Boolean
+         * @default
+         * @memberof ig.CONFIG.CREATURE
+         */
+        ig.CONFIG.CREATURE.CAN_FLEE = true;
+
+        /**
+         * Percentage of health, between 0 and 1, when creature begins to flee.
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.CREATURE
+         */
+        ig.CONFIG.CREATURE.FLEE_HEALTH_PCT = 0.15;
+
+        /**
+         * Number of steps over map for finding best flee position.
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.CREATURE
+         */
+        ig.CONFIG.CREATURE.FLEE_STEPS = 50;
+
+        /**
+         * Pathfinding base configuration settings.
+         * <span class="alert alert-error"><strong>IMPORTANT:</strong> Don't modify config directly! (see example)</span>
+         * @example
+         * // in order to add your own custom configuration to Impact++
+         * // edit the file defining ig.CONFIG_USER, 'plusplus.config-user'
+         * // ig.CONFIG_USER is never modified by Impact++ (it is strictly for your use)
+         * // ig.CONFIG_USER is automatically merged over Impact++'s config
+         * @static
+         * @readonly
+         * @memberof ig.CONFIG
+         * @namespace ig.CONFIG.PATHFINDING
+         * @author Collin Hover - collinhover.com
+         **/
+        ig.CONFIG.PATHFINDING = {};
+
+        /**
+         * Whether to use node weight in pathfinding.
+         * @type Boolean
+         * @default
+         * @memberof ig.CONFIG.PATHFINDING
+         */
+        ig.CONFIG.PATHFINDING.WEIGHTED = true;
+
+        /**
+         * Whether to allow diagonal movement.
+         * @type Boolean
+         * @default
+         * @memberof ig.CONFIG.PATHFINDING
+         */
+        ig.CONFIG.PATHFINDING.ALLOW_DIAGONAL = true;
+
+        /**
+         * Whether diagonal movement requires both direct movements to be walkable.
+         * @type Boolean
+         * @default
+         * @memberof ig.CONFIG.PATHFINDING
+         */
+        ig.CONFIG.PATHFINDING.DIAGONAL_REQUIRES_BOTH_DIRECT = true;
+
+        /**
+         * Whether to try to avoid entities in pathfinding.
+         * @type Boolean
+         * @default
+         * @memberof ig.CONFIG.PATHFINDING
+         */
+        ig.CONFIG.PATHFINDING.AVOID_ENTITIES = true;
+
+        /**
+         * Base weight to apply to a node.
+         * <span class="alert alert-info"><strong>Tip:</strong> the higher this is, the more likely a path will follow the pathfinding map.</span>
+         * @type Number
+         * @default
+         * @memberof ig.CONFIG.PATHFINDING
+         */
+        ig.CONFIG.PATHFINDING.WEIGHT = 10;
+
+        /**
+         * List of walkable collision map tiles.
+         * @type Array
+         * @memberof ig.CONFIG.PATHFINDING
+         * @property 0 empty
+         * @property 12 one way up
+         * @property 23 one way down
+         * @property 34 one way right
+         * @property 45 one way left
+         * @property 46 climbable with top
+         * @property 47 climbable
+         * @property 48 climbable stairs with top
+         * @property 49 climbable stairs
+         * @property 50 empty
+         * @property 51 empty
+         */
+        ig.CONFIG.PATHFINDING.WALKABLE_COLLISION_TILES = [ 0, 12, 23, 34, 45, 46, 47, 48, 49, 50, 51 ];
+
+        /**
+         * Default pathfinding tile definitions.
+         * <span class="alert alert-info"><strong>Tip:</strong> settings map directly to the properties of {@link ig.pathfinding.Node}.</span>
+         * @type {Object}
+         * @memberof ig.CONFIG.PATHFINDING
+         * @property 0 worst walkable
+         * @property 1 best walkable
+         * @property 2 good walkable
+         * @property 3 bad walkable
+         * @property 4 unwalkable
+         * @property 5 best jump
+         * @property 6 worst jump
+         * @example
+         * // tile definitions are plain objects
+         * // with a variety of properties
+         * ig.CONFIG.PATHFINDING.TILE_DEF[ 2 ] {
+         *     // walkable state
+         *     // when not present, assumes true
+         *     walkable: false,
+         *     // positive weight value
+         *     // where higher is harder to walk
+         *     weight: 1,
+         *     // percent of base weight to apply
+         *     weightPct: 0.5
+         * };
+         */
+        ig.CONFIG.PATHFINDING.TILE_DEF = {
+            0: {
+                weightPct: 1
+            },
+            1: {
+                weightPct: 0,
+                jump: false
+            },
+            2: {
+                weightPct: 0.25,
+                jump: false
+            },
+            3: {
+                weightPct: 0.75,
+                jump: false
+            },
+            4: {
+                walkable: false
+            },
+            5: {
+                weightPct: 0
+            },
+            6: {
+                weightPct: 0.5
+            }
+        };
 
         /**
          * Overlay base configuration settings.

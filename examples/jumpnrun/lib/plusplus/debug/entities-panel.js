@@ -246,19 +246,14 @@ ig.module(
                     property: '_debugEnableChecks'
                 },
                 {
+                    name: 'Show Velocities',
+                    object: ig.EntityExtended,
+                    property: '_debugShowVelocities'
+                },
+                {
                     name: 'Show Collision Boxes',
                     object: ig.EntityExtended,
                     property: '_debugShowBoxes'
-                },
-                {
-                    name: 'Show Vertex Boxes',
-                    object: ig.EntityExtended,
-                    property: '_debugShowVertices'
-                },
-                {
-                    name: 'Show Vertex Boxes (draw)',
-                    object: ig.EntityExtended,
-                    property: '_debugShowVerticesWorld'
                 },
                 {
                     name: 'Show Bounding Boxes',
@@ -271,9 +266,14 @@ ig.module(
                     property: '_debugShowBoundsDraw'
                 },
                 {
-                    name: 'Show Velocities',
+                    name: 'Show Vertex Boxes',
                     object: ig.EntityExtended,
-                    property: '_debugShowVelocities'
+                    property: '_debugShowVertices'
+                },
+                {
+                    name: 'Show Vertex Boxes (draw)',
+                    object: ig.EntityExtended,
+                    property: '_debugShowVerticesWorld'
                 }
             ]
         });

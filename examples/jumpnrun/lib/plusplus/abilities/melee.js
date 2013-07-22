@@ -23,17 +23,25 @@ ig.module(
          * @author Collin Hover - collinhover.com
          **/
         ig.AbilityMelee = ig.AbilityDamage.extend(/**@lends ig.AbilityMelee.prototype */{
+
+            /**
+             * Melee has a short cooldown.
+             * @override
+             * @default
+             */
+            cooldownDelay: 0.2,
+
             /**
              * Range is based on effective size of the base character.
              * Generally, we want melee to have a bit larger range than what would be expected visually.
-             * @type Number
+             * @override
              * @default
              */
             rangeX: _c.CHARACTER.SIZE_EFFECTIVE_X * 1.5,
 
             /**
              * Ability should find target automatically.
-             * @type Boolean
+             * @override
              * @default
              */
             canFindTarget: true,

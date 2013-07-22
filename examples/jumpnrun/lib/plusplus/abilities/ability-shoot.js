@@ -268,7 +268,7 @@ ig.module(
 
                 // flip entity to projectile
 
-                this.lookAt(projectile);
+                this.entity.lookAt(projectile);
 
                 this.parent();
 

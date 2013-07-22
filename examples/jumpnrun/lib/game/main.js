@@ -8,9 +8,7 @@ ig.module(
 )
 // now require the appropriate files
 .requires(
-    'plusplus.core.config',
-    'plusplus.core.loader',
-    'plusplus.core.game',
+    'plusplus.core.plusplus',
 	
 	'impact.font',
 	

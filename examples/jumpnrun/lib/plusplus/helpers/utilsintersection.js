@@ -18,6 +18,7 @@ ig.module(
          * @param {Number} y y position of top left
          * @param {Number} width width
          * @param {Number} height height
+         * @param {Object} [bounds] bounding object
          * @returns {Object} bounding object
          * @example
          * // get bounds
@@ -35,16 +36,17 @@ ig.module(
          * // height
          * bounds.height;
          **/
-        ig.utilsintersection.bounds = function (x, y, width, height) {
+        ig.utilsintersection.bounds = function (x, y, width, height, bounds) {
 
-            return {
-                minX: x,
-                minY: y,
-                maxX: x + width,
-                maxY: y + height,
-                width: width,
-                height: height
-            };
+            bounds = bounds || {};
+            bounds.minX = x;
+            bounds.minY = y;
+            bounds.maxX = x + width;
+            bounds.maxY = y + height;
+            bounds.width = width;
+            bounds.height = height;
+
+            return bounds;
 
         };
 
@@ -54,6 +56,7 @@ ig.module(
          * @param {Number} minY y position of top left
          * @param {Number} maxX x position of bottom right
          * @param {Number} maxY y position of bottom right
+         * @param {Object} [bounds] bounding object
          * @returns {Object} bounding object
          * @example
          * // get bounds
@@ -71,16 +74,17 @@ ig.module(
          * // height
          * bounds.height;
          **/
-        ig.utilsintersection.boundsMinMax = function (minX, minY, maxX, maxY) {
+        ig.utilsintersection.boundsMinMax = function (minX, minY, maxX, maxY, bounds) {
 
-            return {
-                minX: minX,
-                minY: minY,
-                maxX: maxX,
-                maxY: maxY,
-                width: maxX - minX,
-                height: maxY - minY
-            };
+            bounds = bounds || {};
+            bounds.minX = minX;
+            bounds.minY = minY;
+            bounds.maxX = maxX;
+            bounds.maxY = maxY;
+            bounds.width = maxX - minX;
+            bounds.height = maxY - minY;
+
+            return bounds;
 
         };
 
@@ -88,6 +92,7 @@ ig.module(
          * Returns bounds from a set of points.
          * <span class="alert alert-info"><strong>Tip:</strong> each point should be an object with x and y values.</span>
          * @param {Array} points Array of points.
+         * @param {Object} [bounds] bounding object
          * @returns {Object} bounding object
          * @example
          * // get bounds
@@ -110,7 +115,7 @@ ig.module(
          * // height
          * bounds.height;
          **/
-        ig.utilsintersection.boundsOfPoints = function (points) {
+        ig.utilsintersection.boundsOfPoints = function (points, bounds) {
 
             var i, il, point = points[ 0 ];
             var minX = point.x;
@@ -129,43 +134,46 @@ ig.module(
 
             }
 
-            return {
-                minX: minX,
-                minY: minY,
-                maxX: maxX,
-                maxY: maxY,
-                width: maxX - minX,
-                height: maxY - minY
-            };
+            bounds = bounds || {};
+            bounds.minX = minX;
+            bounds.minY = minY;
+            bounds.maxX = maxX;
+            bounds.maxY = maxY;
+            bounds.width = maxX - minX;
+            bounds.height = maxY - minY;
+
+            return bounds;
 
         };
 
         /**
          * Clones a bounds object, with the addition of optional offset position.
-         * @param {Object} bounds bounds to clone
+         * @param {Object} boundsSource bounds to clone
          * @param {Number} [offsetX=0] offset x
          * @param {Number} [offsetY=0] offset y
+         * @param {Object} [bounds] bounding object
          * @returns {Object} bounding object clone.
          * @see ig.utilsintersection.bounds
          **/
-        ig.utilsintersection.boundsClone = function (bounds, offsetX, offsetY) {
+        ig.utilsintersection.boundsClone = function (boundsSource, offsetX, offsetY, bounds) {
 
             offsetX = offsetX || 0;
             offsetY = offsetY || 0;
 
-            var minX = bounds.minX + offsetX;
-            var minY = bounds.minY + offsetY;
-            var maxX = bounds.maxX + offsetX;
-            var maxY = bounds.maxY + offsetY;
+            var minX = boundsSource.minX + offsetX;
+            var minY = boundsSource.minY + offsetY;
+            var maxX = boundsSource.maxX + offsetX;
+            var maxY = boundsSource.maxY + offsetY;
 
-            return {
-                minX: minX,
-                minY: minY,
-                maxX: maxX,
-                maxY: maxY,
-                width: maxX - minX,
-                height: maxY - minY
-            };
+            bounds = bounds || {};
+            bounds.minX = minX;
+            bounds.minY = minY;
+            bounds.maxX = maxX;
+            bounds.maxY = maxY;
+            bounds.width = maxX - minX;
+            bounds.height = maxY - minY;
+
+            return bounds;
 
         };
 
@@ -356,7 +364,7 @@ ig.module(
          * This is a convenience method to test intersection of a point with a bounding box.
          * @param {Number} x point x
          * @param {Number} y point y
-         * @param {Number} bounds bounding object
+         * @param {Object} bounds bounding object
          * @returns {Boolean} whether point is inside bounds
          * @see ig.utilsintersection.AABBIntersect
          **/
