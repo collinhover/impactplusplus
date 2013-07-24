@@ -28,12 +28,58 @@ ig.module(
 
         var SEGMENT_A = 1;
         var SEGMENT_B = 2;
-        var TILE_ONE_WAY_UP = 12;
-        var TILE_ONE_WAY_DOWN = 23;
-        var TILE_ONE_WAY_RIGHT = 34;
-        var TILE_ONE_WAY_LEFT = 45;
-        var TILE_CLIMBABLE_WITH_TOP = 100;
-        var TILE_CLIMBABLE = 111;
+
+        /**
+         * Special tile ids.
+         * @type {Object}
+         * @memberof ig.utilstile
+         * @property {Number} ONE_WAY_UP One way, up facing tile.
+         * @property {Number} ONE_WAY_DOWN One way, down facing tile.
+         * @property {Number} ONE_WAY_RIGHT One way, right facing tile.
+         * @property {Number} ONE_WAY_LEFT One way, left facing tile.
+         * @property {Number} CLIMBABLE_WITH_TOP Climbable tile with a top to rest on.
+         * @property {Number} CLIMBABLE Climbable tile with no top.
+         * @readonly
+         */
+        ig.utilstile.TILE_ID = {};
+        var TILE_ONE_WAY_UP = ig.utilstile.TILE_ID.ONE_WAY_UP = 12;
+        var TILE_ONE_WAY_DOWN = ig.utilstile.TILE_ID.ONE_WAY_DOWN = 23;
+        var TILE_ONE_WAY_RIGHT = ig.utilstile.TILE_ID.ONE_WAY_RIGHT = 34;
+        var TILE_ONE_WAY_LEFT = ig.utilstile.TILE_ID.ONE_WAY_LEFT = 45;
+        var TILE_CLIMBABLE_WITH_TOP = ig.utilstile.TILE_ID.CLIMBABLE_WITH_TOP = 46;
+        var TILE_CLIMBABLE = ig.utilstile.TILE_ID.CLIMBABLE = 47;
+        var TILE_CLIMBABLE_STAIRS_WITH_TOP = ig.utilstile.TILE_ID.STAIRS_WITH_TOP = 48;
+        var TILE_CLIMBABLE_STAIRS = ig.utilstile.TILE_ID.STAIRS = 49;
+
+        /**
+         * Special tile hash for faster comparison.
+         * @type {Object}
+         * @memberof ig.utilstile
+         * @readonly
+         */
+        ig.utilstile.TILE_TYPE_HASH = {};
+
+        var HASH_ONE_WAY = ig.utilstile.TILE_TYPE_HASH.ONE_WAY = {};
+        HASH_ONE_WAY[ TILE_ONE_WAY_UP ] = true;
+        HASH_ONE_WAY[ TILE_ONE_WAY_DOWN ] = true;
+        HASH_ONE_WAY[ TILE_ONE_WAY_RIGHT ] = true;
+        HASH_ONE_WAY[ TILE_ONE_WAY_LEFT ] = true;
+        HASH_ONE_WAY[ TILE_CLIMBABLE_WITH_TOP ] = true;
+        HASH_ONE_WAY[ TILE_CLIMBABLE_STAIRS_WITH_TOP ] = true;
+
+        var HASH_CLIMBABLE = ig.utilstile.TILE_TYPE_HASH.CLIBMABLE = {};
+        HASH_CLIMBABLE[ TILE_CLIMBABLE_WITH_TOP ] = true;
+        HASH_CLIMBABLE[ TILE_CLIMBABLE ] = true;
+        HASH_CLIMBABLE[ TILE_CLIMBABLE_STAIRS_WITH_TOP ] = true;
+        HASH_CLIMBABLE[ TILE_CLIMBABLE_STAIRS ] = true;
+
+        var HASH_CLIMBABLE_ONE_WAY = ig.utilstile.TILE_TYPE_HASH.CLIMBABLE_ONE_WAY = {};
+        HASH_CLIMBABLE_ONE_WAY[ TILE_CLIMBABLE_WITH_TOP ] = true;
+        HASH_CLIMBABLE_ONE_WAY[ TILE_CLIMBABLE_STAIRS_WITH_TOP ] = true;
+
+        var HASH_CLIMBABLE_STAIRS = ig.utilstile.TILE_TYPE_HASH.CLIMBABLE_STAIRS = {};
+        HASH_CLIMBABLE_STAIRS[ TILE_CLIMBABLE_STAIRS_WITH_TOP ] = true;
+        HASH_CLIMBABLE_STAIRS[ TILE_CLIMBABLE_STAIRS ] = true;
 
         /**
          * Definitions of tile types as vertices so we don't have to recalculate each tile.
@@ -51,34 +97,45 @@ ig.module(
 
         /**
          * Gets if a tile is one-way.
-         * @param {String} tileId tile id.
+         * @param {Number} tileId tile id.
          * @returns {Boolean} whether tile is one-way
          **/
         ig.utilstile.isTileOneWay = function (tileId) {
 
-            return tileId === TILE_ONE_WAY_UP || tileId === TILE_ONE_WAY_DOWN || tileId === TILE_ONE_WAY_RIGHT || tileId === TILE_ONE_WAY_LEFT;
+            return HASH_ONE_WAY[ tileId ];
 
         };
 
         /**
          * Gets if a tile is climbable.
-         * @param {String} tileId tile id.
+         * @param {Number} tileId tile id.
          * @returns {Boolean} whether tile is climbable
          **/
         ig.utilstile.isTileClimbable = function (tileId) {
 
-            return tileId === TILE_CLIMBABLE_WITH_TOP || tileId === TILE_CLIMBABLE;
+            return HASH_CLIMBABLE[ tileId ];
+
+        };
+
+        /**
+         * Gets if a tile is stairs.
+         * @param {Number} tileId tile id.
+         * @returns {Boolean} whether tile is stairs
+         **/
+        ig.utilstile.isTileClimbableStairs = function (tileId) {
+
+            return HASH_CLIMBABLE_STAIRS[ tileId ];
 
         };
 
         /**
          * Gets if a tile is climbable and one way.
-         * @param {String} tileId tile id.
+         * @param {Number} tileId tile id.
          * @returns {Boolean} whether tile is climbable and one way
          **/
         ig.utilstile.isTileClimbableOneWay = function (tileId) {
 
-            return tileId === TILE_CLIMBABLE_WITH_TOP;
+            return HASH_CLIMBABLE_ONE_WAY[ tileId ];
 
         };
 
@@ -239,7 +296,7 @@ ig.module(
 
                     shape = shapes.climbables[ i ];
 
-                    if (shape.id === TILE_CLIMBABLE_WITH_TOP) {
+                    if (ig.utilstile.isTileClimbableOneWay( shape.id ) ) {
 
                         shape.settings.oneWay = true;
 
@@ -247,6 +304,12 @@ ig.module(
                     else {
 
                         shape.settings.sensor = true;
+
+                    }
+
+                    if ( ig.utilstile.isTileClimbableStairs( shape.id ) ) {
+
+                        shape.settings.climbableStairs = true;
 
                     }
 

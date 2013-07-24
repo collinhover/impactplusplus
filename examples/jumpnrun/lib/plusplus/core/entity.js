@@ -82,7 +82,7 @@ ig.module(
              * @default none
              * @see ig.utils.getType
              */
-            checkAgainst: ig.Entity.TYPE.NONE,
+            checkAgainst: 0,
 
             /**
              * Entity type, expanded for more flexibility and specificity.
@@ -91,10 +91,11 @@ ig.module(
              * @default none
              * @see ig.utils.getType
              */
-            type: ig.Entity.TYPE.NONE,
+            type: 0,
 
             /**
              * Group of entities to avoid checking against and colliding with.
+             * <span class="alert alert-info"><strong>Tip:</strong> as the group property is a bitflag, it can be any combination of groups!</span>
              * @type Bitflag
              * @default none
              * @see ig.utils.getType
@@ -322,7 +323,7 @@ ig.module(
 
             /**
              * Whether entity can be targeted by an intersection search.
-             * <span class="alert alert-info"><strong>IMPORTANT:</strong> for interactive entities, set this to true and add the {@link ig.EntityExtended.TYPE.INTERACTIVE} flag to its type.</span>
+             * <span class="alert alert-info"><strong>Tip:</strong> for interactive entities, set this to true and add the {@link ig.EntityExtended.TYPE.INTERACTIVE} flag to its type.</span>
              * @type Boolean
              * @default
              */
@@ -334,6 +335,14 @@ ig.module(
              * @default
              */
             climbable: false,
+
+            /**
+             * Whether entity is climbable as stairs.
+             * <span class="alert"><strong>IMPORTANT:</strong> has no effect unless {@link ig.EntityExtended#climbable} is true.</span>
+             * @type Boolean
+             * @default
+             */
+            climbableStairs: false,
 
             /**
              * Whether entity is one way
@@ -687,7 +696,7 @@ ig.module(
              * @type Object
              * @see ig.utilsintersection.bounds
              */
-            bounds: null,
+            bounds: {},
 
             /**
              * Entity bounds, including offsets.
@@ -702,14 +711,14 @@ ig.module(
              * @type Object
              * @see ig.utilsintersection.bounds
              */
-            boundsDraw: null,
+            boundsDraw: {},
 
             /**
              * List of vertices based on bounds, relative to entity.
              * <br>- not calculated by default for performance reasons
              * <br>- will be calculated if entity casts shadows and entity is within a light
              * <br>- to manually enable, use {@link ig.EntityExtended#verticesNeeded}
-             * @type Object
+             * @type Array
              */
             vertices: null,
 
@@ -718,7 +727,7 @@ ig.module(
              * <br>- not calculated by default for performance reasons
              * <br>- will be calculated if entity casts shadows and entity is within a light
              * <br>- to manually enable, use {@link ig.EntityExtended#verticesNeeded}
-             * @type Object
+             * @type Array
              */
             verticesWorld: null,
 
@@ -1345,6 +1354,8 @@ ig.module(
              **/
             getBounds: function () {
 
+                var bounds = this.bounds;
+
                 if (this.angle !== 0) {
 
                     return _uti.boundsOfPoints(
@@ -1353,23 +1364,21 @@ ig.module(
                             this.getCenterX(), this.getCenterY(),
                             1, 1,
                             this.angle
-                        )
+                        ),
+                        bounds
                     );
 
                 }
                 else {
 
-                    var sizeX = this.size.x;
-                    var sizeY = this.size.y;
+                    bounds.minX = this.pos.x;
+                    bounds.minY = this.pos.y;
+                    bounds.maxX = this.pos.x + this.size.x;
+                    bounds.maxY = this.pos.y + this.size.y;
+                    bounds.width = this.size.x;
+                    bounds.height = this.size.y;
 
-                    return {
-                        minX: this.pos.x,
-                        minY: this.pos.y,
-                        maxX: this.pos.x + sizeX,
-                        maxY: this.pos.y + sizeY,
-                        width: sizeX,
-                        height: sizeY
-                    };
+                    return bounds;
 
                 }
 
@@ -1388,9 +1397,11 @@ ig.module(
              **/
             getBoundsDraw: function () {
 
+                var bounds = this.boundsDraw;
+
                 if (this.angle !== 0) {
 
-                    return _uti.boundsOfPoints(this._verticesFound ? this.verticesWorld : this.getVerticesWorld());
+                    return _uti.boundsOfPoints(this._verticesFound ? this.verticesWorld : this.getVerticesWorld(), bounds);
 
                 }
                 else {
@@ -1398,14 +1409,14 @@ ig.module(
                     var minX = this.getTotalPosX();
                     var minY = this.getTotalPosY();
 
-                    return {
-                        minX: minX,
-                        minY: minY,
-                        maxX: minX + this.totalSizeX,
-                        maxY: minY + this.totalSizeY,
-                        width: this.totalSizeX,
-                        height: this.totalSizeY
-                    };
+                    bounds.minX = minX;
+                    bounds.minY = minY;
+                    bounds.maxX = minX + this.totalSizeX;
+                    bounds.maxY = minY + this.totalSizeY;
+                    bounds.width = this.totalSizeX;
+                    bounds.height = this.totalSizeY;
+
+                    return bounds;
 
                 }
 
@@ -1684,6 +1695,21 @@ ig.module(
                 var distanceY = (this.bounds.minY + this.bounds.height * 0.5) - (entity.bounds.minY + entity.bounds.height * 0.5);
 
                 return Math.sqrt( distanceX * distanceX + distanceY * distanceY );
+
+            },
+
+            /**
+             * Calculates distance squared from this entity to another.
+             * <br>- this is much faster than distanceTo as it avoids sqrt, but the distance is squared
+             * @param {ig.EntityExtended} entity entity to find distance to.
+             * @returns {Number} distance squared
+             */
+            distanceSquaredTo: function( entity ) {
+
+                var distanceX = (this.bounds.minX + this.bounds.width * 0.5) - (entity.bounds.minX + entity.bounds.width * 0.5);
+                var distanceY = (this.bounds.minY + this.bounds.height * 0.5) - (entity.bounds.minY + entity.bounds.height * 0.5);
+
+                return distanceX * distanceX + distanceY * distanceY;
 
             },
 
@@ -2550,39 +2576,45 @@ ig.module(
              **/
             moveToEntity: function (entity, settings) {
 
-                settings = settings || {};
+                // not already moving to
 
-                // check if entity is sequence
+                if (entity && this.movingToEntity !== entity) {
 
-                if (_ut.isArray(entity)) {
+                    settings = settings || {};
 
-                    if (!entity.length) {
+                    // check if entity is sequence
 
-                        return;
+                    if (_ut.isArray(entity)) {
+
+                        if ( entity.length === 0 ) {
+
+                            return;
+
+                        }
+
+                        // copy entity sequence
+
+                        this.movingToSequence = entity.slice(0);
+
+                        // move to first
+
+                        entity = this.movingToSequence.shift();
+
+                        if (this.movingToEntity === entity) {
+
+                            return;
+
+                        }
+
+                        // moveTo shouldn't be more than once
+
+                        this.movingToOnce = true;
 
                     }
 
-                    // copy entity sequence
-
-                    this.movingToSequence = entity.slice(0);
-
-                    // move to first
-
-                    entity = this.movingToSequence.shift();
-
-                    // moveTo shouldn't be more than once
-
-                    this.movingToOnce = true;
-
-                }
-
-                // not already moving to
-
-                if (this.movingToEntity !== entity) {
-
                     // clear previous
 
-                    this.moveToHere();
+                    this.moveToStop();
 
                     // check moving to once
 
@@ -2638,9 +2670,9 @@ ig.module(
 
                     // no need to constantly follow if this entity is not movable or entity to follow is static, and not lerping or tweening
 
-                    if (( this.performance === _c.STATIC || entity.performance === _c.STATIC ) && !settings.lerp && !settings.tween) {
+                    if (( this.performance === _c.STATIC || ( this.performance !== _c.DYNAMIC && entity.performance === _c.STATIC ) ) && !settings.lerp && !settings.tween) {
 
-                        this.moveToPosition(entity, settings);
+                        this.moveToEntityPosition(entity, settings);
                         this.recordChanges();
 
                     }
@@ -2657,7 +2689,7 @@ ig.module(
 
                         // moveTo is a tween
 
-                        if (settings.tween) {
+                        if ( settings.tween && this.performance !== _c.DYNAMIC ) {
 
                             this.movingToTweening = true;
                             this.movingToTweenPct = 0;
@@ -2712,7 +2744,7 @@ ig.module(
 
                         this.movingToSequence = undefined;
                         this.moveToComplete();
-                        this.moveToHere();
+                        this.moveToStop();
 
                     }
 
@@ -2725,9 +2757,9 @@ ig.module(
              **/
             moveToUpdate: function () {
 
-                if (this.movingTo && this.movingToEntity && ( !this.movedTo || this.movingToEntity.changed )) {
+                if (this.movingTo && this.movingToEntity && ( !this.movedTo || this.movingToEntity.changed ) ) {
 
-                    this.moveToPosition(this.movingToEntity, this.movingToSettings);
+                    this.moveToEntityPosition(this.movingToEntity, this.movingToSettings);
 
                 }
 
@@ -2738,7 +2770,7 @@ ig.module(
              * @param {ig.EntityExtended} entity entity to move to.
              * @param {Object} [settings] settings object.
              **/
-            moveToPosition: function (entity, settings) {
+            moveToEntityPosition: function (entity, settings) {
 
                 var targetX = 0;
                 var targetY = 0;
@@ -2844,9 +2876,8 @@ ig.module(
 
                 // check if done
 
-                if (this.movingTo
-                    && _utm.almostEqual(dx, 0, _c.PRECISION_ZERO)
-                    && _utm.almostEqual(dy, 0, _c.PRECISION_ZERO)) {
+                if ( _utm.almostEqual(dx, 0, _c.PRECISION_ZERO)
+                    && _utm.almostEqual(dy, 0, _c.PRECISION_ZERO) ) {
 
                     this.moveToComplete();
 
@@ -2876,7 +2907,7 @@ ig.module(
 
                     if (this.movingToOnce) {
 
-                        this.moveToHere();
+                        this.moveToStop();
                         this.onMovedTo.dispatch(this);
 
                     }
@@ -2890,7 +2921,7 @@ ig.module(
             /**
              * Ends any moveTo in progress.
              **/
-            moveToHere: function () {
+            moveToStop: function () {
 
                 if (this.movingTo) {
 
@@ -2905,6 +2936,56 @@ ig.module(
                     this.movingTo = this.movedTo = this.movingToTweening = this.movingToOnce = false;
                     this.movingToEntity = this.movingToSettings = this.movingToSequence = undefined;
 
+
+                }
+
+            },
+
+            /**
+             * Flips entity to face a target entity.
+             * @param {ig.EntityExtended} target target to look at.
+             **/
+            lookAt: function (target) {
+
+                // target is not self and not fixed
+
+                if (target && this !== target && !target.fixed) {
+
+                    var centerX;
+                    var targetCenterX;
+
+                    if ( this.added ) {
+
+                        centerX = this.bounds.minX + this.bounds.width * 0.5;
+
+                    }
+                    else {
+
+                        centerX = this.pos.x + this.size.x * 0.5;
+
+                    }
+
+                    if ( target.added ) {
+
+                        targetCenterX = target.bounds.minX + target.bounds.width * 0.5;
+
+                    }
+                    else {
+
+                        targetCenterX = target.pos.x + target.size.x * 0.5;
+
+                    }
+
+                    if ( centerX > targetCenterX ) {
+
+                        this.flip = true;
+
+                    }
+                    else {
+
+                        this.flip = false;
+
+                    }
 
                 }
 
@@ -3065,7 +3146,7 @@ ig.module(
 
                 // stop moving to
 
-                this.moveToHere();
+                this.moveToStop();
 
                 // signals
 
@@ -3139,7 +3220,7 @@ ig.module(
                 // because collision will likely only change positions, check for position change here instead of in record changes
                 // record changes tends to check more than just position, which in this case is unnecessary
 
-                if (!strong && ( this.pos.x !== this.last.x || this.pos.y !== this.last.y )) {
+                if (!strong && ( this.pos.x !== this.last.x || this.pos.y !== this.last.y ) ) {
 
                     this.recordChanges(true);
 
@@ -3305,6 +3386,9 @@ ig.module(
                             }
 
                             this.recordChanges();
+
+                            // record last at end
+                            // allows for external changes to entity
 
                             this.recordLast();
 
@@ -3687,6 +3771,13 @@ ig.module(
 
         _ut.getType(ig.EntityExtended, "FRIEND", "GROUP");
         _ut.getType(ig.EntityExtended, "ENEMY", "GROUP");
+
+        /**
+         * NONE group flag.
+         * @memberof ig.EntityExtended.GROUP
+         * @type Bitflag
+         **/
+        ig.EntityExtended.GROUP.NONE = 0;
 
         /**
          * FRIEND group flag.

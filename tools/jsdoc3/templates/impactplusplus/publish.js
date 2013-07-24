@@ -207,21 +207,83 @@ function buildNav(members) {
     if (members.classes.length) {
 		
 		var folderClassesMap = {};
-		var cfolder;
+		var folderClassesNames = [];
+		var folder;
+		
+		if (members.namespaces.length) {
+			
+			var navNamespaces = '<div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navNamspacesCollapse">Namespaces</button><div id="navNamspacesCollapse" class="collapse"><ul class="nav nav-list"><li id="navNamespaces" class="nav-header hidden-phone">Namespaces</li>';
+			var numNamespaces = 0;
+			
+			members.namespaces.forEach(function(n) {
+				
+				if ( !hasOwnProp.call(seen, n.longname) ) {
+					
+					if ( n.memberof !== 'ig.CONFIG' ) {
+						
+						var meta = n.meta;
+						var path = meta.path;
+						var folders = path.split( /\/|\\/ );
+						folder = folders[ folders.length - 1 ];
+						
+						if ( folder === 'plusplus' ) {
+							
+							folder = 'core';
+							
+						}
+						
+						if ( folder ) {
+							
+							if ( !folderClassesMap[ folder ] ) {
+								folderClassesMap[ folder ] = [];
+							}
+							
+							folderClassesMap[ folder ].push( n );
+							
+						}
+						else {
+							
+							numNamespaces++;
+							navNamespaces += '<li>'+linkto(n.longname, n.name)+'</li>';
+							
+						}
+						
+						seen[n.longname] = true;
+						
+					}
+					
+				}
+				
+			});
+			
+			if ( numNamespaces > 0 ) {
+			
+				navNamespaces += '</ul></div></div>';
+				nav += navNamespaces;
+				
+			}
+			
+		}
 		
         members.classes.forEach(function(c) {
 			if ( !hasOwnProp.call(seen, c.longname) ) {
 				
-				var cmeta = c.meta;
-				var cpath = cmeta.path;
-				var cfolders = cpath.split( /\/|\\/ );
-				cfolder = cfolders[ cfolders.length - 1 ];
+				var meta = c.meta;
+				var path = meta.path;
+				var folders = path.split( /\/|\\/ );
+				folder = folders[ folders.length - 1 ];
 				
-				if ( !folderClassesMap[ cfolder ] ) {
-					folderClassesMap[ cfolder ] = [];
+				if ( folder === 'plusplus' ) {
+					
+					folder = 'core';
+					
 				}
 				
-				folderClassesMap[ cfolder ].push( c );
+				if ( !folderClassesMap[ folder ] ) {
+					folderClassesMap[ folder ] = [];
+				}
+				
+				folderClassesMap[ folder ].push( c );
 				
             }
 			
@@ -229,15 +291,24 @@ function buildNav(members) {
 			
         });
 		
-		for ( cfolder in folderClassesMap ) {
+		for ( folder in folderClassesMap ) {
 			
-			var folderClasses = folderClassesMap[ cfolder ];
+			folderClassesNames.push( folder );
+			
+		}
+		
+		folderClassesNames.sort();
+		
+		for ( var i = 0, il = folderClassesNames.length; i < il; i++ ) {
+			
+			var folder = folderClassesNames[ i ];
+			var folderClasses = folderClassesMap[ folder ];
 			
 			if ( folderClasses.length > 0 ) {
 				
-				var cfolderCamel = cfolder.charAt( 0 ).toUpperCase() + cfolder.slice( 1 );
-				classNav += '<div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#nav' + cfolderCamel + 'Collapse">' + cfolderCamel + '</button>';
-				classNav += '<div id="nav' + cfolderCamel + 'Collapse" class="collapse"><ul class="nav nav-list"><li id="nav' + cfolderCamel + '" class="nav-header hidden-phone">' + cfolderCamel + '</li>';
+				var folderCamel = folder.charAt( 0 ).toUpperCase() + folder.slice( 1 );
+				classNav += '<div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#nav' + folderCamel + 'Collapse">' + folderCamel + '</button>';
+				classNav += '<div id="nav' + folderCamel + 'Collapse" class="collapse"><ul class="nav nav-list"><li id="nav' + folderCamel + '" class="nav-header hidden-phone">' + folderCamel + '</li>';
 				
 				for ( var j = 0, jl = folderClasses.length; j < jl; j++ ) {
 					
@@ -253,18 +324,6 @@ function buildNav(members) {
 			
 		}
 		
-    }
-	
-    if (members.namespaces.length) {
-		nav += '<div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navNamspacesCollapse">Namespaces</button>';
-        nav += '<div id="navNamspacesCollapse" class="collapse"><ul class="nav nav-list"><li id="navNamespaces" class="nav-header hidden-phone">Namespaces</li>';
-        members.namespaces.forEach(function(n) {
-            if ( !hasOwnProp.call(seen, n.longname) ) {
-                nav += '<li>'+linkto(n.longname, n.name)+'</li>';
-            }
-            seen[n.longname] = true;
-        });
-		nav += '</ul></div></div>';
     }
 	
 	if ( classNav ) {

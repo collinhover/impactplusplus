@@ -1,24 +1,25 @@
 Impact++ (r5)
 ========
 
+[Impact++ Documentation](http://collinhover.github.com/impactplusplus) -- [Impact++ Demo](http://collinhover.github.com/impactplusplus)  
+  
 ####Overview
-A series of extensions and additions to the [Impact javascript engine](http://impactjs.com "ImpactJS")
 
-The core goal of this project is to expand ImpactJS to make it easier and faster to start developing full featured games. ImpactJS is a great engine, but it is fairly minimal to start, and our hope is that Impact++ will save you a few months of dev time!
-
-Impact++ is also partly a product of work on the game Mimic (which may or may not be released as of you reading this), which you can [see in action here!](http://collinhover.github.com/mimic "Mimic")
+Impact++ is series of extensions and additions to the [ImpactJS engine](http://impactjs.com "ImpactJS"). The core goal of this project is to expand ImpactJS to make it easier and faster to start developing full featured games for the web. ImpactJS is a great engine, but it is fairly minimal to start, and our hope is that Impact++ will save you a few months of dev time!
 
 ####Features
 * Extended capability of ImpactJS's default classes to improve collisions, animations,...
 * ```ig.CONFIG``` data driven configuration to allow you to change parameters without rebuilding or modifying the library
 * ```ig.GameExtended``` game with layers, easy pausing, improved debugger,...
 * ```ig.EntityExtended``` entities with lots of extra helper functions, opt-in performance, inheritance friendly animations,...
+* ```ig.pathfinding``` efficient, garbage collector free pathfinding able to avoid entities and let you draw pathfinding maps in the editor
 * ```ig.InputPoint``` input with multi-touch and gestures that works the same for mouse or touch
 * ```ig.Camera``` camera for screen control, smooth target transitions, atmospheric overlays,...
 * ```ig.UIElement``` a whole list of ui element entities to make text, buttons, overlays,...
 * ```ig.Ability``` abilities that are entirely modular, have a built in casting system, upgrades,...
 * ```ig.EntityLight``` lighting in real-time with shadows, dynamic alpha and/or color,...
 * ```ig.Character``` abstract character class with options for moving, jumping, climbing,...
+* ```ig.Creature``` abstract creature class with simple AI to find targets, move to, attack, use abilities, flee...
 * ```ig.Player``` abstract player class with built in interaction and input handling,...
 * ```ig.Tutorial``` abstract tutorial class to help you show your players how to do things
 * ```ig.Spawner``` abstract spawner class with pooling for better performance
@@ -79,35 +80,57 @@ Impact++ has been built from day one to be portable / wrappable to iOS, Android,
 
 ##Migration
 ####r4 -> r5
-* ```ig.CONFIG.DYNAMIC``` renamed ```ig.CONFIG.MOVING```
-* ```ig.CONFIG.KINEMATIC``` renamed ```ig.CONFIG.DYNAMIC```
-* ```ig.CONFIG.AUTO_SORT_LAYERS``` added
-* ```ig.CONFIG.PRERENDER_MAPS``` added
-* ```ig.EntityExtended.ready``` now called by way of ```ig.EntityExtended.adding``` for proper execution order
-* ```ig.EntityExtended._ungroundedFor``` renamed ```ig.EntityExtended.ungroundedFor```
-* ```ig.EntityExtended.ungroundedFor``` no longer increases when climbing
-* ```ig.EntityTrigger``` now properly chains triggers (check your trigger targets if you are getting strange behavior)
-* ```ig.EntityTrigger.triggering``` added to help prevent triggers from infinitely looping
-* ```ig.AnimationExtended``` can now play in reverse
-* ```ig.AnimationExtended.update``` reworked so stop pauses instead of sets frame to end
-* ```ig.EntityLight``` settings now determined by ```ig.CONFIG.LIGHT``` for easier control
-* ```ig.EntityDestructable``` now no longer damageable or targetable
-* ```ig.EntityDestructableDamage``` is now damageable and targetable
-* ```ig.Ability's castSettings.entity``` renamed ```ig.Ability's castSettings.entityClass```
-* ```ig.Ability's castSettings.entityClass``` is no longer stored for reuse
-* ```ig.utilsdraw.fillPolygon``` no longer takes fill parameters, instead it assumes fillStyle has already been set
-* ```ig.BackgroundMap``` expanded to ```ig.BackgroundMapExtended```
-* ```ig.Layer.ready``` added
-* ```ig.Door.locked``` and ```ig.Door.autoLock``` added
-* ```ig.EntitySwitch.stuck``` renamed ```ig.EntitySwitch.broken```
-* ```ig.EntitySwitch.autoStuck``` renamed ```ig.EntitySwitch.autoBreak``
-* ```ig.UIElement.vertical``` moved to ```ig.UIMeter.vertical```
-* ```ig.UIElement.linkAlign``` now controls how far inside or outside of linkedTo a linked UI element is offset
-* ```ig.UIElement.resize``` renamed ```ig.UIElement.refresh```
-* ```ig.UIElement.onResized``` renamed ```ig.UIElement.onRefreshed```
-* ```ig.UIElement.refresh``` calls (in order) ```ig.UIElement.resize``` and ```ig.UIElement.reposition```
-* ```ig.UIText``` no longer positions to center by default (but still aligns to center by default)
-* ```ig.EntityConversation``` completely reworked
+* Load up Impact++ by requiring 'plusplus.core.plusplus' instead of several separate modules
+
+* ig.CONFIG.DYNAMIC renamed ig.CONFIG.MOVING
+* ig.CONFIG.KINEMATIC renamed ig.CONFIG.DYNAMIC
+* ig.CONFIG.AUTO_SORT_LAYERS added
+* ig.CONFIG.PRERENDER_MAPS added
+  
+* Collision tiles completely reworked, all half tiles removed (use offset instead)
+* Climbable collision tiles are now climbable AND stairs
+* Collision visualization tiles now in 4 sizes: 64 px, 32 px, 16 px, and 8 px
+  
+* ig.EntityExtended.ready now called by way of ig.EntityExtended.adding for proper execution order
+* ig.EntityExtended._ungroundedFor renamed ig.EntityExtended.ungroundedFor
+* ig.EntityExtended.ungroundedFor no longer increases when climbing
+* ig.EntityExtended.moveToPosition renamed ig.EntityExtended.moveToEntityPosition
+* ig.EntityExtended.moveToHere renamed ig.EntityExtended.moveToStop
+  
+* ig.Character.moveToLocation removed and replaced with pathfinding
+* ig.pathfinding added, use ig.Character.canPathfind with ig.EntityExtended.moveToEntity for magic!
+  
+* ig.EntityTrigger now properly chains triggers (check your trigger targets if you are getting strange behavior)
+* ig.EntityTrigger.triggering added to help prevent triggers from infinitely looping
+  
+* ig.AnimationExtended can now play in reverse
+* ig.AnimationExtended.update reworked so stop pauses instead of sets frame to end
+  
+* ig.EntityLight settings now determined by ig.CONFIG.LIGHT for easier control
+* ig.utilsdraw.fillPolygon no longer takes fill parameters, instead it assumes fillStyle has already been set
+  
+* ig.EntityDestructable now no longer damageable or targetable or collidable
+* ig.EntityDestructableCollide is now collidable
+* ig.EntityDestructableDamage is now damageable and targetable
+  
+* ig.Ability's castSettings.entity renamed ig.Ability's castSettings.entityClass
+* ig.Ability's castSettings.entityClass is no longer stored for reuse
+  
+* ig.UIElement.vertical moved to ig.UIMeter.vertical
+* ig.UIElement.linkAlign now controls how far inside or outside of linkedTo a linked UI element is offset
+* ig.UIElement.resize renamed ig.UIElement.refresh
+* ig.UIElement.onResized renamed ig.UIElement.onRefreshed
+* ig.UIElement.refresh calls (in order) ig.UIElement.resize and ig.UIElement.reposition
+* ig.UIText no longer positions to center by default (but still aligns to center by default)
+* ig.EntityConversation completely reworked
+  
+* ig.BackgroundMap expanded to ig.BackgroundMapExtended
+* ig.Layer.ready added
+* ig.Door.locked and ig.Door.autoLock added
+* ig.EntitySwitch.stuck renamed ig.EntitySwitch.broken
+* ig.EntitySwitch.autoStuck renamed ig.EntitySwitch.autoBreak
+
+* ig.utilsintersection bounds methods can be optionally passed a bounds object to help with garbage collection
 
 ####Contributing
 We'd love it if you want to help make Impact++ better, so if you're interested take a look at [CONTRIBUTING](https://github.com/collinhover/impactplusplus/blob/master/CONTRIBUTING.md).

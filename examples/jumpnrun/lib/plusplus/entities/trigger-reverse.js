@@ -41,7 +41,7 @@ ig.module(
 
                 if (this.sortTargetsBy) {
 
-                    this.targetSequence = [];
+                    this.targetSequence.length = 0;
 
                     for (var name in this.target) {
 

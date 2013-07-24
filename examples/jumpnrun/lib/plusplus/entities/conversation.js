@@ -646,15 +646,15 @@ ig.module(
 
                         messageContainer.moveToEntity( this.speaker, this.messageMoveToSettings );
 
-                    }
+                        if ( this.pausing && this.cameraFollows ) {
 
-                    if ( this.pausing && this.cameraFollows ) {
+                            messageContainer.unpause();
 
-                        messageContainer.unpause();
+                            // camera follows message
 
-                        // camera follows message
+                            ig.game.camera.follow( messageContainer, false, this.cameraCentered );
 
-                        ig.game.camera.follow( messageContainer, false, this.cameraCentered );
+                        }
 
                     }
 
