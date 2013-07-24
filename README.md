@@ -94,7 +94,9 @@ Impact++ has been built from day one to be portable / wrappable to iOS, Android,
 * ig.EntityExtended.ready now called by way of ig.EntityExtended.adding for proper execution order
 * ig.EntityExtended._ungroundedFor renamed ig.EntityExtended.ungroundedFor
 * ig.EntityExtended.ungroundedFor no longer increases when climbing
-* ig.EntityExtended.moveToPosition renamed ig.EntityExtended.moveToEntityPosition
+* ig.EntityExtended.moveToEntity renamed ig.EntityExtended.moveTo and automatically handles moving to entity or position
+* ig.EntityExtended.movingToEntity property removed
+* ig.EntityExtended.movingTo property now holds a reference to what the entity is moving to rather than a boolean
 * ig.EntityExtended.moveToHere renamed ig.EntityExtended.moveToStop
   
 * ig.Character.moveToLocation removed and replaced with pathfinding
