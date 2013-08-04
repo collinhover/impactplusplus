@@ -511,7 +511,7 @@ ig.module(
             climbing: false,
 
             // internal properties, do not modify
-            
+
             _jumpPushing: false,
             _jumpWhileClimbing: false,
 
@@ -921,7 +921,7 @@ ig.module(
                         // path node normally only needs to be within this bounds
                         else {
 
-                           atNode = _uti.pointInBounds( nodeX, nodeY, this.bounds );
+                            atNode = _uti.pointInBounds( nodeX, nodeY, this.bounds );
 
                         }
 
@@ -1981,9 +1981,9 @@ ig.module(
             updateCurrentAnim: function () {
 
                 if (this.performance === _c.DYNAMIC) {
-                    
+
                     if (_c.TOP_DOWN) {
-                        
+
                         this.currentAnim.stop = false;
                         if (this.movingX && !this.movingY && this.anims.moveX && this.currentAnim !== this.anims.moveX) {
 
@@ -2016,7 +2016,7 @@ ig.module(
                             return true;
 
                         }
-                        
+
                     }
                     else {
                         if (this.climbing === true) {
