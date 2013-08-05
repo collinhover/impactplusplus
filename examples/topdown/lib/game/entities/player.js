@@ -35,6 +35,7 @@ ig.module(
 		
 		size: {x: 16, y: 16},
 		offset: {x: 0, y: 0},
+        direction: 'right',
 
 		health: 10,
 		
@@ -88,12 +89,58 @@ ig.module(
 		// use this method to change an entity internally
 		
 		updateChanges: function() {
-			
+
+            // quick & dirty direction check, y prioritizes over x as animations are also handled in this manner for diagonal movement.
+
+            if (this.vel.y < 0) {
+
+                this.direction = 'up';
+
+            }
+            else if (this.vel.y > 0) {
+
+                this.direction = 'down';
+
+            }
+            else if (this.vel.x < 0) {
+
+                this.direction = 'left';
+
+            }
+            else if (this.vel.x > 0) {
+
+                this.direction = 'right';
+
+            }
+
 			// check if shooting
-			
+
 			if (ig.input.pressed('shoot')) {
 
-				this.shoot.execute( { x: this.flip ? this.bounds.minX : this.bounds.maxX, y: this.bounds.minY + this.bounds.height * 0.5 } );
+                // set the offset according to direction
+
+                var xOff;
+                var yOff;
+
+                switch (this.direction) {
+                    case 'up':
+                        xOff = this.bounds.minX + this.bounds.width * 0.5;
+                        yOff = this.bounds.minY;
+                        break;
+                    case 'down':
+                        xOff = this.bounds.minX + this.bounds.width * 0.5;
+                        yOff = this.bounds.maxY;
+                        break;
+                    case 'left':
+                        xOff = this.bounds.minX;
+                        yOff = this.bounds.minY + this.bounds.height * 0.5;
+                        break;
+                    case 'right':
+                        xOff = this.bounds.maxX;
+                        yOff = this.bounds.minY + this.bounds.height * 0.5;
+                        break;
+                }
+				this.shoot.execute( { x: xOff, y: yOff } );
 
 			}
 			
@@ -139,7 +186,7 @@ ig.module(
 
 		// low friction
 
-		friction: { x: 5, y: 0 },
+		friction: { x: 5, y: 5 },
 
 		die: function () {
 
@@ -181,7 +228,7 @@ ig.module(
 		// this helps for running and gunning
 
 		relativeVelPctX: 1,
-		relativeVelPctY: 0.5,
+		relativeVelPctY: 1,
 
 		// use this method to add types for checks
 		// since we are using bitwise flags

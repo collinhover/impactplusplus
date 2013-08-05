@@ -80,7 +80,7 @@ ig.module(
 				
 				this.parent();
 				
-				ig.input.bind(ig.KEY.C, 'attack');
+				ig.input.bind(ig.KEY.C, 'shoot');
 				
 			},
 			
@@ -88,7 +88,7 @@ ig.module(
 				
 				this.parent();
 				
-				ig.input.unbind(ig.KEY.C, 'attack');
+				ig.input.unbind(ig.KEY.C, 'shoot');
 				
 			},
 			
