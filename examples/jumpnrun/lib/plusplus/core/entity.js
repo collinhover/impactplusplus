@@ -579,7 +579,7 @@ ig.module(
              * <br>- type of number but functions as boolean
              * @type Number
              */
-            grounded: _c.TOP_DOWN.ENABLED,
+            grounded: 0,
 
             /**
              * Whether entity is on a slope, and if so, slope properties.
@@ -3234,9 +3234,9 @@ ig.module(
              */
             handleMovementTrace: function( res ) {
 
-                this.standing = _c.TOP_DOWN.ENABLED;
+                this.standing = 0;
 
-                if ( !_c.TOP_DOWN.ENABLED && this.vel.y !== 0 ) {
+                if (this.vel.y !== 0) {
 
                     this.grounded = 0;
 
