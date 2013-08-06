@@ -78,64 +78,120 @@ Impact++ has been built from day one to be portable / wrappable to iOS, Android,
 * _Consistency_ - the codebase should look like a cohesive whole
 * _Document_ - the codebase should be reasonably documented
 
-##Migration
-####r4 -> r5
-* Load up Impact++ by requiring 'plusplus.core.plusplus' instead of several separate modules
-
-* ig.CONFIG.DYNAMIC renamed ig.CONFIG.MOVING
-* ig.CONFIG.KINEMATIC renamed ig.CONFIG.DYNAMIC
-* ig.CONFIG.AUTO_SORT_LAYERS added
-* ig.CONFIG.PRERENDER_MAPS added
-  
-* Collision tiles completely reworked, all half tiles removed (use offset instead)
-* Climbable collision tiles are now climbable AND stairs
-* Collision visualization tiles now in 4 sizes: 64 px, 32 px, 16 px, and 8 px
-  
-* ig.EntityExtended.ready now called by way of ig.EntityExtended.adding for proper execution order
-* ig.EntityExtended._ungroundedFor renamed ig.EntityExtended.ungroundedFor
-* ig.EntityExtended.ungroundedFor no longer increases when climbing
-* ig.EntityExtended.moveToEntity renamed ig.EntityExtended.moveTo and automatically handles moving to entity or position
-* ig.EntityExtended.movingToEntity property removed
-* ig.EntityExtended.movingTo property now holds a reference to what the entity is moving to rather than a boolean
-* ig.EntityExtended.moveToHere renamed ig.EntityExtended.moveToStop
-  
-* ig.Character.moveToLocation removed and replaced with pathfinding
-* ig.pathfinding added, use ig.Character.canPathfind with ig.EntityExtended.moveToEntity for magic!
-  
-* ig.EntityTrigger now properly chains triggers (check your trigger targets if you are getting strange behavior)
-* ig.EntityTrigger.triggering added to help prevent triggers from infinitely looping
-  
-* ig.AnimationExtended can now play in reverse
-* ig.AnimationExtended.update reworked so stop pauses instead of sets frame to end
-  
-* ig.EntityLight settings now determined by ig.CONFIG.LIGHT for easier control
-* ig.utilsdraw.fillPolygon no longer takes fill parameters, instead it assumes fillStyle has already been set
-  
-* ig.EntityDestructable now no longer damageable or targetable or collidable
-* ig.EntityDestructableCollide is now collidable
-* ig.EntityDestructableDamage is now damageable and targetable
-  
-* ig.Ability's castSettings.entity renamed ig.Ability's castSettings.entityClass
-* ig.Ability's castSettings.entityClass is no longer stored for reuse
-  
-* ig.UIElement.vertical moved to ig.UIMeter.vertical
-* ig.UIElement.linkAlign now controls how far inside or outside of linkedTo a linked UI element is offset
-* ig.UIElement.resize renamed ig.UIElement.refresh
-* ig.UIElement.onResized renamed ig.UIElement.onRefreshed
-* ig.UIElement.refresh calls (in order) ig.UIElement.resize and ig.UIElement.reposition
-* ig.UIText no longer positions to center by default (but still aligns to center by default)
-* ig.EntityConversation completely reworked
-  
-* ig.BackgroundMap expanded to ig.BackgroundMapExtended
-* ig.Layer.ready added
-* ig.Door.locked and ig.Door.autoLock added
-* ig.EntitySwitch.stuck renamed ig.EntitySwitch.broken
-* ig.EntitySwitch.autoStuck renamed ig.EntitySwitch.autoBreak
-
-* ig.utilsintersection bounds methods can be optionally passed a bounds object to help with garbage collection
-
 ####Contributing
 We'd love it if you want to help make Impact++ better, so if you're interested take a look at [CONTRIBUTING](https://github.com/collinhover/impactplusplus/blob/master/CONTRIBUTING.md).
 
 ####License
 Impact++ is licensed under the MIT license. For full license and information, see [LICENSE](https://github.com/collinhover/impactplusplus/blob/master/LICENSE.md).
+
+
+##Changlog
+Check out the [Releases](https://github.com/collinhover/impactplusplus/releases).
+####r5
+```General```  
+* Load up Impact++ by requiring `'plusplus.core.plusplus'` instead of several separate modules  
+* Impact++ now appropriately handles various game screen sizing options, including:  
+	* fixed pixel size (static scale)  
+	* pecent of screen (static scale)  
+	* minimum number of pixels in view (dynamic scaling)  
+* Impact++ now allows per entity scaling, which can be particularly useful for UI and text when dynamically scaling
+  
+```CONFIG```
+* `DYNAMIC` renamed `MOVING`
+* `KINEMATIC` renamed `DYNAMIC`
+* `AUTO_SORT_LAYERS` added
+* `PRERENDER_MAPS` added
+* `CANVAS_WIDTH_PCT` renamed `GAME_WIDTH_PCT`
+* `CANVAS_HEIGHT_PCT` renamed `GAME_HEIGHT_PCT`
+  
+```Tiles``` 
+* Collision tiles completely reworked, all half tiles removed (use offset instead)
+* Climbable collision tiles are now climbable AND stairs
+* Collision visualization tiles now in 4 sizes: 64 px, 32 px, 16 px, and 8 px
+  
+```ig.BackgroundMap```   
+* ig.BackgroundMap expanded to ig.BackgroundMapExtended
+  
+```ig.EntityExtended```    
+* `reset` now called at end of `init` method (instead of at start)
+* `initVisuals` removed and functionality moved to `resetExtras` 
+* `addAnim` now takes only animation name and settings as parameters
+* `collideWith` replaces `ig.Entity.seperateOnX/YAxis` for better control of collisions
+* `collideWith` parameters changed
+* `pointInside` removed
+* `refresh` added and called by reset (instead of ready)
+* `ready` now called by way of adding for proper execution order
+* `_ungroundedFor` renamed `ungroundedFor`
+* `ungroundedFor` no longer increases when climbing
+* `moveToEntity` renamed `moveTo` and automatically handles moving to entity or position
+* `movingToEntity` removed
+* `movingTo` property now holds a reference to what the entity is moving to rather than true/false
+* `moveToHere` renamed `moveToStop`
+* textured now creates textures on first draw call instead of when animations first added
+* `castShadows` renamed `castShadow`
+* `project` renamed `projectShadow`
+  
+```ig.AnimationExtended```  
+* `init` now takes only animation sheet and settings as parameters
+* can now play in reverse
+* `update` reworked so stop pauses instead of sets frame to end
+* `changed` added to keep track of when animation changes tiles
+
+```ig.Character```  
+* `moveToLocation` removed and replaced with pathfinding
+  
+```ig.EntityTrigger```  
+* now properly chains triggers (check your trigger targets if you are getting strange behavior)
+* `triggering` added to help prevent triggers from infinitely looping
+  
+```ig.EntityLight```  
+* settings now determined by `ig.CONFIG.LIGHT` for easier control
+* `createLight` renamed `drawLight`
+* `createCache` renamed `resizeCache`
+* canvas caches created in `initProperties` method for better garbage handling
+* `castShadows` renamed `drawShadows`
+* `castShadows` now handles casting each item in light bounds (and called by `drawShadows`)
+  
+```ig.EntityDestructable```  
+* now no longer damageable or targetable or collidable
+* `ig.EntityDestructableCollide` is now collidable
+* `ig.EntityDestructableDamage` is now damageable and targetable
+  
+```ig.Door```  
+* `locked` and `autoLock` added
+  
+```ig.EntitySwitch```  
+* `stuck` renamed `broken`
+* `autoStuck` renamed `autoBreak`
+  
+```ig.UIElement```    
+* `refresh` moved to ig.EntityExtended 
+* `resize` moved to ig.EntityExtended 
+* `reposition` moved to ig.EntityExtended 
+* `rebuild` moved to ig.EntityExtended 
+* `link/unlink` moved to ig.EntityExtended 
+* `vertical` moved to ig.UIMeter
+* linkAlign now controls how far inside or outside of linkedTo a linked UI element is offset
+* resize renamed refresh
+* onResized renamed onRefreshed
+* refresh calls (in order) resize and reposition
+* `ig.UIText` no longer positions to center by default (but still aligns to center by default)
+* `ig.EntityConversation` completely reworked
+  
+```ig.Ability```    
+* `castSettings.entity` renamed `castSettings.entityClass`
+* `castSettings.entityClass` is no longer stored for reuse9
+  
+```Utils```    
+* `ig.utilsdraw.fillPolygon` no longer takes fill parameters, instead it assumes fillStyle has already been set
+* `ig.utilsintersection` bounds methods can be optionally passed a bounds object to help with garbage collection
+  
+```ig.pathfinding```  
+* pathfinding added, use `ig.Character.canPathfind` with `ig.EntityExtended.moveTo` for magic!
+* pathfinding is garbage free
+* pathfinding map added to draw optimal pathfinding areas
+  
+```ig.ImageDrawing```
+* `canvas` and `context` removed
+* complete overhaul of scaling to defer scaling until first draw call
+* most methods and properties moved to `ig.Image`
