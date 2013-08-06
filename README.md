@@ -95,6 +95,7 @@ Check out the [Releases](https://github.com/collinhover/impactplusplus/releases)
 	* pecent of screen (static scale)  
 	* minimum number of pixels in view (dynamic scaling)  
 * Impact++ now allows per entity scaling, which can be particularly useful for UI and text when dynamically scaling
+* Impact++ now works for both 2D sidescrolling and top-down (see ig.CONFIG.TOP_DOWN)
   
 ```CONFIG```
 * `DYNAMIC` renamed `MOVING`
