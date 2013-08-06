@@ -119,6 +119,7 @@ Check out the [Releases](https://github.com/collinhover/impactplusplus/releases)
 ```ig.EntityExtended```    
 * `reset` now called at end of `init` method (instead of at start)
 * `initVisuals` removed and functionality moved to `resetExtras` 
+* dynamics updates, such as gravity and collisions with collision map moved into `updateDynamics` method
 * `addAnim` now takes only animation name and settings as parameters
 * `collideWith` replaces `ig.Entity.seperateOnX/YAxis` for better control of collisions
 * `collideWith` parameters changed
