@@ -198,12 +198,5 @@ ig.module(
             ig.LoaderExtended
         );
 		
-        // and resize to make sure everything looks fine
-        ig.system.resize(
-            ig.global.innerWidth * _c.CANVAS_WIDTH_PCT * ( 1 / _c.SCALE ),
-            ig.global.innerHeight * _c.CANVAS_HEIGHT_PCT * ( 1 / _c.SCALE ),
-            _c.SCALE
-        );
-		
     }
 });
