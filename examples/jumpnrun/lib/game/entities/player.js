@@ -97,7 +97,10 @@ ig.module(
 			
 			if (ig.input.pressed('shoot')) {
 
-				this.shoot.execute( { x: this.flip ? this.bounds.minX : this.bounds.maxX, y: this.bounds.minY + this.bounds.height * 0.5 } );
+				this.shoot.execute( {
+					x: this.flip.x ? this.pos.x : this.pos.x + this.size.x,
+					y: this.pos.y + this.size.y * 0.5
+				} );
 
 			}
 			
@@ -216,7 +219,7 @@ ig.module(
 		initTypes: function () {
 
 			this.parent();
-
+			
 			_ut.addType(ig.Ability, this, 'type', "SPAMMABLE");
 
 		}
