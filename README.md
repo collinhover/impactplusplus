@@ -116,9 +116,17 @@ Check out the [Releases](https://github.com/collinhover/impactplusplus/releases)
 ```ig.BackgroundMap```   
 * ig.BackgroundMap expanded to ig.BackgroundMapExtended
   
-```ig.EntityExtended```    
+```ig.EntityExtended```   
+* ig.EntityExtended has been heavily changed!
 * `reset` now called at end of `init` method (instead of at start)
-* `initVisuals` removed and functionality moved to `resetExtras` 
+* `initVisuals` removed and functionality moved to `resetExtras`
+* no longer reliant on `bounds`, use `pos` + `size` properties instead 
+* no longer reliant on `boundsDraw`, use `posDraw` + `sizeDraw` properties instead  
+* `bounds/boundsDraw` now opt-in and null by default
+* `updateBounds` no longer recalculates bounds or vertices by default
+* `verticesNeeded` renamed `needsVertices`
+* `getTotalPosX/Y` renamed `getDrawX/Y` 
+* `totalSizeX/Y` renamed `sizeDraw.x/y`  
 * dynamics updates, such as gravity and collisions with collision map moved into `updateDynamics` method
 * `addAnim` now takes only animation name and settings as parameters
 * `collideWith` replaces `ig.Entity.seperateOnX/YAxis` for better control of collisions
@@ -170,6 +178,7 @@ Check out the [Releases](https://github.com/collinhover/impactplusplus/releases)
 * `autoStuck` renamed `autoBreak`
   
 ```ig.UIElement```    
+* ig.UIElement has been heavily changed!
 * `refresh` moved to ig.EntityExtended 
 * `resize` moved to ig.EntityExtended 
 * `reposition` moved to ig.EntityExtended 
@@ -188,6 +197,7 @@ Check out the [Releases](https://github.com/collinhover/impactplusplus/releases)
 * `castSettings.entityClass` is no longer stored for reuse9
   
 ```Utils```    
+* `ig.utilsdraw.pixelFillPolygon` no longer takes bounds object, takes min/max x/y
 * `ig.utilsdraw.fillPolygon` no longer takes fill parameters, instead it assumes fillStyle has already been set
 * `ig.utilsintersection` bounds methods can be optionally passed a bounds object to help with garbage collection
   
