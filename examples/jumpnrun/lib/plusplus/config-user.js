@@ -43,9 +43,12 @@ ig.module(
 			/**
 			 * Needs a top-down style game? Uncomment below!
 			 */
-			//TOP_DOWN: true,
-			//FLIP_Y: true
-			
+			/*
+			TOP_DOWN: true,
+			ENTITY: {
+				CAN_FLIP_Y: true
+			}
+			*/
 		};
 
     });

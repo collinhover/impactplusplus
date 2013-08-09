@@ -30,14 +30,19 @@ ig.module(
 	
     ig.EntityPlayer = ig.global.EntityPlayer = ig.Player.extend({
 		
-		size: {x: 8, y:14},
-		offset: {x: 4, y: 2},
+		size: _c.TOP_DOWN ? {x:8, y: 8} : {x: 8, y:14},
+		offset: _c.TOP_DOWN ? {x:4, y: 4} :  {x: 4, y: 2},
 		
 		health: 10,
 		
 		animSheet: new ig.AnimationSheet( _c.PATH_TO_MEDIA + 'player.png', 16, 16 ),	
 		
 		// animations the Impact++ way
+		// note that these animations are for
+		// both side scrolling and top down mode
+		// you will likely only need one or the other
+		
+		animInit: _c.TOP_DOWN ? "idle" : "moveX",
 		
 		animSettings: {
 			idle: {
@@ -49,12 +54,68 @@ ig.module(
 				sequence: [0,1,2,3,4,5]
 			},
 			jump: {
-				frameTime: 1, 
-				sequence: [9]
+				frameTime: 0.1, 
+				sequence: [8,9]
 			},
 			fall: {
 				frameTime: 0.4, 
 				sequence: [6,7]
+			},
+			moveX: {
+				frameTime: 0.07, 
+				sequence: [21,22,23,22]
+			},
+			moveY: {
+				frameTime: 0.07, 
+				sequence: [12,13,14,13]
+			},
+			moveDown: {
+				frameTime: 0.07, 
+				sequence: [12,13,14,13]
+			},
+			moveUp: {
+				frameTime: 0.07, 
+				sequence: [15,16,17,16]
+			},
+			shoot: {
+				frameTime: 0.25, 
+				sequence: [2]
+			},
+			shootX: {
+				frameTime: 0.25, 
+				sequence: [26]
+			},
+			shootY: {
+				frameTime: 0.25, 
+				sequence: [24]
+			},
+			shootDown: {
+				frameTime: 0.25, 
+				sequence: [24]
+			},
+			shootUp: {
+				frameTime: 0.25, 
+				sequence: [25]
+			},
+			death: {
+				frameTime: 0.1, 
+				sequence: [10,11]
+			},
+			deathX: {
+				frameTime: 0.1, 
+				sequence: [29]
+			},
+			deathY: {
+				frameTime: 0.1, 
+				sequence: [28]
+			},
+			deathDown: {
+				frameTime: 0.1, 
+				sequence: [28]
+			},
+			deathUp: {
+				frameTime: 0.1, 
+				sequence: [28]
 			}
 		},
 		

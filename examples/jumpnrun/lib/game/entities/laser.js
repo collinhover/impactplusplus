@@ -30,21 +30,33 @@ ig.module(
 		size: {x: 4, y: 4},
 		
 		offset: {x: 2, y: 2},
+		
+		// animations the Impact++ way
 			
 		animSheet: new ig.AnimationSheet( _c.PATH_TO_MEDIA + 'projectile.png', 8, 8 ),
 		
-		// animations the Impact++ way
-		
 		animSettings: {
-			idle: {
+			moveX: {
 				frameTime: 1,
 				sequence: [0]
 			},
-			death: {
+			deathX: {
 				frameTime: 0.05,
 				sequence: [1,2,3,4,5]
+			},
+			moveY: {
+				frameTime: 1,
+				sequence: [6]
+			},
+			deathY: {
+				frameTime: 0.05,
+				sequence: [7,8,9,10,11]
 			}
 		},
+		
+		canFlipY: true,
+		
+		// stats
 		
 		damage: 2,
 		

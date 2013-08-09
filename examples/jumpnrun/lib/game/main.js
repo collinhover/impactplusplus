@@ -19,7 +19,8 @@ ig.module(
 	'game.ui.ui-toggle-gfx-max',
 	'plusplus.ui.ui-toggle-pause',
 	
-	'game.levels.test'
+	'game.levels.side-scrolling',
+	'game.levels.top-down'
 )
 // define the main module
 .defines(function () {
@@ -63,7 +64,17 @@ ig.module(
 				
                 // so we can load the first level
                 // which of course you didn't forget to require above
-                this.loadLevel(ig.global.LevelTest);
+				
+				if ( _c.TOP_DOWN ) {
+					
+					this.loadLevel(ig.global.LevelTopDown);
+					
+				}
+				else {
+					
+					this.loadLevel(ig.global.LevelSideScrolling);
+					
+				}
 				
 				// initialize the example UI
 				this.initUI();
