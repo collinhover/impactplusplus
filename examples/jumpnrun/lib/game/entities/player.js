@@ -10,12 +10,9 @@ ig.module(
     // note that anything in abstractities
     // is an abstract entity that needs to be extended
     'plusplus.abstractities.player',
-	// require the projectile for the grenade
-	'plusplus.abstractities.projectile',
-	// and an explosion for fun
-	'plusplus.entities.explosion',
-	// require the shoot ability
-	'plusplus.abilities.ability-shoot',
+	// require the shooting abilities
+	'game.abilities.grenade-launcher',
+	'game.abilities.laser-gun',
 	// require the glow ability
 	// lets see some lights!
 	'plusplus.abilities.glow',
@@ -83,23 +80,104 @@ ig.module(
 			this.parent();
 			
 			this.glow = new ig.AbilityGlow( this );
-			this.shoot = new ig.GrenadeLauncher( this );
+			this.shoot = new ig.LaserGun( this );
+			this.grenade = new ig.GrenadeLauncher( this );
 			
-			this.abilities.addDescendants( [ this.glow, this.shoot ]);
+			this.abilities.addDescendants( [
+				this.glow, this.shoot, this.grenade
+			]);
 			
 		},
 		
 		// use this method to change an entity internally
 		
 		updateChanges: function() {
+				
+			var shootX;
+			var shootY;
 			
 			// check if shooting
 			
 			if (ig.input.pressed('shoot')) {
-
+				
+				if ( _c.TOP_DOWN ) {
+					
+					if ( this.facing.x !== 0 ) {
+						
+						shootX = this.facing.x > 0 ? this.pos.x + this.size.x : this.pos.x;
+						
+					}
+					else {
+						
+						shootX = this.pos.x + this.size.x * 0.5;
+						
+					}
+					
+					if ( this.facing.y !== 0 ) {
+						
+						shootY = this.facing.y > 0 ? this.pos.y + this.size.y : this.pos.y;
+						
+					}
+					else {
+						
+						shootY = this.pos.y + this.size.y * 0.5;
+						
+					}
+					
+				}
+				else {
+					
+					shootX = this.flip.x ? this.pos.x : this.pos.x + this.size.x;
+					shootY = this.pos.y + this.size.y * 0.5;
+					
+				}
+				
 				this.shoot.execute( {
-					x: this.flip.x ? this.pos.x : this.pos.x + this.size.x,
-					y: this.pos.y + this.size.y * 0.5
+					x: shootX,
+					y: shootY
+				} );
+
+			}
+			
+			// check if grenading
+			
+			if (ig.input.pressed('grenade')) {
+				
+				if ( _c.TOP_DOWN ) {
+					
+					if ( this.facing.x !== 0 ) {
+						
+						shootX = this.facing.x > 0 ? this.pos.x + this.size.x : this.pos.x;
+						
+					}
+					else {
+						
+						shootX = this.pos.x + this.size.x * 0.5;
+						
+					}
+					
+					if ( this.facing.y !== 0 ) {
+						
+						shootY = this.facing.y > 0 ? this.pos.y + this.size.y : this.pos.y;
+						
+					}
+					else {
+						
+						shootY = this.pos.y + this.size.y * 0.5;
+						
+					}
+					
+				}
+				else {
+					
+					shootX = this.flip.x ? this.pos.x : this.pos.x + this.size.x;
+					shootY = this.pos.y + this.size.y * 0.5;
+					
+				}
+				
+				this.grenade.execute( {
+					x: shootX,
+					y: shootY
 				} );
 
 			}
@@ -131,99 +209,5 @@ ig.module(
 		}
 		
 	});
-
-	/**
-	 * Projectile for player shoot ability that explodes. This should probably have its own module!
-	 **/
-	ig.EntitySlimeGrenade = ig.global.EntitySlimeGrenade = ig.Projectile.extend({
-		
-		// lite collides to get knocked around
-		
-		collides: ig.Entity.COLLIDES.LITE,
-		
-		size: {x: 4, y: 4},
-		
-		offset: {x: 2, y: 2},
-			
-		animSheet: new ig.AnimationSheet( _c.PATH_TO_MEDIA + 'slime-grenade.png', 8, 8 ),
-		
-		// animations the Impact++ way
-		
-		animSettings: {
-			idle: {
-				frameTime: 0.2,
-				sequence: [0,1]
-			}
-		},
-		
-		damage: 10,
-		
-		// 2 second fuse!
-		
-		lifeDuration: 2,
-		
-		// less gravity
-		
-		gravityFactor: 0.5,
-		
-		// low friction
-		
-		friction: { x: 5, y: 0 },
-		
-		die: function () {
-			
-			if ( !this.dieingSilently ) {
-				
-				// EXPLOSIONS!
-				
-				ig.game.spawnEntity(ig.EntityExplosion, this.pos.x, this.pos.y, {
-                    entity: this,
-					spawnCountMax: 10,
-					spawnSettings: {
-						animTileOffset: ig.EntityParticleColor.colorOffsets.YELLOW
-					}
-                });
-				
-			}
-			
-			this.parent();
-			
-		}
-		
-	});
-	
-	/**
-	 * Ability for shooting grenades. This should probably have its own module!
-	 **/
-	ig.GrenadeLauncher = ig.AbilityShoot.extend( {
-	
-		// this ability spawns a slime grenade
-		
-		spawningEntity: ig.EntitySlimeGrenade,
-		
-		// velocity towards offset direction
-		
-		offsetVelX: 200,
-		offsetVelY: 200,
-		
-		// velocity relative to the entity using the ability
-		// this helps for running and gunning
-		
-		relativeVelPctX: 1,
-		relativeVelPctY: 0.5,
-		
-		// use this method to add types for checks
-		// since we are using bitwise flags
-		// we can take advantage of the fact that they can be added
-		
-		initTypes: function () {
-
-			this.parent();
-			
-			_ut.addType(ig.Ability, this, 'type', "SPAMMABLE");
-
-		}
-		
-	} );
 
 });

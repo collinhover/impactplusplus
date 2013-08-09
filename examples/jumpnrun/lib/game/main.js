@@ -82,6 +82,7 @@ ig.module(
 				
 				ig.input.bind(ig.KEY.X, 'jump');
 				ig.input.bind(ig.KEY.C, 'shoot');
+				ig.input.bind(ig.KEY.G, 'grenade');
 				
 			},
 			
@@ -91,6 +92,7 @@ ig.module(
 				
 				ig.input.unbind(ig.KEY.X, 'jump');
 				ig.input.unbind(ig.KEY.C, 'shoot');
+				ig.input.unbind(ig.KEY.G, 'grenade');
 				
 			},
 			
