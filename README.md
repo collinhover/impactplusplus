@@ -195,6 +195,9 @@ Check out the [Releases](https://github.com/collinhover/impactplusplus/releases)
 ```ig.Ability```    
 * `castSettings.entity` renamed `castSettings.entityClass`
 * `castSettings.entityClass` is no longer stored for reuse9
+
+```ig.Camera```  
+* settings moved from ig.CONFIG to ig.CONFIG.CAMERA
   
 ```Utils```    
 * `ig.utilsdraw.pixelFillPolygon` no longer takes bounds object, takes min/max x/y

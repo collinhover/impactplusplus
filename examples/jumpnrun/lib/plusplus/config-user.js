@@ -18,6 +18,16 @@ ig.module(
          * @author Collin Hover - collinhover.com
          **/
         ig.CONFIG_USER = {
+			
+			/**
+			 * Needs a top-down style game? Uncomment below!
+			 */
+			/*
+			TOP_DOWN: true,
+			ENTITY: {
+				CAN_FLIP_Y: true
+			}
+			*/
 
             /**
              * Fullscreen!
@@ -32,23 +42,26 @@ ig.module(
             GAME_HEIGHT_VIEW: 100,
 
             /**
+             * Camera flexibility and smoothness. This helps with motion sickness.
+             */
+            CAMERA: {
+				KEEP_CENTERED: false,
+				LERP: 0.025,
+                BOUNDS_PCT_MINX: -0.2,
+                BOUNDS_PCT_MINY: -0.3,
+                BOUNDS_PCT_MAXX: 0.2,
+                BOUNDS_PCT_MAXY: 0.3
+            },
+
+            /**
              * Special fonts and text should always be the same scale.
              */
             FONT: {
                 MAIN_NAME: "font_04b03_white_16.png",
                 ALT_NAME: "font_04b03_white_8.png",
                 CHAT_NAME: "font_04b03_black_8.png"
-            },
+            }
 			
-			/**
-			 * Needs a top-down style game? Uncomment below!
-			 */
-			/*
-			TOP_DOWN: true,
-			ENTITY: {
-				CAN_FLIP_Y: true
-			}
-			*/
 		};
 
     });
