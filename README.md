@@ -104,6 +104,7 @@ Check out the [Releases](https://github.com/collinhover/impactplusplus/releases)
 * `PRERENDER_MAPS` added
 * `CANVAS_WIDTH_PCT` renamed `GAME_WIDTH_PCT`
 * `CANVAS_HEIGHT_PCT` renamed `GAME_HEIGHT_PCT`
+* `DEBUG` removed, useless config value
 
 ```Physics```
 * Box2D physics removed from Impact++, performance is not acceptable for mobile web
