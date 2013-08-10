@@ -25,13 +25,45 @@ ig.module(
 		size: {x: 16, y: 9},
 		
 		// animations the Impact++ way
+		// note that these animations are for
+		// both side scrolling and top down mode
+		// you will likely only need one or the other
+		// so your animSettings will be much simpler
 		
 		animSheet: new ig.AnimationSheet( 'media/spike.png', 16, 9 ),
 		
-		animInit: "idle",
+		animInit: "idleX",
 		
 		animSettings: {
-			idle: {
+			idleX: {
+				frameTime: 0.08,
+				sequence: [0,1,2]
+			},
+			moveX: {
+				frameTime: 0.08,
+				sequence: [0,1,2]
+			},
+			moveLeft: {
+				frameTime: 0.08,
+				sequence: [0,1,2]
+			},
+			moveRight: {
+				frameTime: 0.08,
+				sequence: [0,1,2]
+			},
+			idleY: {
+				frameTime: 0.08,
+				sequence: [0,1,2]
+			},
+			moveY: {
+				frameTime: 0.08,
+				sequence: [0,1,2]
+			},
+			moveUp: {
+				frameTime: 0.08,
+				sequence: [0,1,2]
+			},
+			moveDown: {
 				frameTime: 0.08,
 				sequence: [0,1,2]
 			}

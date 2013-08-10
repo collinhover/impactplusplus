@@ -34,15 +34,20 @@ ig.module(
 		// animations the Impact++ way
 		
 		animSettings: {
-			idle: {
+			moveX: {
 				frameTime: 0.2,
 				sequence: [0,1]
 			},
-			death: {
+			deathX: {
 				frameTime: 0.1,
 				sequence: [2,3,4,5]
 			}
 		},
+		
+		// never needs to flip on y
+		
+		canFlipX: true,
+		canFlipY: false,
 		
 		damage: 10,
 		

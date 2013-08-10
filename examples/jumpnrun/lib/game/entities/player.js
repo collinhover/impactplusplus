@@ -31,37 +31,42 @@ ig.module(
     ig.EntityPlayer = ig.global.EntityPlayer = ig.Player.extend({
 		
 		size: _c.TOP_DOWN ? {x:8, y: 8} : {x: 8, y:14},
-		offset: _c.TOP_DOWN ? {x:4, y: 4} :  {x: 4, y: 2},
+		offset: _c.TOP_DOWN ? {x:4, y: 4} : {x: 4, y: 2},
 		
 		health: 10,
-		
-		animSheet: new ig.AnimationSheet( _c.PATH_TO_MEDIA + 'player.png', 16, 16 ),	
 		
 		// animations the Impact++ way
 		// note that these animations are for
 		// both side scrolling and top down mode
 		// you will likely only need one or the other
+		// so your animSettings will be much simpler
 		
-		animInit: _c.TOP_DOWN ? "idle" : "moveX",
+		animSheet: new ig.AnimationSheet( _c.PATH_TO_MEDIA + 'player.png', 16, 16 ),	
+		
+		animInit: _c.TOP_DOWN ? "moveX" : "idleX",
 		
 		animSettings: {
-			idle: {
+			idleX: {
 				frameTime: 1,
 				sequence: [0]
 			},
-			run: {
-				frameTime: 0.07, 
-				sequence: [0,1,2,3,4,5]
-			},
-			jump: {
+			jumpX: {
 				frameTime: 0.1, 
 				sequence: [8,9]
 			},
-			fall: {
+			fallX: {
 				frameTime: 0.4, 
 				sequence: [6,7]
 			},
 			moveX: {
+				frameTime: 0.07, 
+				sequence: _c.TOP_DOWN ? [21,22,23,22] : [0,1,2,3,4,5]
+			},
+			moveLeft: {
+				frameTime: 0.07, 
+				sequence: [18,19,20,19]
+			},
+			moveRight: {
 				frameTime: 0.07, 
 				sequence: [21,22,23,22]
 			},
@@ -77,13 +82,17 @@ ig.module(
 				frameTime: 0.07, 
 				sequence: [15,16,17,16]
 			},
-			shoot: {
-				frameTime: 0.25, 
-				sequence: [2]
-			},
 			shootX: {
 				frameTime: 0.25, 
+				sequence: _c.TOP_DOWN ? [26] : [2]
+			},
+			shootRight: {
+				frameTime: 0.25, 
 				sequence: [26]
+			},
+			shootLeft: {
+				frameTime: 0.25, 
+				sequence: [27]
 			},
 			shootY: {
 				frameTime: 0.25, 
@@ -97,11 +106,15 @@ ig.module(
 				frameTime: 0.25, 
 				sequence: [25]
 			},
-			death: {
-				frameTime: 0.1, 
-				sequence: [10,11]
-			},
 			deathX: {
+				frameTime: 0.1, 
+				sequence: _c.TOP_DOWN ? [29] : [10,11]
+			},
+			deathLeft: {
+				frameTime: 0.1, 
+				sequence: [29]
+			},
+			deathRight: {
 				frameTime: 0.1, 
 				sequence: [29]
 			},

@@ -22,11 +22,11 @@ ig.module(
 			
 			// animations the Impact++ way
 			animSettings: {
-				idle: {
+				idleX: {
 					frameTime: 1,
 					sequence: [0]
 				},
-				on: {
+				onX: {
 					frameTime: 1,
 					sequence: [1]
 				}

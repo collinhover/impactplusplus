@@ -54,6 +54,9 @@ ig.module(
 			}
 		},
 		
+		// can flip any direction
+		
+		canFlipX: true,
 		canFlipY: true,
 		
 		// stats

@@ -128,7 +128,10 @@ Check out the [Releases](https://github.com/collinhover/impactplusplus/releases)
 * `verticesNeeded` renamed `needsVertices`
 * `getTotalPosX/Y` renamed `getDrawX/Y` 
 * `totalSizeX/Y` renamed `sizeDraw.x/y`  
+* `flip` from boolean to object `flip.x/y`  
+* `flip.x/y` now controlled by properties `canFlipX/Y` 
 * dynamics updates, such as gravity and collisions with collision map moved into `updateDynamics` method
+* all animation names are now directional, i.e. "spawn" is now "spawnX/Y/Left/Right/Up/Down" based on `flip.x/y` and `facing.x/y`
 * `addAnim` now takes only animation name and settings as parameters
 * `collideWith` replaces `ig.Entity.seperateOnX/YAxis` for better control of collisions
 * `collideWith` parameters changed
@@ -153,6 +156,7 @@ Check out the [Releases](https://github.com/collinhover/impactplusplus/releases)
 
 ```ig.Character```  
 * `moveToLocation` removed and replaced with pathfinding
+* `anims.run` renamed `anims.move`
   
 ```ig.EntityTrigger```  
 * now properly chains triggers (check your trigger targets if you are getting strange behavior)
@@ -195,7 +199,8 @@ Check out the [Releases](https://github.com/collinhover/impactplusplus/releases)
   
 ```ig.Ability```    
 * `castSettings.entity` renamed `castSettings.entityClass`
-* `castSettings.entityClass` is no longer stored for reuse9
+* `castSettings.entityClass` is no longer stored for reuse
+* casting now account for facing of entity using ability and appends direction to casting animation name
 
 ```ig.Camera```  
 * settings moved from ig.CONFIG to ig.CONFIG.CAMERA
