@@ -25,8 +25,9 @@ ig.module(
 			/*
 			TOP_DOWN: true,
 			ENTITY: {
+				CAN_FLIP_X: true,
 				CAN_FLIP_Y: true
-			}
+			},
 			*/
 
             /**
