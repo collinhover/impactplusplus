@@ -38,16 +38,22 @@ ig.module(
 				frameTime: 0.2,
 				sequence: [0,1]
 			},
+			moveY: {
+				frameTime: 0.2,
+				sequence: [0,1]
+			},
 			deathX: {
+				frameTime: 0.1,
+				sequence: [2,3,4,5]
+			},
+			deathY: {
 				frameTime: 0.1,
 				sequence: [2,3,4,5]
 			}
 		},
 		
-		// never needs to flip on y
-		
 		canFlipX: true,
-		canFlipY: false,
+		canFlipY: true,
 		
 		damage: 10,
 		

@@ -8,7 +8,12 @@ ig.module(
 )
 // now require the appropriate files
 .requires(
+	
+	// the following are the only files required to use Impact++
+	
     'plusplus.core.plusplus',
+	
+	// the remaining files are all specific to this demo
 	
 	'game.entities.player',
 	'game.entities.spike',

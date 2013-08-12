@@ -29,8 +29,8 @@ ig.module(
 		
 		// velocity towards offset direction
 		
-		offsetVelX: 200,
-		offsetVelY: 200,
+		offsetVelX: 100,
+		offsetVelY: 100,
 		
 		// velocity relative to the entity using the ability
 		// this helps for running and gunning
