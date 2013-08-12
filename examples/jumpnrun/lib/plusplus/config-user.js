@@ -28,6 +28,10 @@ ig.module(
 				CAN_FLIP_X: true,
 				CAN_FLIP_Y: true
 			},
+			CREATURE: {
+				CAN_WANDER_X: true,
+				CAN_WANDER_Y: true
+			},
 			*/
 
             /**
@@ -43,7 +47,7 @@ ig.module(
             GAME_HEIGHT_VIEW: 100,
 
             /**
-             * Camera flexibility and smoothness. This helps with motion sickness.
+             * Camera trap and smoothness. This helps with motion sickness.
              */
             CAMERA: {
 				KEEP_CENTERED: false,
