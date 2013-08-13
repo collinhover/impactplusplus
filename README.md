@@ -118,9 +118,10 @@ Check out the [Releases](https://github.com/collinhover/impactplusplus/releases)
 * ig.BackgroundMap expanded to ig.BackgroundMapExtended
   
 ```ig.EntityExtended```   
-* ig.EntityExtended has been heavily changed!
+* ig.EntityExtended has been significantly changed!
 * `reset` now called at end of `init` method (instead of at start)
-* `initVisuals` removed and functionality moved to `resetExtras`
+* `initVisuals` removed and functionality moved to `resetExtras` method
+* `recordResetState` moved into `resetExtras` method
 * no longer reliant on `bounds`, use `pos` + `size` properties instead 
 * no longer reliant on `boundsDraw`, use `posDraw` + `sizeDraw` properties instead  
 * `bounds/boundsDraw` now opt-in and null by default
@@ -182,20 +183,26 @@ Check out the [Releases](https://github.com/collinhover/impactplusplus/releases)
 * `stuck` renamed `broken`
 * `autoStuck` renamed `autoBreak`
   
-```ig.UIElement```    
-* ig.UIElement has been heavily changed!
+```ig.UIElement```  
+* ig.UIElement has been significantly changed!
 * `refresh` moved to ig.EntityExtended 
 * `resize` moved to ig.EntityExtended 
 * `reposition` moved to ig.EntityExtended 
 * `rebuild` moved to ig.EntityExtended 
 * `link/unlink` moved to ig.EntityExtended 
 * `vertical` moved to ig.UIMeter
+* size now includes margins and alignment and calculated in `reposition`
+* ui elements will revert `pos` to`resetState.pos` unless linked or pos as pct of screen size
 * linkAlign now controls how far inside or outside of linkedTo a linked UI element is offset
 * resize renamed refresh
 * onResized renamed onRefreshed
 * refresh calls (in order) resize and reposition
 * `ig.UIText` no longer positions to center by default (but still aligns to center by default)
 * `ig.EntityConversation` completely reworked
+  
+```ig.UIMeter```  
+* size now includes bar size and is calculated in `resize`
+* meters will revert `size` to`resetState.size` when refreshed
   
 ```ig.Ability```    
 * `castSettings.entity` renamed `castSettings.entityClass`
