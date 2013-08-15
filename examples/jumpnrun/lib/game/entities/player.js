@@ -45,10 +45,38 @@ ig.module(
 		
 		animInit: _c.TOP_DOWN ? "moveX" : "idleX",
 		
+		// for example, a sidescroller's animSettings
+		// will only use idleX, jumpX, fallX, moveX, shootX, and deathX
+		// while a top down where entities can flip on X and Y
+		// will use idleX/Y, moveX/Y, shootX/Y, and deathX/Y
+		// but if the entities CANNOT flip on X and Y
+		// will use idleLeft/Right/Up/Down, moveLeft/Right/Up/Down,
+		// shootLeft/Right/Up/Down, and deathLeft/Right/Up/Down
+		
 		animSettings: {
 			idleX: {
 				frameTime: 1,
-				sequence: [0]
+				sequence: _c.TOP_DOWN ? [21] : [0]
+			},
+			idleLeft: {
+				frameTime: 1,
+				sequence: [18]
+			},
+			idleRight: {
+				frameTime: 1,
+				sequence: [21]
+			},
+			idleY: {
+				frameTime: 1,
+				sequence: [12]
+			},
+			idleUp: {
+				frameTime: 1,
+				sequence: [15]
+			},
+			idleDown: {
+				frameTime: 1,
+				sequence: [12]
 			},
 			jumpX: {
 				frameTime: 0.1, 
