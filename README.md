@@ -117,6 +117,10 @@ Check out the [Releases](https://github.com/collinhover/impactplusplus/releases)
 ```ig.BackgroundMap```   
 * ig.BackgroundMap expanded to ig.BackgroundMapExtended
   
+```ig.GameExtended```   
+* `getEntitiesByType` now searches by an entity's type property (instead of by class as the method does in vanilla ImpactJS)
+* `getEntitiesByClass` now searches by entity class (to help avoid confusion)
+  
 ```ig.EntityExtended```   
 * ig.EntityExtended has been significantly changed!
 * `reset` now called at end of `init` method (instead of at start)
@@ -148,6 +152,7 @@ Check out the [Releases](https://github.com/collinhover/impactplusplus/releases)
 * textured now creates textures on first draw call instead of when animations first added
 * `castShadows` renamed `castShadow`
 * `project` renamed `projectShadow`
+* fixed entities can now collide with each other safely!
   
 ```ig.AnimationExtended```  
 * `init` now takes only animation sheet and settings as parameters
@@ -158,6 +163,9 @@ Check out the [Releases](https://github.com/collinhover/impactplusplus/releases)
 ```ig.Character```  
 * `moveToLocation` removed and replaced with pathfinding
 * `anims.run` renamed `anims.move`
+  
+```ig.Creature```  
+* can find predator and prey by entity name, class, or group (as opposed to only group)
   
 ```ig.EntityTrigger```  
 * now properly chains triggers (check your trigger targets if you are getting strange behavior)
