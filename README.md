@@ -167,6 +167,10 @@ Check out the [Releases](https://github.com/collinhover/impactplusplus/releases)
   
 ```ig.Creature```  
 * can find predator and prey by entity name, class, or group (as opposed to only group)
+* `groupPrey` renamed `preyGroup`
+* `entityPrey` renamed `prey`
+* `groupPredator` renamed `predatorGroup`
+* `entityPredator` renamed `predator`
   
 ```ig.EntityTrigger```  
 * now properly chains triggers (check your trigger targets if you are getting strange behavior)
