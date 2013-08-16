@@ -172,6 +172,14 @@ Check out the [Releases](https://github.com/collinhover/impactplusplus/releases)
 * `groupPredator` renamed `predatorGroup`
 * `entityPredator` renamed `predator`
   
+```ig.Particle```
+* particle now automatically sets `facing.x/y` based on velocity
+* particle now automatically sets `currentAnim` to "move" + direction based on facing
+  
+```ig.Projectile```
+* `updateCurrentAnim` moved to `ig.Particle`
+* `placeholdAnims` moved to `ig.Particle`
+  
 ```ig.EntityTrigger```  
 * now properly chains triggers (check your trigger targets if you are getting strange behavior)
 * `triggering` added to help prevent triggers from infinitely looping
