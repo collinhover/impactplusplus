@@ -50,16 +50,25 @@ ig.module(
              * Camera trap and smoothness. This helps with motion sickness.
              */
             CAMERA: {
+				// we don't want to keep perfectly centered
 				KEEP_CENTERED: false,
+				// but if we did, we can use the lerp to smooth
 				LERP: 0.025,
-                BOUNDS_PCT_MINX: -0.2,
-                BOUNDS_PCT_MINY: -0.3,
-                BOUNDS_PCT_MAXX: 0.2,
-                BOUNDS_PCT_MAXY: 0.3
+				// when we use the trap
+				// we want to keep it as a percent of the screen
+                BOUNDS_TRAP_AS_PCT: true,
+				// the percents are 20% on either side of center X
+				// the percents are 30% on either side of center Y
+                BOUNDS_TRAP_PCT_MINX: -0.2,
+                BOUNDS_TRAP_PCT_MINY: -0.3,
+                BOUNDS_TRAP_PCT_MAXX: 0.2,
+                BOUNDS_TRAP_PCT_MAXY: 0.3,
+				// make sure camera doesn't go outside our level
+                KEEP_INSIDE_LEVEL: true
             },
 
             /**
-             * Special fonts and text should always be the same scale.
+             * Special fonts.
              */
             FONT: {
                 MAIN_NAME: "font_04b03_white_16.png",

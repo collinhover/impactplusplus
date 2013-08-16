@@ -105,6 +105,7 @@ Check out the [Releases](https://github.com/collinhover/impactplusplus/releases)
 * `CANVAS_WIDTH_PCT` renamed `GAME_WIDTH_PCT`
 * `CANVAS_HEIGHT_PCT` renamed `GAME_HEIGHT_PCT`
 * `DEBUG` removed, useless config value
+* `CAMERA.BOUNDS_` and `CAMERA.TRAP_BOUNDS_` renamed to `CAMERA.BOUNDS_TRAP_`
 
 ```Physics```
 * Box2D physics removed from Impact++, performance is not acceptable for mobile web
@@ -219,6 +220,9 @@ Check out the [Releases](https://github.com/collinhover/impactplusplus/releases)
 
 ```ig.Camera```  
 * settings moved from ig.CONFIG to ig.CONFIG.CAMERA
+* `bounds` renamed `boundsTrap`
+* `boundsPct` renamed `boundsTrapPct`
+* `boundsTrapPct` is off by default, use `ig.CONFIG.CAMERA.BOUNDS_TRAP_AS_PCT` or `ig.Camera.boundsTrapAsPct` to toggle on
   
 ```Utils```    
 * `ig.utilsdraw.pixelFillPolygon` no longer takes bounds object, takes min/max x/y
