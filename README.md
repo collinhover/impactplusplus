@@ -1,24 +1,25 @@
-Impact++ (r4)
+Impact++ (r5)
 ========
 
+###[DOCS](http://collinhover.github.com/impactplusplus) / [DEMO](http://collinhover.github.com/impactplusplus)  
+  
 ####Overview
-A series of extensions and additions to the [Impact javascript engine](http://impactjs.com "ImpactJS")
 
-The core goal of this project is to expand ImpactJS to make it easier and faster to start developing full featured games. ImpactJS is a great engine, but it is fairly minimal to start, and our hope is that Impact++ will save you a few months of dev time!
-
-Impact++ is also partly a product of work on the game Mimic (which may or may not be released as of you reading this), which you can [see in action here!](http://collinhover.github.com/mimic "Mimic")
+Impact++ is series of extensions and additions to the [ImpactJS engine](http://impactjs.com "ImpactJS"). The core goal of this project is to expand ImpactJS to make it easier and faster to start developing full featured games for the web. ImpactJS is a great engine, but it is fairly minimal to start, and our hope is that Impact++ will save you a few months of dev time!
 
 ####Features
 * Extended capability of ImpactJS's default classes to improve collisions, animations,...
 * ```ig.CONFIG``` data driven configuration to allow you to change parameters without rebuilding or modifying the library
 * ```ig.GameExtended``` game with layers, easy pausing, improved debugger,...
 * ```ig.EntityExtended``` entities with lots of extra helper functions, opt-in performance, inheritance friendly animations,...
+* ```ig.pathfinding``` efficient, garbage collector free pathfinding able to avoid entities and let you draw pathfinding maps in the editor
 * ```ig.InputPoint``` input with multi-touch and gestures that works the same for mouse or touch
 * ```ig.Camera``` camera for screen control, smooth target transitions, atmospheric overlays,...
 * ```ig.UIElement``` a whole list of ui element entities to make text, buttons, overlays,...
 * ```ig.Ability``` abilities that are entirely modular, have a built in casting system, upgrades,...
 * ```ig.EntityLight``` lighting in real-time with shadows, dynamic alpha and/or color,...
 * ```ig.Character``` abstract character class with options for moving, jumping, climbing,...
+* ```ig.Creature``` abstract creature class with simple AI to find targets, move to, attack, use abilities, flee...
 * ```ig.Player``` abstract player class with built in interaction and input handling,...
 * ```ig.Tutorial``` abstract tutorial class to help you show your players how to do things
 * ```ig.Spawner``` abstract spawner class with pooling for better performance
@@ -82,3 +83,7 @@ We'd love it if you want to help make Impact++ better, so if you're interested t
 
 ####License
 Impact++ is licensed under the MIT license. For full license and information, see [LICENSE](https://github.com/collinhover/impactplusplus/blob/master/LICENSE.md).
+
+
+##Changlog
+Check out the [Releases](https://github.com/collinhover/impactplusplus/releases).

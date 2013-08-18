@@ -35,20 +35,31 @@ ig.module(
 		
 		performance: _c.STATIC,
 		
+		// animations the Impact++ way
+		// note that these animations are for
+		// both side scrolling and top down mode
+		// you will likely only need one or the other
+		// so your animSettings will be much simpler
+		
 		animSheet: new ig.AnimationSheet( 'media/torch.png', 8, 8 ),
 		
-		// animations the Impact++ way
+		animInit: "idleX",
 		
 		animSettings: {
-			idle: {
+			idleX: {
 				frameTime: 1,
-				sequence: [0]
+				sequence: _c.TOP_DOWN ? [3] : [0]
 			},
-			on: {
+			onX: {
 				frameTime: 0.1,
-				sequence: [1,2]
+				sequence: _c.TOP_DOWN ? [4,5] : [1,2]
 			}
 		},
+		
+		// never needs to flip on y
+		
+		canFlipX: true,
+		canFlipY: false,
 		
 		// torches never die
 		
@@ -90,7 +101,7 @@ ig.module(
 		
 		activate: function () {
 			
-			this.entity.animOverride( "on", { loop: true } );
+			this.entity.animOverride( this.entity.getDirectionalAnimName( "on" ), { loop: true } );
 			
 			this.parent();
 			
@@ -98,7 +109,9 @@ ig.module(
 		
 		deactivate: function () {
 			
-			if ( this.entity.anims.on && this.entity.currentAnim === this.entity.anims.on ) {
+			var animName = this.entity.getDirectionalAnimName( "on" );
+			
+			if ( this.entity.anims[ animName ] && this.entity.currentAnim === this.entity.anims[ animName ] ) {
 				
 				this.entity.animRelease();
 			
