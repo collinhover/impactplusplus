@@ -19,13 +19,12 @@ ig.module(
 			
             animSheet: new ig.AnimationSheet(_c.PATH_TO_MEDIA + 'icons_performance.png', 12, 12),
 			
-			// animations the Impact++ way
 			animSettings: {
-				idle: {
+				idleX: {
 					frameTime: 1,
 					sequence: [2]
 				},
-				on: {
+				onX: {
 					frameTime: 1,
 					sequence: [3]
 				}

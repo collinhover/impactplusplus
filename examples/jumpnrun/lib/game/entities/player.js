@@ -10,12 +10,9 @@ ig.module(
     // note that anything in abstractities
     // is an abstract entity that needs to be extended
     'plusplus.abstractities.player',
-	// require the projectile for the grenade
-	'plusplus.abstractities.projectile',
-	// and an explosion for fun
-	'plusplus.entities.explosion',
-	// require the shoot ability
-	'plusplus.abilities.ability-shoot',
+	// require the shooting abilities
+	'game.abilities.grenade-launcher',
+	'game.abilities.laser-gun',
 	// require the glow ability
 	// lets see some lights!
 	'plusplus.abilities.glow',
@@ -33,31 +30,133 @@ ig.module(
 	
     ig.EntityPlayer = ig.global.EntityPlayer = ig.Player.extend({
 		
-		size: {x: 8, y:14},
-		offset: {x: 4, y: 2},
+		size: _c.TOP_DOWN ? {x:8, y: 8} : {x: 8, y:14},
+		offset: _c.TOP_DOWN ? {x:4, y: 4} : {x: 4, y: 2},
 		
 		health: 10,
 		
+		// animations the Impact++ way
+		// note that these animations are for
+		// both side scrolling and top down mode
+		// you will likely only need one or the other
+		// so your animSettings will be much simpler
+		
 		animSheet: new ig.AnimationSheet( _c.PATH_TO_MEDIA + 'player.png', 16, 16 ),	
 		
-		// animations the Impact++ way
+		animInit: _c.TOP_DOWN ? "moveX" : "idleX",
+		
+		// for example, a sidescroller's animSettings
+		// will only use idleX, jumpX, fallX, moveX, shootX, and deathX
+		// while a top down where entities can flip on X and Y
+		// will use idleX/Y, moveX/Y, shootX/Y, and deathX/Y
+		// but if the entities CANNOT flip on X and Y
+		// will use idleLeft/Right/Up/Down, moveLeft/Right/Up/Down,
+		// shootLeft/Right/Up/Down, and deathLeft/Right/Up/Down
 		
 		animSettings: {
-			idle: {
+			idleX: {
 				frameTime: 1,
-				sequence: [0]
+				sequence: _c.TOP_DOWN ? [21] : [0]
 			},
-			run: {
-				frameTime: 0.07, 
-				sequence: [0,1,2,3,4,5]
+			idleLeft: {
+				frameTime: 1,
+				sequence: [18]
 			},
-			jump: {
-				frameTime: 1, 
-				sequence: [9]
+			idleRight: {
+				frameTime: 1,
+				sequence: [21]
 			},
-			fall: {
+			idleY: {
+				frameTime: 1,
+				sequence: [12]
+			},
+			idleUp: {
+				frameTime: 1,
+				sequence: [15]
+			},
+			idleDown: {
+				frameTime: 1,
+				sequence: [12]
+			},
+			jumpX: {
+				frameTime: 0.1, 
+				sequence: [8,9]
+			},
+			fallX: {
 				frameTime: 0.4, 
 				sequence: [6,7]
+			},
+			moveX: {
+				frameTime: 0.07, 
+				sequence: _c.TOP_DOWN ? [21,22,23,22] : [0,1,2,3,4,5]
+			},
+			moveLeft: {
+				frameTime: 0.07, 
+				sequence: [18,19,20,19]
+			},
+			moveRight: {
+				frameTime: 0.07, 
+				sequence: [21,22,23,22]
+			},
+			moveY: {
+				frameTime: 0.07, 
+				sequence: [12,13,14,13]
+			},
+			moveDown: {
+				frameTime: 0.07, 
+				sequence: [12,13,14,13]
+			},
+			moveUp: {
+				frameTime: 0.07, 
+				sequence: [15,16,17,16]
+			},
+			shootX: {
+				frameTime: 0.25, 
+				sequence: _c.TOP_DOWN ? [26] : [2]
+			},
+			shootRight: {
+				frameTime: 0.25, 
+				sequence: [26]
+			},
+			shootLeft: {
+				frameTime: 0.25, 
+				sequence: [27]
+			},
+			shootY: {
+				frameTime: 0.25, 
+				sequence: [24]
+			},
+			shootDown: {
+				frameTime: 0.25, 
+				sequence: [24]
+			},
+			shootUp: {
+				frameTime: 0.25, 
+				sequence: [25]
+			},
+			deathX: {
+				frameTime: 0.1, 
+				sequence: _c.TOP_DOWN ? [29] : [10,11]
+			},
+			deathLeft: {
+				frameTime: 0.1, 
+				sequence: [29]
+			},
+			deathRight: {
+				frameTime: 0.1, 
+				sequence: [29]
+			},
+			deathY: {
+				frameTime: 0.1, 
+				sequence: [28]
+			},
+			deathDown: {
+				frameTime: 0.1, 
+				sequence: [28]
+			},
+			deathUp: {
+				frameTime: 0.1, 
+				sequence: [28]
 			}
 		},
 		
@@ -68,7 +167,7 @@ ig.module(
 			// to ig.Entity light properties
 			light: {
 				// the light should move with player
-				performance: _c.DYNAMIC,
+				performance: _c.MOVABLE,
 				// cast shadows only on static entities
 				castsShadows: true
 			}
@@ -83,21 +182,105 @@ ig.module(
 			this.parent();
 			
 			this.glow = new ig.AbilityGlow( this );
-			this.shoot = new ig.GrenadeLauncher( this );
+			this.shoot = new ig.LaserGun( this );
+			this.grenade = new ig.GrenadeLauncher( this );
 			
-			this.abilities.addDescendants( [ this.glow, this.shoot ]);
+			this.abilities.addDescendants( [
+				this.glow, this.shoot, this.grenade
+			]);
 			
 		},
 		
 		// use this method to change an entity internally
 		
 		updateChanges: function() {
+				
+			var shootX;
+			var shootY;
 			
 			// check if shooting
 			
 			if (ig.input.pressed('shoot')) {
+				
+				if ( _c.TOP_DOWN ) {
+					
+					if ( this.facing.x !== 0 ) {
+						
+						shootX = this.facing.x > 0 ? this.pos.x + this.size.x : this.pos.x;
+						
+					}
+					else {
+						
+						shootX = this.pos.x + this.size.x * 0.5;
+						
+					}
+					
+					if ( this.facing.y !== 0 ) {
+						
+						shootY = this.facing.y > 0 ? this.pos.y + this.size.y : this.pos.y;
+						
+					}
+					else {
+						
+						shootY = this.pos.y + this.size.y * 0.5;
+						
+					}
+					
+				}
+				else {
+					
+					shootX = this.flip.x ? this.pos.x : this.pos.x + this.size.x;
+					shootY = this.pos.y + this.size.y * 0.5;
+					
+				}
+				
+				this.shoot.execute( {
+					x: shootX,
+					y: shootY
+				} );
 
-				this.shoot.execute( { x: this.flip ? this.bounds.minX : this.bounds.maxX, y: this.bounds.minY + this.bounds.height * 0.5 } );
+			}
+			
+			// check if grenading
+			
+			if (ig.input.pressed('grenade')) {
+				
+				if ( _c.TOP_DOWN ) {
+					
+					if ( this.facing.x !== 0 ) {
+						
+						shootX = this.facing.x > 0 ? this.pos.x + this.size.x : this.pos.x;
+						
+					}
+					else {
+						
+						shootX = this.pos.x + this.size.x * 0.5;
+						
+					}
+					
+					if ( this.facing.y !== 0 ) {
+						
+						shootY = this.facing.y > 0 ? this.pos.y + this.size.y : this.pos.y;
+						
+					}
+					else {
+						
+						shootY = this.pos.y + this.size.y * 0.5;
+						
+					}
+					
+				}
+				else {
+					
+					shootX = this.flip.x ? this.pos.x : this.pos.x + this.size.x;
+					shootY = this.pos.y + this.size.y * 0.5;
+					
+				}
+				
+				this.grenade.execute( {
+					x: shootX,
+					y: shootY
+				} );
 
 			}
 			
@@ -128,99 +311,5 @@ ig.module(
 		}
 		
 	});
-
-	/**
-	 * Projectile for player shoot ability that explodes. This should probably have its own module!
-	 **/
-	ig.EntitySlimeGrenade = ig.global.EntitySlimeGrenade = ig.Projectile.extend({
-		
-		// lite collides to get knocked around
-		
-		collides: ig.Entity.COLLIDES.LITE,
-		
-		size: {x: 4, y: 4},
-		
-		offset: {x: 2, y: 2},
-			
-		animSheet: new ig.AnimationSheet( _c.PATH_TO_MEDIA + 'slime-grenade.png', 8, 8 ),
-		
-		// animations the Impact++ way
-		
-		animSettings: {
-			idle: {
-				frameTime: 0.2,
-				sequence: [0,1]
-			}
-		},
-		
-		damage: 10,
-		
-		// 2 second fuse!
-		
-		lifeDuration: 2,
-		
-		// less gravity
-		
-		gravityFactor: 0.5,
-		
-		// low friction
-		
-		friction: { x: 5, y: 0 },
-		
-		die: function () {
-			
-			if ( !this.dieingSilently ) {
-				
-				// EXPLOSIONS!
-				
-				ig.game.spawnEntity(ig.EntityExplosion, this.pos.x, this.pos.y, {
-                    entity: this,
-					spawnCountMax: 10,
-					spawnSettings: {
-						animTileOffset: ig.EntityParticleColor.colorOffsets.YELLOW
-					}
-                });
-				
-			}
-			
-			this.parent();
-			
-		}
-		
-	});
-	
-	/**
-	 * Ability for shooting grenades. This should probably have its own module!
-	 **/
-	ig.GrenadeLauncher = ig.AbilityShoot.extend( {
-	
-		// this ability spawns a slime grenade
-		
-		spawningEntity: ig.EntitySlimeGrenade,
-		
-		// velocity towards offset direction
-		
-		offsetVelX: 200,
-		offsetVelY: 200,
-		
-		// velocity relative to the entity using the ability
-		// this helps for running and gunning
-		
-		relativeVelPctX: 1,
-		relativeVelPctY: 0.5,
-		
-		// use this method to add types for checks
-		// since we are using bitwise flags
-		// we can take advantage of the fact that they can be added
-		
-		initTypes: function () {
-
-			this.parent();
-
-			_ut.addType(ig.Ability, this, 'type', "SPAMMABLE");
-
-		}
-		
-	} );
 
 });

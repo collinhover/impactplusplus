@@ -7,7 +7,7 @@ ig.module(
 .requires(
     // note that anything in abstractities
     // is an abstract entity that needs to be extended
-	'plusplus.abstractities.character',
+	'plusplus.abstractities.creature',
 	// if you want to use the config
     // don't forget to require it
     'plusplus.core.config',
@@ -20,28 +20,90 @@ ig.module(
 	var _c = ig.CONFIG;
 	var _ut = ig.utils;
 		
-	ig.EntitySpike = ig.global.EntitySpike = ig.Character.extend({
+	ig.EntitySpike = ig.global.EntitySpike = ig.Creature.extend({
 		
 		size: {x: 16, y: 9},
 		
-		// passive collide to get knocked around
-		
-		collides: ig.Entity.COLLIDES.PASSIVE,
-		
-		// full physics performance
-		
-		performance: _c.KINEMATIC,
+		// animations the Impact++ way
+		// note that these animations are for
+		// both side scrolling and top down mode
+		// you will likely only need one or the other
+		// so your animSettings will be much simpler
 		
 		animSheet: new ig.AnimationSheet( 'media/spike.png', 16, 9 ),
 		
-		// animations the Impact++ way
+		animInit: "idleX",
+		
+		// for example, a sidescroller's animSettings
+		// will only use idleX and moveX
+		// while a top down where entities can flip on X and Y
+		// will use idleX/Y, moveX/Y
+		// but if the entities CANNOT flip on X and Y
+		// will use idleLeft/Right/Up/Down, moveLeft/Right/Up/Down
 		
 		animSettings: {
-			crawl: {
+			idleX: {
+				frameTime: 0.08,
+				sequence: [0,1,2]
+			},
+			idleLeft: {
+				frameTime: 0.08,
+				sequence: [0,1,2]
+			},
+			idleRight: {
+				frameTime: 0.08,
+				sequence: [0,1,2]
+			},
+			moveX: {
+				frameTime: 0.08,
+				sequence: [0,1,2]
+			},
+			moveLeft: {
+				frameTime: 0.08,
+				sequence: [0,1,2]
+			},
+			moveRight: {
+				frameTime: 0.08,
+				sequence: [0,1,2]
+			},
+			idleY: {
+				frameTime: 0.08,
+				sequence: [0,1,2]
+			},
+			idleUp: {
+				frameTime: 0.08,
+				sequence: [0,1,2]
+			},
+			idleDown: {
+				frameTime: 0.08,
+				sequence: [0,1,2]
+			},
+			moveY: {
+				frameTime: 0.08,
+				sequence: [0,1,2]
+			},
+			moveUp: {
+				frameTime: 0.08,
+				sequence: [0,1,2]
+			},
+			moveDown: {
 				frameTime: 0.08,
 				sequence: [0,1,2]
 			}
 		},
+		
+		// lets slow it downnnnnnn
+		
+		maxVelGrounded: { x: 25, y: 25 },
+		frictionGrounded: { x: 800, y: 800 },
+		speed: { x: 100, y: 100 },
+		
+		// spikes can't jump or climb
+		
+		canJump: false,
+		canClimb: false,
+		
+		// stats
 		
 		health: 10,
 		
@@ -54,8 +116,6 @@ ig.module(
 			}
 		},
 		
-		_nearEdge: false,
-		
 		// use this method to add types for checks
 		// since we are using bitwise flags
 		// we can take advantage of the fact that they can be added
@@ -64,88 +124,19 @@ ig.module(
 			
 			this.parent();
 			
+			// spikes can be damaged
+			
 			_ut.addType(ig.EntityExtended, this, 'type', "DAMAGEABLE");
+			
+			// spikes are in enemy group and will not collide with or hurt each other
+			
+            _ut.addType(ig.EntityExtended, this, 'group', "ENEMY", "GROUP");
+			
+			// spikes will collide and hurt any character not in their group
+			
 			_ut.addType(ig.EntityExtended, this, 'checkAgainst', "CHARACTER");
 			
 		},
-		
-		// use this method to change an entity internally
-		
-		updateChanges: function() {
-			
-			// flip when near an edge
-			
-			var offset = ig.game.collisionMap.tilesize + this.vel.x * ig.system.tick + this.bounds.width * 0.5;
-			var changed;
-			
-			if( !ig.game.collisionMap.getTile(
-				( this.flip ? this.bounds.minX - offset : this.bounds.maxX + offset ),
-				this.bounds.maxY + 1 )
-			) {
-				
-				if ( !this._nearEdge ) {
-					
-					this.flip = !this.flip;
-					
-				}
-				
-				this._nearEdge = true;
-				
-			}
-			else {
-				
-				this._nearEdge = false
-				
-			}
-			
-			var moveMod;
-			
-			if ( this._nearEdge ) {
-				
-				moveMod = 1;
-				
-			}
-			else {
-				
-				moveMod = Math.random() * 0.25;
-				
-			}
-			
-			if ( moveMod <= 0.05 ) {
-				
-				this.moveToStop();
-				
-			}
-			else if ( this.flip ) {
-				
-				this.moveToLeft( moveMod );
-				
-			}
-			else {
-				
-				this.moveToRight( moveMod );
-				
-			}
-			
-			this.parent();
-			
-		},
-		
-		
-		handleMovementTrace: function( res ) {
-			
-			this.parent( res );
-			
-			// flip when hitting a wall
-			
-			if( res.collision.x ) {
-				
-				this.flip = !this.flip;
-				
-			}
-			
-			
-		},	
 		
 		check: function( entity ) {
 			

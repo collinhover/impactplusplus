@@ -8,9 +8,9 @@ We welcome your contributions - Thanks for helping make Impact++ a better projec
 
 Please submit pull requests via feature branches using the semi-standard workflow of:
 
-1. Fork it
+1. Fork the Impact++ **dev branch**
 2. Create your feature branch (`git checkout -b my-new-feature`)
-(when necessary). Create tests to verify bugs or features (use [Jasmine](https://github.com/pivotal/jasmine)).
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+3. When necessary, create an example or demo to show the feature or fix.
+4. Commit your changes (`git commit -am 'Add some feature'`)
+5. Push to the branch (`git push origin my-new-feature`)
+6. Create a new Pull Request for the Impact++ **dev branch**
