@@ -33,7 +33,7 @@ $( function () {
 	// get the demo
 	
 	var $demo = $( '#demo' );
-	var $demoBtn = $( '#demoBtn' );
+	var $demoBtn = $( '#demoBtn button' );
 	var path = $demoBtn.data( 'path' );
 	
 	if ( $demo.length && $demoBtn.length && path.length ) {
@@ -49,8 +49,6 @@ $( function () {
 				.off( 'click' )
 				.css( 'pointer', 'default' );
 			
-			demoHeight = $demo.outerHeight( true );
-			
 		} );
 		
 	}
@@ -59,16 +57,15 @@ $( function () {
 	
 	var $header = $( '#header' );
 	var $navdocs = $( '#navdocs' );
-	var demoHeight = 0;
 	
-	if ( $navdocs.length && $demo.length && $header.length ) {
+	if ( $navdocs.length && $header.length ) {
 		
 		$navdocs.affix( {
 			offset: {
 				left: 0,
 				top: function () {
 					
-					return $header.outerHeight( true ) + demoHeight + 60;
+					return $header.outerHeight( true ) + 60;
 					
 				}
 			}			

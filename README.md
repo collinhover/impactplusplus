@@ -5,7 +5,7 @@ Impact++ (r5)
   
 ####Overview
 
-Impact++ is series of extensions and additions to the [ImpactJS engine](http://impactjs.com "ImpactJS"). The core goal of this project is to expand ImpactJS to make it easier and faster to start developing full featured games for the web. ImpactJS is a great engine, but it is fairly minimal to start, and our hope is that Impact++ will save you a few months of dev time!
+Expanding the [ImpactJS engine](http://impactjs.com "ImpactJS") by over x10 so you can kick-start your game project into a full featured experience for the web (and mobile!).
 
 ####Features
 * Extended capability of ImpactJS's default classes to improve collisions, animations,...
