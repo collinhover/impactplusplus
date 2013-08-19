@@ -20,153 +20,226 @@
 	
 	<div id="header">
 		<a href="index.html"><img src="img/banner_impactplusplus.png"></a>
-		<a href='http://github.com/collinhover/impactplusplus/' id="forkBtn"><img src="img/fork_impactplusplus.png" alt="Fork me on GitHub"></a>
-		<button id="demoBtn" data-path="demo/index.html"><img src="img/demo_impactplusplus.png" alt="Demo Impact++"></div>
+		
+		<div id="headerlinks">
+			
+			<div id="downloadBtn">
+			
+				<a href='http://github.com/collinhover/impactplusplus/' id="forkBtn">
+					<img src="img/fork_impactplusplus.png" alt="Fork me on GitHub">
+				</a>
+				
+				<a href='http://github.com/collinhover/impactplusplus/zipball/master/'>
+					<img src="img/download_impactplusplus.png" alt="Download Impact++">
+				</a>
+				
+			</div>
+			
+			<div id="demoBtn">
+				
+				<button data-path="demo/index.html">
+					<img src="img/demo_impactplusplus.png" alt="Demo Impact++">
+				</button>
+			
+				<a href='ig.html' id="docsBtn">
+					<img src="img/docs_impactplusplus.png" alt="To the Docs!">
+				</a>
+				
+			</div>
+			
+		</div>
 	</div>
 	
 	<iframe id="demo" class="hidden"></iframe>
 	
 	<div id="docs" class="container">
 		
-		<div class="row">
+		<section id="intro">
 			
-			<div class="span2">
-				<nav id="mainnav">
-					
-					<div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navAbilitiesCollapse">Abilities</button><div id="navAbilitiesCollapse" class="collapse"><ul class="nav nav-list"><li id="navAbilities" class="nav-header hidden-phone">Abilities</li><li><a href="ig.Ability.html">Ability</a></li><li><a href="ig.AbilityDamage.html">AbilityDamage</a></li><li><a href="ig.AbilityGlow.html">AbilityGlow</a></li><li><a href="ig.AbilityInteract.html">AbilityInteract</a></li><li><a href="ig.AbilityMelee.html">AbilityMelee</a></li><li><a href="ig.AbilityMimic.html">AbilityMimic</a></li><li><a href="ig.AbilityShoot.html">AbilityShoot</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navAbstractitiesCollapse">Abstractities</button><div id="navAbstractitiesCollapse" class="collapse"><ul class="nav nav-list"><li id="navAbstractities" class="nav-header hidden-phone">Abstractities</li><li><a href="ig.Character.html">Character</a></li><li><a href="ig.Creature.html">Creature</a></li><li><a href="ig.Demo.html">Demo</a></li><li><a href="ig.Door.html">Door</a></li><li><a href="ig.DoorUsable.html">DoorUsable</a></li><li><a href="ig.Effect.html">Effect</a></li><li><a href="ig.Lever.html">Lever</a></li><li><a href="ig.Particle.html">Particle</a></li><li><a href="ig.Player.html">Player</a></li><li><a href="ig.Projectile.html">Projectile</a></li><li><a href="ig.Shape.html">Shape</a></li><li><a href="ig.Spawner.html">Spawner</a></li><li><a href="ig.SpawnerCharacter.html">SpawnerCharacter</a></li><li><a href="ig.Tutorial.html">Tutorial</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navCoreCollapse">Core</button><div id="navCoreCollapse" class="collapse"><ul class="nav nav-list"><li id="navCore" class="nav-header hidden-phone">Core</li><li><a href="ig.html">ig</a></li><li><a href="ig.CONFIG.html">CONFIG</a></li><li><a href="ig.CONFIG_USER.html">CONFIG_USER</a></li><li><a href="ig.EntityExtended.GROUP.html">GROUP</a></li><li><a href="ig.EntityExtended.TYPE.html">TYPE</a></li><li><a href="ig.AnimationExtended.html">AnimationExtended</a></li><li><a href="ig.AnimationSheet.html">AnimationSheet</a></li><li><a href="ig.BackgroundMapExtended.html">BackgroundMapExtended</a></li><li><a href="ig.Camera.html">Camera</a></li><li><a href="ig.CollisionMap.html">CollisionMap</a></li><li><a href="ig.Entity.html">Entity</a></li><li><a href="ig.EntityExtended.html">EntityExtended</a></li><li><a href="ig.Font.html">Font</a></li><li><a href="ig.GameExtended.html">GameExtended</a></li><li><a href="ig.Hierarchy.html">Hierarchy</a></li><li><a href="ig.Image.html">Image</a></li><li><a href="ig.ImageDrawing.html">ImageDrawing</a></li><li><a href="ig.Input.html">Input</a></li><li><a href="ig.InputPoint.html">InputPoint</a></li><li><a href="ig.Layer.html">Layer</a></li><li><a href="ig.LoaderExtended.html">LoaderExtended</a></li><li><a href="ig.PathfindingMap.html">PathfindingMap</a></li><li><a href="ig.System.html">System</a></li><li><a href="ig.TimerExtended.html">TimerExtended</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navEntitiesCollapse">Entities</button><div id="navEntitiesCollapse" class="collapse"><ul class="nav nav-list"><li id="navEntities" class="nav-header hidden-phone">Entities</li><li><a href="ig.EntityAbilityUpgrade.html">EntityAbilityUpgrade</a></li><li><a href="ig.EntityCameraAtmosphere.html">EntityCameraAtmosphere</a></li><li><a href="ig.EntityCameraShake.html">EntityCameraShake</a></li><li><a href="ig.EntityCheckpoint.html">EntityCheckpoint</a></li><li><a href="ig.EntityConversation.html">EntityConversation</a></li><li><a href="ig.EntityDemoHold.html">EntityDemoHold</a></li><li><a href="ig.EntityDemoSwipe.html">EntityDemoSwipe</a></li><li><a href="ig.EntityDemoTap.html">EntityDemoTap</a></li><li><a href="ig.EntityDestructable.html">EntityDestructable</a></li><li><a href="ig.EntityDestructableCollide.html">EntityDestructableCollide</a></li><li><a href="ig.EntityDestructableDamage.html">EntityDestructableDamage</a></li><li><a href="ig.EntityDirection.html">EntityDirection</a></li><li><a href="ig.EntityDummy.html">EntityDummy</a></li><li><a href="ig.EntityEffectElectricity.html">EntityEffectElectricity</a></li><li><a href="ig.EntityEffectPow.html">EntityEffectPow</a></li><li><a href="ig.EntityExplosion.html">EntityExplosion</a></li><li><a href="ig.EntityLava.html">EntityLava</a></li><li><a href="ig.EntityLevelchange.html">EntityLevelchange</a></li><li><a href="ig.EntityLight.html">EntityLight</a></li><li><a href="ig.EntityNarrative.html">EntityNarrative</a></li><li><a href="ig.EntityPain.html">EntityPain</a></li><li><a href="ig.EntityPainInstagib.html">EntityPainInstagib</a></li><li><a href="ig.EntityParticleColor.html">EntityParticleColor</a></li><li><a href="ig.EntityParticleDebris.html">EntityParticleDebris</a></li><li><a href="ig.EntityShapeClimbable.html">EntityShapeClimbable</a></li><li><a href="ig.EntityShapeClimbableOneWay.html">EntityShapeClimbableOneWay</a></li><li><a href="ig.EntityShapeEdge.html">EntityShapeEdge</a></li><li><a href="ig.EntityShapeSolid.html">EntityShapeSolid</a></li><li><a href="ig.EntitySlime.html">EntitySlime</a></li><li><a href="ig.EntitySwitch.html">EntitySwitch</a></li><li><a href="ig.EntityTrigger.html">EntityTrigger</a></li><li><a href="ig.EntityTriggerConstant.html">EntityTriggerConstant</a></li><li><a href="ig.EntityTriggerController.html">EntityTriggerController</a></li><li><a href="ig.EntityTriggerInput.html">EntityTriggerInput</a></li><li><a href="ig.EntityTriggerKill.html">EntityTriggerKill</a></li><li><a href="ig.EntityTriggerReverse.html">EntityTriggerReverse</a></li><li><a href="ig.EntityTriggerReverseConstant.html">EntityTriggerReverseConstant</a></li><li><a href="ig.EntityTutorialHold.html">EntityTutorialHold</a></li><li><a href="ig.EntityTutorialSwipe.html">EntityTutorialSwipe</a></li><li><a href="ig.EntityTutorialTap.html">EntityTutorialTap</a></li><li><a href="ig.EntityVoid.html">EntityVoid</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navHelpersCollapse">Helpers</button><div id="navHelpersCollapse" class="collapse"><ul class="nav nav-list"><li id="navHelpers" class="nav-header hidden-phone">Helpers</li><li><a href="ig.pathfinding.html">pathfinding</a></li><li><a href="ig.TWEEN.html">TWEEN</a></li><li><a href="ig.utils.html">utils</a></li><li><a href="ig.utilsclass.html">utilsclass</a></li><li><a href="ig.utilscolor.html">utilscolor</a></li><li><a href="ig.utilsdraw.html">utilsdraw</a></li><li><a href="ig.utilsintersection.html">utilsintersection</a></li><li><a href="ig.utilsmath.html">utilsmath</a></li><li><a href="ig.utilsphysics.html">utilsphysics</a></li><li><a href="ig.utilstile.html">utilstile</a></li><li><a href="ig.utilsvector2.html">utilsvector2</a></li><li><a href="ig.LinkedList.html">LinkedList</a></li><li><a href="ig.pathfinding.Node.html">Node</a></li><li><a href="ig.Signal.html">Signal</a></li><li><a href="ig.TWEEN.Tween.html">Tween</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navUiCollapse">Ui</button><div id="navUiCollapse" class="collapse"><ul class="nav nav-list"><li id="navUi" class="nav-header hidden-phone">Ui</li><li><a href="ig.UIElement.html">UIElement</a></li><li><a href="ig.UIInteractive.html">UIInteractive</a></li><li><a href="ig.UIMeter.html">UIMeter</a></li><li><a href="ig.UIOverlay.html">UIOverlay</a></li><li><a href="ig.UIOverlayPause.html">UIOverlayPause</a></li><li><a href="ig.UIText.html">UIText</a></li><li><a href="ig.UITextBubble.html">UITextBubble</a></li><li><a href="ig.UIToggle.html">UIToggle</a></li><li><a href="ig.UITogglePause.html">UITogglePause</a></li><li><a href="ig.UITracker.html">UITracker</a></li></ul></div></div>
-					
-				</nav>
-			</div>
+			<h1>Supafly with<a href="http://impactjs.com" target="_blank">ImpactJS</a> and Impact++</h1>
+			<h4>Start making full featured games for the web (and mobile) and forget about building the boilerplate.</h4>
 			
-			<div class="span10">
-				<div id="maincontent">
+		</section>
+		
+		<hr>
+
+		<div  id="features">
+		
+			<div class="row">
+				
+				<div class="span4">
+				
+					<div class="feature">
+						<a href="ig.EntityLight.html" class="hero-unit">
+							<img src="img/example_lighting.png">
+							<h3>Dynamic Lights</h3>
+							<p>Lighting in real-time with shadows, dynamic alpha and color, gradient or flat shaded, and pixel perfect.</p>
+						</a>
+					</div>
 					
-					<ul class="breadcrumb"><li><a href="index.html">Impact++</a><span class="divider">/</span></li></ul>
-
-					<div class="row">
-
-						<div id="maincontentColumn2" class="span2">
-							
-							<div id="navdocs" class="hidden-phone"><ul class="nav nav-list sidenav"><li class="nav-header"><img src="img/logo_impactplusplus_25.png"> Impact++</li><li><a href="#navAbilities" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Abilities</a></li><li><a href="#navAbstractities" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Abstractities</a></li><li><a href="#navCore" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Core</a></li><li><a href="#navEntities" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Entities</a></li><li><a href="#navHelpers" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Helpers</a></li><li><a href="#navUi" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> Ui</a></li></ul></div>
-
-						</div>
-
-						<div id="maincontentColumn8" class="span8">
-						
-							
-
-
-    
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-    <section>
-        <article><h1>Impact++ (r5)</h1>
-
-<p><a href="http://collinhover.github.com/impactplusplus">Impact++ Documentation</a> -- <a href="http://collinhover.github.com/impactplusplus">Impact++ Demo</a>  </p>
-
-<h4>Overview</h4>
-
-<p>Impact++ is series of extensions and additions to the <a href="http://impactjs.com" title="ImpactJS">ImpactJS engine</a>. The core goal of this project is to expand ImpactJS to make it easier and faster to start developing full featured games for the web. ImpactJS is a great engine, but it is fairly minimal to start, and our hope is that Impact++ will save you a few months of dev time!</p>
-
-<h4>Features</h4>
-
-<ul><li>Extended capability of ImpactJS&#39;s default classes to improve collisions, animations,...</li><li><code>ig.CONFIG</code> data driven configuration to allow you to change parameters without rebuilding or modifying the library</li><li><code>ig.GameExtended</code> game with layers, easy pausing, improved debugger,...</li><li><code>ig.EntityExtended</code> entities with lots of extra helper functions, opt-in performance, inheritance friendly animations,...</li><li><code>ig.pathfinding</code> efficient, garbage collector free pathfinding able to avoid entities and let you draw pathfinding maps in the editor</li><li><code>ig.InputPoint</code> input with multi-touch and gestures that works the same for mouse or touch</li><li><code>ig.Camera</code> camera for screen control, smooth target transitions, atmospheric overlays,...</li><li><code>ig.UIElement</code> a whole list of ui element entities to make text, buttons, overlays,...</li><li><code>ig.Ability</code> abilities that are entirely modular, have a built in casting system, upgrades,...</li><li><code>ig.EntityLight</code> lighting in real-time with shadows, dynamic alpha and/or color,...</li><li><code>ig.Character</code> abstract character class with options for moving, jumping, climbing,...</li><li><code>ig.Creature</code> abstract creature class with simple AI to find targets, move to, attack, use abilities, flee...</li><li><code>ig.Player</code> abstract player class with built in interaction and input handling,...</li><li><code>ig.Tutorial</code> abstract tutorial class to help you show your players how to do things</li><li><code>ig.Spawner</code> abstract spawner class with pooling for better performance</li><li><code>ig.Particle</code> abstract particle class with fading in and/or out, random velocities,...</li><li><code>ig.EntityTrigger</code> easy to use set of triggers for complex event driven behavior</li><li><code>ig.EntityCheckpoint</code> checkpoint for automatic player respawning on death</li><li><code>ig.utils</code> huge list of utility functions for vectors, drawing, intersections, math, tiles,...</li><li>and too much more to reasonably list here!</li></ul>
-
-<h4>Download</h4>
-
-<p><a href="http://github.com/collinhover/impactplusplus/zipball/master/">
-<img alt="Download Zip" src="http://github.com/images/modules/download/zip.png"/>
-</a>
-<a href="http://github.com/collinhover/impactplusplus/tarball/master/">
-<img alt="Download Zip" src="http://github.com/images/modules/download/tar.png"/>
-</a></p>
-
-<h2>Getting Started</h2>
-
-<h4>First Steps</h4>
-
-<ol><li>Download using one of the &quot;Download&quot; links and extract the files.</li><li>Copy the <strong>impactplusplus/lib/plusplus</strong> folder into your new or existing ImpactJS project <strong>lib</strong> directory.</li><li>Either copy the <strong>impactplusplus/lib/weltmeister/config.js</strong> into your projet&#39;s <strong>lib/weltmeister</strong> directory...</li><li>Or, if you have a custom Weltmeister config:<ul><li>add <code>&#39;lib/plusplus/entities/*.js&#39;</code> to the <code>entityFiles</code> setting</li><li>change the <code>collisionTiles.path</code> setting to <code>&#39;lib/weltmeister/collisiontiles_plusplus_64.png&#39;</code></li></ul></li><li>Make sure you&#39;re comfortable with the <a href="http://impactjs.com/documentation">ImpactJS Documentation</a></li><li>Load up the Impact++ Jump N&#39; Run demo (see below) to review the basics</li><li>Dive into the <a href="http://collinhover.github.com/impactplusplus">Impact++ Documentation</a></li></ol>
-
-<h4>Demo: Jump N&#39; Run</h4>
-
-<p>Check out the Jump N&#39; Run demo for an overview of getting started with Impact++, located in the &#39;examples/jumpnrun&#39; directory. Don&#39;t forget to copy the ImpactJS engine and Weltmeister files into the Jump N&#39; Run directory!</p>
-
-<h4>Feature Examples</h4>
-
-<p>You will find example levels demoing various advanced features of Impact++ in the &#39;examples/levels&#39; directory. Copy them into your &#39;lib/game/levels&#39; directory and load them up through Weltmeister. Don&#39;t forget to add your player entity to the example levels before trying them out!</p>
-
-<h2>FAQ</h2>
-
-<h4>Ejecta, Cocoonjs, etc?</h4>
-
-<p>Impact++ has been built from day one to be portable / wrappable to iOS, Android, Win8, etc. Tests are ongoing, but the library does nothing that should need special handling when porting or wrapping your game code for distribution as a mobile app. Please let us know if you find any issues!</p>
-
-<h4>Custom Settings</h4>
-
-<pre><code>// edit the user config file at &#39;plusplus/config-user.js&#39;
-// then you can set values
-// for any of the properties that appear in ig.CONFIG
-// and they will automatically be merged
-// over the base settings
-ig.CONFIG_USER = {
-	// for example, one thing you&#39;ll probably want to set right away
-	// is your own logo (in base64) for the loader
-	LOADER_LOGO_SRC_MAIN: &#39;data:image/png;base64,...&#39;
-};</code></pre>
-
-<h4>Design Philosophy</h4>
-
-<ul><li><em>Modularity</em> - code should be reusable whenever possible</li><li><em>Parametrize</em> - projects should be able to change settings without modifying the library</li><li><em>Be agnostic</em> - do not rely on device or browser specific functionality</li><li><em>Consistency</em> - the codebase should look like a cohesive whole</li><li><em>Document</em> - the codebase should be reasonably documented</li></ul>
-
-<h4>Contributing</h4>
-
-<p>We&#39;d love it if you want to help make Impact++ better, so if you&#39;re interested take a look at <a href="https://github.com/collinhover/impactplusplus/blob/master/CONTRIBUTING.md">CONTRIBUTING</a>.</p>
-
-<h4>License</h4>
-
-<p>Impact++ is licensed under the MIT license. For full license and information, see <a href="https://github.com/collinhover/impactplusplus/blob/master/LICENSE.md">LICENSE</a>.</p>
-
-<h2>Changlog</h2>
-
-<p>Check out the <a href="https://github.com/collinhover/impactplusplus/releases">Releases</a>.</p></article>
-    </section>
-
-
-
-
-
-
-							
-						</div>
-						
+				</div>
+				
+				<div class="span4">
+				
+					<div class="feature">
+						<a href="ig.Creature.html" class="hero-unit">
+							<img src="img/example_creature.png">
+							<h3>Creature Abstract</h3>
+							<p>Abstract creature class with simple AI to find prey and predators, move to, attack, use abilities, and flee.</p>
+						</a>
+					</div>
+					
+				</div>
+				
+				<div class="span4">
+				
+					<div class="feature">
+						<a href="ig.pathfinding.html" class="hero-unit">
+							<img src="img/example_pathfinding.png">
+							<h3>Path Finding</h3>
+							<p>Garbage collector free, entity avoiding, plus the addition of editor drawn pathfinding maps.</p>
+						</a>
 					</div>
 					
 				</div>
 				
 			</div>
-			
+
+			<div class="row">
+				
+				<div class="span4">
+				
+					<div class="feature">
+						<a href="ig.GameExtended.html" class="hero-unit">
+							<img src="img/example_game.png">
+							<h3>Game Extended</h3>
+							<p>Game that handles sidescrolling or topdown with layers, easy pausing, improved debugger and collisions.</p>
+						</a>
+					</div>
+					
+				</div>
+				
+				<div class="span4">
+				
+					<div class="feature">
+						<a href="ig.EntityExtended.html" class="hero-unit">
+							<img src="img/example_entities.png">
+							<h3>Entity Extended</h3>
+							<p>Entities with lots of extra helper functions, opt-in performance, and inheritance friendly animations.</p>
+						</a>
+					</div>
+					
+				</div>
+				
+				<div class="span4">
+				
+					<div class="feature">
+						<a href="ig.Player.html" class="hero-unit">
+							<img src="img/example_player.png">
+							<h3>Player Abstract</h3>
+							<p>Abstract player class with built in input handling, entity interaction, checkpoints, stats, and more.</p>
+						</a>
+					</div>
+					
+				</div>
+				
+			</div>
+
+			<div class="row">
+				
+				<div class="span4">
+				
+					<div class="feature">
+						<a href="ig.Ability.html" class="hero-unit">
+							<img src="img/example_abilities.png">
+							<h3>Modular Abilities</h3>
+							<p>Abilities that are modular, have a built in casting system, upgrades, and even some predefined.</p>
+						</a>
+					</div>
+					
+				</div>
+				
+				<div class="span4">
+				
+					<div class="feature">
+						<a href="ig.Camera.html" class="hero-unit">
+							<img src="img/example_camera.png">
+							<h3>Camera Control</h3>
+							<p>Camera for screen control, smooth target transitions, atmospheric overlays, and shake effects.</p>
+						</a>
+					</div>
+					
+				</div>
+				
+				<div class="span4">
+				
+					<div class="feature">
+						<a href="ig.UIElement.html" class="hero-unit">
+							<img src="img/example_ui.png">
+							<h3>User Interface</h3>
+							<p>A variety of simple ui element entities to make text, buttons, overlays, meters, and more.</p>
+						</a>
+					</div>
+					
+				</div>
+				
+			</div>
+
+			<div class="row">
+				
+				<div class="span4">
+				
+					<div class="feature">
+						<a href="ig.Particle.html" class="hero-unit">
+							<img src="img/example_particles.png">
+							<h3>Particle Abstract</h3>
+							<p>Abstract particle class with fading in and/or out, random velocities, auto animations, and projectiles.</p>
+						</a>
+					</div>
+					
+				</div>
+				
+				<div class="span4">
+				
+					<div class="feature">
+						<a href="ig.CONFIG.html" class="hero-unit">
+							<img src="img/example_config.png">
+							<h3>Config Driven</h3>
+							<p>Data driven configuration to allow you to change parameters without rebuilding or modifying the library.</p>
+						</a>
+					</div>
+					
+				</div>
+				
+				<div class="span4">
+				
+					<div class="feature">
+						<a href="ig.html" class="hero-unit">
+							<img src="img/example_more.png">
+							<h3>Over 9000</h3>
+							<p>Enhancements, fixes, and far too much more to reasonably list here!</p>
+						</a>
+					</div>
+					
+				</div>
+				
+			</div>
+		
 		</div>
-			
+		
 	</div>
+	
+	<hr>
 
 	<footer>
-		<p class="muted">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0-dev</a> on Sat Aug 17 2013 18:16:37 GMT-0500 (CDT)</p>
+		<p class="muted">Impact++ created and maintained by <a href="http://twitter.com/collinhover" target="_blank">@collinhover</a> / <a href="http://collinhover.com/" target="_blank">collinhover.com</a></p>
 	</footer>
+	
+
+
+
+
+
 	
 	<script src="scripts/linenumber.js"> </script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
