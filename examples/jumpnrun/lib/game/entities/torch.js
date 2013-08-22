@@ -29,7 +29,7 @@ ig.module(
 		
 		// torches don't need to collide
 		
-		collides: ig.Entity.COLLIDES.NONE,
+		collides: ig.EntityExtended.COLLIDES.NEVER,
 		
 		// torches don't move or update
 		

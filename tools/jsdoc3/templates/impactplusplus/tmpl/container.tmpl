@@ -72,22 +72,22 @@
 	// construct nav for doc
 	
 	var navDoc = '<div id="navdoc"><ul class="nav nav-list sidenav"><li class="nav-header">' +  doc.name + '</li>';
-	navDoc += '<li><a href="#docs">Overview <div class="icon-chevron-right pull-right"></div></a></li>';
+	navDoc += '<li><a href="#docs"><div class="icon-chevron-left pull-left"></div> Overview</a></li>';
 	
 	if ( members && members.length ) {
-		navDoc += '<li><a href="#members" type="button">Members <div class="icon-chevron-right pull-right"></div></a></li>';
+		navDoc += '<li><a href="#members" type="button"><div class="icon-chevron-left pull-left"></div> Members</a></li>';
 	}
 	
 	if ( methods && methods.length ) {
-		navDoc += '<li><a href="#methods" type="button">Methods <div class="icon-chevron-right pull-right"></div></a></li>';
+		navDoc += '<li><a href="#methods" type="button"><div class="icon-chevron-left pull-left"></div> Methods</a></li>';
 	}
 	
 	if ( events && events.length ) {
-		navDoc += '<li><a href="#typedefs" type="button">Type Defs <div class="icon-chevron-right pull-right"></div></a></li>';
+		navDoc += '<li><a href="#typedefs" type="button"><div class="icon-chevron-left pull-left"></div> Type Defs</a></li>';
 	}
 	
 	if ( events && events.length ) {
-		navDoc += '<li><a href="#events" type="button">Events <div class="icon-chevron-right pull-right"></div></a></li>';
+		navDoc += '<li><a href="#events" type="button"><div class="icon-chevron-left pull-left"></div> Events</a></li>';
 	}
 
 	if ( isInheriting ) {
@@ -114,180 +114,252 @@
 		
 	}
 ?>
-<section id="doc">
- 
-	<header id="overview">
+	
+<div id="header">
+	
+	<div class="container">
 		
-		<div class="hero-unit">
-			
-			<?js if (doc.augments && doc.augments.length) { ?>
-			<ul id="extends" class="infoline unstyled inline">
-			<?js doc.augments.forEach(function(a) { ?>
-				<li><div class="icon-circle-arrow-down"></div> <?js= self.linkto(a, a) ?></li>
-			<?js }); ?>
-			</ul>
-			<?js } ?>
-			
-			<?js if (doc.ancestors && doc.ancestors.length) { ?>
-				<h3 class="ancestors"><?js= doc.ancestors.join('') ?></h3>
-			<?js } ?>
-			
-			<h1>
-			<?js= doc.name ?>
-			<?js if (doc.variation) { ?>
-				<sup class="variation"><?js= doc.variation ?></sup>
-			<?js } ?>
-			</h1>
-			
-			<?js if (doc.classdesc) { ?>
-				<div class="class-description"><?js= doc.classdesc ?></div>
-			<?js } ?>
-			
-			<div class="container-overview">
-			
-			<?js if (doc.kind === 'module' && doc.module) { ?>
-				<?js= self.partial('method.tmpl', doc.module) ?>
-			<?js } ?>
-			
-			<?js if (doc.kind === 'class') { ?>
-				<?js= self.partial('method.tmpl', doc) ?>
-			<?js } else { ?>
-				<?js if (doc.description) { ?>
-					<p class="description"><?js= doc.description ?></p>
-				<?js } ?>
+		<div id="logo">
+			<a href="index.html"><img src="img/logo_impactplusplus_128.png"></a>
 				
-				<?js= self.partial('details.tmpl', doc) ?>
-				
-				<?js if (doc.examples && doc.examples.length) { ?>
-					<?js= self.partial('examples.tmpl', doc.examples) ?>
-				<?js } ?>
-			<?js } ?>
-			</div>
+			<a href='http://github.com/collinhover/impactplusplus/' id="forkBtn">
+				<img src="img/fork_impactplusplus.png" alt="Fork me on GitHub">
+			</a>
 			
 		</div>
 		
-	</header>  
+	</div>
+	
+</div>
 
-	<article>
+<div id="docs" class="container">
+
+	<div class="row">
 		
-		<?js if (doc.mixes && doc.mixes.length) { ?>
-			<ul id="mixes" class="infoline unstyled inline">
-			<?js doc.mixes.forEach(function(a) { ?>
-				<li><div class="icon-random"></div> <?js= self.linkto(a, a) ?></li>
-			<?js }); ?>
-			</ul>
-		<?js } ?>
+		<div class="span2">
+			<nav id="mainnav">
+				
+				<?js= self.nav ?>
+				
+			</nav>
+		</div>
 		
-		<?js if (doc.requires && doc.requires.length) { ?>
-			<ul id="requires" class="infoline unstyled inline">
-			<?js doc.requires.forEach(function(a) { ?>
-				<li><div class="icon-file"></div> <?js= self.linkto(a, a) ?></li>
-			<?js }); ?>
-			</ul>
-		<?js } ?>
-		
-		<?js	
-				if (doc.kind !== 'globalobj' && (
-					( namespaces && namespaces.length )
-					|| ( classes && classes.length )
-					) ) { 
-		?>
-		
-		<div class="row">
-		
-			<?js
-				if (namespaces && namespaces.length) { 
-			?>
-				<div class="span3">
-					<h6 id="namespaces" class="infoline-title muted">Namespaces</h6>
+		<div class="span10">
+			<div id="maincontent">
+				
+				<?js= (function () {
 					
-					<dl><?js namespaces.forEach(function(n) { ?>
-						<dt><a href="namespaces.html#<?js= n.longname ?>"><?js= self.linkto(n.longname, n.name) ?></a></dt>
-						<dd><?js if (n.summary) { ?><?js= n.summary ?><?js } ?></dd>
-					<?js }); ?></dl>
+					return doc.breadcrumb || self.breadcrumb;
+					
+				}()) ?>
+
+				<div class="row">
+
+					<div id="maincontentColumn8" class="span8">
+					
+						<section id="doc">
+						 
+							<header id="overview">
+								
+								<div class="hero-unit">
+									
+									<?js if (doc.augments && doc.augments.length) { ?>
+									<ul id="extends" class="infoline unstyled inline">
+									<?js doc.augments.forEach(function(a) { ?>
+										<li><div class="icon-circle-arrow-down"></div> <?js= self.linkto(a, a) ?></li>
+									<?js }); ?>
+									</ul>
+									<?js } ?>
+									
+									<?js if (doc.ancestors && doc.ancestors.length) { ?>
+										<h3 class="ancestors"><?js= doc.ancestors.join('') ?></h3>
+									<?js } ?>
+									
+									<h1>
+									<?js= doc.name ?>
+									<?js if (doc.variation) { ?>
+										<sup class="variation"><?js= doc.variation ?></sup>
+									<?js } ?>
+									</h1>
+									
+									<?js if (doc.classdesc) { ?>
+										<div class="class-description"><?js= doc.classdesc ?></div>
+									<?js } ?>
+									
+									<div class="container-overview">
+									
+									<?js if (doc.kind === 'module' && doc.module) { ?>
+										<?js= self.partial('method.tmpl', doc.module) ?>
+									<?js } ?>
+									
+									<?js if (doc.kind === 'class') { ?>
+										<?js= self.partial('method.tmpl', doc) ?>
+									<?js } else { ?>
+										<?js if (doc.description) { ?>
+											<p class="description"><?js= doc.description ?></p>
+										<?js } ?>
+										
+										<?js= self.partial('details.tmpl', doc) ?>
+										
+										<?js if (doc.examples && doc.examples.length) { ?>
+											<?js= self.partial('examples.tmpl', doc.examples) ?>
+										<?js } ?>
+									<?js } ?>
+									</div>
+									
+								</div>
+								
+							</header>  
+
+							<article>
+								
+								<?js if (doc.mixes && doc.mixes.length) { ?>
+									<ul id="mixes" class="infoline unstyled inline">
+									<?js doc.mixes.forEach(function(a) { ?>
+										<li><div class="icon-random"></div> <?js= self.linkto(a, a) ?></li>
+									<?js }); ?>
+									</ul>
+								<?js } ?>
+								
+								<?js if (doc.requires && doc.requires.length) { ?>
+									<ul id="requires" class="infoline unstyled inline">
+									<?js doc.requires.forEach(function(a) { ?>
+										<li><div class="icon-file"></div> <?js= self.linkto(a, a) ?></li>
+									<?js }); ?>
+									</ul>
+								<?js } ?>
+								
+								<?js	
+										if (doc.kind !== 'globalobj' && (
+											( namespaces && namespaces.length )
+											|| ( classes && classes.length )
+											) ) { 
+								?>
+								
+								<div class="row">
+								
+									<?js
+										if (namespaces && namespaces.length) { 
+									?>
+										<div class="span3">
+											<h6 id="namespaces" class="infoline-title muted">Namespaces</h6>
+											
+											<dl><?js namespaces.forEach(function(n) { ?>
+												<dt><a href="namespaces.html#<?js= n.longname ?>"><?js= self.linkto(n.longname, n.name) ?></a></dt>
+												<dd><?js if (n.summary) { ?><?js= n.summary ?><?js } ?></dd>
+											<?js }); ?></dl>
+										</div>
+									<?js } ?>
+								
+								</div>
+								
+								<?js } ?>
+								
+								<?js
+									if (classes && classes.length) { 
+								?>
+									<div id="classes">
+										<h6 class="infoline-title muted">Classes</h6>
+										
+										<ul class="unstyled inline"><?js classes.forEach(function(c) { ?>
+											<li class="well well-small">
+												<?js= self.linkto(c.longname, c.name) ?>
+											</li>
+										<?js }); ?></ul>
+									</div>
+								<?js } ?>
+								
+								<?js
+									if (members && members.length && members.forEach) { 
+								?>
+									<div id="members" class="subsection">
+										<h3 class="subsection-title page-header">Members</h3>
+										
+										<dl><?js members.forEach(function(p) { ?>
+											<?js= self.partial('members.tmpl', p) ?>
+										<?js }); ?></dl>
+									</div>
+								<?js } ?>
+								
+								<?js
+									if (methods && methods.length && methods.forEach) { 
+								?>
+									<hr>
+									<div id="methods" class="subsection">
+									<h3 class="subsection-title page-header">Methods</h3>
+									
+									<dl><?js methods.forEach(function(m) { ?>
+										<?js= self.partial('method.tmpl', m) ?>
+									<?js }); ?></dl>
+									</div>
+								<?js } ?>
+								
+								<?js
+									if (typedefs && typedefs.length && typedefs.forEach) { 
+								?>
+									<hr>
+									<div id="types" class="subsection">
+										<h3 class="subsection-title page-header">Type Definitions</h3>
+										
+										<dl><?js typedefs.forEach(function(e) {
+												if (e.signature) {
+											?>
+												<?js= self.partial('method.tmpl', e) ?>
+											<?js
+												}
+												else {
+											?>
+												<?js= self.partial('members.tmpl', e) ?>
+											<?js
+												}
+											}); ?></dl>
+									</div>
+								<?js } ?>
+								
+								<?js
+									if (events && events.length && events.forEach) { 
+								?>
+									<hr>
+									<div id="events" class="subsection">
+										<h3 class="subsection-title page-header">Events</h3>
+										
+										<dl><?js events.forEach(function(e) { ?>
+											<?js= self.partial('method.tmpl', e) ?>
+										<?js }); ?></dl>
+									</div>
+								<?js } ?>
+							</article>
+
+						</section>  
+						
+					</div>
+
+					<div id="maincontentColumn2" class="span2">
+						
+						<?js= (function () {
+							
+							return doc.nav || self.navDocs;
+							
+						}()) ?>
+
+					</div>
+					
 				</div>
-			<?js } ?>
-		
+				
+			</div>
+			
 		</div>
 		
-		<?js } ?>
-		
-		<?js
-			if (classes && classes.length) { 
-		?>
-			<div id="classes">
-				<h6 class="infoline-title muted">Classes</h6>
-				
-				<ul class="unstyled inline"><?js classes.forEach(function(c) { ?>
-					<li class="well well-small">
-						<?js= self.linkto(c.longname, c.name) ?>
-					</li>
-				<?js }); ?></ul>
-			</div>
-		<?js } ?>
-		
-		<?js
-			if (members && members.length && members.forEach) { 
-		?>
-			<div id="members" class="subsection">
-				<h3 class="subsection-title page-header">Members</h3>
-				
-				<dl><?js members.forEach(function(p) { ?>
-					<?js= self.partial('members.tmpl', p) ?>
-				<?js }); ?></dl>
-			</div>
-		<?js } ?>
-		
-		<?js
-			if (methods && methods.length && methods.forEach) { 
-		?>
-			<hr>
-			<div id="methods" class="subsection">
-			<h3 class="subsection-title page-header">Methods</h3>
-			
-			<dl><?js methods.forEach(function(m) { ?>
-				<?js= self.partial('method.tmpl', m) ?>
-			<?js }); ?></dl>
-			</div>
-		<?js } ?>
-		
-		<?js
-			if (typedefs && typedefs.length && typedefs.forEach) { 
-		?>
-			<hr>
-			<div id="types" class="subsection">
-				<h3 class="subsection-title page-header">Type Definitions</h3>
-				
-				<dl><?js typedefs.forEach(function(e) {
-						if (e.signature) {
-					?>
-						<?js= self.partial('method.tmpl', e) ?>
-					<?js
-						}
-						else {
-					?>
-						<?js= self.partial('members.tmpl', e) ?>
-					<?js
-						}
-					}); ?></dl>
-			</div>
-		<?js } ?>
-		
-		<?js
-			if (events && events.length && events.forEach) { 
-		?>
-			<hr>
-			<div id="events" class="subsection">
-				<h3 class="subsection-title page-header">Events</h3>
-				
-				<dl><?js events.forEach(function(e) { ?>
-					<?js= self.partial('method.tmpl', e) ?>
-				<?js }); ?></dl>
-			</div>
-		<?js } ?>
-	</article>
+	</div>
+	
+</div>
 
-</section>  
+
+<footer>
+	<p class="muted">Impact++ created and maintained by <a href="http://twitter.com/collinhover" target="_blank">@collinhover</a> / <a href="http://collinhover.com/" target="_blank">collinhover.com</a></p>
+	<p class="muted">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc <?js= env.version.number ?></a></p>
+</footer>
+		
 <?js } ?>
 
 <?js }); ?>

@@ -25,7 +25,7 @@ ig.module(
 		
 		// lite collides to get knocked around
 		
-		collides: ig.Entity.COLLIDES.LITE,
+		collides: ig.EntityExtended.COLLIDES.LITE,
 		
 		size: {x: 4, y: 4},
 		

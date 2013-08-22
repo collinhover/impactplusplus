@@ -429,7 +429,7 @@ function buildNavDocs ( nav ) {
 					
 					headersSeen[ navHeader] = true;
 					
-					navDocs += '<li><a href="#nav' + navHeader + '" class="mainnavLink"><div class="icon-chevron-left pull-left"></div> ' + navHeader + '</a></li>';
+					navDocs += '<li><a href="#nav' + navHeader + '" class="mainnavLink">' + navHeader + '</a></li>';
 					
 				}
 				
@@ -450,7 +450,7 @@ function buildNavDocs ( nav ) {
 */
 function buildBreadcrumb () {
 	
-	return '<ul class="breadcrumb"><li><a href="index.html">Impact++</a><span class="divider">/</span></li></ul>';
+	return '<ul class="breadcrumb"><li><a href="https://github.com/collinhover/impactplusplus/">Impact++</a><span class="divider">/</span></li></ul>';
 	
 }
 

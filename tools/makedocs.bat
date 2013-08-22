@@ -7,8 +7,6 @@ call SET TEMPLATE=impactplusplus
 call SET OUTPUT=..\impactplusplus\docs
 call SET INPUT=..\impactplusplus\lib\plusplus
 
-call SET README=..\impactplusplus\README.md
-
 call SET OUTPUT_DEMO=..\impactplusplus\docs\demo
 call SET INPUT_DEMO=..\impactplusplus\examples\demo
 
@@ -26,7 +24,7 @@ IF EXIST "%OUTPUT%" (
 
 call echo Creating new documentation
 
-call jsdoc -t templates\%TEMPLATE% -d %OUTPUT% -r %INPUT% %README%
+call jsdoc -t templates\%TEMPLATE% -d %OUTPUT% -r %INPUT%
 
 IF EXIST "%INPUT_DEMO%" (
 	
