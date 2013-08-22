@@ -30,7 +30,7 @@ ig.module(
 		// we are a ghost
 		// ghosts don't collide
 		
-		collides: ig.Entity.COLLIDES.NONE,
+		collides: ig.EntityExtended.COLLIDES.NEVER,
 		
 		// animations the Impact++ way
 		

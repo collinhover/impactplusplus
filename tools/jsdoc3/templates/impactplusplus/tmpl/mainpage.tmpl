@@ -3,12 +3,223 @@ var data = obj;
 var self = this;
 ?>
 
-<?js if (data.kind === 'package') { ?>
-    <h3><?js= data.name ?> <?js= data.version ?></h3>
-<?js } ?>
+<?js if (data.kind !== 'package') { ?>
+	
+	<div id="header">
+		<a href="index.html"><img src="img/banner_impactplusplus.png"></a>
+		
+		<div id="headerlinks">
+			
+			<div id="downloadBtn">
+			
+				<a href='http://github.com/collinhover/impactplusplus/' id="forkBtn">
+					<img src="img/fork_impactplusplus.png" alt="Fork me on GitHub">
+				</a>
+				
+				<a href='http://github.com/collinhover/impactplusplus/zipball/master/'>
+					<img src="img/download_impactplusplus.png" alt="Download Impact++">
+				</a>
+				
+			</div>
+			
+			<div id="demoBtn">
+				
+				<button data-path="demo/index.html">
+					<img src="img/demo_impactplusplus.png" alt="Demo Impact++">
+				</button>
+			
+				<a href='ig.html' id="docsBtn">
+					<img src="img/docs_impactplusplus.png" alt="To the Docs!">
+				</a>
+				
+			</div>
+			
+		</div>
+	</div>
+	
+	<iframe id="demo" class="hidden"></iframe>
+	
+	<div id="docs" class="container">
+		
+		<section id="intro">
+			
+			<h1>Supafly with <a href="http://impactjs.com" target="_blank">ImpactJS</a> and Impact++</h1>
+			<h4>Start making full featured games for the web (and mobile) and forget about building the boilerplate.</h4>
+			
+		</section>
+		
+		<hr>
 
-<?js if (data.readme) { ?>
-    <section>
-        <article><?js= data.readme ?></article>
-    </section>
+		<div  id="features">
+		
+			<div class="row">
+				
+				<div class="span4">
+				
+					<div class="feature">
+						<a href="ig.EntityLight.html" class="hero-unit">
+							<img src="img/example_lighting.png">
+							<h3>Dynamic Lights</h3>
+							<p>Lighting in real-time with shadows, dynamic alpha and color, gradient or flat shaded, and pixel perfect.</p>
+						</a>
+					</div>
+					
+				</div>
+				
+				<div class="span4">
+				
+					<div class="feature">
+						<a href="ig.Creature.html" class="hero-unit">
+							<img src="img/example_creature.png">
+							<h3>Creature Abstract</h3>
+							<p>Abstract creature class with simple AI to find prey and predators, move to, attack, use abilities, and flee.</p>
+						</a>
+					</div>
+					
+				</div>
+				
+				<div class="span4">
+				
+					<div class="feature">
+						<a href="ig.pathfinding.html" class="hero-unit">
+							<img src="img/example_pathfinding.png">
+							<h3>Path Finding</h3>
+							<p>Garbage collector free, entity avoiding, plus the addition of editor drawn pathfinding maps.</p>
+						</a>
+					</div>
+					
+				</div>
+				
+			</div>
+
+			<div class="row">
+				
+				<div class="span4">
+				
+					<div class="feature">
+						<a href="ig.GameExtended.html" class="hero-unit">
+							<img src="img/example_game.png">
+							<h3>Game Extended</h3>
+							<p>Game that handles sidescrolling or topdown with layers, easy pausing, improved debugger and collisions.</p>
+						</a>
+					</div>
+					
+				</div>
+				
+				<div class="span4">
+				
+					<div class="feature">
+						<a href="ig.EntityExtended.html" class="hero-unit">
+							<img src="img/example_entities.png">
+							<h3>Entity Extended</h3>
+							<p>Entities with lots of extra helper functions, opt-in performance, and inheritance friendly animations.</p>
+						</a>
+					</div>
+					
+				</div>
+				
+				<div class="span4">
+				
+					<div class="feature">
+						<a href="ig.Player.html" class="hero-unit">
+							<img src="img/example_player.png">
+							<h3>Player Abstract</h3>
+							<p>Abstract player class with built in input handling, entity interaction, checkpoints, stats, and more.</p>
+						</a>
+					</div>
+					
+				</div>
+				
+			</div>
+
+			<div class="row">
+				
+				<div class="span4">
+				
+					<div class="feature">
+						<a href="ig.Ability.html" class="hero-unit">
+							<img src="img/example_abilities.png">
+							<h3>Modular Abilities</h3>
+							<p>Abilities that are modular, have a built in casting system, upgrades, and even some predefined.</p>
+						</a>
+					</div>
+					
+				</div>
+				
+				<div class="span4">
+				
+					<div class="feature">
+						<a href="ig.Camera.html" class="hero-unit">
+							<img src="img/example_camera.png">
+							<h3>Camera Control</h3>
+							<p>Camera for screen control, smooth target transitions, atmospheric overlays, and shake effects.</p>
+						</a>
+					</div>
+					
+				</div>
+				
+				<div class="span4">
+				
+					<div class="feature">
+						<a href="ig.UIElement.html" class="hero-unit">
+							<img src="img/example_ui.png">
+							<h3>User Interface</h3>
+							<p>A variety of simple ui element entities to make text, buttons, overlays, meters, and more.</p>
+						</a>
+					</div>
+					
+				</div>
+				
+			</div>
+
+			<div class="row">
+				
+				<div class="span4">
+				
+					<div class="feature">
+						<a href="ig.Particle.html" class="hero-unit">
+							<img src="img/example_particles.png">
+							<h3>Particle Abstract</h3>
+							<p>Abstract particle class with fading in and/or out, random velocities, auto animations, and projectiles.</p>
+						</a>
+					</div>
+					
+				</div>
+				
+				<div class="span4">
+				
+					<div class="feature">
+						<a href="ig.CONFIG.html" class="hero-unit">
+							<img src="img/example_config.png">
+							<h3>Config Driven</h3>
+							<p>Data driven configuration to allow you to change parameters without rebuilding or modifying the library.</p>
+						</a>
+					</div>
+					
+				</div>
+				
+				<div class="span4">
+				
+					<div class="feature">
+						<a href="ig.html" class="hero-unit">
+							<img src="img/example_more.png">
+							<h3>Over 9000</h3>
+							<p>Enhancements, fixes, and far too much more to reasonably list here!</p>
+						</a>
+					</div>
+					
+				</div>
+				
+			</div>
+		
+		</div>
+		
+	</div>
+	
+	<hr>
+
+	<footer>
+		<p class="muted">Impact++ created and maintained by <a href="http://twitter.com/collinhover" target="_blank">@collinhover</a> / <a href="http://collinhover.com/" target="_blank">collinhover.com</a></p>
+	</footer>
+	
 <?js } ?>
