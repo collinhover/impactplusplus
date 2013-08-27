@@ -27,6 +27,10 @@ ig.module(
 		
 		spawningEntity: ig.EntityGrenade,
 		
+		// costs 4 energy to use
+		
+		costActivate: 4,
+		
 		// velocity towards offset direction
 		
 		offsetVelX: 100,
