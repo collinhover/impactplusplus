@@ -33,8 +33,6 @@ ig.module(
 		size: _c.TOP_DOWN ? {x:8, y: 8} : {x: 8, y:14},
 		offset: _c.TOP_DOWN ? {x:4, y: 4} : {x: 4, y: 2},
 		
-		health: 10,
-		
 		// animations the Impact++ way
 		// note that these animations are for
 		// both side scrolling and top down mode
@@ -159,6 +157,15 @@ ig.module(
 				sequence: [28]
 			}
 		},
+		
+		// stats
+		
+		health: 10,
+		energy: 10,
+		
+		regen: true,
+		regenHealth: false,
+		regenRateEnergy: 0.1,
 		
 		// settings for glow
 		

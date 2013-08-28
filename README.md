@@ -6,6 +6,9 @@ Impact++ (r5)
 ####Overview
 
 Expanding the [ImpactJS engine](http://impactjs.com "ImpactJS") by over x10 so you can kick-start your game project into a full featured experience for the web (and mobile!).
+```
+Impact++ is stable for ImpactJS v1.20 - v1.23
+```
 
 ####Features
 * Extended capability of ImpactJS's default classes to improve collisions, animations,...
