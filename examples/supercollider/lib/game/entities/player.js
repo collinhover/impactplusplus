@@ -241,6 +241,8 @@ ig.module(
              **/
             activate: function () {
 
+                this.parent();
+
                 if ( !this._activeUI ) {
 
                     this._activatingUI = true;
@@ -252,7 +254,9 @@ ig.module(
                         this.ui.pauseToggle = ig.game.spawnEntity(ig.UITogglePause, 0, 0, {
                             posPct: { x: 1, y: 0 },
                             align: { x: 1, y: 0 },
-                            margin: { x: 0.02, y: 0.02 }
+                            // by default margins are assumed to be a percent
+                            marginAsPct: false,
+                            margin: { x: 15, y: 15 }
                         });
 
                         // only create a single ui element
@@ -272,7 +276,9 @@ ig.module(
                             animSettings: true,
                             fillStyle: 'rgb(255,54,90)',
                             size: { x: 8, y: 8 },
-                            margin: { x: 0.02, y: 0.02 }
+                            // by default margins are assumed to be a percent
+                            marginAsPct: false,
+                            margin: { x: 15, y: 15 }
                         });
 
                         // only create a single ui element
@@ -293,7 +299,9 @@ ig.module(
                             size: { x: 8, y: 8 },
                             linkedTo: this.ui.healthMeter,
                             linkAlign: { x: 0, y: 1 },
-                            margin: { x: 0, y: 0.01 }
+                            // by default margins are assumed to be a percent
+                            marginAsPct: false,
+                            margin: { x: 0, y: 10 }
                         });
 
                         // only create a single ui element
@@ -332,7 +340,9 @@ ig.module(
                             size: { x: 16, y: 16 },
                             linkedTo: this.ui.pauseToggle,
                             linkAlign: { x: -1, y: 0 },
-                            margin: { x: 0.01, y: 0 }
+                            // by default margins are assumed to be a percent
+                            marginAsPct: false,
+                            margin: { x: 10, y: 0 }
                         });
 
                     }
@@ -351,6 +361,8 @@ ig.module(
              * @override
              **/
             deactivate: function () {
+
+                this.parent();
 
                 if ( this._activatingUI || this._activeUI ) {
 
@@ -484,6 +496,16 @@ ig.module(
                 }
 
                 this.parent();
+
+            },
+
+            /**
+             * When game is reset and player is cleared from persistent cache, we need to make sure we remove all persistent additions such as UI.
+             * @override
+             */
+            cleanupPersistent: function () {
+
+                this.deactivate();
 
             }
 
