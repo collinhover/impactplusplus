@@ -98,11 +98,6 @@ ig.module(
 		frictionGrounded: { x: 800, y: 800 },
 		speed: { x: 100, y: 100 },
 		
-		// spikes can't jump or climb
-		
-		canJump: false,
-		canClimb: false,
-		
 		// stats
 		
 		health: 10,
@@ -115,6 +110,16 @@ ig.module(
 				animTileOffset: ig.EntityParticleColor.colorOffsets.RED
 			}
 		},
+		
+		// spikes can't jump or climb
+		
+		canJump: false,
+		canClimb: false,
+		
+		// but they can wander!
+		
+		canWanderX: true,
+		canWanderY: false,
 		
 		// use this method to add types for checks
 		// since we are using bitwise flags

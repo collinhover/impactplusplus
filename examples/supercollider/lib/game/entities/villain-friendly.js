@@ -25,7 +25,8 @@ ig.module(
 
             // no wandering
 
-            canWander: false,
+            canWanderX: false,
+            canWanderY: false,
 
             // react to prey anywhere on map
 

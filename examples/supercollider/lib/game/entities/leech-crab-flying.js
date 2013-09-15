@@ -57,8 +57,7 @@ ig.module(
             preyType: 0,
 
             // wander in all directions
-
-            canWander: true,
+			
             canWanderX: true,
             canWanderY: true,
 
