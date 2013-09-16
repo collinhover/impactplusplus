@@ -50,7 +50,7 @@ ig.module(
             /**
              * @override
              */
-            attack : function( entity ){
+            attack: function( entity ){
 
                 var closeEnough;
 
