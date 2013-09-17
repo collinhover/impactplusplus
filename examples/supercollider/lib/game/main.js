@@ -77,7 +77,7 @@ ig.module(
                 // so we can load the first level
                 // which of course you didn't forget to require above
 
-                this.loadLevel(ig.global.LevelCreatures);
+                this.loadLevel(ig.global.LevelTitle);
 
             },
 
