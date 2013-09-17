@@ -109,13 +109,17 @@ ig.module(
 				// position to top left
 				posPct: { x: 0, y: 0 },
 				// set the margin
-				// treated as a pct
-				margin: { x: 0.02, y: 0.02 }
+				marginAsPct: false,
+				margin: { x: 20, y: 20 }
 			} );
 			
 			// add a few buttons to toggle performance
 			
 			var toggleGfxMin = this.spawnEntity( ig.UIToggleGfxMin, 0, 0, {
+			
+				// set the margin
+				marginAsPct: false,
+				margin: { x: 20, y: 0 },
 				
 				// link to pause
 				linkedTo: togglePause,
@@ -148,6 +152,10 @@ ig.module(
 			} );
 			
 			var toggleGfxMax = this.spawnEntity( ig.UIToggleGfxMax, 0, 0, {
+			
+				// set the margin
+				marginAsPct: false,
+				margin: { x: 20, y: 0 },
 				
 				// link
 				linkedTo: toggleGfxMin,
