@@ -176,7 +176,7 @@
 									<?js } ?>
 									
 									<h1>
-									<?js= doc.name ?>
+									<?js= ( doc.name === 'ig' ? 'Impact++' : doc.name ) ?>
 									<?js if (doc.variation) { ?>
 										<sup class="variation"><?js= doc.variation ?></sup>
 									<?js } ?>
@@ -230,10 +230,10 @@
 								<?js } ?>
 								
 								<?js	
-										if (doc.kind !== 'globalobj' && (
-											( namespaces && namespaces.length )
-											|| ( classes && classes.length )
-											) ) { 
+										if (doc.kind !== 'globalobj' 
+											&& doc.longname !== 'ig'
+											&& ( ( namespaces && namespaces.length )
+												|| ( classes && classes.length ) ) ) { 
 								?>
 								
 								<div class="row">
@@ -253,20 +253,20 @@
 								
 								</div>
 								
-								<?js } ?>
+									<?js
+										if (classes && classes.length) { 
+									?>
+										<div id="classes">
+											<h6 class="infoline-title muted">Classes</h6>
+											
+											<ul class="unstyled inline"><?js classes.forEach(function(c) { ?>
+												<li class="well well-small">
+													<?js= self.linkto(c.longname, c.name) ?>
+												</li>
+											<?js }); ?></ul>
+										</div>
+									<?js } ?>
 								
-								<?js
-									if (classes && classes.length) { 
-								?>
-									<div id="classes">
-										<h6 class="infoline-title muted">Classes</h6>
-										
-										<ul class="unstyled inline"><?js classes.forEach(function(c) { ?>
-											<li class="well well-small">
-												<?js= self.linkto(c.longname, c.name) ?>
-											</li>
-										<?js }); ?></ul>
-									</div>
 								<?js } ?>
 								
 								<?js

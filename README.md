@@ -53,10 +53,10 @@ Impact++ is stable for ImpactJS v1.20 - v1.23
 7. Dive into the [Impact++ Documentation](http://collinhover.github.com/impactplusplus)
 
 ####Demo: Jump N' Run
-Check out the Jump N' Run demo for an overview of getting started with Impact++, located in the 'examples/jumpnrun' directory. Don't forget to copy the ImpactJS engine and Weltmeister files into the Jump N' Run directory!
+Check out the Jump N' Run demo for an overview of getting started with Impact++, located in the 'examples/jumpnrun' directory. Don't forget to copy the ImpactJS engine and Weltmeister files into the demo directory!
 
-####Feature Examples
-You will find example levels demoing various advanced features of Impact++ in the 'examples/levels' directory. Copy them into your 'lib/game/levels' directory and load them up through Weltmeister. Don't forget to add your player entity to the example levels before trying them out!
+####Demo: SUPER COLLIDER!
+Check out the SUPER COLLIDER demo for an overview of how to use almost every single feature in Impact++, located in the 'examples/supercollider' directory. Don't forget to copy the ImpactJS engine and Weltmeister files into the demo directory!
 
 ##FAQ
 ####Ejecta, Cocoonjs, etc?
