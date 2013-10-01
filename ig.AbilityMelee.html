@@ -103,7 +103,7 @@
     
     
     <p class="description">
-        Ability for melee action.
+        Ability for melee action.<span class="alert alert-danger"><strong>IMPORTANT:</strong> always use abilities by calling the <a href="ig.Ability.html#execute">ig.Ability#execute</a> method, and if the ability <a href="ig.Ability.html#requiresTarget">ig.Ability#requiresTarget</a> make sure it <a href="ig.Ability.html#canFindTarget">ig.Ability#canFindTarget</a> or you supply one via <a href="ig.Ability.html#setEntityTarget">ig.Ability#setEntityTarget</a> or <a href="ig.Ability.html#setEntityTargetFirst">ig.Ability#setEntityTargetFirst</a>!</span>
     </p>
     
 
@@ -145,7 +145,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/melee.js#L25" target="_blank">abilities/melee.js, line 25</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/melee.js#L26" target="_blank">abilities/melee.js, line 26</a>
 		
 	</li></ul></dd>
     
@@ -231,7 +231,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/melee.js#L53" target="_blank">abilities/melee.js, line 53</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/melee.js#L61" target="_blank">abilities/melee.js, line 61</a>
 		
 	</li></ul></dd>
     
@@ -303,7 +303,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L127" target="_blank">abilities/ability.js, line 127</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L146" target="_blank">abilities/ability.js, line 146</a>
 		
 	</li></ul></dd>
     
@@ -368,7 +368,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L306" target="_blank">abilities/ability.js, line 306</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L341" target="_blank">abilities/ability.js, line 341</a>
 		
 	</li></ul></dd>
     
@@ -440,7 +440,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L314" target="_blank">abilities/ability.js, line 314</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L349" target="_blank">abilities/ability.js, line 349</a>
 		
 	</li></ul></dd>
     
@@ -454,6 +454,71 @@
             <li><a href="ig.Ability.html#cast">ig.Ability#cast</a></li>
         </ul>
     </dd>
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+										
+											
+<dt class="inherited hidden">
+    <h4 class="name" id="autoStopMoving"><span class="type-signature"></span>autoStopMoving<span class="type-signature"> :Boolean</span></h4>
+    
+    
+</dt>
+<dd class="inherited hidden">
+    
+    <p class="description">
+        Whether ability should automatically force the entity to stop moving so it won't interrupt itself immediately.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="unstyled dummy"><li>
+        <a href="ig.AbilityDamage.html#autoStopMoving">ig.AbilityDamage#autoStopMoving</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>true</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L139" target="_blank">abilities/ability.js, line 139</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
     
     
     
@@ -507,7 +572,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/melee.js#L47" target="_blank">abilities/melee.js, line 47</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/melee.js#L55" target="_blank">abilities/melee.js, line 55</a>
 		
 	</li></ul></dd>
     
@@ -579,7 +644,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L197" target="_blank">abilities/ability.js, line 197</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L224" target="_blank">abilities/ability.js, line 224</a>
 		
 	</li></ul></dd>
     
@@ -644,7 +709,72 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability-damage.js#L56" target="_blank">abilities/ability-damage.js, line 56</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability-damage.js#L59" target="_blank">abilities/ability-damage.js, line 59</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+										
+											
+<dt class="inherited hidden">
+    <h4 class="name" id="casting"><span class="type-signature">&lt;readonly> </span>casting<span class="type-signature"> :Boolean</span></h4>
+    
+    
+</dt>
+<dd class="inherited hidden">
+    
+    <p class="description">
+        Whether to ability is casting.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="unstyled dummy"><li>
+        <a href="ig.AbilityDamage.html#casting">ig.AbilityDamage#casting</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>false</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L325" target="_blank">abilities/ability.js, line 325</a>
 		
 	</li></ul></dd>
     
@@ -709,7 +839,72 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L141" target="_blank">abilities/ability.js, line 141</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L160" target="_blank">abilities/ability.js, line 160</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+										
+											
+<dt class="inherited hidden">
+    <h4 class="name" id="channelling"><span class="type-signature">&lt;readonly> </span>channelling<span class="type-signature"> :Boolean</span></h4>
+    
+    
+</dt>
+<dd class="inherited hidden">
+    
+    <p class="description">
+        Whether ability is currently channelling.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="unstyled dummy"><li>
+        <a href="ig.AbilityDamage.html#channelling">ig.AbilityDamage#channelling</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>false</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L168" target="_blank">abilities/ability.js, line 168</a>
 		
 	</li></ul></dd>
     
@@ -769,7 +964,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/melee.js#L32" target="_blank">abilities/melee.js, line 32</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/melee.js#L40" target="_blank">abilities/melee.js, line 40</a>
 		
 	</li></ul></dd>
     
@@ -838,7 +1033,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L169" target="_blank">abilities/ability.js, line 169</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L196" target="_blank">abilities/ability.js, line 196</a>
 		
 	</li></ul></dd>
     
@@ -903,7 +1098,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L148" target="_blank">abilities/ability.js, line 148</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L175" target="_blank">abilities/ability.js, line 175</a>
 		
 	</li></ul></dd>
     
@@ -968,7 +1163,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L155" target="_blank">abilities/ability.js, line 155</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L182" target="_blank">abilities/ability.js, line 182</a>
 		
 	</li></ul></dd>
     
@@ -1033,7 +1228,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability-damage.js#L28" target="_blank">abilities/ability-damage.js, line 28</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability-damage.js#L31" target="_blank">abilities/ability-damage.js, line 31</a>
 		
 	</li></ul></dd>
     
@@ -1098,7 +1293,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability-damage.js#L35" target="_blank">abilities/ability-damage.js, line 35</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability-damage.js#L38" target="_blank">abilities/ability-damage.js, line 38</a>
 		
 	</li></ul></dd>
     
@@ -1163,7 +1358,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability-damage.js#L42" target="_blank">abilities/ability-damage.js, line 42</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability-damage.js#L45" target="_blank">abilities/ability-damage.js, line 45</a>
 		
 	</li></ul></dd>
     
@@ -1228,7 +1423,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L322" target="_blank">abilities/ability.js, line 322</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L357" target="_blank">abilities/ability.js, line 357</a>
 		
 	</li></ul></dd>
     
@@ -1300,7 +1495,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L330" target="_blank">abilities/ability.js, line 330</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L365" target="_blank">abilities/ability.js, line 365</a>
 		
 	</li></ul></dd>
     
@@ -1496,7 +1691,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L99" target="_blank">abilities/ability.js, line 99</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L104" target="_blank">abilities/ability.js, line 104</a>
 		
 	</li></ul></dd>
     
@@ -1561,7 +1756,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L106" target="_blank">abilities/ability.js, line 106</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L111" target="_blank">abilities/ability.js, line 111</a>
 		
 	</li></ul></dd>
     
@@ -1626,7 +1821,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L113" target="_blank">abilities/ability.js, line 113</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L118" target="_blank">abilities/ability.js, line 118</a>
 		
 	</li></ul></dd>
     
@@ -1691,7 +1886,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L120" target="_blank">abilities/ability.js, line 120</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L125" target="_blank">abilities/ability.js, line 125</a>
 		
 	</li></ul></dd>
     
@@ -1756,7 +1951,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L134" target="_blank">abilities/ability.js, line 134</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L153" target="_blank">abilities/ability.js, line 153</a>
 		
 	</li></ul></dd>
     
@@ -1821,7 +2016,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L255" target="_blank">abilities/ability.js, line 255</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L282" target="_blank">abilities/ability.js, line 282</a>
 		
 	</li></ul></dd>
     
@@ -1886,7 +2081,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L338" target="_blank">abilities/ability.js, line 338</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L373" target="_blank">abilities/ability.js, line 373</a>
 		
 	</li></ul></dd>
     
@@ -1955,7 +2150,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L344" target="_blank">abilities/ability.js, line 344</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L379" target="_blank">abilities/ability.js, line 379</a>
 		
 	</li></ul></dd>
     
@@ -2020,7 +2215,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L248" target="_blank">abilities/ability.js, line 248</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L275" target="_blank">abilities/ability.js, line 275</a>
 		
 	</li></ul></dd>
     
@@ -2096,13 +2291,80 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L77" target="_blank">abilities/ability.js, line 77</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L82" target="_blank">abilities/ability.js, line 82</a>
 		
 	</li></ul></dd>
     
     
     
     
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+										
+											
+<dt >
+    <h4 class="name" id="movable"><span class="type-signature"></span>movable<span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Ability can be done while moving.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>true</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/melee.js#L33" target="_blank">abilities/melee.js, line 33</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.AbilityDamage.html#movable">ig.AbilityDamage#movable</a></li>
+        </ul>
+    </dd>
     
     
     
@@ -2158,7 +2420,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L84" target="_blank">abilities/ability.js, line 84</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L89" target="_blank">abilities/ability.js, line 89</a>
 		
 	</li></ul></dd>
     
@@ -2220,7 +2482,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L351" target="_blank">abilities/ability.js, line 351</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L386" target="_blank">abilities/ability.js, line 386</a>
 		
 	</li></ul></dd>
     
@@ -2282,7 +2544,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L358" target="_blank">abilities/ability.js, line 358</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L393" target="_blank">abilities/ability.js, line 393</a>
 		
 	</li></ul></dd>
     
@@ -2344,7 +2606,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L365" target="_blank">abilities/ability.js, line 365</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L400" target="_blank">abilities/ability.js, line 400</a>
 		
 	</li></ul></dd>
     
@@ -2463,7 +2725,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/melee.js#L40" target="_blank">abilities/melee.js, line 40</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/melee.js#L48" target="_blank">abilities/melee.js, line 48</a>
 		
 	</li></ul></dd>
     
@@ -2535,7 +2797,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L216" target="_blank">abilities/ability.js, line 216</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L243" target="_blank">abilities/ability.js, line 243</a>
 		
 	</li></ul></dd>
     
@@ -2605,7 +2867,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L284" target="_blank">abilities/ability.js, line 284</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L311" target="_blank">abilities/ability.js, line 311</a>
 		
 	</li></ul></dd>
     
@@ -2732,7 +2994,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L277" target="_blank">abilities/ability.js, line 277</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L304" target="_blank">abilities/ability.js, line 304</a>
 		
 	</li></ul></dd>
     
@@ -2797,7 +3059,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability-damage.js#L49" target="_blank">abilities/ability-damage.js, line 49</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability-damage.js#L52" target="_blank">abilities/ability-damage.js, line 52</a>
 		
 	</li></ul></dd>
     
@@ -2862,7 +3124,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L263" target="_blank">abilities/ability.js, line 263</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L290" target="_blank">abilities/ability.js, line 290</a>
 		
 	</li></ul></dd>
     
@@ -2927,7 +3189,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L270" target="_blank">abilities/ability.js, line 270</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L297" target="_blank">abilities/ability.js, line 297</a>
 		
 	</li></ul></dd>
     
@@ -2992,7 +3254,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L92" target="_blank">abilities/ability.js, line 92</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L97" target="_blank">abilities/ability.js, line 97</a>
 		
 	</li></ul></dd>
     
@@ -3064,7 +3326,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L232" target="_blank">abilities/ability.js, line 232</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L259" target="_blank">abilities/ability.js, line 259</a>
 		
 	</li></ul></dd>
     
@@ -3140,7 +3402,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L290" target="_blank">abilities/ability.js, line 290</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L317" target="_blank">abilities/ability.js, line 317</a>
 		
 	</li></ul></dd>
     
@@ -3220,7 +3482,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability-damage.js#L74" target="_blank">abilities/ability-damage.js, line 74</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability-damage.js#L77" target="_blank">abilities/ability-damage.js, line 77</a>
 		
 	</li></ul></dd>
     
@@ -3368,7 +3630,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L645" target="_blank">abilities/ability.js, line 645</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L678" target="_blank">abilities/ability.js, line 678</a>
 		
 	</li></ul></dd>
     
@@ -3509,7 +3771,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L578" target="_blank">abilities/ability.js, line 578</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L611" target="_blank">abilities/ability.js, line 611</a>
 		
 	</li></ul></dd>
     
@@ -3650,7 +3912,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L614" target="_blank">abilities/ability.js, line 614</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L647" target="_blank">abilities/ability.js, line 647</a>
 		
 	</li></ul></dd>
     
@@ -3785,7 +4047,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1598" target="_blank">abilities/ability.js, line 1598</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1683" target="_blank">abilities/ability.js, line 1683</a>
 		
 	</li></ul></dd>
     
@@ -3937,7 +4199,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1503" target="_blank">abilities/ability.js, line 1503</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1588" target="_blank">abilities/ability.js, line 1588</a>
 		
 	</li></ul></dd>
     
@@ -4082,7 +4344,7 @@ Whether a check is true.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1165" target="_blank">abilities/ability.js, line 1165</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1250" target="_blank">abilities/ability.js, line 1250</a>
 		
 	</li></ul></dd>
     
@@ -4159,7 +4421,7 @@ Whether a check is true.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1575" target="_blank">abilities/ability.js, line 1575</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1660" target="_blank">abilities/ability.js, line 1660</a>
 		
 	</li></ul></dd>
     
@@ -4380,7 +4642,7 @@ Whether entity can pay energy cost.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L793" target="_blank">abilities/ability.js, line 793</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L842" target="_blank">abilities/ability.js, line 842</a>
 		
 	</li></ul></dd>
     
@@ -4406,7 +4668,7 @@ Whether entity can pay energy cost.
     
         <span class="label">Example</span>
         
-    <pre class="prettyprint linenums"><code>// cast settings is a plain objectcastSettings = {};// casts based on 1 second delaycastSettings.delay = 1;// add an animation to casting// which will loop until delay complete// if no delay is provided// cast will only last as long as animationcastSettings.animName = 'casting';// if the game is in top down mode// the anim name may be changed// based on the casting entity facing// i.e. "shoot" becomes "shootX" when facing x// i.e. "shoot" becomes "shootY" when facing y and can flip y// i.e. "shoot" becomes "shootUp" when facing up and CANNOT flip y// i.e. "shoot" becomes "shootDown" when facing down and CANNOT flip y// this behavior can be overriden by making the anim omni directionalcastSettings.animOmniDirectional = true;// casting is by default interrupted by any movement// but this can be changedcastSettings.moving = true;// when casting is complete, we can call a functioncastSettings.callback = function () { ... };// in a contextcastSettings.context = someObject;// and pass a settings object to that callbackcastSettings.settings = {...};// while casting, we can also add a list of effectscastSettings.effects = [     // where each effect is spawned by a plain object     {         // that consists of an entity class to spawn as the effect         // which will be automatically killed when casting is ended         entity: ig.EntityClass         // and a settings object that will be merged into the spawned effect         settings: {...}     }     // and we can create as many effects as needed (but don't be a jerk and overload)     ...];</code></pre>
+    <pre class="prettyprint linenums"><code>// cast settings is a plain objectcastSettings = {};// casts based on 1 second delaycastSettings.delay = 1;// add an animation to casting// which will loop until delay complete// if no delay is provided// cast will only last as long as animationcastSettings.animName = 'casting';// if the game is in top down mode// the anim name may be changed// based on the casting entity facing// i.e. "shoot" becomes "shootX" when facing x// i.e. "shoot" becomes "shootY" when facing y and can flip y// i.e. "shoot" becomes "shootUp" when facing up and CANNOT flip y// i.e. "shoot" becomes "shootDown" when facing down and CANNOT flip y// this behavior can be overriden by making the anim omni directionalcastSettings.animOmniDirectional = true;// casting is by default interrupted by any movement// but this can be changed in 2 ways// either set the ability to movableability.movable = true;// or set the particular cast to movablecastSettings.movable = true;// when casting is complete, we can call a functioncastSettings.callback = function () { ... };// in a contextcastSettings.context = someObject;// and pass a settings object to that callbackcastSettings.settings = {...};// while casting, we can also add a list of effectscastSettings.effects = [     // where each effect is spawned by a plain object     {         // that consists of an entity class to spawn as the effect         // which will be automatically killed when casting is ended         // (usually effects should be particles, so they are garaunteed to die)         entityClass: ig.EntityClass         // a settings object that will be merged into the spawned entity effect         settings: {...},         // effect can ignore the duration of the cast         // and live beyond the casting time         ignoreDuration: true,         // effect can be automatically faded         // i.e. it will fade slowly from 1 to 0 over its life         fade: true,         // effects will default to follow the ability user         // if follow settings are included        // and these settings map to ig.EntityExtended's moveTo settings         followSettings: {...},         // and effects can also follow the ability target         followTarget: true     }     // and we can create as many effects as needed (but don't be a jerk and overload)     ...];</code></pre>
 
     
 </dd>
@@ -4466,7 +4728,7 @@ Whether entity can pay energy cost.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L906" target="_blank">abilities/ability.js, line 906</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L961" target="_blank">abilities/ability.js, line 961</a>
 		
 	</li></ul></dd>
     
@@ -4547,7 +4809,7 @@ Whether entity can pay energy cost.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L939" target="_blank">abilities/ability.js, line 939</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L994" target="_blank">abilities/ability.js, line 994</a>
 		
 	</li></ul></dd>
     
@@ -4752,7 +5014,7 @@ Whether entity can pay energy cost.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L855" target="_blank">abilities/ability.js, line 855</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L904" target="_blank">abilities/ability.js, line 904</a>
 		
 	</li></ul></dd>
     
@@ -4833,7 +5095,7 @@ Whether entity can pay energy cost.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L879" target="_blank">abilities/ability.js, line 879</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L938" target="_blank">abilities/ability.js, line 938</a>
 		
 	</li></ul></dd>
     
@@ -4962,7 +5224,7 @@ Whether entity can pay energy cost.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1650" target="_blank">abilities/ability.js, line 1650</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1735" target="_blank">abilities/ability.js, line 1735</a>
 		
 	</li></ul></dd>
     
@@ -5043,7 +5305,7 @@ Whether entity can pay energy cost.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1143" target="_blank">abilities/ability.js, line 1143</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1208" target="_blank">abilities/ability.js, line 1208</a>
 		
 	</li></ul></dd>
     
@@ -5184,7 +5446,7 @@ Whether entity can pay energy cost.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1112" target="_blank">abilities/ability.js, line 1112</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1167" target="_blank">abilities/ability.js, line 1167</a>
 		
 	</li></ul></dd>
     
@@ -5265,7 +5527,7 @@ Whether entity can pay energy cost.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L535" target="_blank">abilities/ability.js, line 535</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L568" target="_blank">abilities/ability.js, line 568</a>
 		
 	</li></ul></dd>
     
@@ -5346,7 +5608,7 @@ Whether entity can pay energy cost.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L568" target="_blank">abilities/ability.js, line 568</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L601" target="_blank">abilities/ability.js, line 601</a>
 		
 	</li></ul></dd>
     
@@ -5563,7 +5825,7 @@ Whether entity can pay energy cost.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/melee.js#L85" target="_blank">abilities/melee.js, line 85</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/melee.js#L92" target="_blank">abilities/melee.js, line 92</a>
 		
 	</li></ul></dd>
     
@@ -5663,7 +5925,7 @@ copy of this.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1419" target="_blank">abilities/ability.js, line 1419</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1504" target="_blank">abilities/ability.js, line 1504</a>
 		
 	</li></ul></dd>
     
@@ -5760,7 +6022,7 @@ if entity is close enough to entityTarget
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L689" target="_blank">abilities/ability.js, line 689</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L722" target="_blank">abilities/ability.js, line 722</a>
 		
 	</li></ul></dd>
     
@@ -5857,7 +6119,7 @@ whether cooled down.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L726" target="_blank">abilities/ability.js, line 726</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L759" target="_blank">abilities/ability.js, line 759</a>
 		
 	</li></ul></dd>
     
@@ -5998,7 +6260,7 @@ whether cooled down.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L699" target="_blank">abilities/ability.js, line 699</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L732" target="_blank">abilities/ability.js, line 732</a>
 		
 	</li></ul></dd>
     
@@ -6221,7 +6483,7 @@ whether cooled down.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L520" target="_blank">abilities/ability.js, line 520</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L553" target="_blank">abilities/ability.js, line 553</a>
 		
 	</li></ul></dd>
     
@@ -6373,7 +6635,7 @@ whether cooled down.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1629" target="_blank">abilities/ability.js, line 1629</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1714" target="_blank">abilities/ability.js, line 1714</a>
 		
 	</li></ul></dd>
     
@@ -6454,7 +6716,7 @@ whether cooled down.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1346" target="_blank">abilities/ability.js, line 1346</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1431" target="_blank">abilities/ability.js, line 1431</a>
 		
 	</li></ul></dd>
     
@@ -6583,7 +6845,7 @@ whether cooled down.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1074" target="_blank">abilities/ability.js, line 1074</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1129" target="_blank">abilities/ability.js, line 1129</a>
 		
 	</li></ul></dd>
     
@@ -6712,7 +6974,7 @@ whether cooled down.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L989" target="_blank">abilities/ability.js, line 989</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1044" target="_blank">abilities/ability.js, line 1044</a>
 		
 	</li></ul></dd>
     
@@ -6793,7 +7055,7 @@ whether cooled down.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L511" target="_blank">abilities/ability.js, line 511</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L544" target="_blank">abilities/ability.js, line 544</a>
 		
 	</li></ul></dd>
     
@@ -6874,7 +7136,7 @@ whether cooled down.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L448" target="_blank">abilities/ability.js, line 448</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L481" target="_blank">abilities/ability.js, line 481</a>
 		
 	</li></ul></dd>
     
@@ -6955,7 +7217,7 @@ whether cooled down.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L477" target="_blank">abilities/ability.js, line 477</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L510" target="_blank">abilities/ability.js, line 510</a>
 		
 	</li></ul></dd>
     
@@ -7036,7 +7298,7 @@ whether cooled down.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1584" target="_blank">abilities/ability.js, line 1584</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1669" target="_blank">abilities/ability.js, line 1669</a>
 		
 	</li></ul></dd>
     
@@ -7185,7 +7447,7 @@ whether cooled down.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1524" target="_blank">abilities/ability.js, line 1524</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1609" target="_blank">abilities/ability.js, line 1609</a>
 		
 	</li></ul></dd>
     
@@ -7207,6 +7469,103 @@ whether cooled down.
     
     
     
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt class="inherited hidden">
+		<h4 class="name" id="getInterrupted">
+			<span class="type-signature"></span>getInterrupted<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span>
+		</h4>
+		
+	</dt>
+	
+<dd class="inherited hidden">
+    
+    
+    <p class="description">
+        Whether ability is interrupted (currently only by movement)
+    </p>
+    
+
+   
+    
+    
+    
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="unstyled dummy"><li>
+        <a href="ig.AbilityDamage.html#getInterrupted">ig.AbilityDamage#getInterrupted</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1240" target="_blank">abilities/ability.js, line 1240</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Boolean</span>
+
+}</span>
+
+whether interrupted (currently only by movement).
+</div>
+
+
+
+        
     
     
 </dd>
@@ -7308,6 +7667,103 @@ Number
 
 	
 	<dt class="inherited hidden">
+		<h4 class="name" id="getUsing">
+			<span class="type-signature"></span>getUsing<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span>
+		</h4>
+		
+	</dt>
+	
+<dd class="inherited hidden">
+    
+    
+    <p class="description">
+        Whether ability is in use (i.e. cast or channel).
+    </p>
+    
+
+   
+    
+    
+    
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="unstyled dummy"><li>
+        <a href="ig.AbilityDamage.html#getUsing">ig.AbilityDamage#getUsing</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1230" target="_blank">abilities/ability.js, line 1230</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Boolean</span>
+
+}</span>
+
+whether in use.
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt class="inherited hidden">
 		<h4 class="name" id="hasTarget">
 			<span class="type-signature"></span>hasTarget<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span>
 		</h4>
@@ -7354,7 +7810,7 @@ Number
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1377" target="_blank">abilities/ability.js, line 1377</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1462" target="_blank">abilities/ability.js, line 1462</a>
 		
 	</li></ul></dd>
     
@@ -7451,7 +7907,7 @@ if this has entityTarget. May also attempt to find target if possible.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1410" target="_blank">abilities/ability.js, line 1410</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1495" target="_blank">abilities/ability.js, line 1495</a>
 		
 	</li></ul></dd>
     
@@ -7704,7 +8160,7 @@ if this has entityTarget. May also attempt to find target if possible.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L381" target="_blank">abilities/ability.js, line 381</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L414" target="_blank">abilities/ability.js, line 414</a>
 		
 	</li></ul></dd>
     
@@ -7785,7 +8241,7 @@ if this has entityTarget. May also attempt to find target if possible.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L424" target="_blank">abilities/ability.js, line 424</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L457" target="_blank">abilities/ability.js, line 457</a>
 		
 	</li></ul></dd>
     
@@ -7861,7 +8317,7 @@ if this has entityTarget. May also attempt to find target if possible.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/melee.js#L74" target="_blank">abilities/melee.js, line 74</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/melee.js#L81" target="_blank">abilities/melee.js, line 81</a>
 		
 	</li></ul></dd>
     
@@ -7949,7 +8405,7 @@ if this has entityTarget. May also attempt to find target if possible.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L442" target="_blank">abilities/ability.js, line 442</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L475" target="_blank">abilities/ability.js, line 475</a>
 		
 	</li></ul></dd>
     
@@ -8074,7 +8530,7 @@ if this has entityTarget. May also attempt to find target if possible.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1272" target="_blank">abilities/ability.js, line 1272</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1357" target="_blank">abilities/ability.js, line 1357</a>
 		
 	</li></ul></dd>
     
@@ -8167,7 +8623,7 @@ Whether entity can (or should) be targeted.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1368" target="_blank">abilities/ability.js, line 1368</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1453" target="_blank">abilities/ability.js, line 1453</a>
 		
 	</li></ul></dd>
     
@@ -8741,7 +9197,7 @@ Whether current entityTarget can (or should) be dropped.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1313" target="_blank">abilities/ability.js, line 1313</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1398" target="_blank">abilities/ability.js, line 1398</a>
 		
 	</li></ul></dd>
     
@@ -8890,7 +9346,7 @@ Whether current entityTarget can (or should) be dropped.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L487" target="_blank">abilities/ability.js, line 487</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L520" target="_blank">abilities/ability.js, line 520</a>
 		
 	</li></ul></dd>
     
@@ -9019,7 +9475,7 @@ Whether current entityTarget can (or should) be dropped.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1195" target="_blank">abilities/ability.js, line 1195</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1280" target="_blank">abilities/ability.js, line 1280</a>
 		
 	</li></ul></dd>
     
@@ -9148,7 +9604,7 @@ Whether current entityTarget can (or should) be dropped.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1245" target="_blank">abilities/ability.js, line 1245</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1330" target="_blank">abilities/ability.js, line 1330</a>
 		
 	</li></ul></dd>
     
@@ -9277,7 +9733,7 @@ Whether current entityTarget can (or should) be dropped.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1255" target="_blank">abilities/ability.js, line 1255</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1340" target="_blank">abilities/ability.js, line 1340</a>
 		
 	</li></ul></dd>
     
@@ -9406,7 +9862,7 @@ Whether current entityTarget can (or should) be dropped.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1282" target="_blank">abilities/ability.js, line 1282</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1367" target="_blank">abilities/ability.js, line 1367</a>
 		
 	</li></ul></dd>
     
@@ -9535,7 +9991,7 @@ Whether current entityTarget can (or should) be dropped.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1180" target="_blank">abilities/ability.js, line 1180</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1265" target="_blank">abilities/ability.js, line 1265</a>
 		
 	</li></ul></dd>
     
@@ -9616,7 +10072,7 @@ Whether current entityTarget can (or should) be dropped.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1088" target="_blank">abilities/ability.js, line 1088</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1143" target="_blank">abilities/ability.js, line 1143</a>
 		
 	</li></ul></dd>
     
@@ -9768,7 +10224,7 @@ Whether current entityTarget can (or should) be dropped.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1608" target="_blank">abilities/ability.js, line 1608</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/abilities/ability.js#L1693" target="_blank">abilities/ability.js, line 1693</a>
 		
 	</li></ul></dd>
     
