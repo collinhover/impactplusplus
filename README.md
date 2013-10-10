@@ -90,3 +90,114 @@ Impact++ is licensed under the MIT license. For full license and information, se
 
 ##Changlog
 Check out the [Releases](https://github.com/collinhover/impactplusplus/releases).
+
+####r5 to r6 changes in progress
+```
+General
+```  
+* Added more examples, warnings, and tips to docs.
+* More successful bug hunting!
+  
+```
+CONFIG
+```
+* added `CREATURE.MOVE_TO_PREY_SETTINGS`
+* added `CREATURE.MOVE_TO_PREDATOR_SETTINGS`
+* added `CREATURE.MOVE_TO_TETHER_SETTINGS`
+* added `CREATURE.MOVE_TO_WANDER_SETTINGS`
+* deprecated `STATIC` and moved to a property of `ig.EntityExtended.PERFORMANCE`
+* deprecated `MOVABLE` and moved to a property of `ig.EntityExtended.PERFORMANCE`
+* deprecated `DYNAMIC` and moved to a property of `ig.EntityExtended.PERFORMANCE`
+  
+```
+ig.GameExtended
+```    
+* `shapesPasses` is now a plain object that takes property:value pairs instead of an array
+  
+```
+ig.EntityExtended
+```    
+* added `frame` and `stop` options to `animOverride` method
+  
+  
+```
+ig.Character
+```    
+* fixed incorrect examples in docs
+  
+```
+ig.Player
+```    
+* `collides` defaults to `lite` instead of `active`
+* removed `holdActivate` input response from default input handling 
+  
+```
+ig.Creature
+```    
+* `collides` defaults to `lite` instead of `passive` 
+  
+```
+ig.Spawner
+```    
+* added `unspawnSilently` to allow unspawned entities to play death animation 
+  
+```
+ig.EntityTrigger
+```    
+* added `teardownWhenComplete` to defer teardown until deactivate or cleanup
+  
+```
+ig.Hierarchy
+```    
+* removed `execute`
+* added `activate` convenience method
+* added `setEntity` convenience method
+* added `setEntityOptions` convenience method
+* added `setEntityTarget` convenience method
+* added `setEntityTargetFirst` convenience method
+* added `getUsing` convenience method
+  
+```
+ig.Ability
+```    
+* abilities can now target any type or group if `typeTargetable === 0` and `groupTargetable === 0`
+* added `once` property (default false) to control whether ability keeps `activated === true` after activate
+* added `activateStrict` property (default true) to double check distance after all activate casting
+* `execute` deprecated
+* `activate` now does what `execute` used to do (to be more in line with rest of library)
+* i.e. use abilities by calling `activate` instead of `execute`
+* `activateComplete` now does what `activate` used to do
+* `deactivate` now does what `deactivateSetup` used to do (to be more in line with rest of library)
+* i.e. deactivate abilities by calling `deactivate` instead of `deactivateSetup`
+* `deactivateComplete` now does what `deactivate` used to do
+* abilities now check if in use (i.e. casting or channelling) to avoid chain executions that would block proper use
+* `entityTarget` now automatically retained when ability is `channelled`
+* `retainTargetChannel` removed
+* `isEntityTargetable` now accounts for and returns false when ability entity and entityTarget are in same group
+* `groupTargetable` overrides `isEntityTargetable` to allow for same group targets
+* `cast` now looks for animation settings in `castSettings.animSettings` instead of `castSettings` itself
+  
+```
+ig.EntityAbilityExecute
+```    
+* renamed to `ig.EntityAbilityActivate`
+  
+```
+ig.utilstile
+```    
+* now properly discards inner edges, instead of outer, when `options.discardEdgesInner === true`
+* now properly ignores climbables when `options.ignoreClimbables === true`
+* now properly ignores one ways when `options.ignoreOneWays === true`
+  
+```
+ig.pathfinding
+```    
+* `getNodeAt` renamed `getGridNode`
+* `getWorldNodeAt` renamed `getNode` (to be more inline with ImpactJS)
+* `isPointInGrid` renamed `isGridPointInGrid`
+* `isWorldPointInGrid` renamed `isPointInGrid`
+* `isWalkableAt` renamed `isGridWalkable`
+* `isWorldWalkableAt` renamed `isWalkable`
+* `getWalkableNodeAt` renamed `getGridWalkableNode`
+* `getWorldWalkableNodeAt` renamed `getWalkableNode`
+* `getWorldWalkableNodeChain` renamed `getWalkableNodeChain`
