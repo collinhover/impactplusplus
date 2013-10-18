@@ -217,3 +217,5 @@ ig.pathfinding
 * `getWalkableNodeAt` renamed `getGridWalkableNode`
 * `getWorldWalkableNodeAt` renamed `getWalkableNode`
 * `getWorldWalkableNodeChain` renamed `getWalkableNodeChain`
+* `ig.pathfinding.Node` renamed `ig.PathNode`
+* pathfinding node's `parent` renamed `prevNode`
