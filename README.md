@@ -1,4 +1,4 @@
-Impact++ (r5)
+Impact++ (r6dev)
 ========
 
 ###[DOCS](http://collinhover.github.com/impactplusplus) / [DEMO](http://collinhover.github.com/impactplusplus)  
@@ -101,6 +101,7 @@ General
 ```
 CONFIG
 ```
+* added `COLLISION.ALLOW_FIXED` to allow control of fixed to fixed collisions
 * added `CREATURE.MOVE_TO_PREY_SETTINGS`
 * added `CREATURE.MOVE_TO_PREDATOR_SETTINGS`
 * added `CREATURE.MOVE_TO_TETHER_SETTINGS`
@@ -115,15 +116,27 @@ ig.GameExtended
 * `shapesPasses` is now a plain object that takes property:value pairs instead of an array
   
 ```
+ig.CollisionMap
+```    
+* entities now each have their own collision map result property, `collisionMapResult`, to reduce garbage
+* collision map result's `.collision.slope` is now guaranteed to be a boolean, instead of changing between boolean and object
+* collision map result's `.collision.slope` object is now stored in the result's `.slope` property
+* major bug fixes for collision map checks
+* entities should no longer get stuck at corners of a slope and a flat tile
+* entities should no longer fall through one way tiles when coming down a slope
+* slope assistance velocity is now added to the entity's position instead of velocity
+  
+```
 ig.EntityExtended
 ```    
 * added `frame` and `stop` options to `animOverride` method
-  
+* added `collisionMapResult` property to hold collision map collision results
   
 ```
 ig.Character
 ```    
 * fixed incorrect examples in docs
+* added `clearPath` method for better control of path clearing
   
 ```
 ig.Player
@@ -144,6 +157,7 @@ ig.Spawner
 ```
 ig.EntityTrigger
 ```    
+* added `autoComplete` to allow triggers to manually call complete (fixes confusing behavior where `complete` is called twice)
 * added `teardownWhenComplete` to defer teardown until deactivate or cleanup
   
 ```
@@ -192,6 +206,8 @@ ig.utilstile
 ```
 ig.pathfinding
 ```    
+* pathfinding greatly improved for going around walls and entities
+* fixed pathfinding bug that was finding paths through unwalkable areas 
 * `getNodeAt` renamed `getGridNode`
 * `getWorldNodeAt` renamed `getNode` (to be more inline with ImpactJS)
 * `isPointInGrid` renamed `isGridPointInGrid`
