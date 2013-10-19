@@ -196,6 +196,17 @@ ig.EntityAbilityExecute
 ```    
 * renamed to `ig.EntityAbilityActivate`
   
+  
+```
+ig.UIText
+```    
+* added property `autoRefreshText` to update text elements when their text properties are changed
+  
+```
+ig.UIOverlay
+```    
+* automatically updates `message` (UIText element) when text property changed
+  
 ```
 ig.utilstile
 ```    
