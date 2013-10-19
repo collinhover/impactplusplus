@@ -109,6 +109,7 @@ CONFIG
 * deprecated `STATIC` and moved to a property of `ig.EntityExtended.PERFORMANCE`
 * deprecated `MOVABLE` and moved to a property of `ig.EntityExtended.PERFORMANCE`
 * deprecated `DYNAMIC` and moved to a property of `ig.EntityExtended.PERFORMANCE`
+* removed `NEEDS_BOUNDS`
   
 ```
 ig.GameExtended
@@ -131,6 +132,7 @@ ig.EntityExtended
 ```    
 * added `frame` and `stop` options to `animOverride` method
 * added `collisionMapResult` property to hold collision map collision results
+* removed  `needsBounds`,`bounds`, `getBounds`, `boundsDraw`, and `getBoundsDraw` as they are ignored in all calculations and are causing confusion 
   
 ```
 ig.Character
