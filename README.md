@@ -87,7 +87,7 @@ We'd love it if you want to help make Impact++ better, so if you're interested t
 ####License
 Impact++ is licensed under the MIT license. For full license and information, see [LICENSE](https://github.com/collinhover/impactplusplus/blob/master/LICENSE.md).
   
-##Changlog
+##Changelog
 Check out the [Releases](https://github.com/collinhover/impactplusplus/releases).
   
 ####r5 to r6 changes (in progress)
