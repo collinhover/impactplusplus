@@ -121,6 +121,7 @@ ig.GameExtended
 * `getPlayer` will no longer search for player by class unless `canSearchForPlayerByClass` is enabled (defaults to true)
 * `getPlayer` will no longer search for player by type unless `canSearchForPlayerByType` is enabled (defaults to true)
 * changed all instances of `respondInput` to `handleInput`
+* methods that get entities now account for whether an entity is `hidden`
   
 ```
 ig.CollisionMap
@@ -136,6 +137,7 @@ ig.CollisionMap
 ```
 ig.EntityExtended
 ```    
+* entities always update the current animation, even when off screen, so animation overrides always complete as expected
 * changed first parameter of `animRelease` to `name` to allow for releasing only when override matches name
 * shifted original first parameter of `animRelease`, `silent`, to second parameter
 * added `frame` and `stop` options to `animOverride` method
@@ -143,6 +145,11 @@ ig.EntityExtended
 * removed  `needsBounds`,`bounds`, `getBounds`, `boundsDraw`, and `getBoundsDraw` as they are ignored in all calculations and are causing confusion 
 * `distance` methods now account for fixed entities
 * entities now set `movingY` correctly in top-down mode (thanks @Pattentrick for finding)
+* one way collision check now properly accounts for the velocity of both entities, instead of ignoring one way's velocity
+* added `hidden` property and `hide` / `unhide` methods
+* setting grounded is now handled differently internally for top down mode
+* `last` is now always contains last position instead of current
+* colliding with an entity that functions as a moving platform now works as expected in all cases
   
 ```
 ig.Character
@@ -169,6 +176,7 @@ ig.PlayerManager
 ig.Creature
 ```    
 * `collides` defaults to `lite` instead of `passive` 
+* added `detectHiddenPrey` and `detectHiddenPredator` to control finding `hidden` entities
   
 ```
 ig.Spawner
@@ -179,12 +187,15 @@ ig.Spawner
 ```
 ig.EntityTrigger
 ```    
+* added `getCanTrigger` method to find out if the trigger can be triggered
 * added `autoComplete` to allow triggers to manually call complete (fixes confusing behavior where `complete` is called twice)
 * added `teardownWhenComplete` to defer teardown until deactivate or cleanup
   
 ```
 ig.Switch
 ```    
+* `canOpen` renamed `getCanOpen`
+* `canClose` renamed `getCanClose`
 * added 'blocked' property for cases when a switch is not broken but blocked by external factors
   
 ```
