@@ -98,6 +98,7 @@ General
 * More successful bug hunting!
 * UI now intercepts and blocks tap input (no more ui + abilities firing on same tap!)
 * Player control has undergone a significant change to decouple the player entity and input (see ig.PlayerManager)
+* Hellovetica pixel font replaced with modified Impact++ version called Helloplusplus (includes extra characters such as numbers)
   
 ```
 CONFIG
@@ -116,12 +117,14 @@ CONFIG
 ```
 ig.GameExtended
 ```    
+* core properties of the game (such as layers) are now guaranteed to be ready regardless of init order
 * `shapesPasses` is now a plain object that takes property:value pairs instead of an array
 * added `playerManager` and `playerManagerClass` properties (see ig.PlayerManager)
 * `getPlayer` will no longer search for player by class unless `canSearchForPlayerByClass` is enabled (defaults to true)
 * `getPlayer` will no longer search for player by type unless `canSearchForPlayerByType` is enabled (defaults to true)
 * changed all instances of `respondInput` to `handleInput`
 * methods that get entities now account for whether an entity is `hidden`
+* resize is now called after each level is built to account for config screen size changes
   
 ```
 ig.CollisionMap
@@ -133,6 +136,16 @@ ig.CollisionMap
 * entities should no longer get stuck at corners of a slope and a flat tile
 * entities should no longer fall through one way tiles when coming down a slope
 * slope assistance velocity is now added to the entity's position instead of velocity
+  
+```
+ig.Camera
+```    
+* added `pause` and `unpause` methods
+  
+```
+ig.TimerExtended
+```    
+* removed, timer pausing now handled by entity during `pause` method (override when you have your own timers to pause)
   
 ```
 ig.EntityExtended
@@ -150,12 +163,19 @@ ig.EntityExtended
 * setting grounded is now handled differently internally for top down mode
 * `last` is now always contains last position instead of current
 * colliding with an entity that functions as a moving platform now works as expected in all cases
+* removed `onPaused` and `onUnpaused` signals for better stability (was causing issues with entities that persisted between levels)
+* removed `updateCleanup` method
+* removed `checkStop` method
+* `intersectWith` method now sets `intersecting` property, make sure to call parent when you override this method!
+* all properties modified by collision checks should now be reset via the `cleanupCollision` method (called automatically before new collisions)
   
 ```
 ig.Character
 ```    
 * fixed incorrect examples in docs
 * added `clearPath` method for better control of path clearing
+* fixed incorrect invulnerability modifying alpha when character has alpha other than 1
+* characters should climb properly again
   
 ```
 ig.Player
@@ -183,6 +203,13 @@ ig.Spawner
 ```    
 * added `unspawnSilently` to allow unspawned entities to play death animation 
 * added `onSpawnedAll`and `onUnspawnedAll` signals
+* added `spawnAtFirstTarget` for cases when you have several targets to move to, but you always want to start at first
+  
+```
+ig.Tutorial
+```    
+* removed all loop methods in place of using ig.Spawner respawn system
+* to properly loop, set `duration === -1` and optionally `respawnDelay`
   
 ```
 ig.EntityTrigger
@@ -272,6 +299,11 @@ ig.UIToggle
 * refactored to use `activateComplete` and `deactivateComplete` due to ig.UIInteractive changes
   
 ```
+ig.UITogglePause
+```    
+* now uses `media/buttons_states.png` (don't forget to copy over the new media)
+  
+```
 ig.UIText
 ```    
 * added property `autoRefreshText` to update text elements when their text properties are changed
@@ -311,3 +343,8 @@ ig.pathfinding
 * `getWorldWalkableNodeChain` renamed `getWalkableNodeChain`
 * `ig.pathfinding.Node` renamed `ig.PathNode`
 * pathfinding node's `parent` renamed `prevNode`
+  
+```
+ig.TWEEN
+```    
+* removed `pauseSignaller`, paused instead through entity `pause` method
