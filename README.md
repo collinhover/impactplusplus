@@ -168,6 +168,7 @@ ig.EntityExtended
 * removed `checkStop` method
 * `intersectWith` method now sets `intersecting` property, make sure to call parent when you override this method!
 * all properties modified by collision checks should now be reset via the `cleanupCollision` method (called automatically before new collisions)
+* added `flipWith` property to `moveTo` settings object, which controls whether following entity flips with the followed entity
   
 ```
 ig.Character
@@ -210,6 +211,7 @@ ig.Tutorial
 ```    
 * removed all loop methods in place of using ig.Spawner respawn system
 * to properly loop, set `duration === -1` and optionally `respawnDelay`
+* added `propertiesTarget` to check for truthy values of properties in spawn targets to complete tutorial
   
 ```
 ig.EntityTrigger
