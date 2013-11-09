@@ -169,6 +169,8 @@ ig.EntityExtended
 * `intersectWith` method now sets `intersecting` property, make sure to call parent when you override this method!
 * all properties modified by collision checks should now be reset via the `cleanupCollision` method (called automatically before new collisions)
 * added `flipWith` property to `moveTo` settings object, which controls whether following entity flips with the followed entity
+* In addition to per entity scaling, entities now have `scaleMin` and `scaleMax` properties to clamp scaling
+* Added `scaleToSystemScale` for entities that should scale themselves based on system scale on a ratio other than 1:1
   
 ```
 ig.Character
