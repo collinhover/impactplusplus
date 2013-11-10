@@ -34,6 +34,17 @@ ig.module(
             /**
              * @override
              **/
+            initTypes: function () {
+
+                this.parent();
+
+                _ut.addType(ig.EntityExtended, this, 'preyType', "PLANT");
+
+            },
+
+            /**
+             * @override
+             **/
             initProperties: function () {
 
                 this.parent();
@@ -42,6 +53,8 @@ ig.module(
                     // target will be provided by attack method
                     canFindTarget: false,
                     // we're a herbivore, so eat only plants
+					// eat ability also sets typeTargetable to EDIBLE
+					// so this way, we only target EDIBLE PLANT types
                     typeTargetable: "PLANT"
                 } );
 
@@ -51,20 +64,24 @@ ig.module(
              * @override
              */
             attack: function( entity ){
-
+			
                 var closeEnough;
 
                 if ( this.grounded ) {
 
                     this.abilityEat.setEntityTarget(entity);
-
-                    closeEnough = this.abilityEat.closeEnough();
-
-                    this.abilityEat.execute();
+					
+					if ( this.abilityEat.entityTarget ) {
+						
+						this.abilityEat.activate();
+						
+						return this.abilityEat.getActivelyUsing();
+						
+					}
 
                 }
 
-                return closeEnough;
+                return this.parent( entity );
 
             }
 

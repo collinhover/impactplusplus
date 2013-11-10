@@ -62,7 +62,7 @@ ig.module(
 
                 if ( closeEnough ) {
 
-                    this.abilityMelee.execute();
+                    this.abilityMelee.activate();
 
                 }
 

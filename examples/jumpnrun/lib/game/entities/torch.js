@@ -33,7 +33,7 @@ ig.module(
 		
 		// torches don't move or update
 		
-		performance: _c.STATIC,
+		performance: ig.EntityExtended.PERFORMANCE.STATIC,
 		
 		// animations the Impact++ way
 		// note that these animations are for
@@ -99,7 +99,7 @@ ig.module(
 	 **/
 	ig.TorchGlow = ig.AbilityGlow.extend( {
 		
-		activate: function () {
+		activateComplete: function () {
 			
 			this.entity.animOverride( this.entity.getDirectionalAnimName( "on" ), { loop: true } );
 			
@@ -107,15 +107,9 @@ ig.module(
 			
 		},
 		
-		deactivate: function () {
-			
-			var animName = this.entity.getDirectionalAnimName( "on" );
-			
-			if ( this.entity.anims[ animName ] && this.entity.currentAnim === this.entity.anims[ animName ] ) {
-				
-				this.entity.animRelease();
-			
-			}
+		deactivateComplete: function () {
+		
+			this.entity.animRelease( this.entity.getDirectionalAnimName( "on" ) );
 			
 			this.parent();
 			

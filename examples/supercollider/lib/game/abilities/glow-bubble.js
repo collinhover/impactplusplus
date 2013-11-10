@@ -23,49 +23,55 @@ ig.module(
 
             /**
              * Glow bubble has an activation cost.
-             * @type Number
-             * @default
+			 * @override
              */
             costActivate: 4,
 
             /**
              * Entity spawned as projectile.
-             * @type ig.EntityExtended
-             * @default
+			 * @override
              */
             spawningEntity: ig.EntityBubble,
 
             /**
              * Bubbles have extra velocity towards offset.
-             * @type Number
-             * @default
+			 * @override
              */
             offsetVelX: 60,
 
             /**
              * Bubbles have extra velocity towards offset.
-             * @type Number
-             * @default
+			 * @override
              */
             offsetVelY: 20,
 
             /**
              * Bubbles have extra velocity with entity horizontal motion.
-             * @type Number
-             * @default
+			 * @override
              */
             relativeVelPctX: 0.75,
 
             /**
              * Bubbles have extra velocity with entity vertical motion.
-             * @type Number
-             * @default
+			 * @override
              */
             relativeVelPctY: 0.25,
 
             /**
+             * Bubbles can be shot in any direction.
+			 * @override
+             */
+			shootLocationMinPctY: 0,
+
+            /**
+             * Bubbles can be shot in any direction.
+			 * @override
+             */
+			shootLocationMaxPctY: 1,
+
+            /**
              * Cast activate pass by animation 'throwPass'.
-             * @type Object
+			 * @override
              */
             activatePassCastSettings: {
                 animName: 'throwPass'
@@ -73,7 +79,7 @@ ig.module(
 
             /**
              * Cast activate by animation 'throwActivate'.
-             * @type Object
+			 * @override
              */
             activateCastSettings: {
                 animName: 'throwActivate'
@@ -94,7 +100,7 @@ ig.module(
              *
              * @see ig.AbilityShoot.
              **/
-            activate: function (settings) {
+            activateComplete: function (settings) {
 
                 settings = settings || {};
 

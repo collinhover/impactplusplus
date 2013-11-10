@@ -44,7 +44,7 @@ ig.module(
              **/
             initTypes: function () {
 
-                this.parent();
+                //this.parent();
 
                 _ut.addType(ig.EntityExtended, this, 'typeTargetable', "EDIBLE");
 

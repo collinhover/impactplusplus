@@ -22,12 +22,16 @@ ig.module(
             // chases prey leech crabs
 
             preyClass: "EntityLeechCrabPrey",
-
-            // use complex pathfinding to chase
+			
+			// search a little further
+			
+			reactionDistance: _c.CREATURE.REACTION_DISTANCE * 2,
 
             moveToPredatorSettings: {
+				// use complex pathfinding to chase
+				simple: false,
                 // only search a limited distance
-                searchDistance: _c.CREATURE.REACTION_DISTANCE
+                searchDistance: _c.CREATURE.REACTION_DISTANCE * 2
             }
 
         });

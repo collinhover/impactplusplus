@@ -21,7 +21,7 @@ ig.module(
 
             // never moves
 
-            performance: _c.STATIC,
+            performance: ig.EntityExtended.PERFORMANCE.STATIC,
 
             // start with typing animation
 
