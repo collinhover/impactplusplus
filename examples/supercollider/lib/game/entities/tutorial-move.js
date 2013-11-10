@@ -40,7 +40,8 @@ ig.module(
             // and position a little below center of screen
 
             textSettings: {
-                text: 'hold to move!'
+                text: 'hold to move!',
+				posPct: {x: 0.5, y: 0.75}
             }
 
         });

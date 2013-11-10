@@ -120,7 +120,7 @@ ig.module(
             /**
              * @see ig.Ability.
              **/
-            execute: function () {
+            activate: function () {
 
                 if (this.enabled) {
 

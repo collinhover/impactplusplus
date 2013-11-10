@@ -174,7 +174,7 @@ ig.module(
 			// to ig.Entity light properties
 			light: {
 				// the light should move with player
-				performance: _c.MOVABLE,
+				performance: ig.EntityExtended.PERFORMANCE.MOVABLE,
 				// cast shadows only on static entities
 				castsShadows: true
 			}
@@ -198,9 +198,9 @@ ig.module(
 			
 		},
 		
-		// use this method to change an entity internally
+		// use this method to handle inputs
 		
-		updateChanges: function() {
+		handleInput: function() {
 				
 			var shootX;
 			var shootY;
@@ -241,7 +241,7 @@ ig.module(
 					
 				}
 				
-				this.shoot.execute( {
+				this.shoot.activate( {
 					x: shootX,
 					y: shootY
 				} );
@@ -250,7 +250,7 @@ ig.module(
 			
 			// check if grenading
 			
-			if (ig.input.pressed('grenade')) {
+			if (ig.input.pressed('grenade') || ig.input.released('tap') ) {
 				
 				if ( _c.TOP_DOWN ) {
 					
@@ -284,7 +284,7 @@ ig.module(
 					
 				}
 				
-				this.grenade.execute( {
+				this.grenade.activate( {
 					x: shootX,
 					y: shootY
 				} );

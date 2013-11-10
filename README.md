@@ -141,6 +141,7 @@ ig.CollisionMap
 ig.Camera
 ```    
 * added `pause` and `unpause` methods
+* fixed invalid positions when keeping camera in level
   
 ```
 ig.TimerExtended

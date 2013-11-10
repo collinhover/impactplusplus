@@ -21,7 +21,7 @@ ig.module(
          */
         ig.EntityLeechPlant = ig.global.EntityLeechPlant = ig.Character.extend(/**@lends ig.EntityLeechPlant.prototype */{
 
-            performance: _c.STATIC,
+            performance: ig.EntityExtended.PERFORMANCE.STATIC,
 
             size: { x: 16, y: 16 },
             offset: { x: 4, y: 4 },
@@ -64,8 +64,6 @@ ig.module(
              * @override
              **/
             initTypes: function () {
-
-                this.parent();
 
                 _ut.addType(ig.EntityExtended, this, 'type', "EDIBLE PLANT");
 

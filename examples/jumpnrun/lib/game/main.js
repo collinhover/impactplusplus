@@ -40,12 +40,12 @@ ig.module(
 	var game = ig.GameExtended.extend({
 		
 		// get the collision map shapes for lighting and shadows
-		shapesPasses: [
-			{
+		shapesPasses: {
+			lighting: {
 				ignoreClimbable: true,
 				discardBoundaryInner: true
 			}
-		],
+		},
 		
 		// override the game init function
 		init: function () {

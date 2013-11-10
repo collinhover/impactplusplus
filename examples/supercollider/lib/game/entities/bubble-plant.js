@@ -24,7 +24,7 @@ ig.module(
 
         ig.global.EntityBubblePlant = ig.EntityBubblePlant = ig.Character.extend({
 
-            performance: _c.STATIC,
+            performance: ig.EntityExtended.PERFORMANCE.STATIC,
 
             // size and sprite
 
@@ -109,7 +109,6 @@ ig.module(
                 this.parent();
 
                 _ut.addType(ig.EntityExtended, this, 'type', "MIMICABLE");
-                _ut.addType(ig.EntityExtended, this, 'group', "FRIEND", "GROUP");
 
             },
 
@@ -120,7 +119,7 @@ ig.module(
 
                 this.parent();
 
-                this.abilityTimer = new ig.TimerExtended(0, this);
+                this.abilityTimer = new ig.Timer();
 
                 // abilities
 
@@ -138,8 +137,6 @@ ig.module(
              * @override
              **/
             resetExtras: function () {
-
-                this.abilityTimer = new ig.TimerExtended(0, this);
 
                 // light color
 
@@ -180,6 +177,28 @@ ig.module(
                 this.parent();
             
             },
+			
+			/**
+			 * @override
+			 */
+			pause: function () {
+				
+				this.parent();
+				
+				this.abilityTimer.pause();
+				
+			},
+			
+			/**
+			 * @override
+			 */
+			unpause: function () {
+				
+				this.parent();
+				
+				this.abilityTimer.unpause();
+				
+			},
 
             /**
              * @override
@@ -190,7 +209,7 @@ ig.module(
 
                     this.abilityTimer.set(this.abilityDelay + Math.random() * this.randomDelay);
 
-                    this.glowBubble.execute({ offsetY: -this.size.y * 0.5 });
+                    this.glowBubble.activate({ offsetY: -this.size.y * 0.5 });
 
                 }
 

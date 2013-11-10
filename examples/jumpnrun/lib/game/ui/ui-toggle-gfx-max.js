@@ -34,7 +34,7 @@ ig.module(
 			// treated as a pct
 			margin: { x: 0.02, y: 0.02 },
 			
-            activate: function (entity) {
+            activateComplete: function (entity) {
 
                 if (!this.activated) {
 					
@@ -63,11 +63,11 @@ ig.module(
 								
 								var ability = abilities[ j ];
 								
-								// execute glow
+								// activate glow
 								
 								if ( ability instanceof ig.AbilityGlow ) {
 									
-									ability.execute();
+									ability.activate();
 									
 								}
 								
@@ -81,7 +81,7 @@ ig.module(
 
             },
 			
-            deactivate: function (entity) {
+            deactivateComplete: function (entity) {
 
                 if (this.activated) {
 					
