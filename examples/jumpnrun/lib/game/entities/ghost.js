@@ -163,16 +163,25 @@ ig.module(
 		// they will try to attack
 		
 		attack : function( entity ){
-
-			var closeEnough;
-
+		
 			this.melee.setEntityTarget(entity);
+			
+			if ( this.melee.entityTarget ) {
 
-			closeEnough = this.melee.closeEnough();
+				var closeEnough = this.melee.closeEnough();
+				
+				this.melee.activate();
 
-			this.melee.execute();
-
-			return closeEnough;
+				return closeEnough;
+				
+			}
+			else {
+				
+				// the original attack method does a basic distance check
+				
+				return this.parent();
+				
+			}
 
 		}
 		

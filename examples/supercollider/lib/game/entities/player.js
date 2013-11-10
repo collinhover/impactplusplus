@@ -325,10 +325,10 @@ ig.module(
                             animSheetWidth: 16,
                             animSheetHeight: 16,
                             animSettings: {
-                                idle: {
+                                idleX: {
                                     sequence: [ 0 ]
                                 },
-                                tracking: {
+                                trackingX: {
                                     sequence: [ 1 ]
                                 }
                             },
@@ -472,6 +472,41 @@ ig.module(
                 var i, il;
                 var inputPoints;
                 var inputPoint;
+				
+				// when tapping
+				
+				if ( ig.input.released( 'tap' ) ) {
+				
+					// find and check all input points that are tapped
+							
+					var abs = this.abilities.getDescendantsByType( ig.Ability.TYPE.SPAMMABLE );
+					
+					if ( abs.length > 0 ) {
+
+						inputPoints = ig.input.getInputPoints([ 'tapped' ], [ true ]);
+						
+						for (i = 0, il = inputPoints.length; i < il; i++) {
+
+							inputPoint = inputPoints[ i ];
+
+							if (inputPoint.targets) {
+								
+								for (var j = 0, jl = abs.length; j < jl; j++) {
+								
+									var ab = abs[ j ];
+									
+									ab.setEntityTargetFirst( inputPoint.targets );
+									ab.activate( { x: inputPoint.worldX, y: inputPoint.worldY } );
+									
+								}
+
+							}
+
+						}
+						
+					}
+					
+				}
 
                 // when swiping
 

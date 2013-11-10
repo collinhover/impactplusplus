@@ -111,8 +111,6 @@ ig.module(
              */
             attack: function( entity ){
 
-                var closeEnough;
-
                 // since we've split villain into multiple modes
                 // i.e. friendly, boss, etc
                 // we'll only find if villain is close enough to attack
@@ -121,12 +119,16 @@ ig.module(
                 if ( this.grounded || this.climbing ) {
 
                     this.abilityMelee.setEntityTarget(entity);
+					
+					if ( this.abilityMelee.entityTarget ) {
 
-                    closeEnough = this.abilityMelee.closeEnough();
+						return this.abilityMelee.closeEnough();
+						
+					}
 
                 }
 
-                return closeEnough;
+                return this.parent( entity );
 
             }
 
