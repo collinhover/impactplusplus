@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-    <title>Impact++ / Class: EntityNarrative</title>
+    <title>Impact++ / Class: UIButton</title>
     
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -56,7 +56,7 @@
 		<div class="span10">
 			<div id="maincontent">
 				
-				<ul class="breadcrumb"><li><a href="https://github.com/collinhover/impactplusplus/">Impact++</a><span class="divider">/</span></li><li><a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities" target="_blank">entities</a><span class="divider">/</span></li><li><a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/narrative.js" target="_blank">narrative.js</a> <small class="muted">(source)</small></li></ul>
+				<ul class="breadcrumb"><li><a href="https://github.com/collinhover/impactplusplus/">Impact++</a><span class="divider">/</span></li><li><a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui" target="_blank">ui</a><span class="divider">/</span></li><li><a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-button.js" target="_blank">ui-button.js</a> <small class="muted">(source)</small></li></ul>
 
 				<div class="row">
 
@@ -71,7 +71,7 @@
 									
 									<ul id="extends" class="infoline unstyled inline">
 									
-										<li><div class="icon-circle-arrow-down"></div> <a href="ig.EntityTrigger.html">ig.EntityTrigger</a></li>
+										<li><div class="icon-circle-arrow-down"></div> <a href="ig.UIInteractive.html">ig.UIInteractive</a></li>
 									
 									</ul>
 									
@@ -81,7 +81,7 @@
 									
 									
 									<h1>
-									EntityNarrative
+									UIButton
 									
 									</h1>
 									
@@ -95,15 +95,15 @@
 										
 
 	
-	<code class="name constructor" id="EntityNarrative">
-		<span class="type-signature"></span>new EntityNarrative<span class="signature">()</span><span class="type-signature"></span>
+	<code class="name constructor" id="UIButton">
+		<span class="type-signature"></span>new UIButton<span class="signature">()</span><span class="type-signature"></span>
 	</code>
 	
 <dd >
     
     
     <p class="description">
-        Trigger to start narration, similar in style to a comic book.
+        UI button to execute a function within a context.<span class="alert alert-info"><strong>Tip:</strong> Impact++ UIElements are meant to be used for simple user interfaces. If you need something complex, it is recommended that you use the DOM!</span>
     </p>
     
 
@@ -145,7 +145,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/narrative.js#L17" target="_blank">entities/narrative.js, line 17</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-button.js#L43" target="_blank">ui/ui-button.js, line 43</a>
 		
 	</li></ul></dd>
     
@@ -168,6 +168,11 @@
     
     
     
+    
+        <span class="label">Example</span>
+        
+    <pre class="prettyprint linenums"><code>// ui buttons are simple interactive elements// that automatically handle setting animations// based on the state of the button's 'alwaysToggleActivate' property// so when alwaysToggleActivate === true// animations will always be "tapped" + direction// and when alwaysToggleActivate === false// animations will always be "pressed" (activated) or "released" (deactivated) + direction// keep in mind that the default method// for interacting with ui elements// is to toggle activate and deactivate// but in the case of a button, by default it always activates// i.e. tapping always activates instead of togglingmyButton.alwaysToggleActivate = true;// to have a button do something// just hook into the activated or deactivated signalsmyButton.onActivated.add( myCallback, myContext );// one way this can be used is for player jumpingmyButton.onActivated.add( myPlayer.jump, myPlayer );// then when we activate the button// it will cause the player to jump// we could also use it for player abilitiesmyButton.onActivated.add( myPlayer.specialAbility.activate, myPlayer.specialAbility );// it will execute the player's special ability// you can add as many callbacks to the signals as you need</code></pre>
+
     
 </dd>
 
@@ -217,7 +222,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#activateCallback">ig.EntityTrigger#activateCallback</a>
+        <a href="ig.UIInteractive.html#activateCallback">ig.UIInteractive#activateCallback</a>
     </li></dd>
     
     
@@ -279,7 +284,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#activateContext">ig.EntityTrigger#activateContext</a>
+        <a href="ig.UIInteractive.html#activateContext">ig.UIInteractive#activateContext</a>
     </li></dd>
     
     
@@ -299,6 +304,71 @@
 		
 		
 		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L593" target="_blank">core/entity.js, line 593</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+										
+											
+<dt class="inherited hidden">
+    <h4 class="name" id="activated"><span class="type-signature"></span>activated<span class="type-signature"> :Boolean</span></h4>
+    
+    
+</dt>
+<dd class="inherited hidden">
+    
+    <p class="description">
+        Whether entity's activate has been triggered,<br>- set to true to have an entity activate on init
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="unstyled dummy"><li>
+        <a href="ig.UIInteractive.html#activated">ig.UIInteractive#activated</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>false</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L572" target="_blank">core/entity.js, line 572</a>
 		
 	</li></ul></dd>
     
@@ -341,7 +411,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#added">ig.EntityTrigger#added</a>
+        <a href="ig.UIInteractive.html#added">ig.UIInteractive#added</a>
     </li></dd>
     
     
@@ -364,6 +434,71 @@
 		
 		
 		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L721" target="_blank">core/entity.js, line 721</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+										
+											
+<dt class="inherited hidden">
+    <h4 class="name" id="align"><span class="type-signature"></span>align<span class="type-signature"> :Vector2</span></h4>
+    
+    
+</dt>
+<dd class="inherited hidden">
+    
+    <p class="description">
+        Alignment relative to screen size in values from 0 to 1.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="unstyled dummy"><li>
+        <a href="ig.UIInteractive.html#align">ig.UIInteractive#align</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>0% (top left)</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-element.js#L86" target="_blank">ui/ui-element.js, line 86</a>
 		
 	</li></ul></dd>
     
@@ -406,7 +541,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#alpha">ig.EntityTrigger#alpha</a>
+        <a href="ig.UIInteractive.html#alpha">ig.UIInteractive#alpha</a>
     </li></dd>
     
     
@@ -446,15 +581,15 @@
 
 										
 											
-<dt class="inherited hidden">
-    <h4 class="name" id="alwaysToggleActivate"><span class="type-signature"></span>alwaysToggleActivate<span class="type-signature"> :Boolean</span></h4>
+<dt >
+    <h4 class="name" id="alwaysToggleActivate"><span class="type-signature"></span>alwaysToggleActivate<span class="type-signature"></span></h4>
     
     
 </dt>
-<dd class="inherited hidden">
+<dd >
     
     <p class="description">
-        Whether entity's activate should override deactivate.
+        UI buttons usually want to always activate instead of toggling between.
     </p>
     
     
@@ -469,10 +604,6 @@
     
 
     
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#alwaysToggleActivate">ig.EntityTrigger#alwaysToggleActivate</a>
-    </li></dd>
     
     
     
@@ -482,10 +613,6 @@
     
     
     
-    
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>false</li></ul></dd>
     
     
     
@@ -493,13 +620,20 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L579" target="_blank">core/entity.js, line 579</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-button.js#L49" target="_blank">ui/ui-button.js, line 49</a>
 		
 	</li></ul></dd>
     
     
     
     
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.UIInteractive.html#alwaysToggleActivate">ig.UIInteractive#alwaysToggleActivate</a></li>
+        </ul>
+    </dd>
     
     
     
@@ -536,7 +670,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#angle">ig.EntityTrigger#angle</a>
+        <a href="ig.UIInteractive.html#angle">ig.UIInteractive#angle</a>
     </li></dd>
     
     
@@ -601,7 +735,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#animationType">ig.EntityTrigger#animationType</a>
+        <a href="ig.UIInteractive.html#animationType">ig.UIInteractive#animationType</a>
     </li></dd>
     
     
@@ -666,7 +800,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#animationTypes">ig.EntityTrigger#animationTypes</a>
+        <a href="ig.UIInteractive.html#animationTypes">ig.UIInteractive#animationTypes</a>
     </li></dd>
     
     
@@ -731,7 +865,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#animFrameTime">ig.EntityTrigger#animFrameTime</a>
+        <a href="ig.UIInteractive.html#animFrameTime">ig.UIInteractive#animFrameTime</a>
     </li></dd>
     
     
@@ -796,7 +930,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#animInit">ig.EntityTrigger#animInit</a>
+        <a href="ig.UIInteractive.html#animInit">ig.UIInteractive#animInit</a>
     </li></dd>
     
     
@@ -858,7 +992,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#animSequenceCount">ig.EntityTrigger#animSequenceCount</a>
+        <a href="ig.UIInteractive.html#animSequenceCount">ig.UIInteractive#animSequenceCount</a>
     </li></dd>
     
     
@@ -923,7 +1057,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#animSettings">ig.EntityTrigger#animSettings</a>
+        <a href="ig.UIInteractive.html#animSettings">ig.UIInteractive#animSettings</a>
     </li></dd>
     
     
@@ -993,7 +1127,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#animSheetHeight">ig.EntityTrigger#animSheetHeight</a>
+        <a href="ig.UIInteractive.html#animSheetHeight">ig.UIInteractive#animSheetHeight</a>
     </li></dd>
     
     
@@ -1058,7 +1192,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#animSheetPath">ig.EntityTrigger#animSheetPath</a>
+        <a href="ig.UIInteractive.html#animSheetPath">ig.UIInteractive#animSheetPath</a>
     </li></dd>
     
     
@@ -1120,7 +1254,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#animSheetWidth">ig.EntityTrigger#animSheetWidth</a>
+        <a href="ig.UIInteractive.html#animSheetWidth">ig.UIInteractive#animSheetWidth</a>
     </li></dd>
     
     
@@ -1185,7 +1319,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#animTileOffset">ig.EntityTrigger#animTileOffset</a>
+        <a href="ig.UIInteractive.html#animTileOffset">ig.UIInteractive#animTileOffset</a>
     </li></dd>
     
     
@@ -1226,14 +1360,14 @@
 										
 											
 <dt class="inherited hidden">
-    <h4 class="name" id="autoComplete"><span class="type-signature"></span>autoComplete<span class="type-signature"> :Boolean</span></h4>
+    <h4 class="name" id="autoDeactivate"><span class="type-signature"></span>autoDeactivate<span class="type-signature"> :Boolean</span></h4>
     
     
 </dt>
 <dd class="inherited hidden">
     
     <p class="description">
-        Whether trigger should automatically call the complete method when finished triggering.<span class="alert alert-info"><strong>Tip:</strong> set this to false to handle completing manually!</span>
+        Automatically deactivates ui element during cleanup.
     </p>
     
     
@@ -1250,7 +1384,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#autoComplete">ig.EntityTrigger#autoComplete</a>
+        <a href="ig.UIInteractive.html#autoDeactivate">ig.UIInteractive#autoDeactivate</a>
     </li></dd>
     
     
@@ -1272,72 +1406,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L159" target="_blank">entities/trigger.js, line 159</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt class="inherited hidden">
-    <h4 class="name" id="autoToggle"><span class="type-signature"></span>autoToggle<span class="type-signature"> :Boolean</span></h4>
-    
-    
-</dt>
-<dd class="inherited hidden">
-    
-    <p class="description">
-        Whether trigger should auto toggle back to default state after done checking against an entity.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#autoToggle">ig.EntityTrigger#autoToggle</a>
-    </li></dd>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>false</li></ul></dd>
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L166" target="_blank">entities/trigger.js, line 166</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-element.js#L188" target="_blank">ui/ui-element.js, line 188</a>
 		
 	</li></ul></dd>
     
@@ -1380,7 +1449,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#bounciness">ig.EntityTrigger#bounciness</a>
+        <a href="ig.UIInteractive.html#bounciness">ig.UIInteractive#bounciness</a>
     </li></dd>
     
     
@@ -1449,7 +1518,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#canDieInstantly">ig.EntityTrigger#canDieInstantly</a>
+        <a href="ig.UIInteractive.html#canDieInstantly">ig.UIInteractive#canDieInstantly</a>
     </li></dd>
     
     
@@ -1490,14 +1559,14 @@
 										
 											
 <dt class="inherited hidden">
-    <h4 class="name" id="canFlipX"><span class="type-signature"></span>canFlipX<span class="type-signature"> :Boolean</span></h4>
+    <h4 class="name" id="canFlipX"><span class="type-signature"></span>canFlipX<span class="type-signature"></span></h4>
     
     
 </dt>
 <dd class="inherited hidden">
     
     <p class="description">
-        Whether entity can flip animations vertically and set facing on x.
+        UI elements don't need to flip like entities.
     </p>
     
     
@@ -1514,7 +1583,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#canFlipX">ig.EntityTrigger#canFlipX</a>
+        <a href="ig.UIInteractive.html#canFlipX">ig.UIInteractive#canFlipX</a>
     </li></dd>
     
     
@@ -1533,13 +1602,20 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L238" target="_blank">core/entity.js, line 238</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-element.js#L58" target="_blank">ui/ui-element.js, line 58</a>
 		
 	</li></ul></dd>
     
     
     
     
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.EntityExtended.html#canFlipX">ig.EntityExtended#canFlipX</a></li>
+        </ul>
+    </dd>
     
     
     
@@ -1552,14 +1628,14 @@
 										
 											
 <dt class="inherited hidden">
-    <h4 class="name" id="canFlipY"><span class="type-signature"></span>canFlipY<span class="type-signature"> :Boolean</span></h4>
+    <h4 class="name" id="canFlipY"><span class="type-signature"></span>canFlipY<span class="type-signature"></span></h4>
     
     
 </dt>
 <dd class="inherited hidden">
     
     <p class="description">
-        Whether entity can flip animations vertically and set facing on y.
+        UI elements don't need to flip like entities.
     </p>
     
     
@@ -1576,7 +1652,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#canFlipY">ig.EntityTrigger#canFlipY</a>
+        <a href="ig.UIInteractive.html#canFlipY">ig.UIInteractive#canFlipY</a>
     </li></dd>
     
     
@@ -1595,13 +1671,20 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L245" target="_blank">core/entity.js, line 245</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-element.js#L64" target="_blank">ui/ui-element.js, line 64</a>
 		
 	</li></ul></dd>
     
     
     
     
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.EntityExtended.html#canFlipY">ig.EntityExtended#canFlipY</a></li>
+        </ul>
+    </dd>
     
     
     
@@ -1638,7 +1721,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#changed">ig.EntityTrigger#changed</a>
+        <a href="ig.UIInteractive.html#changed">ig.UIInteractive#changed</a>
     </li></dd>
     
     
@@ -1703,7 +1786,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#checkAgainst">ig.EntityTrigger#checkAgainst</a>
+        <a href="ig.UIInteractive.html#checkAgainst">ig.UIInteractive#checkAgainst</a>
     </li></dd>
     
     
@@ -1775,7 +1858,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#checking">ig.EntityTrigger#checking</a>
+        <a href="ig.UIInteractive.html#checking">ig.UIInteractive#checking</a>
     </li></dd>
     
     
@@ -1840,7 +1923,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#climbable">ig.EntityTrigger#climbable</a>
+        <a href="ig.UIInteractive.html#climbable">ig.UIInteractive#climbable</a>
     </li></dd>
     
     
@@ -1905,7 +1988,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#climbableStairs">ig.EntityTrigger#climbableStairs</a>
+        <a href="ig.UIInteractive.html#climbableStairs">ig.UIInteractive#climbableStairs</a>
     </li></dd>
     
     
@@ -1970,7 +2053,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#collides">ig.EntityTrigger#collides</a>
+        <a href="ig.UIInteractive.html#collides">ig.UIInteractive#collides</a>
     </li></dd>
     
     
@@ -2042,7 +2125,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#collidesChanges">ig.EntityTrigger#collidesChanges</a>
+        <a href="ig.UIInteractive.html#collidesChanges">ig.UIInteractive#collidesChanges</a>
     </li></dd>
     
     
@@ -2107,7 +2190,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#collidingWithEntitiesBelow">ig.EntityTrigger#collidingWithEntitiesBelow</a>
+        <a href="ig.UIInteractive.html#collidingWithEntitiesBelow">ig.UIInteractive#collidingWithEntitiesBelow</a>
     </li></dd>
     
     
@@ -2172,7 +2255,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#collidingWithMap">ig.EntityTrigger#collidingWithMap</a>
+        <a href="ig.UIInteractive.html#collidingWithMap">ig.UIInteractive#collidingWithMap</a>
     </li></dd>
     
     
@@ -2237,7 +2320,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#collisionMapResult">ig.EntityTrigger#collisionMapResult</a>
+        <a href="ig.UIInteractive.html#collisionMapResult">ig.UIInteractive#collisionMapResult</a>
     </li></dd>
     
     
@@ -2299,7 +2382,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#controllable">ig.EntityTrigger#controllable</a>
+        <a href="ig.UIInteractive.html#controllable">ig.UIInteractive#controllable</a>
     </li></dd>
     
     
@@ -2364,7 +2447,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#currentAnim">ig.EntityTrigger#currentAnim</a>
+        <a href="ig.UIInteractive.html#currentAnim">ig.UIInteractive#currentAnim</a>
     </li></dd>
     
     
@@ -2429,7 +2512,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#deactivateCallback">ig.EntityTrigger#deactivateCallback</a>
+        <a href="ig.UIInteractive.html#deactivateCallback">ig.UIInteractive#deactivateCallback</a>
     </li></dd>
     
     
@@ -2491,7 +2574,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#deactivateContext">ig.EntityTrigger#deactivateContext</a>
+        <a href="ig.UIInteractive.html#deactivateContext">ig.UIInteractive#deactivateContext</a>
     </li></dd>
     
     
@@ -2511,133 +2594,6 @@
 		
 		
 		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L607" target="_blank">core/entity.js, line 607</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt class="inherited hidden">
-    <h4 class="name" id="delay"><span class="type-signature"></span>delay<span class="type-signature"> :Number</span></h4>
-    
-    
-</dt>
-<dd class="inherited hidden">
-    
-    <p class="description">
-        Duration in seconds to delay activation.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#delay">ig.EntityTrigger#delay</a>
-    </li></dd>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>0</li></ul></dd>
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L108" target="_blank">entities/trigger.js, line 108</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt class="inherited hidden">
-    <h4 class="name" id="delayTimer"><span class="type-signature"></span>delayTimer<span class="type-signature"> :ig.Timer</span></h4>
-    
-    
-</dt>
-<dd class="inherited hidden">
-    
-    <p class="description">
-        Timer to handle delay duration.<br>- created on init
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#delayTimer">ig.EntityTrigger#delayTimer</a>
-    </li></dd>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L187" target="_blank">entities/trigger.js, line 187</a>
 		
 	</li></ul></dd>
     
@@ -2680,7 +2636,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#dieing">ig.EntityTrigger#dieing</a>
+        <a href="ig.UIInteractive.html#dieing">ig.UIInteractive#dieing</a>
     </li></dd>
     
     
@@ -2745,7 +2701,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#dieingSilently">ig.EntityTrigger#dieingSilently</a>
+        <a href="ig.UIInteractive.html#dieingSilently">ig.UIInteractive#dieingSilently</a>
     </li></dd>
     
     
@@ -2810,7 +2766,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#diffuse">ig.EntityTrigger#diffuse</a>
+        <a href="ig.UIInteractive.html#diffuse">ig.UIInteractive#diffuse</a>
     </li></dd>
     
     
@@ -2830,6 +2786,71 @@
 		
 		
 		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L557" target="_blank">core/entity.js, line 557</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+										
+											
+<dt class="inherited hidden">
+    <h4 class="name" id="enabled"><span class="type-signature"></span>enabled<span class="type-signature"> :Boolean</span></h4>
+    
+    
+</dt>
+<dd class="inherited hidden">
+    
+    <p class="description">
+        Whether element is enabled and able to be activated/deactivated.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="unstyled dummy"><li>
+        <a href="ig.UIInteractive.html#enabled">ig.UIInteractive#enabled</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>true</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-interactive.js#L67" target="_blank">ui/ui-interactive.js, line 67</a>
 		
 	</li></ul></dd>
     
@@ -2872,7 +2893,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#facing">ig.EntityTrigger#facing</a>
+        <a href="ig.UIInteractive.html#facing">ig.UIInteractive#facing</a>
     </li></dd>
     
     
@@ -2913,14 +2934,14 @@
 										
 											
 <dt class="inherited hidden">
-    <h4 class="name" id="fixed"><span class="type-signature"></span>fixed<span class="type-signature"> :Boolean</span></h4>
+    <h4 class="name" id="fixed"><span class="type-signature"></span>fixed<span class="type-signature"></span></h4>
     
     
 </dt>
 <dd class="inherited hidden">
     
     <p class="description">
-        Whether is fixed in screen vs inside world space.<br>- this is particularly useful for UI elements<span class="alert"><strong>IMPORTANT:</strong> fixed elements cannot have dynamic performance!</span>
+        UI elements are usually fixed in the screen.
     </p>
     
     
@@ -2937,7 +2958,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#fixed">ig.EntityTrigger#fixed</a>
+        <a href="ig.UIInteractive.html#fixed">ig.UIInteractive#fixed</a>
     </li></dd>
     
     
@@ -2951,7 +2972,7 @@
     
     
     <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>false</li></ul></dd>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>true</li></ul></dd>
     
     
     
@@ -2959,13 +2980,20 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L224" target="_blank">core/entity.js, line 224</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-element.js#L52" target="_blank">ui/ui-element.js, line 52</a>
 		
 	</li></ul></dd>
     
     
     
     
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.EntityExtended.html#fixed">ig.EntityExtended#fixed</a></li>
+        </ul>
+    </dd>
     
     
     
@@ -3002,7 +3030,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#flip">ig.EntityTrigger#flip</a>
+        <a href="ig.UIInteractive.html#flip">ig.UIInteractive#flip</a>
     </li></dd>
     
     
@@ -3064,7 +3092,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#friction">ig.EntityTrigger#friction</a>
+        <a href="ig.UIInteractive.html#friction">ig.UIInteractive#friction</a>
     </li></dd>
     
     
@@ -3118,7 +3146,7 @@
 <dd class="inherited hidden">
     
     <p class="description">
-        Triggers do not need to update.
+        UI elements generally do not need to be updated.
     </p>
     
     
@@ -3135,7 +3163,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#frozen">ig.EntityTrigger#frozen</a>
+        <a href="ig.UIInteractive.html#frozen">ig.UIInteractive#frozen</a>
     </li></dd>
     
     
@@ -3157,7 +3185,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L67" target="_blank">entities/trigger.js, line 67</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-element.js#L37" target="_blank">ui/ui-element.js, line 37</a>
 		
 	</li></ul></dd>
     
@@ -3207,7 +3235,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#gravityFactor">ig.EntityTrigger#gravityFactor</a>
+        <a href="ig.UIInteractive.html#gravityFactor">ig.UIInteractive#gravityFactor</a>
     </li></dd>
     
     
@@ -3276,7 +3304,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#grounded">ig.EntityTrigger#grounded</a>
+        <a href="ig.UIInteractive.html#grounded">ig.UIInteractive#grounded</a>
     </li></dd>
     
     
@@ -3345,7 +3373,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#group">ig.EntityTrigger#group</a>
+        <a href="ig.UIInteractive.html#group">ig.UIInteractive#group</a>
     </li></dd>
     
     
@@ -3417,7 +3445,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#hasGravity">ig.EntityTrigger#hasGravity</a>
+        <a href="ig.UIInteractive.html#hasGravity">ig.UIInteractive#hasGravity</a>
     </li></dd>
     
     
@@ -3479,7 +3507,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#health">ig.EntityTrigger#health</a>
+        <a href="ig.UIInteractive.html#health">ig.UIInteractive#health</a>
     </li></dd>
     
     
@@ -3541,7 +3569,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#healthMax">ig.EntityTrigger#healthMax</a>
+        <a href="ig.UIInteractive.html#healthMax">ig.UIInteractive#healthMax</a>
     </li></dd>
     
     
@@ -3603,7 +3631,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#hidden">ig.EntityTrigger#hidden</a>
+        <a href="ig.UIInteractive.html#hidden">ig.UIInteractive#hidden</a>
     </li></dd>
     
     
@@ -3668,7 +3696,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#highPerformance">ig.EntityTrigger#highPerformance</a>
+        <a href="ig.UIInteractive.html#highPerformance">ig.UIInteractive#highPerformance</a>
     </li></dd>
     
     
@@ -3733,7 +3761,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#hollow">ig.EntityTrigger#hollow</a>
+        <a href="ig.UIInteractive.html#hollow">ig.UIInteractive#hollow</a>
     </li></dd>
     
     
@@ -3781,7 +3809,7 @@
 <dd class="inherited hidden">
     
     <p class="description">
-        Whether entity elements should ignore system scale.
+        Whether user interface elements should ignore system scale.<span class="alert"><strong>IMPORTANT:</strong> when true, ui elements will not scale dynamically with view and instead will be fixed in size. This is usually ideal.</span>
     </p>
     
     
@@ -3798,7 +3826,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#ignoreSystemScale">ig.EntityTrigger#ignoreSystemScale</a>
+        <a href="ig.UIInteractive.html#ignoreSystemScale">ig.UIInteractive#ignoreSystemScale</a>
     </li></dd>
     
     
@@ -3812,7 +3840,7 @@
     
     
     <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>ig.CONFIG.ENTITY.IGNORE_SYSTEM_SCALE</li></ul></dd>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>ig.CONFIG.UI.IGNORE_SYSTEM_SCALE</li></ul></dd>
     
     
     
@@ -3820,7 +3848,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L128" target="_blank">core/entity.js, line 128</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-element.js#L167" target="_blank">ui/ui-element.js, line 167</a>
 		
 	</li></ul></dd>
     
@@ -3863,7 +3891,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#intersecting">ig.EntityTrigger#intersecting</a>
+        <a href="ig.UIInteractive.html#intersecting">ig.UIInteractive#intersecting</a>
     </li></dd>
     
     
@@ -3928,7 +3956,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#invulnerable">ig.EntityTrigger#invulnerable</a>
+        <a href="ig.UIInteractive.html#invulnerable">ig.UIInteractive#invulnerable</a>
     </li></dd>
     
     
@@ -3969,7 +3997,7 @@
 										
 											
 <dt class="inherited hidden">
-    <h4 class="name" id="layerName"><span class="type-signature"></span>layerName<span class="type-signature"> :String</span></h4>
+    <h4 class="name" id="layerName"><span class="type-signature"></span>layerName<span class="type-signature"></span></h4>
     
     
 </dt>
@@ -3993,7 +4021,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#layerName">ig.EntityTrigger#layerName</a>
+        <a href="ig.UIInteractive.html#layerName">ig.UIInteractive#layerName</a>
     </li></dd>
     
     
@@ -4007,7 +4035,7 @@
     
     
     <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>"entities"</li></ul></dd>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>"ui"</li></ul></dd>
     
     
     
@@ -4015,7 +4043,144 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L49" target="_blank">core/entity.js, line 49</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-element.js#L30" target="_blank">ui/ui-element.js, line 30</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.EntityExtended.html#layerName">ig.EntityExtended#layerName</a></li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+										
+											
+<dt class="inherited hidden">
+    <h4 class="name" id="linkAlign"><span class="type-signature"></span>linkAlign<span class="type-signature"> :Vector2</span></h4>
+    
+    
+</dt>
+<dd class="inherited hidden">
+    
+    <p class="description">
+        Alignment in percent used to offset the element based on <a href="ig.UIElement.html#linkedTo">ig.UIElement#linkedTo</a>'s size.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="unstyled dummy"><li>
+        <a href="ig.UIInteractive.html#linkAlign">ig.UIInteractive#linkAlign</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>0%</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-element.js#L174" target="_blank">ui/ui-element.js, line 174</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+										
+											
+<dt class="inherited hidden">
+    <h4 class="name" id="linkAlignInside"><span class="type-signature"></span>linkAlignInside<span class="type-signature"> :Boolean</span></h4>
+    
+    
+</dt>
+<dd class="inherited hidden">
+    
+    <p class="description">
+        Flips <a href="ig.UIElement.html#linkAlign">ig.UIElement#linkAlign</a> so that coordinates are relative to inside of linkedTo element
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="unstyled dummy"><li>
+        <a href="ig.UIInteractive.html#linkAlignInside">ig.UIInteractive#linkAlignInside</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>false</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-element.js#L181" target="_blank">ui/ui-element.js, line 181</a>
 		
 	</li></ul></dd>
     
@@ -4058,7 +4223,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#linkedTo">ig.EntityTrigger#linkedTo</a>
+        <a href="ig.UIInteractive.html#linkedTo">ig.UIInteractive#linkedTo</a>
     </li></dd>
     
     
@@ -4123,7 +4288,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#managed">ig.EntityTrigger#managed</a>
+        <a href="ig.UIInteractive.html#managed">ig.UIInteractive#managed</a>
     </li></dd>
     
     
@@ -4146,6 +4311,266 @@
 		
 		
 		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L905" target="_blank">core/entity.js, line 905</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+										
+											
+<dt class="inherited hidden">
+    <h4 class="name" id="margin"><span class="type-signature"></span>margin<span class="type-signature"> :Vector2</span></h4>
+    
+    
+</dt>
+<dd class="inherited hidden">
+    
+    <p class="description">
+        Pseudo margins that won't actually keep other elements away.<br>- this is used to offset the element based on the pivot
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="unstyled dummy"><li>
+        <a href="ig.UIInteractive.html#margin">ig.UIInteractive#margin</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>0%</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-element.js#L94" target="_blank">ui/ui-element.js, line 94</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+										
+											
+<dt class="inherited hidden">
+    <h4 class="name" id="marginAsPct"><span class="type-signature"></span>marginAsPct<span class="type-signature"> :Boolean</span></h4>
+    
+    
+</dt>
+<dd class="inherited hidden">
+    
+    <p class="description">
+        Whether to treat margin as a percentage of screen size.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="unstyled dummy"><li>
+        <a href="ig.UIInteractive.html#marginAsPct">ig.UIInteractive#marginAsPct</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>true</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-element.js#L101" target="_blank">ui/ui-element.js, line 101</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+										
+											
+<dt class="inherited hidden">
+    <h4 class="name" id="marginAsPctSmallest"><span class="type-signature"></span>marginAsPctSmallest<span class="type-signature"> :Boolean</span></h4>
+    
+    
+</dt>
+<dd class="inherited hidden">
+    
+    <p class="description">
+        Whether to get margin percentages from smallest dimension in screen size.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="unstyled dummy"><li>
+        <a href="ig.UIInteractive.html#marginAsPctSmallest">ig.UIInteractive#marginAsPctSmallest</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>ig.CONFIG.UI.MARGIN_AS_PCT_SMALLEST</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-element.js#L108" target="_blank">ui/ui-element.js, line 108</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+										
+											
+<dt class="inherited hidden">
+    <h4 class="name" id="marginScaleless"><span class="type-signature"></span>marginScaleless<span class="type-signature"> :Boolean</span></h4>
+    
+    
+</dt>
+<dd class="inherited hidden">
+    
+    <p class="description">
+        Whether margins should be calculated consistently at all scales. Ex: a button should be 15px away from the edge no matter the scale.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="unstyled dummy"><li>
+        <a href="ig.UIInteractive.html#marginScaleless">ig.UIInteractive#marginScaleless</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>ig.CONFIG.UI.MARGIN_SCALELESS</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-element.js#L115" target="_blank">ui/ui-element.js, line 115</a>
 		
 	</li></ul></dd>
     
@@ -4188,7 +4613,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#maxVel">ig.EntityTrigger#maxVel</a>
+        <a href="ig.UIInteractive.html#maxVel">ig.UIInteractive#maxVel</a>
     </li></dd>
     
     
@@ -4234,249 +4659,6 @@
 
 										
 											
-<dt >
-    <h4 class="name" id="messageContainerEntity"><span class="type-signature"></span>messageContainerEntity<span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd >
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/narrative.js#L22" target="_blank">entities/narrative.js, line 22</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul class="unstyled">
-            <li>ig.EntityTrigger#messageContainerEntity</li>
-        </ul>
-    </dd>
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt >
-    <h4 class="name" id="messageFollowsSpeaker"><span class="type-signature"></span>messageFollowsSpeaker<span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd >
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>false</li></ul></dd>
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/narrative.js#L37" target="_blank">entities/narrative.js, line 37</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul class="unstyled">
-            <li>ig.EntityTrigger#messageFollowsSpeaker</li>
-        </ul>
-    </dd>
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt >
-    <h4 class="name" id="messageMoveToSettings"><span class="type-signature"></span>messageMoveToSettings<span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd >
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/narrative.js#L42" target="_blank">entities/narrative.js, line 42</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul class="unstyled">
-            <li>ig.EntityTrigger#messageMoveToSettings</li>
-        </ul>
-    </dd>
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt >
-    <h4 class="name" id="messageSettings"><span class="type-signature"></span>messageSettings<span class="type-signature"></span></h4>
-    
-    
-</dt>
-<dd >
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/narrative.js#L27" target="_blank">entities/narrative.js, line 27</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul class="unstyled">
-            <li>ig.EntityTrigger#messageSettings</li>
-        </ul>
-    </dd>
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
 <dt class="inherited hidden">
     <h4 class="name" id="minBounceVelocity"><span class="type-signature"></span>minBounceVelocity<span class="type-signature"> :Number</span></h4>
     
@@ -4502,7 +4684,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#minBounceVelocity">ig.EntityTrigger#minBounceVelocity</a>
+        <a href="ig.UIInteractive.html#minBounceVelocity">ig.UIInteractive#minBounceVelocity</a>
     </li></dd>
     
     
@@ -4571,7 +4753,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#movedTo">ig.EntityTrigger#movedTo</a>
+        <a href="ig.UIInteractive.html#movedTo">ig.UIInteractive#movedTo</a>
     </li></dd>
     
     
@@ -4636,7 +4818,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#moving">ig.EntityTrigger#moving</a>
+        <a href="ig.UIInteractive.html#moving">ig.UIInteractive#moving</a>
     </li></dd>
     
     
@@ -4701,7 +4883,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#movingTo">ig.EntityTrigger#movingTo</a>
+        <a href="ig.UIInteractive.html#movingTo">ig.UIInteractive#movingTo</a>
     </li></dd>
     
     
@@ -4766,7 +4948,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#movingToOnce">ig.EntityTrigger#movingToOnce</a>
+        <a href="ig.UIInteractive.html#movingToOnce">ig.UIInteractive#movingToOnce</a>
     </li></dd>
     
     
@@ -4831,7 +5013,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#movingToTweening">ig.EntityTrigger#movingToTweening</a>
+        <a href="ig.UIInteractive.html#movingToTweening">ig.UIInteractive#movingToTweening</a>
     </li></dd>
     
     
@@ -4896,7 +5078,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#movingToTweenPct">ig.EntityTrigger#movingToTweenPct</a>
+        <a href="ig.UIInteractive.html#movingToTweenPct">ig.UIInteractive#movingToTweenPct</a>
     </li></dd>
     
     
@@ -4958,7 +5140,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#movingX">ig.EntityTrigger#movingX</a>
+        <a href="ig.UIInteractive.html#movingX">ig.UIInteractive#movingX</a>
     </li></dd>
     
     
@@ -5023,7 +5205,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#movingY">ig.EntityTrigger#movingY</a>
+        <a href="ig.UIInteractive.html#movingY">ig.UIInteractive#movingY</a>
     </li></dd>
     
     
@@ -5088,7 +5270,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#needsRebuild">ig.EntityTrigger#needsRebuild</a>
+        <a href="ig.UIInteractive.html#needsRebuild">ig.UIInteractive#needsRebuild</a>
     </li></dd>
     
     
@@ -5153,7 +5335,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#needsVertices">ig.EntityTrigger#needsVertices</a>
+        <a href="ig.UIInteractive.html#needsVertices">ig.UIInteractive#needsVertices</a>
     </li></dd>
     
     
@@ -5222,7 +5404,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#offset">ig.EntityTrigger#offset</a>
+        <a href="ig.UIInteractive.html#offset">ig.UIInteractive#offset</a>
     </li></dd>
     
     
@@ -5269,6 +5451,68 @@
 										
 											
 <dt class="inherited hidden">
+    <h4 class="name" id="onActivated"><span class="type-signature"></span>onActivated<span class="type-signature"> :<a href="ig.Signal.html">ig.Signal</a></span></h4>
+    
+    
+</dt>
+<dd class="inherited hidden">
+    
+    <p class="description">
+        Signal dispatched when UI element activated.<br>- created on init.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="unstyled dummy"><li>
+        <a href="ig.UIInteractive.html#onActivated">ig.UIInteractive#onActivated</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-interactive.js#L74" target="_blank">ui/ui-interactive.js, line 74</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+										
+											
+<dt class="inherited hidden">
     <h4 class="name" id="onAdded"><span class="type-signature"></span>onAdded<span class="type-signature"> :<a href="ig.Signal.html">ig.Signal</a></span></h4>
     
     
@@ -5293,7 +5537,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#onAdded">ig.EntityTrigger#onAdded</a>
+        <a href="ig.UIInteractive.html#onAdded">ig.UIInteractive#onAdded</a>
     </li></dd>
     
     
@@ -5331,14 +5575,14 @@
 										
 											
 <dt class="inherited hidden">
-    <h4 class="name" id="once"><span class="type-signature"></span>once<span class="type-signature"> :Boolean</span></h4>
+    <h4 class="name" id="onDeactivated"><span class="type-signature"></span>onDeactivated<span class="type-signature"> :<a href="ig.Signal.html">ig.Signal</a></span></h4>
     
     
 </dt>
 <dd class="inherited hidden">
     
     <p class="description">
-        Whether trigger can only activate once before needed to be deactivated.
+        Signal dispatched when UI element deactivated.<br>- created on init.
     </p>
     
     
@@ -5355,72 +5599,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#once">ig.EntityTrigger#once</a>
-    </li></dd>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>true</li></ul></dd>
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L122" target="_blank">entities/trigger.js, line 122</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt class="inherited hidden">
-    <h4 class="name" id="onCompleted"><span class="type-signature"></span>onCompleted<span class="type-signature"> :<a href="ig.Signal.html">ig.Signal</a></span></h4>
-    
-    
-</dt>
-<dd class="inherited hidden">
-    
-    <p class="description">
-        Signal dispatched when trigger completes triggering.<br>- created on init
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#onCompleted">ig.EntityTrigger#onCompleted</a>
+        <a href="ig.UIInteractive.html#onDeactivated">ig.UIInteractive#onDeactivated</a>
     </li></dd>
     
     
@@ -5439,7 +5618,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L194" target="_blank">entities/trigger.js, line 194</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-interactive.js#L81" target="_blank">ui/ui-interactive.js, line 81</a>
 		
 	</li></ul></dd>
     
@@ -5482,7 +5661,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#oneWay">ig.EntityTrigger#oneWay</a>
+        <a href="ig.UIInteractive.html#oneWay">ig.UIInteractive#oneWay</a>
     </li></dd>
     
     
@@ -5547,7 +5726,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#oneWayFacing">ig.EntityTrigger#oneWayFacing</a>
+        <a href="ig.UIInteractive.html#oneWayFacing">ig.UIInteractive#oneWayFacing</a>
     </li></dd>
     
     
@@ -5617,7 +5796,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#onMovedTo">ig.EntityTrigger#onMovedTo</a>
+        <a href="ig.UIInteractive.html#onMovedTo">ig.UIInteractive#onMovedTo</a>
     </li></dd>
     
     
@@ -5679,7 +5858,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#onRefreshed">ig.EntityTrigger#onRefreshed</a>
+        <a href="ig.UIInteractive.html#onRefreshed">ig.UIInteractive#onRefreshed</a>
     </li></dd>
     
     
@@ -5741,7 +5920,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#onRemoved">ig.EntityTrigger#onRemoved</a>
+        <a href="ig.UIInteractive.html#onRemoved">ig.UIInteractive#onRemoved</a>
     </li></dd>
     
     
@@ -5803,7 +5982,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#opaque">ig.EntityTrigger#opaque</a>
+        <a href="ig.UIInteractive.html#opaque">ig.UIInteractive#opaque</a>
     </li></dd>
     
     
@@ -5865,7 +6044,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#opaqueFromVertices">ig.EntityTrigger#opaqueFromVertices</a>
+        <a href="ig.UIInteractive.html#opaqueFromVertices">ig.UIInteractive#opaqueFromVertices</a>
     </li></dd>
     
     
@@ -5934,7 +6113,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#opaqueOffset">ig.EntityTrigger#opaqueOffset</a>
+        <a href="ig.UIInteractive.html#opaqueOffset">ig.UIInteractive#opaqueOffset</a>
     </li></dd>
     
     
@@ -6008,7 +6187,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#opaqueVertices">ig.EntityTrigger#opaqueVertices</a>
+        <a href="ig.UIInteractive.html#opaqueVertices">ig.UIInteractive#opaqueVertices</a>
     </li></dd>
     
     
@@ -6070,7 +6249,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#overridingAnim">ig.EntityTrigger#overridingAnim</a>
+        <a href="ig.UIInteractive.html#overridingAnim">ig.UIInteractive#overridingAnim</a>
     </li></dd>
     
     
@@ -6135,7 +6314,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#paused">ig.EntityTrigger#paused</a>
+        <a href="ig.UIInteractive.html#paused">ig.UIInteractive#paused</a>
     </li></dd>
     
     
@@ -6200,7 +6379,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#performance">ig.EntityTrigger#performance</a>
+        <a href="ig.UIInteractive.html#performance">ig.UIInteractive#performance</a>
     </li></dd>
     
     
@@ -6265,7 +6444,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#persistent">ig.EntityTrigger#persistent</a>
+        <a href="ig.UIInteractive.html#persistent">ig.UIInteractive#persistent</a>
     </li></dd>
     
     
@@ -6330,7 +6509,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#pos">ig.EntityTrigger#pos</a>
+        <a href="ig.UIInteractive.html#pos">ig.UIInteractive#pos</a>
     </li></dd>
     
     
@@ -6350,6 +6529,68 @@
 		
 		
 		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L55" target="_blank">core/entity.js, line 55</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+										
+											
+<dt class="inherited hidden">
+    <h4 class="name" id="posAsPct"><span class="type-signature"></span>posAsPct<span class="type-signature"> :Boolean</span></h4>
+    
+    
+</dt>
+<dd class="inherited hidden">
+    
+    <p class="description">
+        Whether to get position as a percentage of screen size.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="unstyled dummy"><li>
+        <a href="ig.UIInteractive.html#posAsPct">ig.UIInteractive#posAsPct</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-element.js#L71" target="_blank">ui/ui-element.js, line 71</a>
 		
 	</li></ul></dd>
     
@@ -6392,7 +6633,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#posDraw">ig.EntityTrigger#posDraw</a>
+        <a href="ig.UIInteractive.html#posDraw">ig.UIInteractive#posDraw</a>
     </li></dd>
     
     
@@ -6412,6 +6653,71 @@
 		
 		
 		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L78" target="_blank">core/entity.js, line 78</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+										
+											
+<dt class="inherited hidden">
+    <h4 class="name" id="posPct"><span class="type-signature"></span>posPct<span class="type-signature"> :Vector2</span></h4>
+    
+    
+</dt>
+<dd class="inherited hidden">
+    
+    <p class="description">
+        Percentage of screen size to be converted to position in values from 0 to 1.<span class="alert"><strong>IMPORTANT:</strong> this overrides pos property when <a href="ig.UIElement.html#posAsPct">ig.UIElement#posAsPct</a> is true.</span>
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="unstyled dummy"><li>
+        <a href="ig.UIInteractive.html#posPct">ig.UIInteractive#posPct</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>0%</li></ul></dd>
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-element.js#L79" target="_blank">ui/ui-element.js, line 79</a>
 		
 	</li></ul></dd>
     
@@ -6454,7 +6760,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#rangeInteractableX">ig.EntityTrigger#rangeInteractableX</a>
+        <a href="ig.UIInteractive.html#rangeInteractableX">ig.UIInteractive#rangeInteractableX</a>
     </li></dd>
     
     
@@ -6519,7 +6825,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#rangeInteractableY">ig.EntityTrigger#rangeInteractableY</a>
+        <a href="ig.UIInteractive.html#rangeInteractableY">ig.UIInteractive#rangeInteractableY</a>
     </li></dd>
     
     
@@ -6584,7 +6890,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#resetState">ig.EntityTrigger#resetState</a>
+        <a href="ig.UIInteractive.html#resetState">ig.UIInteractive#resetState</a>
     </li></dd>
     
     
@@ -6629,7 +6935,7 @@
 <dd class="inherited hidden">
     
     <p class="description">
-        Scale that overrides system scale when <a href="ig.EntityExtended.html#ignoreSystemScale">ig.EntityExtended#ignoreSystemScale</a> is true.
+        Scale that overrides system scale when <a href="ig.UIElement.html#ignoreSystemScale">ig.UIElement#ignoreSystemScale</a> is true.
     </p>
     
     
@@ -6646,7 +6952,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#scale">ig.EntityTrigger#scale</a>
+        <a href="ig.UIInteractive.html#scale">ig.UIInteractive#scale</a>
     </li></dd>
     
     
@@ -6660,7 +6966,7 @@
     
     
     <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>ig.CONFIG.ENTITY.SCALE</li></ul></dd>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>ig.CONFIG.UI.SCALE</li></ul></dd>
     
     
     
@@ -6668,7 +6974,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L92" target="_blank">core/entity.js, line 92</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-element.js#L138" target="_blank">ui/ui-element.js, line 138</a>
 		
 	</li></ul></dd>
     
@@ -6694,7 +7000,7 @@
 <dd class="inherited hidden">
     
     <p class="description">
-        Maximum value of <a href="ig.EntityExtended.html#scale">ig.EntityExtended#scale</a>.
+        Maximum value of <a href="ig.UIElement.html#scale">ig.UIElement#scale</a>.
     </p>
     
     
@@ -6711,7 +7017,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#scaleMax">ig.EntityTrigger#scaleMax</a>
+        <a href="ig.UIInteractive.html#scaleMax">ig.UIInteractive#scaleMax</a>
     </li></dd>
     
     
@@ -6725,7 +7031,7 @@
     
     
     <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>ig.CONFIG.ENTITY.SCALE_MAX</li></ul></dd>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>ig.CONFIG.UI.SCALE_MAX</li></ul></dd>
     
     
     
@@ -6733,7 +7039,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L113" target="_blank">core/entity.js, line 113</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-element.js#L159" target="_blank">ui/ui-element.js, line 159</a>
 		
 	</li></ul></dd>
     
@@ -6759,7 +7065,7 @@
 <dd class="inherited hidden">
     
     <p class="description">
-        Minimum value of <a href="ig.EntityExtended.html#scale">ig.EntityExtended#scale</a>.
+        Minimum value of <a href="ig.UIElement.html#scale">ig.UIElement#scale</a>.
     </p>
     
     
@@ -6776,7 +7082,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#scaleMin">ig.EntityTrigger#scaleMin</a>
+        <a href="ig.UIInteractive.html#scaleMin">ig.UIInteractive#scaleMin</a>
     </li></dd>
     
     
@@ -6790,7 +7096,7 @@
     
     
     <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>ig.CONFIG.ENTITY.SCALE_MIN</li></ul></dd>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>ig.CONFIG.UI.SCALE_MIN</li></ul></dd>
     
     
     
@@ -6798,7 +7104,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L106" target="_blank">core/entity.js, line 106</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-element.js#L152" target="_blank">ui/ui-element.js, line 152</a>
 		
 	</li></ul></dd>
     
@@ -6841,7 +7147,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#scaleMod">ig.EntityTrigger#scaleMod</a>
+        <a href="ig.UIInteractive.html#scaleMod">ig.UIInteractive#scaleMod</a>
     </li></dd>
     
     
@@ -6906,7 +7212,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#scaleOfSystemScale">ig.EntityTrigger#scaleOfSystemScale</a>
+        <a href="ig.UIInteractive.html#scaleOfSystemScale">ig.UIInteractive#scaleOfSystemScale</a>
     </li></dd>
     
     
@@ -6919,16 +7225,13 @@
     
     
     
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>ig.CONFIG.ENTITY.SCALE_OF_SYSTEM_SCALE</li></ul></dd>
-    
     
     
 	<dt class="tag-source">Source:</dt>
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L99" target="_blank">core/entity.js, line 99</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-element.js#L145" target="_blank">ui/ui-element.js, line 145</a>
 		
 	</li></ul></dd>
     
@@ -6971,7 +7274,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#size">ig.EntityTrigger#size</a>
+        <a href="ig.UIInteractive.html#size">ig.UIInteractive#size</a>
     </li></dd>
     
     
@@ -7042,7 +7345,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#sizeDraw">ig.EntityTrigger#sizeDraw</a>
+        <a href="ig.UIInteractive.html#sizeDraw">ig.UIInteractive#sizeDraw</a>
     </li></dd>
     
     
@@ -7104,7 +7407,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#slope">ig.EntityTrigger#slope</a>
+        <a href="ig.UIInteractive.html#slope">ig.UIInteractive#slope</a>
     </li></dd>
     
     
@@ -7166,7 +7469,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#slopeSpeedMod">ig.EntityTrigger#slopeSpeedMod</a>
+        <a href="ig.UIInteractive.html#slopeSpeedMod">ig.UIInteractive#slopeSpeedMod</a>
     </li></dd>
     
     
@@ -7235,7 +7538,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#slopeStanding">ig.EntityTrigger#slopeStanding</a>
+        <a href="ig.UIInteractive.html#slopeStanding">ig.UIInteractive#slopeStanding</a>
     </li></dd>
     
     
@@ -7306,7 +7609,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#slopeSticking">ig.EntityTrigger#slopeSticking</a>
+        <a href="ig.UIInteractive.html#slopeSticking">ig.UIInteractive#slopeSticking</a>
     </li></dd>
     
     
@@ -7351,71 +7654,6 @@
 										
 											
 <dt class="inherited hidden">
-    <h4 class="name" id="sortTargetsBy"><span class="type-signature"></span>sortTargetsBy<span class="type-signature"> :Function</span></h4>
-    
-    
-</dt>
-<dd class="inherited hidden">
-    
-    <p class="description">
-        Method to sort targets by when triggered.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#sortTargetsBy">ig.EntityTrigger#sortTargetsBy</a>
-    </li></dd>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>null</li></ul></dd>
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L87" target="_blank">entities/trigger.js, line 87</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt class="inherited hidden">
     <h4 class="name" id="standing"><span class="type-signature"></span>standing<span class="type-signature"> :Boolean</span></h4>
     
     
@@ -7440,7 +7678,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#standing">ig.EntityTrigger#standing</a>
+        <a href="ig.UIInteractive.html#standing">ig.UIInteractive#standing</a>
     </li></dd>
     
     
@@ -7485,14 +7723,14 @@
 										
 											
 <dt class="inherited hidden">
-    <h4 class="name" id="suicidal"><span class="type-signature"></span>suicidal<span class="type-signature"> :Boolean</span></h4>
+    <h4 class="name" id="targetable"><span class="type-signature"></span>targetable<span class="type-signature"></span></h4>
     
     
 </dt>
 <dd class="inherited hidden">
     
     <p class="description">
-        Whether trigger kills itself after triggering once.
+        Interactive ui should be targetable.
     </p>
     
     
@@ -7509,72 +7747,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#suicidal">ig.EntityTrigger#suicidal</a>
-    </li></dd>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>true</li></ul></dd>
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L129" target="_blank">entities/trigger.js, line 129</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt class="inherited hidden">
-    <h4 class="name" id="target"><span class="type-signature"></span>target<span class="type-signature"> :Object</span></h4>
-    
-    
-</dt>
-<dd class="inherited hidden">
-    
-    <p class="description">
-        Map of names of target entities to activate when activated.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#target">ig.EntityTrigger#target</a>
+        <a href="ig.UIInteractive.html#targetable">ig.UIInteractive#targetable</a>
     </li></dd>
     
     
@@ -7593,7 +7766,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L80" target="_blank">entities/trigger.js, line 80</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-interactive.js#L60" target="_blank">ui/ui-interactive.js, line 60</a>
 		
 	</li></ul></dd>
     
@@ -7601,202 +7774,12 @@
     
     
     
-    
-    
-</dl>
-
-    
-    
-        <span class="label">Example</span>
-        
-    <pre class="prettyprint linenums"><code>// a trigger can trigger any entity by nameentityA.name = 'foo';triggerA.target.1 = 'foo';// a trigger can trigger another trigger by name to create a chaintriggerA.name = 'bar';triggerB.target.1 = 'bar';</code></pre>
-
-    
-</dd>
-
-										
-											
-<dt class="inherited hidden">
-    <h4 class="name" id="targetable"><span class="type-signature"></span>targetable<span class="type-signature"> :Boolean</span></h4>
-    
-    
-</dt>
-<dd class="inherited hidden">
-    
-    <p class="description">
-        Whether entity can be targeted by an intersection search.<span class="alert alert-info"><strong>Tip:</strong> for interactive entities, set this to true and add the <a href="ig.EntityExtended.TYPE.html#INTERACTIVE">ig.EntityExtended.TYPE.INTERACTIVE</a> flag to its type.</span>
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#targetable">ig.EntityTrigger#targetable</a>
-    </li></dd>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>false</li></ul></dd>
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L446" target="_blank">core/entity.js, line 446</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt class="inherited hidden">
-    <h4 class="name" id="targetSequence"><span class="type-signature">&lt;readonly> </span>targetSequence<span class="type-signature"> :Array</span></h4>
-    
-    
-</dt>
-<dd class="inherited hidden">
-    
-    <p class="description">
-        Sorted list of targets, populated when triggered.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#targetSequence">ig.EntityTrigger#targetSequence</a>
-    </li></dd>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L94" target="_blank">entities/trigger.js, line 94</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt class="inherited hidden">
-    <h4 class="name" id="teardownWhenComplete"><span class="type-signature"></span>teardownWhenComplete<span class="type-signature"> :Boolean</span></h4>
-    
-    
-</dt>
-<dd class="inherited hidden">
-    
-    <p class="description">
-        Whether trigger should call the <a href="ig.EntityTrigger.html#teardown">ig.EntityTrigger#teardown</a> method when complete, or only on deactivate and cleanup.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#teardownWhenComplete">ig.EntityTrigger#teardownWhenComplete</a>
-    </li></dd>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>true</li></ul></dd>
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L173" target="_blank">entities/trigger.js, line 173</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.UIElement.html#targetable">ig.UIElement#targetable</a></li>
+        </ul>
+    </dd>
     
     
     
@@ -7833,7 +7816,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#textured">ig.EntityTrigger#textured</a>
+        <a href="ig.UIInteractive.html#textured">ig.UIInteractive#textured</a>
     </li></dd>
     
     
@@ -7874,14 +7857,14 @@
 										
 											
 <dt class="inherited hidden">
-    <h4 class="name" id="triggerable"><span class="type-signature"></span>triggerable<span class="type-signature"> :Boolean</span></h4>
+    <h4 class="name" id="totalMarginX"><span class="type-signature">&lt;readonly> </span>totalMarginX<span class="type-signature"> :Number</span></h4>
     
     
 </dt>
 <dd class="inherited hidden">
     
     <p class="description">
-        Whether trigger can be triggered through collision.
+        Total horizontal margin, calculated during resize.
     </p>
     
     
@@ -7898,7 +7881,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#triggerable">ig.EntityTrigger#triggerable</a>
+        <a href="ig.UIInteractive.html#totalMarginX">ig.UIInteractive#totalMarginX</a>
     </li></dd>
     
     
@@ -7912,7 +7895,7 @@
     
     
     <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>true</li></ul></dd>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>0</li></ul></dd>
     
     
     
@@ -7920,7 +7903,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L136" target="_blank">entities/trigger.js, line 136</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-element.js#L123" target="_blank">ui/ui-element.js, line 123</a>
 		
 	</li></ul></dd>
     
@@ -7939,14 +7922,14 @@
 										
 											
 <dt class="inherited hidden">
-    <h4 class="name" id="triggerAfterDelay"><span class="type-signature"></span>triggerAfterDelay<span class="type-signature"> :Boolean</span></h4>
+    <h4 class="name" id="totalMarginY"><span class="type-signature">&lt;readonly> </span>totalMarginY<span class="type-signature"> :Number</span></h4>
     
     
 </dt>
 <dd class="inherited hidden">
     
     <p class="description">
-        Whether trigger should activate after delay regardless of whether triggering entity is still there.
+        Total vertical margin, calculated during resize.
     </p>
     
     
@@ -7963,7 +7946,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#triggerAfterDelay">ig.EntityTrigger#triggerAfterDelay</a>
+        <a href="ig.UIInteractive.html#totalMarginY">ig.UIInteractive#totalMarginY</a>
     </li></dd>
     
     
@@ -7977,7 +7960,7 @@
     
     
     <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>false</li></ul></dd>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>0</li></ul></dd>
     
     
     
@@ -7985,72 +7968,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L115" target="_blank">entities/trigger.js, line 115</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt class="inherited hidden">
-    <h4 class="name" id="triggering"><span class="type-signature">&lt;readonly> </span>triggering<span class="type-signature"> :Boolean</span></h4>
-    
-    
-</dt>
-<dd class="inherited hidden">
-    
-    <p class="description">
-        Whether trigger is in the process of triggering.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#triggering">ig.EntityTrigger#triggering</a>
-    </li></dd>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>false</li></ul></dd>
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L151" target="_blank">entities/trigger.js, line 151</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-element.js#L131" target="_blank">ui/ui-element.js, line 131</a>
 		
 	</li></ul></dd>
     
@@ -8093,7 +8011,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#tweens">ig.EntityTrigger#tweens</a>
+        <a href="ig.UIInteractive.html#tweens">ig.UIInteractive#tweens</a>
     </li></dd>
     
     
@@ -8155,7 +8073,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#type">ig.EntityTrigger#type</a>
+        <a href="ig.UIInteractive.html#type">ig.UIInteractive#type</a>
     </li></dd>
     
     
@@ -8203,71 +8121,6 @@
 										
 											
 <dt class="inherited hidden">
-    <h4 class="name" id="useCheckingAsTarget"><span class="type-signature"></span>useCheckingAsTarget<span class="type-signature"> :Boolean</span></h4>
-    
-    
-</dt>
-<dd class="inherited hidden">
-    
-    <p class="description">
-        Whether entity that checks and causes trigger to activate should be used as a target.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#useCheckingAsTarget">ig.EntityTrigger#useCheckingAsTarget</a>
-    </li></dd>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>false</li></ul></dd>
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L143" target="_blank">entities/trigger.js, line 143</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt class="inherited hidden">
     <h4 class="name" id="vertices"><span class="type-signature"></span>vertices<span class="type-signature"> :Array</span></h4>
     
     
@@ -8292,7 +8145,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#vertices">ig.EntityTrigger#vertices</a>
+        <a href="ig.UIInteractive.html#vertices">ig.UIInteractive#vertices</a>
     </li></dd>
     
     
@@ -8354,7 +8207,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#verticesWorld">ig.EntityTrigger#verticesWorld</a>
+        <a href="ig.UIInteractive.html#verticesWorld">ig.UIInteractive#verticesWorld</a>
     </li></dd>
     
     
@@ -8392,14 +8245,14 @@
 										
 											
 <dt class="inherited hidden">
-    <h4 class="name" id="visible"><span class="type-signature">&lt;readonly> </span>visible<span class="type-signature"> :Boolean</span></h4>
+    <h4 class="name" id="visible"><span class="type-signature"></span>visible<span class="type-signature"></span></h4>
     
     
 </dt>
 <dd class="inherited hidden">
     
     <p class="description">
-        Whether entity is visible in screen.
+        UI elements are usually always visible.<br>- this plays well when UI element is also <a href="ig.UIElement.html#fixed">ig.UIElement#fixed</a>
     </p>
     
     
@@ -8416,7 +8269,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#visible">ig.EntityTrigger#visible</a>
+        <a href="ig.UIInteractive.html#visible">ig.UIInteractive#visible</a>
     </li></dd>
     
     
@@ -8430,7 +8283,7 @@
     
     
     <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>false</li></ul></dd>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>true</li></ul></dd>
     
     
     
@@ -8438,7 +8291,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L681" target="_blank">core/entity.js, line 681</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-element.js#L45" target="_blank">ui/ui-element.js, line 45</a>
 		
 	</li></ul></dd>
     
@@ -8446,132 +8299,12 @@
     
     
     
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt class="inherited hidden">
-    <h4 class="name" id="wait"><span class="type-signature"></span>wait<span class="type-signature"> :Number</span></h4>
-    
-    
-</dt>
-<dd class="inherited hidden">
-    
-    <p class="description">
-        Duration in seconds before this trigger can be activated again.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#wait">ig.EntityTrigger#wait</a>
-    </li></dd>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>0</li></ul></dd>
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L101" target="_blank">entities/trigger.js, line 101</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt class="inherited hidden">
-    <h4 class="name" id="waitTimer"><span class="type-signature"></span>waitTimer<span class="type-signature"> :ig.Timer</span></h4>
-    
-    
-</dt>
-<dd class="inherited hidden">
-    
-    <p class="description">
-        Timer to handle wait duration.<br>- created on init
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#waitTimer">ig.EntityTrigger#waitTimer</a>
-    </li></dd>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L180" target="_blank">entities/trigger.js, line 180</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.EntityExtended.html#visible">ig.EntityExtended#visible</a></li>
+        </ul>
+    </dd>
     
     
     
@@ -8608,7 +8341,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#wasChecking">ig.EntityTrigger#wasChecking</a>
+        <a href="ig.UIInteractive.html#wasChecking">ig.UIInteractive#wasChecking</a>
     </li></dd>
     
     
@@ -8661,7 +8394,7 @@
 	
 	<dt class="inherited hidden">
 		<h4 class="name" id="activate">
-			<span class="type-signature"></span>activate<span class="signature">(<span class="optional">entity</span>)</span><span class="type-signature"></span>
+			<span class="type-signature"></span>activate<span class="signature">()</span><span class="type-signature"></span>
 		</h4>
 		
 	</dt>
@@ -8669,8 +8402,92 @@
 <dd class="inherited hidden">
     
     
+
+   
+    
+    
+    
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="unstyled dummy"><li>
+        <a href="ig.UIInteractive.html#activate">ig.UIInteractive#activate</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-interactive.js#L168" target="_blank">ui/ui-interactive.js, line 168</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.UIElement.html#activate">ig.UIElement#activate</a></li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt >
+		<h4 class="name" id="activateComplete">
+			<span class="type-signature"></span>activateComplete<span class="signature">(entity)</span><span class="type-signature"></span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
     <p class="description">
-        Activates and tries to trigger to ensure that triggers chain.
+        Called automatically when activated successfully to dispatch <a href="ig.UIInteractive.html#onActivated">ig.UIInteractive#onActivated</a>.
     </p>
     
 
@@ -8692,8 +8509,6 @@
 		<th>Type</th>
 		
 		
-		<th>Argument</th>
-		
 		
 		
 		
@@ -8711,28 +8526,13 @@
             
             <td class="type">
             
-                
-<span class="param-type">Entity</span>
-
-
-            
             </td>
             
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
             
             
             
-            
-            <td class="description last">causing activation.</td>
+            <td class="description last"></td>
         </tr>
 	
 	
@@ -8748,11 +8548,6 @@
     
     
 
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#activate">ig.EntityTrigger#activate</a>
-    </li></dd>
     
     
     
@@ -8770,7 +8565,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L408" target="_blank">entities/trigger.js, line 408</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-button.js#L54" target="_blank">ui/ui-button.js, line 54</a>
 		
 	</li></ul></dd>
     
@@ -8781,7 +8576,7 @@
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul class="unstyled">
-            <li><a href="ig.EntityExtended.html#activate">ig.EntityExtended#activate</a></li>
+            <li><a href="ig.UIInteractive.html#activateComplete">ig.UIInteractive#activateComplete</a></li>
         </ul>
     </dd>
     
@@ -8930,7 +8725,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#addAnim">ig.EntityTrigger#addAnim</a>
+        <a href="ig.UIInteractive.html#addAnim">ig.UIInteractive#addAnim</a>
     </li></dd>
     
     
@@ -9018,7 +8813,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#addControl">ig.EntityTrigger#addControl</a>
+        <a href="ig.UIInteractive.html#addControl">ig.UIInteractive#addControl</a>
     </li></dd>
     
     
@@ -9153,7 +8948,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#angleTo">ig.EntityTrigger#angleTo</a>
+        <a href="ig.UIInteractive.html#angleTo">ig.UIInteractive#angleTo</a>
     </li></dd>
     
     
@@ -9341,7 +9136,7 @@ angle
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#animOverride">ig.EntityTrigger#animOverride</a>
+        <a href="ig.UIInteractive.html#animOverride">ig.UIInteractive#animOverride</a>
     </li></dd>
     
     
@@ -9534,7 +9329,7 @@ angle
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#animRelease">ig.EntityTrigger#animRelease</a>
+        <a href="ig.UIInteractive.html#animRelease">ig.UIInteractive#animRelease</a>
     </li></dd>
     
     
@@ -9615,7 +9410,7 @@ angle
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#applyAntiGravity">ig.EntityTrigger#applyAntiGravity</a>
+        <a href="ig.UIInteractive.html#applyAntiGravity">ig.UIInteractive#applyAntiGravity</a>
     </li></dd>
     
     
@@ -9696,7 +9491,7 @@ angle
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#applyAntiVelocity">ig.EntityTrigger#applyAntiVelocity</a>
+        <a href="ig.UIInteractive.html#applyAntiVelocity">ig.UIInteractive#applyAntiVelocity</a>
     </li></dd>
     
     
@@ -9777,7 +9572,7 @@ angle
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#applyAntiVelocityX">ig.EntityTrigger#applyAntiVelocityX</a>
+        <a href="ig.UIInteractive.html#applyAntiVelocityX">ig.UIInteractive#applyAntiVelocityX</a>
     </li></dd>
     
     
@@ -9858,7 +9653,7 @@ angle
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#applyAntiVelocityY">ig.EntityTrigger#applyAntiVelocityY</a>
+        <a href="ig.UIInteractive.html#applyAntiVelocityY">ig.UIInteractive#applyAntiVelocityY</a>
     </li></dd>
     
     
@@ -10102,7 +9897,7 @@ angle
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#castShadow">ig.EntityTrigger#castShadow</a>
+        <a href="ig.UIInteractive.html#castShadow">ig.UIInteractive#castShadow</a>
     </li></dd>
     
     
@@ -10183,7 +9978,7 @@ angle
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#changePerformance">ig.EntityTrigger#changePerformance</a>
+        <a href="ig.UIInteractive.html#changePerformance">ig.UIInteractive#changePerformance</a>
     </li></dd>
     
     
@@ -10280,7 +10075,7 @@ whether changed or not.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#changePerformanceDynamic">ig.EntityTrigger#changePerformanceDynamic</a>
+        <a href="ig.UIInteractive.html#changePerformanceDynamic">ig.UIInteractive#changePerformanceDynamic</a>
     </li></dd>
     
     
@@ -10299,13 +10094,20 @@ whether changed or not.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L1708" target="_blank">core/entity.js, line 1708</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-element.js#L204" target="_blank">ui/ui-element.js, line 204</a>
 		
 	</li></ul></dd>
     
     
     
     
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.EntityExtended.html#changePerformanceDynamic">ig.EntityExtended#changePerformanceDynamic</a></li>
+        </ul>
+    </dd>
     
     
     
@@ -10361,7 +10163,7 @@ whether changed or not.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#changePerformanceMovable">ig.EntityTrigger#changePerformanceMovable</a>
+        <a href="ig.UIInteractive.html#changePerformanceMovable">ig.UIInteractive#changePerformanceMovable</a>
     </li></dd>
     
     
@@ -10442,7 +10244,7 @@ whether changed or not.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#changePerformanceStatic">ig.EntityTrigger#changePerformanceStatic</a>
+        <a href="ig.UIInteractive.html#changePerformanceStatic">ig.UIInteractive#changePerformanceStatic</a>
     </li></dd>
     
     
@@ -10502,7 +10304,7 @@ whether changed or not.
     
     
     <p class="description">
-        Checks trigger against entity and tries to trigger.
+        Checks this entity against another entity that matches this entity's <a href="ig.EntityExtended.html#type">ig.EntityExtended#type</a>.
     </p>
     
 
@@ -10583,7 +10385,7 @@ whether changed or not.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#check">ig.EntityTrigger#check</a>
+        <a href="ig.UIInteractive.html#check">ig.UIInteractive#check</a>
     </li></dd>
     
     
@@ -10602,7 +10404,7 @@ whether changed or not.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L260" target="_blank">entities/trigger.js, line 260</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L4436" target="_blank">core/entity.js, line 4436</a>
 		
 	</li></ul></dd>
     
@@ -10613,7 +10415,7 @@ whether changed or not.
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul class="unstyled">
-            <li><a href="ig.EntityExtended.html#check">ig.EntityExtended#check</a></li>
+            <li>ig.Entity.</li>
         </ul>
     </dd>
     
@@ -10671,7 +10473,7 @@ whether changed or not.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#cleanup">ig.EntityTrigger#cleanup</a>
+        <a href="ig.UIInteractive.html#cleanup">ig.UIInteractive#cleanup</a>
     </li></dd>
     
     
@@ -10690,7 +10492,7 @@ whether changed or not.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L535" target="_blank">entities/trigger.js, line 535</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-interactive.js#L218" target="_blank">ui/ui-interactive.js, line 218</a>
 		
 	</li></ul></dd>
     
@@ -10701,7 +10503,7 @@ whether changed or not.
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul class="unstyled">
-            <li><a href="ig.EntityExtended.html#cleanup">ig.EntityExtended#cleanup</a></li>
+            <li><a href="ig.UIElement.html#cleanup">ig.UIElement#cleanup</a></li>
         </ul>
     </dd>
     
@@ -10759,7 +10561,7 @@ whether changed or not.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#cleanupCollision">ig.EntityTrigger#cleanupCollision</a>
+        <a href="ig.UIInteractive.html#cleanupCollision">ig.UIInteractive#cleanupCollision</a>
     </li></dd>
     
     
@@ -10840,7 +10642,7 @@ whether changed or not.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#cleanupPersistent">ig.EntityTrigger#cleanupPersistent</a>
+        <a href="ig.UIInteractive.html#cleanupPersistent">ig.UIInteractive#cleanupPersistent</a>
     </li></dd>
     
     
@@ -11084,7 +10886,7 @@ whether changed or not.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#collideWith">ig.EntityTrigger#collideWith</a>
+        <a href="ig.UIInteractive.html#collideWith">ig.UIInteractive#collideWith</a>
     </li></dd>
     
     
@@ -11104,87 +10906,6 @@ whether changed or not.
 		
 		
 		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L4451" target="_blank">core/entity.js, line 4451</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-									
-										
-
-	
-	<dt class="inherited hidden">
-		<h4 class="name" id="complete">
-			<span class="type-signature"></span>complete<span class="signature">()</span><span class="type-signature"></span>
-		</h4>
-		
-	</dt>
-	
-<dd class="inherited hidden">
-    
-    
-    <p class="description">
-        Called when finished triggering.
-    </p>
-    
-
-   
-    
-    
-    
-    
-    
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#complete">ig.EntityTrigger#complete</a>
-    </li></dd>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L445" target="_blank">entities/trigger.js, line 445</a>
 		
 	</li></ul></dd>
     
@@ -11339,7 +11060,7 @@ whether changed or not.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#createAnim">ig.EntityTrigger#createAnim</a>
+        <a href="ig.UIInteractive.html#createAnim">ig.UIInteractive#createAnim</a>
     </li></dd>
     
     
@@ -11397,7 +11118,7 @@ whether changed or not.
 	
 	<dt class="inherited hidden">
 		<h4 class="name" id="deactivate">
-			<span class="type-signature"></span>deactivate<span class="signature">(<span class="optional">entity</span>)</span><span class="type-signature"></span>
+			<span class="type-signature"></span>deactivate<span class="signature">()</span><span class="type-signature"></span>
 		</h4>
 		
 	</dt>
@@ -11405,8 +11126,92 @@ whether changed or not.
 <dd class="inherited hidden">
     
     
+
+   
+    
+    
+    
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="unstyled dummy"><li>
+        <a href="ig.UIInteractive.html#deactivate">ig.UIInteractive#deactivate</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-interactive.js#L183" target="_blank">ui/ui-interactive.js, line 183</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.UIElement.html#deactivate">ig.UIElement#deactivate</a></li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt >
+		<h4 class="name" id="deactivateComplete">
+			<span class="type-signature"></span>deactivateComplete<span class="signature">(entity)</span><span class="type-signature"></span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
     <p class="description">
-        Deactivates and tears down trigger.
+        Called automatically when deactivated successfully to dispatch <a href="ig.UIInteractive.html#onDeactivated">ig.UIInteractive#onDeactivated</a>.
     </p>
     
 
@@ -11428,8 +11233,6 @@ whether changed or not.
 		<th>Type</th>
 		
 		
-		<th>Argument</th>
-		
 		
 		
 		
@@ -11447,28 +11250,13 @@ whether changed or not.
             
             <td class="type">
             
-                
-<span class="param-type">Entity</span>
-
-
-            
             </td>
             
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
             
             
             
-            
-            <td class="description last">causing deactivation.</td>
+            <td class="description last"></td>
         </tr>
 	
 	
@@ -11484,11 +11272,6 @@ whether changed or not.
     
     
 
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#deactivate">ig.EntityTrigger#deactivate</a>
-    </li></dd>
     
     
     
@@ -11506,7 +11289,7 @@ whether changed or not.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L430" target="_blank">entities/trigger.js, line 430</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-button.js#L76" target="_blank">ui/ui-button.js, line 76</a>
 		
 	</li></ul></dd>
     
@@ -11517,7 +11300,7 @@ whether changed or not.
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul class="unstyled">
-            <li><a href="ig.EntityExtended.html#deactivate">ig.EntityExtended#deactivate</a></li>
+            <li><a href="ig.UIInteractive.html#deactivateComplete">ig.UIInteractive#deactivateComplete</a></li>
         </ul>
     </dd>
     
@@ -11643,7 +11426,7 @@ whether changed or not.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#death">ig.EntityTrigger#death</a>
+        <a href="ig.UIInteractive.html#death">ig.UIInteractive#death</a>
     </li></dd>
     
     
@@ -11724,7 +11507,7 @@ whether changed or not.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#die">ig.EntityTrigger#die</a>
+        <a href="ig.UIInteractive.html#die">ig.UIInteractive#die</a>
     </li></dd>
     
     
@@ -11744,6 +11527,87 @@ whether changed or not.
 		
 		
 		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L4344" target="_blank">core/entity.js, line 4344</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt class="inherited hidden">
+		<h4 class="name" id="disable">
+			<span class="type-signature"></span>disable<span class="signature">()</span><span class="type-signature"></span>
+		</h4>
+		
+	</dt>
+	
+<dd class="inherited hidden">
+    
+    
+    <p class="description">
+        Disables element.
+    </p>
+    
+
+   
+    
+    
+    
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="unstyled dummy"><li>
+        <a href="ig.UIInteractive.html#disable">ig.UIInteractive#disable</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-interactive.js#L151" target="_blank">ui/ui-interactive.js, line 151</a>
 		
 	</li></ul></dd>
     
@@ -11859,7 +11723,7 @@ whether changed or not.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#distanceEdgeTo">ig.EntityTrigger#distanceEdgeTo</a>
+        <a href="ig.UIInteractive.html#distanceEdgeTo">ig.UIInteractive#distanceEdgeTo</a>
     </li></dd>
     
     
@@ -12010,7 +11874,7 @@ distance
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#distanceSquaredEdgeTo">ig.EntityTrigger#distanceSquaredEdgeTo</a>
+        <a href="ig.UIInteractive.html#distanceSquaredEdgeTo">ig.UIInteractive#distanceSquaredEdgeTo</a>
     </li></dd>
     
     
@@ -12161,7 +12025,7 @@ distance
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#distanceSquaredTo">ig.EntityTrigger#distanceSquaredTo</a>
+        <a href="ig.UIInteractive.html#distanceSquaredTo">ig.UIInteractive#distanceSquaredTo</a>
     </li></dd>
     
     
@@ -12312,7 +12176,7 @@ distance squared
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#distanceTo">ig.EntityTrigger#distanceTo</a>
+        <a href="ig.UIInteractive.html#distanceTo">ig.UIInteractive#distanceTo</a>
     </li></dd>
     
     
@@ -12409,7 +12273,7 @@ distance
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#draw">ig.EntityTrigger#draw</a>
+        <a href="ig.UIInteractive.html#draw">ig.UIInteractive#draw</a>
     </li></dd>
     
     
@@ -12429,6 +12293,87 @@ distance
 		
 		
 		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L5080" target="_blank">core/entity.js, line 5080</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt class="inherited hidden">
+		<h4 class="name" id="enable">
+			<span class="type-signature"></span>enable<span class="signature">()</span><span class="type-signature"></span>
+		</h4>
+		
+	</dt>
+	
+<dd class="inherited hidden">
+    
+    
+    <p class="description">
+        Enables element.
+    </p>
+    
+
+   
+    
+    
+    
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="unstyled dummy"><li>
+        <a href="ig.UIInteractive.html#enable">ig.UIInteractive#enable</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-interactive.js#L140" target="_blank">ui/ui-interactive.js, line 140</a>
 		
 	</li></ul></dd>
     
@@ -12550,7 +12495,7 @@ distance
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#fadeIn">ig.EntityTrigger#fadeIn</a>
+        <a href="ig.UIInteractive.html#fadeIn">ig.UIInteractive#fadeIn</a>
     </li></dd>
     
     
@@ -12707,7 +12652,7 @@ tween object.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#fadeOut">ig.EntityTrigger#fadeOut</a>
+        <a href="ig.UIInteractive.html#fadeOut">ig.UIInteractive#fadeOut</a>
     </li></dd>
     
     
@@ -12895,7 +12840,7 @@ tween object.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#fadeTo">ig.EntityTrigger#fadeTo</a>
+        <a href="ig.UIInteractive.html#fadeTo">ig.UIInteractive#fadeTo</a>
     </li></dd>
     
     
@@ -13052,7 +12997,7 @@ tween object if tweening to alpha.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#fadeToDeath">ig.EntityTrigger#fadeToDeath</a>
+        <a href="ig.UIInteractive.html#fadeToDeath">ig.UIInteractive#fadeToDeath</a>
     </li></dd>
     
     
@@ -13118,151 +13063,6 @@ tween object.
 
 	
 	<dt class="inherited hidden">
-		<h4 class="name" id="getCanTrigger">
-			<span class="type-signature"></span>getCanTrigger<span class="signature">(entity)</span><span class="type-signature"> &rarr; {Boolean}</span>
-		</h4>
-		
-	</dt>
-	
-<dd class="inherited hidden">
-    
-    
-    <p class="description">
-        Gets whether trigger can be triggered.
-    </p>
-    
-
-   
-    
-    
-    
-    
-        <span class="label">Parameters:</span>
-        
-
-<table class="params table table-bordered">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>entity</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type"><a href="ig.EntityExtended.html">ig.EntityExtended</a></span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">entity trying to trigger this trigger.</td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#getCanTrigger">ig.EntityTrigger#getCanTrigger</a>
-    </li></dd>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L365" target="_blank">entities/trigger.js, line 365</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <span class="label">Returns:</span>
-    
-            
-<div class="param-desc">
-
-	<span class="type-signature">{
-<span class="param-type">Boolean</span>
-
-}</span>
-
-whether trigger can be triggered.
-</div>
-
-
-
-        
-    
-    
-</dd>
-
-									
-										
-
-	
-	<dt class="inherited hidden">
 		<h4 class="name" id="getCenterX">
 			<span class="type-signature"></span>getCenterX<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span>
 		</h4>
@@ -13294,7 +13094,7 @@ whether trigger can be triggered.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#getCenterX">ig.EntityTrigger#getCenterX</a>
+        <a href="ig.UIInteractive.html#getCenterX">ig.UIInteractive#getCenterX</a>
     </li></dd>
     
     
@@ -13391,7 +13191,7 @@ horizontal center.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#getCenterY">ig.EntityTrigger#getCenterY</a>
+        <a href="ig.UIInteractive.html#getCenterY">ig.UIInteractive#getCenterY</a>
     </li></dd>
     
     
@@ -13536,7 +13336,7 @@ vertical center.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#getDirectionalAnimName">ig.EntityTrigger#getDirectionalAnimName</a>
+        <a href="ig.UIInteractive.html#getDirectionalAnimName">ig.UIInteractive#getDirectionalAnimName</a>
     </li></dd>
     
     
@@ -13686,7 +13486,7 @@ directional animation name
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#getIsCollidingWithOneWay">ig.EntityTrigger#getIsCollidingWithOneWay</a>
+        <a href="ig.UIInteractive.html#getIsCollidingWithOneWay">ig.UIInteractive#getIsCollidingWithOneWay</a>
     </li></dd>
     
     
@@ -13783,7 +13583,7 @@ true if this entity is coming from other entity's one way blocking direction.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#getIsMovingSelf">ig.EntityTrigger#getIsMovingSelf</a>
+        <a href="ig.UIInteractive.html#getIsMovingSelf">ig.UIInteractive#getIsMovingSelf</a>
     </li></dd>
     
     
@@ -13880,7 +13680,7 @@ if is handling own movement.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#getIsVisible">ig.EntityTrigger#getIsVisible</a>
+        <a href="ig.UIInteractive.html#getIsVisible">ig.UIInteractive#getIsVisible</a>
     </li></dd>
     
     
@@ -13982,7 +13782,7 @@ if is in screen.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#getLayer">ig.EntityTrigger#getLayer</a>
+        <a href="ig.UIInteractive.html#getLayer">ig.UIInteractive#getLayer</a>
     </li></dd>
     
     
@@ -14196,7 +13996,7 @@ layer this entity is on.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#getNewVelocity">ig.EntityTrigger#getNewVelocity</a>
+        <a href="ig.UIInteractive.html#getNewVelocity">ig.UIInteractive#getNewVelocity</a>
     </li></dd>
     
     
@@ -14277,7 +14077,7 @@ layer this entity is on.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#getOpaqueVertices">ig.EntityTrigger#getOpaqueVertices</a>
+        <a href="ig.UIInteractive.html#getOpaqueVertices">ig.UIInteractive#getOpaqueVertices</a>
     </li></dd>
     
     
@@ -14374,7 +14174,7 @@ vertices for shadow casting
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#getPosDrawX">ig.EntityTrigger#getPosDrawX</a>
+        <a href="ig.UIInteractive.html#getPosDrawX">ig.UIInteractive#getPosDrawX</a>
     </li></dd>
     
     
@@ -14471,7 +14271,7 @@ draw x position.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#getPosDrawY">ig.EntityTrigger#getPosDrawY</a>
+        <a href="ig.UIInteractive.html#getPosDrawY">ig.UIInteractive#getPosDrawY</a>
     </li></dd>
     
     
@@ -14568,7 +14368,7 @@ draw y position.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#getSizeDrawX">ig.EntityTrigger#getSizeDrawX</a>
+        <a href="ig.UIInteractive.html#getSizeDrawX">ig.UIInteractive#getSizeDrawX</a>
     </li></dd>
     
     
@@ -14665,7 +14465,7 @@ total horizontal size.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#getSizeDrawY">ig.EntityTrigger#getSizeDrawY</a>
+        <a href="ig.UIInteractive.html#getSizeDrawY">ig.UIInteractive#getSizeDrawY</a>
     </li></dd>
     
     
@@ -14762,7 +14562,7 @@ total vertical size.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#getVertices">ig.EntityTrigger#getVertices</a>
+        <a href="ig.UIInteractive.html#getVertices">ig.UIInteractive#getVertices</a>
     </li></dd>
     
     
@@ -14864,7 +14664,7 @@ vertices.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#getVerticesWorld">ig.EntityTrigger#getVerticesWorld</a>
+        <a href="ig.UIInteractive.html#getVerticesWorld">ig.UIInteractive#getVerticesWorld</a>
     </li></dd>
     
     
@@ -14966,7 +14766,7 @@ vertices.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#handleMovementTrace">ig.EntityTrigger#handleMovementTrace</a>
+        <a href="ig.UIInteractive.html#handleMovementTrace">ig.UIInteractive#handleMovementTrace</a>
     </li></dd>
     
     
@@ -15028,190 +14828,6 @@ vertices.
 
 	
 	<dt class="inherited hidden">
-		<h4 class="name" id="handleTargets">
-			<span class="type-signature"></span>handleTargets<span class="signature">(entity, <span class="optional">needsActivation</span>)</span><span class="type-signature"></span>
-		</h4>
-		
-	</dt>
-	
-<dd class="inherited hidden">
-    
-    
-    <p class="description">
-        Handles activating all self and targets in the target sequence.<span class="alert alert-info"><strong>Tip:</strong> override this method to change how the trigger and each target is activated.</span>
-    </p>
-    
-
-   
-    
-    
-    
-    
-        <span class="label">Parameters:</span>
-        
-
-<table class="params table table-bordered">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		<th>Default</th>
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>entity</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type"><a href="ig.EntityExtended.html">ig.EntityExtended</a></span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                </td>
-            
-            
-            <td class="description last">entity calling trigger.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>needsActivation</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Boolean</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    true
-                
-                </td>
-            
-            
-            <td class="description last">whether to activating self in addition to targets</td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#handleTargets">ig.EntityTrigger#handleTargets</a>
-    </li></dd>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L377" target="_blank">entities/trigger.js, line 377</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-									
-										
-
-	
-	<dt class="inherited hidden">
 		<h4 class="name" id="hide">
 			<span class="type-signature"></span>hide<span class="signature">()</span><span class="type-signature"></span>
 		</h4>
@@ -15243,7 +14859,7 @@ vertices.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#hide">ig.EntityTrigger#hide</a>
+        <a href="ig.UIInteractive.html#hide">ig.UIInteractive#hide</a>
     </li></dd>
     
     
@@ -15446,7 +15062,7 @@ vertices.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#init">ig.EntityTrigger#init</a>
+        <a href="ig.UIInteractive.html#init">ig.UIInteractive#init</a>
     </li></dd>
     
     
@@ -15534,7 +15150,7 @@ vertices.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#initOpaqueVertices">ig.EntityTrigger#initOpaqueVertices</a>
+        <a href="ig.UIInteractive.html#initOpaqueVertices">ig.UIInteractive#initOpaqueVertices</a>
     </li></dd>
     
     
@@ -15593,10 +15209,6 @@ vertices.
 <dd class="inherited hidden">
     
     
-    <p class="description">
-        Initializes trigger properties.
-    </p>
-    
 
    
     
@@ -15615,7 +15227,7 @@ vertices.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#initProperties">ig.EntityTrigger#initProperties</a>
+        <a href="ig.UIInteractive.html#initProperties">ig.UIInteractive#initProperties</a>
     </li></dd>
     
     
@@ -15634,7 +15246,7 @@ vertices.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L222" target="_blank">entities/trigger.js, line 222</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-interactive.js#L98" target="_blank">ui/ui-interactive.js, line 98</a>
 		
 	</li></ul></dd>
     
@@ -15645,7 +15257,7 @@ vertices.
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul class="unstyled">
-            <li>ig.EntityExtended.</li>
+            <li><a href="ig.UIElement.html#initProperties">ig.UIElement#initProperties</a></li>
         </ul>
     </dd>
     
@@ -15682,7 +15294,7 @@ vertices.
     
     
     <p class="description">
-        Initializes trigger types.<br>- adds ig.EntityExtended.TYPE.TRIGGER to {@link ig.EntityExtended#type}<br>- adds ig.EntityExtended.TYPE.PLAYER to {@link ig.EntityExtended#checkAgainst}
+        Adds <a href="ig.EntityExtended.TYPE.html#INTERACTIVE">ig.EntityExtended.TYPE.INTERACTIVE</a> type.
     </p>
     
 
@@ -15703,7 +15315,7 @@ vertices.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#initTypes">ig.EntityTrigger#initTypes</a>
+        <a href="ig.UIInteractive.html#initTypes">ig.UIInteractive#initTypes</a>
     </li></dd>
     
     
@@ -15722,7 +15334,7 @@ vertices.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L206" target="_blank">entities/trigger.js, line 206</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-interactive.js#L87" target="_blank">ui/ui-interactive.js, line 87</a>
 		
 	</li></ul></dd>
     
@@ -15733,7 +15345,7 @@ vertices.
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul class="unstyled">
-            <li><a href="ig.EntityExtended.html#initTypes">ig.EntityExtended#initTypes</a></li>
+            <li><a href="ig.UIElement.html#initTypes">ig.UIElement#initTypes</a></li>
         </ul>
     </dd>
     
@@ -15839,7 +15451,7 @@ vertices.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#intersectWith">ig.EntityTrigger#intersectWith</a>
+        <a href="ig.UIInteractive.html#intersectWith">ig.UIInteractive#intersectWith</a>
     </li></dd>
     
     
@@ -15980,7 +15592,7 @@ vertices.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#kill">ig.EntityTrigger#kill</a>
+        <a href="ig.UIInteractive.html#kill">ig.UIInteractive#kill</a>
     </li></dd>
     
     
@@ -15999,7 +15611,7 @@ vertices.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L524" target="_blank">entities/trigger.js, line 524</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L4278" target="_blank">core/entity.js, line 4278</a>
 		
 	</li></ul></dd>
     
@@ -16010,7 +15622,7 @@ vertices.
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul class="unstyled">
-            <li><a href="ig.EntityExtended.html#kill">ig.EntityExtended#kill</a></li>
+            <li>ig.Entity.</li>
         </ul>
     </dd>
     
@@ -16116,7 +15728,7 @@ vertices.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#lineOfSight">ig.EntityTrigger#lineOfSight</a>
+        <a href="ig.UIInteractive.html#lineOfSight">ig.UIInteractive#lineOfSight</a>
     </li></dd>
     
     
@@ -16316,7 +15928,7 @@ if sees other.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#link">ig.EntityTrigger#link</a>
+        <a href="ig.UIInteractive.html#link">ig.UIInteractive#link</a>
     </li></dd>
     
     
@@ -16335,13 +15947,20 @@ if sees other.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L4202" target="_blank">core/entity.js, line 4202</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-element.js#L337" target="_blank">ui/ui-element.js, line 337</a>
 		
 	</li></ul></dd>
     
     
     
     
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.EntityExtended.html#link">ig.EntityExtended#link</a></li>
+        </ul>
+    </dd>
     
     
     
@@ -16451,7 +16070,7 @@ if sees other.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#lookAt">ig.EntityTrigger#lookAt</a>
+        <a href="ig.UIInteractive.html#lookAt">ig.UIInteractive#lookAt</a>
     </li></dd>
     
     
@@ -16532,7 +16151,7 @@ if sees other.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#manageStart">ig.EntityTrigger#manageStart</a>
+        <a href="ig.UIInteractive.html#manageStart">ig.UIInteractive#manageStart</a>
     </li></dd>
     
     
@@ -16613,7 +16232,7 @@ if sees other.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#manageStop">ig.EntityTrigger#manageStop</a>
+        <a href="ig.UIInteractive.html#manageStop">ig.UIInteractive#manageStop</a>
     </li></dd>
     
     
@@ -16694,7 +16313,7 @@ if sees other.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#moveAllStop">ig.EntityTrigger#moveAllStop</a>
+        <a href="ig.UIInteractive.html#moveAllStop">ig.UIInteractive#moveAllStop</a>
     </li></dd>
     
     
@@ -16754,7 +16373,7 @@ if sees other.
     
     
     <p class="description">
-        Moves to an item, which can be an entity or a position.
+        Moves UI element to entity or position.
     </p>
     
 
@@ -16872,7 +16491,7 @@ if sees other.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#moveTo">ig.EntityTrigger#moveTo</a>
+        <a href="ig.UIInteractive.html#moveTo">ig.UIInteractive#moveTo</a>
     </li></dd>
     
     
@@ -16891,13 +16510,20 @@ if sees other.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L3457" target="_blank">core/entity.js, line 3457</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-element.js#L324" target="_blank">ui/ui-element.js, line 324</a>
 		
 	</li></ul></dd>
     
     
     
     
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.EntityExtended.html#moveTo">ig.EntityExtended#moveTo</a></li>
+        </ul>
+    </dd>
     
     
     
@@ -16930,11 +16556,6 @@ whether a new move to has been started
 
         
     
-    
-        <span class="label">Example</span>
-        
-    <pre class="prettyprint linenums"><code>// settings is a plain objectsettings = {};// to ensure entity follows other properlysettings.matchPerformance = true;// to move to only oncesettings.once = true;// follow defaults to aligning at center of followed// to follow at the top left instead of centersettings.align = { x: 0, y: 0 };// to follow and flip with whatever we're moving tosettings.flipWith = true;// to follow offset by 10 pxsettings.offset = { x: 10, y: 10 };// to follow abovesettings.offsetPct = { x: 0, y: -1 };// to follow at a random offset between -0.25 and 0.25 on both axessettings.randomOffsetPct = { x: 0.25, y: 0.25 };// a lerp between 0 and 1 will cause a smooth followsettings.lerp = 0.1;// a tweened follow with optional tween settings based on <a href="ig.EntityExtended.html#tween">ig.EntityExtended#tween</a>settings.tween = true;settings.tweenSettings = {...};</code></pre>
-
     
 </dd>
 
@@ -16974,7 +16595,7 @@ whether a new move to has been started
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#moveToComplete">ig.EntityTrigger#moveToComplete</a>
+        <a href="ig.UIInteractive.html#moveToComplete">ig.UIInteractive#moveToComplete</a>
     </li></dd>
     
     
@@ -17168,7 +16789,7 @@ true when move is completed, otherwise is continuing sequence.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#moveToPosition">ig.EntityTrigger#moveToPosition</a>
+        <a href="ig.UIInteractive.html#moveToPosition">ig.UIInteractive#moveToPosition</a>
     </li></dd>
     
     
@@ -17256,7 +16877,7 @@ true when move is completed, otherwise is continuing sequence.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#moveToSequenceNext">ig.EntityTrigger#moveToSequenceNext</a>
+        <a href="ig.UIInteractive.html#moveToSequenceNext">ig.UIInteractive#moveToSequenceNext</a>
     </li></dd>
     
     
@@ -17337,7 +16958,7 @@ true when move is completed, otherwise is continuing sequence.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#moveToStop">ig.EntityTrigger#moveToStop</a>
+        <a href="ig.UIInteractive.html#moveToStop">ig.UIInteractive#moveToStop</a>
     </li></dd>
     
     
@@ -17418,7 +17039,7 @@ true when move is completed, otherwise is continuing sequence.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#moveToUpdate">ig.EntityTrigger#moveToUpdate</a>
+        <a href="ig.UIInteractive.html#moveToUpdate">ig.UIInteractive#moveToUpdate</a>
     </li></dd>
     
     
@@ -17499,7 +17120,7 @@ true when move is completed, otherwise is continuing sequence.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#pause">ig.EntityTrigger#pause</a>
+        <a href="ig.UIInteractive.html#pause">ig.UIInteractive#pause</a>
     </li></dd>
     
     
@@ -17518,20 +17139,13 @@ true when move is completed, otherwise is continuing sequence.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L500" target="_blank">entities/trigger.js, line 500</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L4117" target="_blank">core/entity.js, line 4117</a>
 		
 	</li></ul></dd>
     
     
     
     
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul class="unstyled">
-            <li><a href="ig.EntityExtended.html#pause">ig.EntityExtended#pause</a></li>
-        </ul>
-    </dd>
     
     
     
@@ -17782,7 +17396,7 @@ true when move is completed, otherwise is continuing sequence.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#projectShadow">ig.EntityTrigger#projectShadow</a>
+        <a href="ig.UIInteractive.html#projectShadow">ig.UIInteractive#projectShadow</a>
     </li></dd>
     
     
@@ -17879,7 +17493,7 @@ vertices of the shape cast by light from edge.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#ready">ig.EntityTrigger#ready</a>
+        <a href="ig.UIInteractive.html#ready">ig.UIInteractive#ready</a>
     </li></dd>
     
     
@@ -17967,7 +17581,7 @@ vertices of the shape cast by light from edge.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#rebuild">ig.EntityTrigger#rebuild</a>
+        <a href="ig.UIInteractive.html#rebuild">ig.UIInteractive#rebuild</a>
     </li></dd>
     
     
@@ -18172,7 +17786,7 @@ vertices of the shape cast by light from edge.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#receiveDamage">ig.EntityTrigger#receiveDamage</a>
+        <a href="ig.UIInteractive.html#receiveDamage">ig.UIInteractive#receiveDamage</a>
     </li></dd>
     
     
@@ -18329,7 +17943,7 @@ whether damage was applied.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#recordChanges">ig.EntityTrigger#recordChanges</a>
+        <a href="ig.UIInteractive.html#recordChanges">ig.UIInteractive#recordChanges</a>
     </li></dd>
     
     
@@ -18410,7 +18024,7 @@ whether damage was applied.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#recordLast">ig.EntityTrigger#recordLast</a>
+        <a href="ig.UIInteractive.html#recordLast">ig.UIInteractive#recordLast</a>
     </li></dd>
     
     
@@ -18491,7 +18105,7 @@ whether damage was applied.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#recordResetState">ig.EntityTrigger#recordResetState</a>
+        <a href="ig.UIInteractive.html#recordResetState">ig.UIInteractive#recordResetState</a>
     </li></dd>
     
     
@@ -18632,7 +18246,7 @@ whether damage was applied.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#refresh">ig.EntityTrigger#refresh</a>
+        <a href="ig.UIInteractive.html#refresh">ig.UIInteractive#refresh</a>
     </li></dd>
     
     
@@ -18713,7 +18327,7 @@ whether damage was applied.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#removeControl">ig.EntityTrigger#removeControl</a>
+        <a href="ig.UIInteractive.html#removeControl">ig.UIInteractive#removeControl</a>
     </li></dd>
     
     
@@ -18773,7 +18387,7 @@ whether damage was applied.
     
     
     <p class="description">
-        Repositions entity.<span class="alert alert-info"><strong>Tip:</strong> by default, this method does nothing, so override this method with a class specific one.</span>
+        Refreshes position.
     </p>
     
 
@@ -18854,7 +18468,7 @@ whether damage was applied.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#reposition">ig.EntityTrigger#reposition</a>
+        <a href="ig.UIInteractive.html#reposition">ig.UIInteractive#reposition</a>
     </li></dd>
     
     
@@ -18873,7 +18487,7 @@ whether damage was applied.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L1521" target="_blank">core/entity.js, line 1521</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-element.js#L239" target="_blank">ui/ui-element.js, line 239</a>
 		
 	</li></ul></dd>
     
@@ -19057,7 +18671,7 @@ whether damage was applied.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#reset">ig.EntityTrigger#reset</a>
+        <a href="ig.UIInteractive.html#reset">ig.UIInteractive#reset</a>
     </li></dd>
     
     
@@ -19260,7 +18874,7 @@ whether damage was applied.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#resetCore">ig.EntityTrigger#resetCore</a>
+        <a href="ig.UIInteractive.html#resetCore">ig.UIInteractive#resetCore</a>
     </li></dd>
     
     
@@ -19319,10 +18933,6 @@ whether damage was applied.
 <dd class="inherited hidden">
     
     
-    <p class="description">
-        Resets extra properties after core.
-    </p>
-    
 
    
     
@@ -19341,7 +18951,7 @@ whether damage was applied.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#resetExtras">ig.EntityTrigger#resetExtras</a>
+        <a href="ig.UIInteractive.html#resetExtras">ig.UIInteractive#resetExtras</a>
     </li></dd>
     
     
@@ -19360,7 +18970,7 @@ whether damage was applied.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L236" target="_blank">entities/trigger.js, line 236</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-interactive.js#L110" target="_blank">ui/ui-interactive.js, line 110</a>
 		
 	</li></ul></dd>
     
@@ -19371,7 +18981,7 @@ whether damage was applied.
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul class="unstyled">
-            <li><a href="ig.EntityExtended.html#resetExtras">ig.EntityExtended#resetExtras</a></li>
+            <li><a href="ig.UIElement.html#resetExtras">ig.UIElement#resetExtras</a></li>
         </ul>
     </dd>
     
@@ -19429,7 +19039,7 @@ whether damage was applied.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#resetToInitAnim">ig.EntityTrigger#resetToInitAnim</a>
+        <a href="ig.UIInteractive.html#resetToInitAnim">ig.UIInteractive#resetToInitAnim</a>
     </li></dd>
     
     
@@ -19570,7 +19180,7 @@ whether damage was applied.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#resize">ig.EntityTrigger#resize</a>
+        <a href="ig.UIInteractive.html#resize">ig.UIInteractive#resize</a>
     </li></dd>
     
     
@@ -19719,7 +19329,7 @@ whether damage was applied.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#setControllable">ig.EntityTrigger#setControllable</a>
+        <a href="ig.UIInteractive.html#setControllable">ig.UIInteractive#setControllable</a>
     </li></dd>
     
     
@@ -19739,6 +19349,155 @@ whether damage was applied.
 		
 		
 		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L1715" target="_blank">core/entity.js, line 1715</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt class="inherited hidden">
+		<h4 class="name" id="setEnabled">
+			<span class="type-signature"></span>setEnabled<span class="signature">(<span class="optional">enabled</span>)</span><span class="type-signature"></span>
+		</h4>
+		
+	</dt>
+	
+<dd class="inherited hidden">
+    
+    
+    <p class="description">
+        Sets element enabled state.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>enabled</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+            
+            <td class="description last">whether enabled.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="unstyled dummy"><li>
+        <a href="ig.UIInteractive.html#setEnabled">ig.UIInteractive#setEnabled</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-interactive.js#L122" target="_blank">ui/ui-interactive.js, line 122</a>
 		
 	</li></ul></dd>
     
@@ -19868,7 +19627,7 @@ whether damage was applied.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#setGrounded">ig.EntityTrigger#setGrounded</a>
+        <a href="ig.UIInteractive.html#setGrounded">ig.UIInteractive#setGrounded</a>
     </li></dd>
     
     
@@ -20017,7 +19776,7 @@ whether damage was applied.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#setHidden">ig.EntityTrigger#setHidden</a>
+        <a href="ig.UIInteractive.html#setHidden">ig.UIInteractive#setHidden</a>
     </li></dd>
     
     
@@ -20098,7 +19857,7 @@ whether damage was applied.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#setPerformance">ig.EntityTrigger#setPerformance</a>
+        <a href="ig.UIInteractive.html#setPerformance">ig.UIInteractive#setPerformance</a>
     </li></dd>
     
     
@@ -20179,7 +19938,7 @@ whether damage was applied.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#setUngrounded">ig.EntityTrigger#setUngrounded</a>
+        <a href="ig.UIInteractive.html#setUngrounded">ig.UIInteractive#setUngrounded</a>
     </li></dd>
     
     
@@ -20199,87 +19958,6 @@ whether damage was applied.
 		
 		
 		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L2438" target="_blank">core/entity.js, line 2438</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-									
-										
-
-	
-	<dt class="inherited hidden">
-		<h4 class="name" id="setup">
-			<span class="type-signature"></span>setup<span class="signature">()</span><span class="type-signature"></span>
-		</h4>
-		
-	</dt>
-	
-<dd class="inherited hidden">
-    
-    
-    <p class="description">
-        Sets up trigger and makes temporary modifications, which are removed by <a href="ig.EntityTrigger.html#teardown">ig.EntityTrigger#teardown</a>.<span class="alert alert-info"><strong>Tip:</strong> setup is called only on activate, while teardown is called on the 1) complete, 2) deactivate, and 3) cleanup methods. Complete is normally called immediately after activating/triggering, so if you don't want to teardown immediately use the <a href="ig.EntityTrigger.html#teardownWhenComplete">ig.EntityTrigger#teardownWhenComplete</a> property.</span>
-    </p>
-    
-
-   
-    
-    
-    
-    
-    
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#setup">ig.EntityTrigger#setup</a>
-    </li></dd>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L481" target="_blank">entities/trigger.js, line 481</a>
 		
 	</li></ul></dd>
     
@@ -20341,7 +20019,7 @@ whether damage was applied.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#spawn">ig.EntityTrigger#spawn</a>
+        <a href="ig.UIInteractive.html#spawn">ig.UIInteractive#spawn</a>
     </li></dd>
     
     
@@ -20361,87 +20039,6 @@ whether damage was applied.
 		
 		
 		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L1606" target="_blank">core/entity.js, line 1606</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-									
-										
-
-	
-	<dt class="inherited hidden">
-		<h4 class="name" id="teardown">
-			<span class="type-signature"></span>teardown<span class="signature">()</span><span class="type-signature"></span>
-		</h4>
-		
-	</dt>
-	
-<dd class="inherited hidden">
-    
-    
-    <p class="description">
-        Tears down trigger and cleans up any temporary modifications trigger made by <a href="ig.EntityTrigger.html#setup">ig.EntityTrigger#setup</a>.<span class="alert alert-info"><strong>Tip:</strong> setup is called only on activate, while teardown is called on the 1) complete, 2) deactivate, and 3) cleanup methods. Complete is normally called immediately after activating/triggering, so if you don't want to teardown immediately use the <a href="ig.EntityTrigger.html#teardownWhenComplete">ig.EntityTrigger#teardownWhenComplete</a> property.</span>
-    </p>
-    
-
-   
-    
-    
-    
-    
-    
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#teardown">ig.EntityTrigger#teardown</a>
-    </li></dd>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L491" target="_blank">entities/trigger.js, line 491</a>
 		
 	</li></ul></dd>
     
@@ -20563,7 +20160,7 @@ whether damage was applied.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#toggleActivate">ig.EntityTrigger#toggleActivate</a>
+        <a href="ig.UIInteractive.html#toggleActivate">ig.UIInteractive#toggleActivate</a>
     </li></dd>
     
     
@@ -20692,7 +20289,7 @@ whether damage was applied.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#touches">ig.EntityTrigger#touches</a>
+        <a href="ig.UIInteractive.html#touches">ig.UIInteractive#touches</a>
     </li></dd>
     
     
@@ -20749,231 +20346,6 @@ if touches other.
 
 
         
-    
-    
-</dd>
-
-									
-										
-
-	
-	<dt class="inherited hidden">
-		<h4 class="name" id="trigger">
-			<span class="type-signature"></span>trigger<span class="signature">(<span class="optional">entity</span>, <span class="optional">needsActivation</span>, <span class="optional">entityIsChecking</span>)</span><span class="type-signature"></span>
-		</h4>
-		
-	</dt>
-	
-<dd class="inherited hidden">
-    
-    
-    <p class="description">
-        Called when triggering to activate self and all targets.
-    </p>
-    
-
-   
-    
-    
-    
-    
-        <span class="label">Parameters:</span>
-        
-
-<table class="params table table-bordered">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		<th>Default</th>
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>entity</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type"><a href="ig.EntityExtended.html">ig.EntityExtended</a></span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                </td>
-            
-            
-            <td class="description last">entity calling trigger.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>needsActivation</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Boolean</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    true
-                
-                </td>
-            
-            
-            <td class="description last">whether to activating self in addition to targets.</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>entityIsChecking</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Boolean</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    false
-                
-                </td>
-            
-            
-            <td class="description last">whether entity is checking.</td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#trigger">ig.EntityTrigger#trigger</a>
-    </li></dd>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L278" target="_blank">entities/trigger.js, line 278</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
     
     
 </dd>
@@ -21105,7 +20477,7 @@ if touches other.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#tween">ig.EntityTrigger#tween</a>
+        <a href="ig.UIInteractive.html#tween">ig.UIInteractive#tween</a>
     </li></dd>
     
     
@@ -21262,7 +20634,7 @@ tween object.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#tweenEnd">ig.EntityTrigger#tweenEnd</a>
+        <a href="ig.UIInteractive.html#tweenEnd">ig.UIInteractive#tweenEnd</a>
     </li></dd>
     
     
@@ -21343,7 +20715,7 @@ tween object.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#unhide">ig.EntityTrigger#unhide</a>
+        <a href="ig.UIInteractive.html#unhide">ig.UIInteractive#unhide</a>
     </li></dd>
     
     
@@ -21492,7 +20864,7 @@ tween object.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#unlink">ig.EntityTrigger#unlink</a>
+        <a href="ig.UIInteractive.html#unlink">ig.UIInteractive#unlink</a>
     </li></dd>
     
     
@@ -21511,13 +20883,20 @@ tween object.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L4245" target="_blank">core/entity.js, line 4245</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/ui/ui-element.js#L355" target="_blank">ui/ui-element.js, line 355</a>
 		
 	</li></ul></dd>
     
     
     
     
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.EntityExtended.html#unlink">ig.EntityExtended#unlink</a></li>
+        </ul>
+    </dd>
     
     
     
@@ -21573,7 +20952,7 @@ tween object.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#unpause">ig.EntityTrigger#unpause</a>
+        <a href="ig.UIInteractive.html#unpause">ig.UIInteractive#unpause</a>
     </li></dd>
     
     
@@ -21592,20 +20971,13 @@ tween object.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L512" target="_blank">entities/trigger.js, line 512</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L4158" target="_blank">core/entity.js, line 4158</a>
 		
 	</li></ul></dd>
     
     
     
     
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul class="unstyled">
-            <li><a href="ig.EntityExtended.html#unpause">ig.EntityExtended#unpause</a></li>
-        </ul>
-    </dd>
     
     
     
@@ -21640,7 +21012,7 @@ tween object.
     
     
     <p class="description">
-        Updates trigger and checks whether should trigger after delay.
+        Entities update is now broken down into a series of functions/methods, which can be opted into based on <a href="ig.EntityExtended.html#frozen">ig.EntityExtended#frozen</a> and <a href="ig.EntityExtended.html#performance">ig.EntityExtended#performance</a>.<br>- paused and frozen entities don't update at all<br>- performance === ig.EntityExtended.PERFORMANCE.STATIC entities only check if visible and do <a href="ig.EntityExtended.html#updateVisible">ig.EntityExtended#updateVisible</a><br>- performance === ig.EntityExtended.PERFORMANCE.MOVABLE does all static performance steps plus can move self or be moved, but ignores collision map, and checks for changes via <a href="ig.EntityExtended.html#updateChanges">ig.EntityExtended#updateChanges</a> and <a href="ig.EntityExtended.html#recordChanges">ig.EntityExtended#recordChanges</a><br>- performance === ig.EntityExtended.PERFORMANCE.DYNAMIC does all movable performance steps plus collides with collision map and has physics forces via <a href="ig.EntityExtended.html#updateDynamics">ig.EntityExtended#updateDynamics</a><span class="alert"><strong>IMPORTANT:</strong> <a href="ig.EntityExtended.html#performance">ig.EntityExtended#performance</a> has nothing to do with entity to entity collisions, which is defined by <a href="ig.EntityExtended.html#collides">ig.EntityExtended#collides</a>.</span>
     </p>
     
 
@@ -21661,7 +21033,7 @@ tween object.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#update">ig.EntityTrigger#update</a>
+        <a href="ig.UIInteractive.html#update">ig.UIInteractive#update</a>
     </li></dd>
     
     
@@ -21680,20 +21052,13 @@ tween object.
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/entities/trigger.js#L558" target="_blank">entities/trigger.js, line 558</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/entity.js#L4795" target="_blank">core/entity.js, line 4795</a>
 		
 	</li></ul></dd>
     
     
     
     
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul class="unstyled">
-            <li><a href="ig.EntityExtended.html#update">ig.EntityExtended#update</a></li>
-        </ul>
-    </dd>
     
     
     
@@ -21749,7 +21114,7 @@ tween object.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#updateBounds">ig.EntityTrigger#updateBounds</a>
+        <a href="ig.UIInteractive.html#updateBounds">ig.UIInteractive#updateBounds</a>
     </li></dd>
     
     
@@ -21830,7 +21195,7 @@ tween object.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#updateChanges">ig.EntityTrigger#updateChanges</a>
+        <a href="ig.UIInteractive.html#updateChanges">ig.UIInteractive#updateChanges</a>
     </li></dd>
     
     
@@ -21911,7 +21276,7 @@ tween object.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#updateDynamics">ig.EntityTrigger#updateDynamics</a>
+        <a href="ig.UIInteractive.html#updateDynamics">ig.UIInteractive#updateDynamics</a>
     </li></dd>
     
     
@@ -21992,7 +21357,7 @@ tween object.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#updateVelocity">ig.EntityTrigger#updateVelocity</a>
+        <a href="ig.UIInteractive.html#updateVelocity">ig.UIInteractive#updateVelocity</a>
     </li></dd>
     
     
@@ -22073,7 +21438,7 @@ tween object.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="unstyled dummy"><li>
-        <a href="ig.EntityTrigger.html#updateVisible">ig.EntityTrigger#updateVisible</a>
+        <a href="ig.UIInteractive.html#updateVisible">ig.UIInteractive#updateVisible</a>
     </li></dd>
     
     
@@ -22133,7 +21498,7 @@ tween object.
 
 					<div id="maincontentColumn2" class="span2">
 						
-						<div id="navdocs" class="hidden-phone"><div id="navdoc"><ul class="nav nav-list sidenav"><li class="nav-header">EntityNarrative</li><li><a href="#docs"><div class="icon-chevron-left pull-left"></div> Overview</a></li><li><a href="#members" type="button"><div class="icon-chevron-left pull-left"></div> Members</a></li><li><a href="#methods" type="button"><div class="icon-chevron-left pull-left"></div> Methods</a></li><li><button class="btn btn-link" data-toggle="inherited"><div class="icon-eye-open"></div> inherited</a></li></ul></div><ul class="nav nav-list sidenav"><li class="nav-header"><img src="img/logo_impactplusplus_25.png"> Impact++</li><li><a href="#navAbilities" class="mainnavLink">Abilities</a></li><li><a href="#navAbstractities" class="mainnavLink">Abstractities</a></li><li><a href="#navCore" class="mainnavLink">Core</a></li><li><a href="#navEntities" class="mainnavLink">Entities</a></li><li><a href="#navHelpers" class="mainnavLink">Helpers</a></li><li><a href="#navUi" class="mainnavLink">Ui</a></li></ul></div>
+						<div id="navdocs" class="hidden-phone"><div id="navdoc"><ul class="nav nav-list sidenav"><li class="nav-header">UIButton</li><li><a href="#docs"><div class="icon-chevron-left pull-left"></div> Overview</a></li><li><a href="#members" type="button"><div class="icon-chevron-left pull-left"></div> Members</a></li><li><a href="#methods" type="button"><div class="icon-chevron-left pull-left"></div> Methods</a></li><li><button class="btn btn-link" data-toggle="inherited"><div class="icon-eye-open"></div> inherited</a></li></ul></div><ul class="nav nav-list sidenav"><li class="nav-header"><img src="img/logo_impactplusplus_25.png"> Impact++</li><li><a href="#navAbilities" class="mainnavLink">Abilities</a></li><li><a href="#navAbstractities" class="mainnavLink">Abstractities</a></li><li><a href="#navCore" class="mainnavLink">Core</a></li><li><a href="#navEntities" class="mainnavLink">Entities</a></li><li><a href="#navHelpers" class="mainnavLink">Helpers</a></li><li><a href="#navUi" class="mainnavLink">Ui</a></li></ul></div>
 
 					</div>
 					

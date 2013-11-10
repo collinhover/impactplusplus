@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-    <title>Impact++ / Namespace: UI</title>
+    <title>Impact++ / Namespace: PLAYER_MANAGER</title>
     
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -75,7 +75,7 @@
 									
 									
 									<h1>
-									UI
+									PLAYER_MANAGER
 									
 									</h1>
 									
@@ -87,7 +87,7 @@
 									
 									
 										
-											<p class="description">User Interface base configuration settings.<span class="alert alert-error"><strong>IMPORTANT:</strong> Don't modify config directly! (see example)</span></p>
+											<p class="description">Player manager base configuration settings.<span class="alert alert-error"><strong>IMPORTANT:</strong> Don't modify config directly! (see example)</span></p>
 										
 										
 										
@@ -122,7 +122,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/config.js#L726" target="_blank">core/config.js, line 726</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/config.js#L1869" target="_blank">core/config.js, line 1869</a>
 		
 	</li></ul></dd>
     
@@ -162,14 +162,14 @@
 										<dl>
 											
 <dt >
-    <h4 class="name" id="CAN_FLIP_X"><span class="type-signature">&lt;static> </span>CAN_FLIP_X<span class="type-signature"> :Boolean</span></h4>
+    <h4 class="name" id="AUTO_MANAGE_PLAYER"><span class="type-signature">&lt;static> </span>AUTO_MANAGE_PLAYER<span class="type-signature"> :Boolean</span></h4>
     
     
 </dt>
 <dd >
     
     <p class="description">
-        Whether UI can flip horizontal.
+        Whether to automatically manage player if within level.
     </p>
     
     
@@ -203,7 +203,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/config.js#L813" target="_blank">core/config.js, line 813</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/config.js#L1891" target="_blank">core/config.js, line 1891</a>
 		
 	</li></ul></dd>
     
@@ -222,134 +222,14 @@
 										
 											
 <dt >
-    <h4 class="name" id="CAN_FLIP_Y"><span class="type-signature">&lt;static> </span>CAN_FLIP_Y<span class="type-signature"> :Boolean</span></h4>
+    <h4 class="name" id="HOLD_TO_MOVE"><span class="type-signature">&lt;static> </span>HOLD_TO_MOVE<span class="type-signature"> :Boolean</span></h4>
     
     
 </dt>
 <dd >
     
     <p class="description">
-        Whether UI can flip horizontal.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>false</li></ul></dd>
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/config.js#L821" target="_blank">core/config.js, line 821</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt >
-    <h4 class="name" id="IGNORE_SYSTEM_SCALE"><span class="type-signature">&lt;static> </span>IGNORE_SYSTEM_SCALE<span class="type-signature"> :Boolean</span></h4>
-    
-    
-</dt>
-<dd >
-    
-    <p class="description">
-        Whether user interface elements should ignore system scale.<span class="alert"><strong>IMPORTANT:</strong> when true, ui elements will not scale dynamically with view and instead will be fixed in size. This is usually ideal.</span>
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>false</li></ul></dd>
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/config.js#L789" target="_blank">core/config.js, line 789</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt >
-    <h4 class="name" id="MARGIN_AS_PCT_SMALLEST"><span class="type-signature">&lt;static> </span>MARGIN_AS_PCT_SMALLEST<span class="type-signature"> :Boolean</span></h4>
-    
-    
-</dt>
-<dd >
-    
-    <p class="description">
-        Whether to get margin percentages from smallest dimension in screen size.
+        Whether to allow touch/click and hold to be interpreted as movement.
     </p>
     
     
@@ -383,7 +263,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/config.js#L797" target="_blank">core/config.js, line 797</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/config.js#L1899" target="_blank">core/config.js, line 1899</a>
 		
 	</li></ul></dd>
     
@@ -402,14 +282,14 @@
 										
 											
 <dt >
-    <h4 class="name" id="MARGIN_SCALELESS"><span class="type-signature">&lt;static> </span>MARGIN_SCALELESS<span class="type-signature"> :Boolean</span></h4>
+    <h4 class="name" id="SWIPE_TO_JUMP"><span class="type-signature">&lt;static> </span>SWIPE_TO_JUMP<span class="type-signature"> :Boolean</span></h4>
     
     
 </dt>
 <dd >
     
     <p class="description">
-        Whether margins should be calculated consistently at all scales. Ex: a button should be 15px away from the edge no matter the scale.
+        Whether to allow swipe up to be interpreted as jump.
     </p>
     
     
@@ -443,307 +323,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/config.js#L805" target="_blank">core/config.js, line 805</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt >
-    <h4 class="name" id="POS_AS_PCT"><span class="type-signature">&lt;static> </span>POS_AS_PCT<span class="type-signature"> :Boolean</span></h4>
-    
-    
-</dt>
-<dd >
-    
-    <p class="description">
-        Whether UI should get position as a percentage of screen size.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>true</li></ul></dd>
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/config.js#L748" target="_blank">core/config.js, line 748</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt >
-    <h4 class="name" id="SCALE"><span class="type-signature">&lt;static> </span>SCALE<span class="type-signature"> :Number</span></h4>
-    
-    
-</dt>
-<dd >
-    
-    <p class="description">
-        Scale that overrides system scale when <a href="ig.CONFIG.UI.html#IGNORE_SYSTEM_SCALE">ig.CONFIG.UI.IGNORE_SYSTEM_SCALE</a> is true.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>1</li></ul></dd>
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/config.js#L756" target="_blank">core/config.js, line 756</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt >
-    <h4 class="name" id="SCALE_MAX"><span class="type-signature">&lt;static> </span>SCALE_MAX<span class="type-signature"> :Number</span></h4>
-    
-    
-</dt>
-<dd >
-    
-    <p class="description">
-        Maximum value of <a href="ig.UIElement.html#scale">ig.UIElement#scale</a>.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>Infinity</li></ul></dd>
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/config.js#L780" target="_blank">core/config.js, line 780</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt >
-    <h4 class="name" id="SCALE_MIN"><span class="type-signature">&lt;static> </span>SCALE_MIN<span class="type-signature"> :Number</span></h4>
-    
-    
-</dt>
-<dd >
-    
-    <p class="description">
-        Minimum value of <a href="ig.UIElement.html#scale">ig.UIElement#scale</a>.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>1</li></ul></dd>
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/config.js#L772" target="_blank">core/config.js, line 772</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt >
-    <h4 class="name" id="SCALE_OF_SYSTEM_SCALE"><span class="type-signature">&lt;static> </span>SCALE_OF_SYSTEM_SCALE<span class="type-signature"> :Number</span></h4>
-    
-    
-</dt>
-<dd >
-    
-    <p class="description">
-        Scale of system scale.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>1</li></ul></dd>
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/config.js#L764" target="_blank">core/config.js, line 764</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/config.js#L1907" target="_blank">core/config.js, line 1907</a>
 		
 	</li></ul></dd>
     
@@ -776,7 +356,7 @@
 
 					<div id="maincontentColumn2" class="span2">
 						
-						<div id="navdocs" class="hidden-phone"><div id="navdoc"><ul class="nav nav-list sidenav"><li class="nav-header">UI</li><li><a href="#docs"><div class="icon-chevron-left pull-left"></div> Overview</a></li><li><a href="#members" type="button"><div class="icon-chevron-left pull-left"></div> Members</a></li></ul></div><ul class="nav nav-list sidenav"><li class="nav-header"><img src="img/logo_impactplusplus_25.png"> Impact++</li><li><a href="#navAbilities" class="mainnavLink">Abilities</a></li><li><a href="#navAbstractities" class="mainnavLink">Abstractities</a></li><li><a href="#navCore" class="mainnavLink">Core</a></li><li><a href="#navEntities" class="mainnavLink">Entities</a></li><li><a href="#navHelpers" class="mainnavLink">Helpers</a></li><li><a href="#navUi" class="mainnavLink">Ui</a></li></ul></div>
+						<div id="navdocs" class="hidden-phone"><div id="navdoc"><ul class="nav nav-list sidenav"><li class="nav-header">PLAYER_MANAGER</li><li><a href="#docs"><div class="icon-chevron-left pull-left"></div> Overview</a></li><li><a href="#members" type="button"><div class="icon-chevron-left pull-left"></div> Members</a></li></ul></div><ul class="nav nav-list sidenav"><li class="nav-header"><img src="img/logo_impactplusplus_25.png"> Impact++</li><li><a href="#navAbilities" class="mainnavLink">Abilities</a></li><li><a href="#navAbstractities" class="mainnavLink">Abstractities</a></li><li><a href="#navCore" class="mainnavLink">Core</a></li><li><a href="#navEntities" class="mainnavLink">Entities</a></li><li><a href="#navHelpers" class="mainnavLink">Helpers</a></li><li><a href="#navUi" class="mainnavLink">Ui</a></li></ul></div>
 
 					</div>
 					

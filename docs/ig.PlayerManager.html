@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-    <title>Impact++ / Class: Layer</title>
+    <title>Impact++ / Class: PlayerManager</title>
     
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -56,7 +56,7 @@
 		<div class="span10">
 			<div id="maincontent">
 				
-				<ul class="breadcrumb"><li><a href="https://github.com/collinhover/impactplusplus/">Impact++</a><span class="divider">/</span></li><li><a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core" target="_blank">core</a><span class="divider">/</span></li><li><a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js" target="_blank">layer.js</a> <small class="muted">(source)</small></li></ul>
+				<ul class="breadcrumb"><li><a href="https://github.com/collinhover/impactplusplus/">Impact++</a><span class="divider">/</span></li><li><a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core" target="_blank">core</a><span class="divider">/</span></li><li><a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/player-manager.js" target="_blank">player-manager.js</a> <small class="muted">(source)</small></li></ul>
 
 				<div class="row">
 
@@ -81,7 +81,7 @@
 									
 									
 									<h1>
-									Layer
+									PlayerManager
 									
 									</h1>
 									
@@ -95,15 +95,15 @@
 										
 
 	
-	<code class="name constructor" id="Layer">
-		<span class="type-signature"></span>new Layer<span class="signature">()</span><span class="type-signature"></span>
+	<code class="name constructor" id="PlayerManager">
+		<span class="type-signature"></span>new PlayerManager<span class="signature">()</span><span class="type-signature"></span>
 	</code>
 	
 <dd >
     
     
     <p class="description">
-        Layer used to organize entities within game.<br>- collision checks are handled by layer, i.e. entities cannot collide with entities on another layer.<br>- pausing game happens on game, layer, and entity levels, and a layer can be set to unpausable.<span class="alert"><strong>IMPORTANT:</strong> for performance, collisions are only checked when something on the layer has changed!</span>
+        Manager / controller that translates all input into actions for an entity.<span class="alert"><strong>IMPORTANT:</strong> you should use the manager to control your player character, which is created automatically as the game's <a href="ig.GameExtended.html#playerManager">ig.GameExtended#playerManager</a> property.</span>
     </p>
     
 
@@ -145,7 +145,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L26" target="_blank">core/layer.js, line 26</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/player-manager.js#L64" target="_blank">core/player-manager.js, line 64</a>
 		
 	</li></ul></dd>
     
@@ -168,6 +168,11 @@
     
     
     
+    
+        <span class="label">Example</span>
+        
+    <pre class="prettyprint linenums"><code>// the player manager will automatically manage the player character// i.e. handle translating inputs into basic movements// as long as the player character either:// (a) extends the ig.Player abstract, or// (b) can be found by the game's getPlayer method// it is important to note that any managed entity// should at least extend ig.Character, or define all the basic movement methods// you can easily change the entity controlled by the playerig.game.playerManager.manage( myOtherPlayerCharacter );// you can swap back to the orignal player character easilyig.game.playerManager.manage( myOriginalPlayerCharacter );// you can stop managing a character just as easily// (this method is called automatically when you manage a new character)ig.game.playerManager.manageRelease( myOriginalPlayerCharacter );// to have the camera automatically follow the managed entity// set the user config's CAMERA.AUTO_FOLLOW_PLAYER// or set the camera's autoFollowPlayer property directlyig.game.camera.autoFollowPlayer = true;// the player manager will check if it can control an entity before handling inputs// which usually checks for paused and controllable states// and these properties are usually handled automatically// so unless you're doing something strange, you don't need to worry about them// the player manager also allows the entity it manages to handle inputs// to hook into this, either:// (a) extend the ig.Player abstract and override the handleInputs methodmyOriginalPlayerClass = ig.Player.extend({     handleInput: function () {         // special input handling here         // then call parent         this.parent():     }});// (b) or make sure your entity has a handleInputs methodmyOtherPlayerCharacter = ig.Character.extend({     handleInput: function () {         // special input handling here     }});</code></pre>
+
     
 </dd>
 
@@ -193,14 +198,14 @@
 										<dl>
 											
 <dt >
-    <h4 class="name" id="_dirtySort"><span class="type-signature">&lt;readonly> </span>_dirtySort<span class="type-signature"> :Boolean</span></h4>
+    <h4 class="name" id="autoManagePlayer"><span class="type-signature"></span>autoManagePlayer<span class="type-signature"> :Boolean</span></h4>
     
     
 </dt>
 <dd >
     
     <p class="description">
-        Whether layer should be sorted on next update.
+        Whether to automatically manage player if within level.<span class="alert"><strong>IMPORTANT:</strong> this only checks once when the level is first created and on each <a href="ig.Player.html#spawn">ig.Player#spawn</a>!</span>
     </p>
     
     
@@ -231,7 +236,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L176" target="_blank">core/layer.js, line 176</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/player-manager.js#L72" target="_blank">core/player-manager.js, line 72</a>
 		
 	</li></ul></dd>
     
@@ -239,190 +244,18 @@
     
     
     
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt >
-    <h4 class="name" id="autoSort"><span class="type-signature"></span>autoSort<span class="type-signature"> :Boolean</span></h4>
-    
-    
-</dt>
-<dd >
-    
-    <p class="description">
-        Whether to automatically sort layer.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L128" target="_blank">core/layer.js, line 128</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.CONFIG.PLAYER_MANAGER.html#AUTO_MANAGE_PLAYER">ig.CONFIG.PLAYER_MANAGER.AUTO_MANAGE_PLAYER</a></li>
+        </ul>
+    </dd>
     
     
     
 </dl>
 
     
-    
-</dd>
-
-										
-											
-<dt >
-    <h4 class="name" id="changed"><span class="type-signature">&lt;readonly> </span>changed<span class="type-signature"> :Boolean</span></h4>
-    
-    
-</dt>
-<dd >
-    
-    <p class="description">
-        Whether layer has been changed since last update.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L153" target="_blank">core/layer.js, line 153</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt >
-    <h4 class="name" id="clearOnLoad"><span class="type-signature"></span>clearOnLoad<span class="type-signature"> :Boolean</span></h4>
-    
-    
-</dt>
-<dd >
-    
-    <p class="description">
-        Whether to clear layer on load, or should items be persistent across levels.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>true</li></ul></dd>
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L50" target="_blank">core/layer.js, line 50</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-        <span class="label">Example</span>
-        
-    <pre class="prettyprint linenums"><code>// keep user interface elements across all levelslayerUI.clearOnLoad = false;</code></pre>
-
     
 </dd>
 
@@ -553,14 +386,14 @@
 										
 											
 <dt >
-    <h4 class="name" id="ignorePause"><span class="type-signature"></span>ignorePause<span class="type-signature"> :Boolean</span></h4>
+    <h4 class="name" id="entity"><span class="type-signature">&lt;readonly> </span>entity<span class="type-signature"> :<a href="ig.EntityExtended.html">ig.EntityExtended</a></span></h4>
     
     
 </dt>
 <dd >
     
     <p class="description">
-        Whether layer cannot be paused.<br>- i.e. useful for layers with UI, which should probably not be paused.
+        Entity to control / manage, ideally an entity that descends from <a href="ig.Character.html">ig.Character</a> and not just a plain entity.<span class="alert"><strong>IMPORTANT:</strong> do not set this property directly, use <a href="ig.PlayerManager.html#manage">ig.PlayerManager#manage</a> instead!</span>
     </p>
     
     
@@ -586,7 +419,7 @@
     
     
     <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>false</li></ul></dd>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>null</li></ul></dd>
     
     
     
@@ -594,7 +427,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L169" target="_blank">core/layer.js, line 169</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/player-manager.js#L81" target="_blank">core/player-manager.js, line 81</a>
 		
 	</li></ul></dd>
     
@@ -613,413 +446,14 @@
 										
 											
 <dt >
-    <h4 class="name" id="items"><span class="type-signature"></span>items<span class="type-signature"> :Array</span></h4>
+    <h4 class="name" id="entityFallback"><span class="type-signature">&lt;readonly> </span>entityFallback<span class="type-signature"> :<a href="ig.EntityExtended.html">ig.EntityExtended</a></span></h4>
     
     
 </dt>
 <dd >
     
     <p class="description">
-        List of layer items.<span class="alert"><strong>IMPORTANT:</strong> items can be instances of any class, as long as they have update and draw methods.</span>
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L78" target="_blank">core/layer.js, line 78</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt >
-    <h4 class="name" id="itemsChecking"><span class="type-signature"></span>itemsChecking<span class="type-signature"> :Array</span></h4>
-    
-    
-</dt>
-<dd >
-    
-    <p class="description">
-        List of items that need checks.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L108" target="_blank">core/layer.js, line 108</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt >
-    <h4 class="name" id="itemsInteractive"><span class="type-signature"></span>itemsInteractive<span class="type-signature"> :Array</span></h4>
-    
-    
-</dt>
-<dd >
-    
-    <p class="description">
-        List of items that are interactive.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L90" target="_blank">core/layer.js, line 90</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt >
-    <h4 class="name" id="itemsLight"><span class="type-signature"></span>itemsLight<span class="type-signature"> :Array</span></h4>
-    
-    
-</dt>
-<dd >
-    
-    <p class="description">
-        List of items that are lights.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L102" target="_blank">core/layer.js, line 102</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt >
-    <h4 class="name" id="itemsOpaque"><span class="type-signature"></span>itemsOpaque<span class="type-signature"> :Array</span></h4>
-    
-    
-</dt>
-<dd >
-    
-    <p class="description">
-        List of items that cast shadows.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L96" target="_blank">core/layer.js, line 96</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt >
-    <h4 class="name" id="itemsTargetable"><span class="type-signature"></span>itemsTargetable<span class="type-signature"> :Array</span></h4>
-    
-    
-</dt>
-<dd >
-    
-    <p class="description">
-        List of items that are targetable.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L84" target="_blank">core/layer.js, line 84</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt >
-    <h4 class="name" id="name"><span class="type-signature"></span>name<span class="type-signature"> :String</span></h4>
-    
-    
-</dt>
-<dd >
-    
-    <p class="description">
-        Unique instance name.<br>- usually names are used to map instances for faster searching.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L33" target="_blank">core/layer.js, line 33</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt >
-    <h4 class="name" id="noDraw"><span class="type-signature"></span>noDraw<span class="type-signature"> :Boolean</span></h4>
-    
-    
-</dt>
-<dd >
-    
-    <p class="description">
-        Whether layer can skip draw.
+        Entity to fallback to control when <a href="ig.PlayerManager.html#entity">ig.PlayerManager#entity</a> does not exist.<span class="alert"><strong>IMPORTANT:</strong> do not set this property directly, use <a href="ig.PlayerManager.html#manageFallback">ig.PlayerManager#manageFallback</a> or <a href="ig.PlayerManager.html#managePlayer">ig.PlayerManager#managePlayer</a> instead!</span>
     </p>
     
     
@@ -1045,7 +479,7 @@
     
     
     <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>false</li></ul></dd>
+    <dd class="tag-default"><ul class="unstyled dummy"><li>null</li></ul></dd>
     
     
     
@@ -1053,7 +487,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L64" target="_blank">core/layer.js, line 64</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/player-manager.js#L90" target="_blank">core/player-manager.js, line 90</a>
 		
 	</li></ul></dd>
     
@@ -1072,74 +506,14 @@
 										
 											
 <dt >
-    <h4 class="name" id="noUpdate"><span class="type-signature"></span>noUpdate<span class="type-signature"> :Boolean</span></h4>
+    <h4 class="name" id="group"><span class="type-signature"></span>group<span class="type-signature"> :Bitflag|Number|String</span></h4>
     
     
 </dt>
 <dd >
     
     <p class="description">
-        Whether layer can skip update.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>false</li></ul></dd>
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L57" target="_blank">core/layer.js, line 57</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt >
-    <h4 class="name" id="numBackgroundMaps"><span class="type-signature"></span>numBackgroundMaps<span class="type-signature"> :Number</span></h4>
-    
-    
-</dt>
-<dd >
-    
-    <p class="description">
-        Number of items that are maps.
+        Groups to merge into managed entity's <a href="ig.EntityExtended.html#group">ig.EntityExtended#group</a>.
     </p>
     
     
@@ -1170,7 +544,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L146" target="_blank">core/layer.js, line 146</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/player-manager.js#L111" target="_blank">core/player-manager.js, line 111</a>
 		
 	</li></ul></dd>
     
@@ -1189,14 +563,14 @@
 										
 											
 <dt >
-    <h4 class="name" id="numEntities"><span class="type-signature"></span>numEntities<span class="type-signature"> :Number</span></h4>
+    <h4 class="name" id="holdToMove"><span class="type-signature"></span>holdToMove<span class="type-signature"> :Boolean</span></h4>
     
     
 </dt>
 <dd >
     
     <p class="description">
-        Number of items that are entities.
+        Whether to allow touch/click and hold to be interpreted as movement.
     </p>
     
     
@@ -1227,7 +601,128 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L140" target="_blank">core/layer.js, line 140</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/player-manager.js#L118" target="_blank">core/player-manager.js, line 118</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.CONFIG.PLAYER_MANAGER.html#HOLD_TO_MOVE">ig.CONFIG.PLAYER_MANAGER.HOLD_TO_MOVE</a></li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+										
+											
+<dt >
+    <h4 class="name" id="onManageStarted"><span class="type-signature"></span>onManageStarted<span class="type-signature"> :<a href="ig.Signal.html">ig.Signal</a></span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Signal dispatched whenever an entity becomes managed.<br>- created on init.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/player-manager.js#L132" target="_blank">core/player-manager.js, line 132</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+										
+											
+<dt >
+    <h4 class="name" id="onManageStopped"><span class="type-signature"></span>onManageStopped<span class="type-signature"> :<a href="ig.Signal.html">ig.Signal</a></span></h4>
+    
+    
+</dt>
+<dd >
+    
+    <p class="description">
+        Signal dispatched whenever the managed entity is removed.<br>- created on init.
+    </p>
+    
+    
+    
+
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/player-manager.js#L139" target="_blank">core/player-manager.js, line 139</a>
 		
 	</li></ul></dd>
     
@@ -1308,14 +803,14 @@
 										
 											
 <dt >
-    <h4 class="name" id="paused"><span class="type-signature">&lt;readonly> </span>paused<span class="type-signature"> :Boolean</span></h4>
+    <h4 class="name" id="swipeToJump"><span class="type-signature"></span>swipeToJump<span class="type-signature"> :Boolean</span></h4>
     
     
 </dt>
 <dd >
     
     <p class="description">
-        Whether layer is paused.<span class="alert"><strong>IMPORTANT:</strong> does not guarantee that all items are paused or unpaused!</span>
+        Whether to allow swipe up to be interpreted as jump.
     </p>
     
     
@@ -1346,13 +841,20 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L161" target="_blank">core/layer.js, line 161</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/player-manager.js#L125" target="_blank">core/player-manager.js, line 125</a>
 		
 	</li></ul></dd>
     
     
     
     
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.CONFIG.PLAYER_MANAGER.html#SWIPE_TO_JUMP">ig.CONFIG.PLAYER_MANAGER.SWIPE_TO_JUMP</a></li>
+        </ul>
+    </dd>
     
     
     
@@ -1365,14 +867,14 @@
 										
 											
 <dt >
-    <h4 class="name" id="preRender"><span class="type-signature"></span>preRender<span class="type-signature"> :Boolean</span></h4>
+    <h4 class="name" id="type"><span class="type-signature"></span>type<span class="type-signature"> :Bitflag|Number|String</span></h4>
     
     
 </dt>
 <dd >
     
     <p class="description">
-        Whether layer should automatically prerender background maps.
+        Types to merge into managed entity's <a href="ig.EntityExtended.html#type">ig.EntityExtended#type</a>.
     </p>
     
     
@@ -1403,181 +905,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L71" target="_blank">core/layer.js, line 71</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt >
-    <h4 class="name" id="sortBy"><span class="type-signature"></span>sortBy<span class="type-signature"> :Function</span></h4>
-    
-    
-</dt>
-<dd >
-    
-    <p class="description">
-        Function to sort by, defaults to game sortBy.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L134" target="_blank">core/layer.js, line 134</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt >
-    <h4 class="name" id="spatialHash"><span class="type-signature"></span>spatialHash<span class="type-signature"> :Object</span></h4>
-    
-    
-</dt>
-<dd >
-    
-    <p class="description">
-        Spatial hash of all checking items.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L114" target="_blank">core/layer.js, line 114</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-										
-											
-<dt >
-    <h4 class="name" id="spatialHashCellSize"><span class="type-signature"></span>spatialHashCellSize<span class="type-signature"> :Number</span></h4>
-    
-    
-</dt>
-<dd >
-    
-    <p class="description">
-        Spatial hash cell size.
-    </p>
-    
-    
-    
-
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="unstyled dummy"><li>64</li></ul></dd>
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L121" target="_blank">core/layer.js, line 121</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/player-manager.js#L104" target="_blank">core/player-manager.js, line 104</a>
 		
 	</li></ul></dd>
     
@@ -1603,7 +931,7 @@
 <dd >
     
     <p class="description">
-        Z index for sorting.
+        Z index to merge into managed entity's ig.EntityExtended#zIndex.
     </p>
     
     
@@ -1637,7 +965,7 @@
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L40" target="_blank">core/layer.js, line 40</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/player-manager.js#L97" target="_blank">core/player-manager.js, line 97</a>
 		
 	</li></ul></dd>
     
@@ -1663,206 +991,6 @@
 									<h3 class="subsection-title page-header">Methods</h3>
 									
 									<dl>
-										
-
-	
-	<dt >
-		<h4 class="name" id="addItem">
-			<span class="type-signature"></span>addItem<span class="signature">(item)</span><span class="type-signature"></span>
-		</h4>
-		
-	</dt>
-	
-<dd >
-    
-    
-    <p class="description">
-        Adds an item to layer immediately.<span class="alert"><strong>IMPORTANT:</strong> use <a href="ig.GameExtended.html#addItem">ig.GameExtended#addItem</a> or, if item is an entity, <a href="ig.GameExtended.html#spawnEntity">ig.GameExtended#spawnEntity</a> instead for proper deferral.</span>
-    </p>
-    
-
-   
-    
-    
-    
-    
-        <span class="label">Parameters:</span>
-        
-
-<table class="params table table-bordered">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>item</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">*</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">item with update and draw functions.</td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L409" target="_blank">core/layer.js, line 409</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-									
-										
-
-	
-	<dt >
-		<h4 class="name" id="checkEntities">
-			<span class="type-signature"></span>checkEntities<span class="signature">()</span><span class="type-signature"></span>
-		</h4>
-		
-	</dt>
-	
-<dd >
-    
-    
-    <p class="description">
-        Checks entities on layer.
-    </p>
-    
-
-   
-    
-    
-    
-    
-    
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L752" target="_blank">core/layer.js, line 752</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-									
 										
 
 	
@@ -2089,82 +1217,6 @@
 										
 
 	
-	<dt >
-		<h4 class="name" id="draw">
-			<span class="type-signature"></span>draw<span class="signature">()</span><span class="type-signature"></span>
-		</h4>
-		
-	</dt>
-	
-<dd >
-    
-    
-    <p class="description">
-        Draws layer.
-    </p>
-    
-
-   
-    
-    
-    
-    
-    
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L733" target="_blank">core/layer.js, line 733</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-									
-										
-
-	
 	<dt class="inherited hidden">
 		<h4 class="name" id="getQueueLength">
 			<span class="type-signature"></span>getQueueLength<span class="signature">()</span><span class="type-signature"></span>
@@ -2257,6 +1309,158 @@ Number
 										
 
 	
+	<dt >
+		<h4 class="name" id="handleInput">
+			<span class="type-signature"></span>handleInput<span class="signature">()</span><span class="type-signature"></span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Handles input translation to basic movement, jumping, and climbing, and tries to call controlled entity's handleInput method.
+    </p>
+    
+
+   
+    
+    
+    
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/player-manager.js#L442" target="_blank">core/player-manager.js, line 442</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt >
+		<h4 class="name" id="highlightManaged">
+			<span class="type-signature"></span>highlightManaged<span class="signature">()</span><span class="type-signature"></span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Attempts to highlight managed entity if the entity has a "highlight" animation.
+    </p>
+    
+
+   
+    
+    
+    
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/player-manager.js#L400" target="_blank">core/player-manager.js, line 400</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+									
+										
+
+	
 	<dt class="inherited hidden">
 		<h4 class="name" id="imageLoadCallback">
 			<span class="type-signature"></span>imageLoadCallback<span class="signature">()</span><span class="type-signature"></span>
@@ -2340,7 +1544,7 @@ Number
 	
 	<dt >
 		<h4 class="name" id="init">
-			<span class="type-signature"></span>init<span class="signature">(name, settings)</span><span class="type-signature"></span>
+			<span class="type-signature"></span>init<span class="signature">(settings)</span><span class="type-signature"></span>
 		</h4>
 		
 	</dt>
@@ -2349,7 +1553,7 @@ Number
     
     
     <p class="description">
-        Initializes layer.
+        Initializes manager.
     </p>
     
 
@@ -2383,29 +1587,6 @@ Number
 	
         <tr>
             
-                <td class="name"><code>name</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">name of layer</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
                 <td class="name"><code>settings</code></td>
             
             
@@ -2422,7 +1603,7 @@ Number
             
             
             
-            <td class="description last">settings object.</td>
+            <td class="description last">settings that correspond to manager properties</td>
         </tr>
 	
 	
@@ -2455,7 +1636,7 @@ Number
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L188" target="_blank">core/layer.js, line 188</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/player-manager.js#L151" target="_blank">core/player-manager.js, line 151</a>
 		
 	</li></ul></dd>
     
@@ -2477,6 +1658,98 @@ Number
     
     
     
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt >
+		<h4 class="name" id="isManagedControllable">
+			<span class="type-signature"></span>isManagedControllable<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Checks if an the currently managed entity can be controlled.
+    </p>
+    
+
+   
+    
+    
+    
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/player-manager.js#L433" target="_blank">core/player-manager.js, line 433</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Boolean</span>
+
+}</span>
+
+whether entity can be controlled.
+</div>
+
+
+
+        
     
     
 </dd>
@@ -2691,8 +1964,8 @@ Number
 
 	
 	<dt >
-		<h4 class="name" id="pause">
-			<span class="type-signature"></span>pause<span class="signature">()</span><span class="type-signature"></span>
+		<h4 class="name" id="manage">
+			<span class="type-signature"></span>manage<span class="signature">(<span class="optional">entity</span>)</span><span class="type-signature"></span>
 		</h4>
 		
 	</dt>
@@ -2701,7 +1974,279 @@ Number
     
     
     <p class="description">
-        Pauses layer.
+        Manages an entity by calling <a href="ig.PlayerManager.html#manageStart">ig.PlayerManager#manageStart</a> if valid new entity, or <a href="ig.PlayerManager.html#manageRelease">ig.PlayerManager#manageRelease</a> if no entity passed.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>entity</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="ig.EntityExtended.html">ig.EntityExtended</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">entity to start managing, or none if should stop managing.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/player-manager.js#L195" target="_blank">core/player-manager.js, line 195</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt >
+		<h4 class="name" id="manageFallback">
+			<span class="type-signature"></span>manageFallback<span class="signature">(<span class="optional">entity</span>)</span><span class="type-signature"></span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Sets a fallback entity to manage when no other entities to manage.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>entity</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="ig.EntityExtended.html">ig.EntityExtended</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">entity to set as fallback</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/player-manager.js#L215" target="_blank">core/player-manager.js, line 215</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt >
+		<h4 class="name" id="managePlayer">
+			<span class="type-signature"></span>managePlayer<span class="signature">()</span><span class="type-signature"></span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Special case for managing player.
     </p>
     
 
@@ -2736,7 +2281,479 @@ Number
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L597" target="_blank">core/layer.js, line 597</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/player-manager.js#L234" target="_blank">core/player-manager.js, line 234</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt >
+		<h4 class="name" id="manageRelease">
+			<span class="type-signature"></span>manageRelease<span class="signature">(<span class="optional">entity</span>)</span><span class="type-signature"></span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Releases management by calling <a href="ig.PlayerManager.html#manageStop">ig.PlayerManager#manageStop</a> if currently managing an entity.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>entity</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="ig.EntityExtended.html">ig.EntityExtended</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">entity to release, or if none passed releases currently managed entity.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/player-manager.js#L320" target="_blank">core/player-manager.js, line 320</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt >
+		<h4 class="name" id="manageReleaseFallback">
+			<span class="type-signature"></span>manageReleaseFallback<span class="signature">(<span class="optional">entity</span>)</span><span class="type-signature"></span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Stops managing fallback entity.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>entity</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="ig.EntityExtended.html">ig.EntityExtended</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">entity to release, or if none passed releases fallback entity.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/player-manager.js#L334" target="_blank">core/player-manager.js, line 334</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt >
+		<h4 class="name" id="manageStart">
+			<span class="type-signature"></span>manageStart<span class="signature">(entity)</span><span class="type-signature"></span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Starts managing entity, attempts to call entity's "manageStart" method, and dispatches <a href="ig.PlayerManager.html#onManageStarted">ig.PlayerManager#onManageStarted</a>.<span class="alert"><strong>IMPORTANT:</strong> do not call this method directly, use <a href="ig.PlayerManager.html#manage">ig.PlayerManager#manage</a>. It is okay to override this method.</span>
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>entity</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="ig.EntityExtended.html">ig.EntityExtended</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">entity to manage.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/player-manager.js#L255" target="_blank">core/player-manager.js, line 255</a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt >
+		<h4 class="name" id="manageStop">
+			<span class="type-signature"></span>manageStop<span class="signature">()</span><span class="type-signature"></span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Stops managing entity, attempts to call entity's "manageStop" method, and dispatches <a href="ig.PlayerManager.html#onManageStopped">ig.PlayerManager#onManageStopped</a>.<span class="alert"><strong>IMPORTANT:</strong> do not call this method directly, use <a href="ig.PlayerManager.html#manageRelease">ig.PlayerManager#manageRelease</a>. It is okay to override this method.</span>
+    </p>
+    
+
+   
+    
+    
+    
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/player-manager.js#L354" target="_blank">core/player-manager.js, line 354</a>
 		
 	</li></ul></dd>
     
@@ -3049,7 +3066,7 @@ Number
     
     
     <p class="description">
-        Sets layer as ready.
+        Sets manager as ready. Called automatically at end of <a href="ig.GameExtended.html#buildLevel">ig.GameExtended#buildLevel</a>.
     </p>
     
 
@@ -3084,131 +3101,7 @@ Number
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L268" target="_blank">core/layer.js, line 268</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-									
-										
-
-	
-	<dt >
-		<h4 class="name" id="removeItem">
-			<span class="type-signature"></span>removeItem<span class="signature">(item)</span><span class="type-signature"></span>
-		</h4>
-		
-	</dt>
-	
-<dd >
-    
-    
-    <p class="description">
-        Removes an item immediately from layer.<span class="alert"><strong>IMPORTANT:</strong> Use <a href="ig.GameExtended.html#removeItem">ig.GameExtended#removeItem</a> or, if item is an entity, <a href="ig.GameExtended.html#removeEntity">ig.GameExtended#removeEntity</a> instead for proper deferral.</span>
-    </p>
-    
-
-   
-    
-    
-    
-    
-        <span class="label">Parameters:</span>
-        
-
-<table class="params table table-bordered">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>item</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">*</span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">item to be removed.</td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L488" target="_blank">core/layer.js, line 488</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/player-manager.js#L163" target="_blank">core/player-manager.js, line 163</a>
 		
 	</li></ul></dd>
     
@@ -3249,7 +3142,7 @@ Number
     
     
     <p class="description">
-        Resets layer.
+        Resets manager.
     </p>
     
 
@@ -3284,159 +3177,7 @@ Number
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L201" target="_blank">core/layer.js, line 201</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-									
-										
-
-	
-	<dt >
-		<h4 class="name" id="sort">
-			<span class="type-signature"></span>sort<span class="signature">()</span><span class="type-signature"></span>
-		</h4>
-		
-	</dt>
-	
-<dd >
-    
-    
-    <p class="description">
-        Flags layer for item sorting.
-    </p>
-    
-
-   
-    
-    
-    
-    
-    
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L653" target="_blank">core/layer.js, line 653</a>
-		
-	</li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-									
-										
-
-	
-	<dt >
-		<h4 class="name" id="unpause">
-			<span class="type-signature"></span>unpause<span class="signature">()</span><span class="type-signature"></span>
-		</h4>
-		
-	</dt>
-	
-<dd >
-    
-    
-    <p class="description">
-        Unpauses layer.
-    </p>
-    
-
-   
-    
-    
-    
-    
-    
-    
-<dl class="details dl-horizontal">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<dt class="tag-source">Source:</dt>
-	<dd class="tag-source"><ul class="unstyled dummy"><li>
-		
-		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L628" target="_blank">core/layer.js, line 628</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/player-manager.js#L178" target="_blank">core/player-manager.js, line 178</a>
 		
 	</li></ul></dd>
     
@@ -3477,7 +3218,7 @@ Number
     
     
     <p class="description">
-        Updates layer and all items.
+        Updates and handles switching entities, inputs, etc.
     </p>
     
 
@@ -3512,7 +3253,7 @@ Number
 	<dd class="tag-source"><ul class="unstyled dummy"><li>
 		
 		
-		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/layer.js#L662" target="_blank">core/layer.js, line 662</a>
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/core/player-manager.js#L413" target="_blank">core/player-manager.js, line 413</a>
 		
 	</li></ul></dd>
     
@@ -3553,7 +3294,7 @@ Number
 
 					<div id="maincontentColumn2" class="span2">
 						
-						<div id="navdocs" class="hidden-phone"><div id="navdoc"><ul class="nav nav-list sidenav"><li class="nav-header">Layer</li><li><a href="#docs"><div class="icon-chevron-left pull-left"></div> Overview</a></li><li><a href="#members" type="button"><div class="icon-chevron-left pull-left"></div> Members</a></li><li><a href="#methods" type="button"><div class="icon-chevron-left pull-left"></div> Methods</a></li><li><button class="btn btn-link" data-toggle="inherited"><div class="icon-eye-open"></div> inherited</a></li></ul></div><ul class="nav nav-list sidenav"><li class="nav-header"><img src="img/logo_impactplusplus_25.png"> Impact++</li><li><a href="#navAbilities" class="mainnavLink">Abilities</a></li><li><a href="#navAbstractities" class="mainnavLink">Abstractities</a></li><li><a href="#navCore" class="mainnavLink">Core</a></li><li><a href="#navEntities" class="mainnavLink">Entities</a></li><li><a href="#navHelpers" class="mainnavLink">Helpers</a></li><li><a href="#navUi" class="mainnavLink">Ui</a></li></ul></div>
+						<div id="navdocs" class="hidden-phone"><div id="navdoc"><ul class="nav nav-list sidenav"><li class="nav-header">PlayerManager</li><li><a href="#docs"><div class="icon-chevron-left pull-left"></div> Overview</a></li><li><a href="#members" type="button"><div class="icon-chevron-left pull-left"></div> Members</a></li><li><a href="#methods" type="button"><div class="icon-chevron-left pull-left"></div> Methods</a></li><li><button class="btn btn-link" data-toggle="inherited"><div class="icon-eye-open"></div> inherited</a></li></ul></div><ul class="nav nav-list sidenav"><li class="nav-header"><img src="img/logo_impactplusplus_25.png"> Impact++</li><li><a href="#navAbilities" class="mainnavLink">Abilities</a></li><li><a href="#navAbstractities" class="mainnavLink">Abstractities</a></li><li><a href="#navCore" class="mainnavLink">Core</a></li><li><a href="#navEntities" class="mainnavLink">Entities</a></li><li><a href="#navHelpers" class="mainnavLink">Helpers</a></li><li><a href="#navUi" class="mainnavLink">Ui</a></li></ul></div>
 
 					</div>
 					
