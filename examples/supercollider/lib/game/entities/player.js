@@ -409,7 +409,7 @@ ig.module(
 
                 if (!killed && applied && this.ui.healthMeter) {
 
-                    this.ui.healthMeter.setValue(this.health / this.healthMax);
+                    this.ui.healthMeter.setMeterValue(this.health / this.healthMax);
 
                 }
 
@@ -426,7 +426,7 @@ ig.module(
 
                 if (!this._killed && this.ui.healthMeter) {
 
-                    this.ui.healthMeter.setValue(this.health / this.healthMax);
+                    this.ui.healthMeter.setMeterValue(this.health / this.healthMax);
 
                 }
 
@@ -442,7 +442,7 @@ ig.module(
 
                 if (!killed && applied && this.ui.energyMeter) {
 
-                    this.ui.energyMeter.setValue(this.energy / this.energyMax);
+                    this.ui.energyMeter.setMeterValue(this.energy / this.energyMax);
 
                 }
 
@@ -457,7 +457,7 @@ ig.module(
 
                 if (!this._killed && this.ui.energyMeter) {
 
-                    this.ui.energyMeter.setValue(this.energy / this.energyMax);
+                    this.ui.energyMeter.setMeterValue(this.energy / this.energyMax);
 
                 }
 
