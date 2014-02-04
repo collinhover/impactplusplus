@@ -1,12 +1,12 @@
 ig.module(
-        'game.entities.leech-plant'
-    )
+    'game.entities.leech-plant'
+)
     .requires(
         'plusplus.core.config',
         'plusplus.abstractities.character',
         'plusplus.helpers.utils'
-    )
-    .defines(function () {
+)
+    .defines(function() {
         "use strict";
 
         var _c = ig.CONFIG;
@@ -19,12 +19,18 @@ ig.module(
          * @memberof ig
          * @author Collin Hover - collinhover.com
          */
-        ig.EntityLeechPlant = ig.global.EntityLeechPlant = ig.Character.extend(/**@lends ig.EntityLeechPlant.prototype */{
+        ig.EntityLeechPlant = ig.global.EntityLeechPlant = ig.Character.extend( /**@lends ig.EntityLeechPlant.prototype */ {
 
             performance: ig.EntityExtended.PERFORMANCE.STATIC,
 
-            size: { x: 16, y: 16 },
-            offset: { x: 4, y: 4 },
+            size: {
+                x: 16,
+                y: 16
+            },
+            offset: {
+                x: 4,
+                y: 4
+            },
 
             animSheet: new ig.AnimationSheet(_c.PATH_TO_MEDIA + 'leech_plant.png', 24, 24),
 
@@ -32,12 +38,12 @@ ig.module(
 
             animSettings: {
                 idleX: {
-                    sequence: [0,5,6,7,8,9],
+                    sequence: [0, 5, 6, 7, 8, 9],
                     frameTime: 1,
                     stop: true
                 },
                 spawnX: {
-                    sequence: [1,2,3,4],
+                    sequence: [1, 2, 3, 4],
                     frameTime: 0.1
                 }
             },
@@ -63,7 +69,7 @@ ig.module(
             /**
              * @override
              **/
-            initTypes: function () {
+            initTypes: function() {
 
                 _ut.addType(ig.EntityExtended, this, 'type', "EDIBLE PLANT");
 
@@ -72,21 +78,21 @@ ig.module(
             /**
              * @override
              **/
-            receiveDamage: function ( amount, from, unblockable ) {
+            receiveDamage: function(amount, from, unblockable) {
 
-                var damaged = this.parent( amount, from, unblockable );
+                var damaged = this.parent(amount, from, unblockable);
 
-                if ( damaged ) {
+                if (damaged) {
 
-                    var anim = this.anims[ this.getDirectionalAnimName( "idle" ) ];
+                    var anim = this.anims[this.getDirectionalAnimName("idle")];
 
-                    if ( this.currentAnim !== anim ) {
+                    if (this.currentAnim !== anim) {
 
                         this.currentAnim = anim;
 
                     }
 
-                    this.currentAnim.gotoFrame( Math.round( ( this.currentAnim.sequence.length - 1 ) * ( 1 - this.health / this.healthMax ) ) );
+                    this.currentAnim.gotoFrame(Math.round((this.currentAnim.sequence.length - 1) * (1 - this.health / this.healthMax)));
 
                 }
 
@@ -97,19 +103,19 @@ ig.module(
             /**
              * @override
              **/
-            receiveHealing: function (amount, from) {
+            receiveHealing: function(amount, from) {
 
-                this.parent( amount, from );
+                this.parent(amount, from);
 
-                var anim = this.anims[ this.getDirectionalAnimName( "idle" ) ];
+                var anim = this.anims[this.getDirectionalAnimName("idle")];
 
-                if ( this.currentAnim !== anim ) {
+                if (this.currentAnim !== anim) {
 
                     this.currentAnim = anim;
 
                 }
 
-                this.currentAnim.gotoFrame( Math.round( ( this.currentAnim.sequence.length - 1 ) * ( 1 - this.health / this.healthMax ) ) );
+                this.currentAnim.gotoFrame(Math.round((this.currentAnim.sequence.length - 1) * (1 - this.health / this.healthMax)));
 
             }
 

@@ -1,11 +1,11 @@
 ig.module(
-        'game.entities.holo-bridge'
-    )
+    'game.entities.holo-bridge'
+)
     .requires(
         'plusplus.core.config',
         'plusplus.core.entity'
-    )
-    .defines(function () {
+)
+    .defines(function() {
         "use strict";
 
         var _c = ig.CONFIG;
@@ -17,13 +17,19 @@ ig.module(
          * @memberof ig
          * @author Collin Hover - collinhover.com
          */
-        ig.EntityHoloBridge = ig.global.EntityHoloBridge = ig.EntityExtended.extend(/**@lends ig.EntityHoloBridge.prototype */{
+        ig.EntityHoloBridge = ig.global.EntityHoloBridge = ig.EntityExtended.extend( /**@lends ig.EntityHoloBridge.prototype */ {
 
             // we need an offset to give space for the light glow
             // and still ensure the collision box is correct
 
-            size: { x: 176, y: 16 },
-            offset: { x: 9, y: 8 },
+            size: {
+                x: 176,
+                y: 16
+            },
+            offset: {
+                x: 9,
+                y: 8
+            },
 
             // animations
 
@@ -33,7 +39,7 @@ ig.module(
 
             animSettings: {
                 idleX: {
-                    sequence: [ 0 ],
+                    sequence: [0],
                     frameTime: 1,
                     stop: true
                 }
@@ -53,13 +59,13 @@ ig.module(
             /**
              * @override
              */
-            activate: function ( entity ) {
+            activate: function(entity) {
 
                 // only activate if not activated already
 
-                if ( !this.activated ) {
+                if (!this.activated) {
 
-                    this.parent( entity );
+                    this.parent(entity);
 
                     this.fadeIn();
 
@@ -72,13 +78,13 @@ ig.module(
             /**
              * @override
              */
-            deactivate: function ( entity ) {
+            deactivate: function(entity) {
 
                 // only deactivate if activated already
 
-                if ( this.activated ) {
+                if (this.activated) {
 
-                    this.parent( entity );
+                    this.parent(entity);
 
                     this.fadeOut();
 

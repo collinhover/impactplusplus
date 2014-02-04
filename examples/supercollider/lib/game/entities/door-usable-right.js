@@ -1,11 +1,11 @@
 ig.module(
-        'game.entities.door-usable-right'
-    )
+    'game.entities.door-usable-right'
+)
     .requires(
         'plusplus.core.config',
         'plusplus.abstractities.door-usable'
-    )
-    .defines(function () {
+)
+    .defines(function() {
         "use strict";
 
         var _c = ig.CONFIG;
@@ -17,18 +17,21 @@ ig.module(
          * @memberof ig
          * @author Collin Hover - collinhover.com
          */
-        ig.EntityDoorUsableRight = ig.global.EntityDoorUsableRight = ig.DoorUsable.extend(/**@lends ig.EntityDoorUsableRight.prototype */{
+        ig.EntityDoorUsableRight = ig.global.EntityDoorUsableRight = ig.DoorUsable.extend( /**@lends ig.EntityDoorUsableRight.prototype */ {
 
             /**
              * @override
              * @default 16 x 56
              */
-            size: {x:16, y: 56},
+            size: {
+                x: 16,
+                y: 56
+            },
 
             /**
              * @override
              */
-            animSheet: new ig.AnimationSheet( _c.PATH_TO_MEDIA + "door_right.png", 16, 56),
+            animSheet: new ig.AnimationSheet(_c.PATH_TO_MEDIA + "door_right.png", 16, 56),
 
             animInit: 'idleX',
 
@@ -43,11 +46,11 @@ ig.module(
                 },
                 openX: {
                     frameTime: 0.05,
-                    sequence: [2,3,4]
+                    sequence: [2, 3, 4]
                 },
                 closeX: {
                     frameTime: 0.15,
-                    sequence: [4,3,2]
+                    sequence: [4, 3, 2]
                 },
                 brokenX: {
                     frameTime: 1,

@@ -1,6 +1,6 @@
 ig.module(
-        'game.abilities.mimic-casted'
-    )
+    'game.abilities.mimic-casted'
+)
     .requires(
         'plusplus.abilities.mimic',
         'plusplus.entities.effect-electricity',
@@ -8,8 +8,8 @@ ig.module(
         'game.entities.effect-fail',
         'plusplus.helpers.utils',
         'plusplus.helpers.utilsvector2'
-    )
-    .defines(function () {
+)
+    .defines(function() {
         "use strict";
 
         var _ut = ig.utils;
@@ -22,7 +22,7 @@ ig.module(
          * @memberof ig
          * @author Collin Hover - collinhover.com
          **/
-        ig.AbilityMimicCasted = ig.AbilityMimic.extend(/**@lends ig.AbilityMimicCasted.prototype */{
+        ig.AbilityMimicCasted = ig.AbilityMimic.extend( /**@lends ig.AbilityMimicCasted.prototype */ {
 
             /**
              * Cast activate setup with animation 'mimicSetup'.
@@ -39,15 +39,13 @@ ig.module(
             activatePassCastSettings: {
                 delay: 1,
                 animName: 'mimicPass',
-                effects: [
-                    {
-                        entityClass: ig.EntityEffectMimic,
-                        followSettings: {
-                            matchPerformance: true,
-                            offsetPct: _utv2.vector(1, -0.15)
-                        }
+                effects: [{
+                    entityClass: ig.EntityEffectMimic,
+                    followSettings: {
+                        matchPerformance: true,
+                        offsetPct: _utv2.vector(1, -0.15)
                     }
-                ]
+                }]
             },
 
             /**
@@ -56,15 +54,13 @@ ig.module(
              */
             activateCastSettings: {
                 animName: 'mimicActivate',
-                effects: [
-                    {
-                        entityClass: ig.EntityEffectElectricity,
-                        fade: true,
-                        followSettings: {
-                            matchPerformance: true
-                        }
+                effects: [{
+                    entityClass: ig.EntityEffectElectricity,
+                    fade: true,
+                    followSettings: {
+                        matchPerformance: true
                     }
-                ]
+                }]
             },
 
             /**
@@ -75,16 +71,14 @@ ig.module(
                 delay: 0.5,
                 animName: 'mimicFail',
                 loop: false,
-                effects: [
-                    {
-                        entityClass: ig.EntityEffectFail,
-                        fade: true,
-                        followSettings: {
-                            matchPerformance: true,
-                            offsetPct: _utv2.vector(1, -0.15)
-                        }
+                effects: [{
+                    entityClass: ig.EntityEffectFail,
+                    fade: true,
+                    followSettings: {
+                        matchPerformance: true,
+                        offsetPct: _utv2.vector(1, -0.15)
                     }
-                ]
+                }]
             },
 
             /**
@@ -105,7 +99,7 @@ ig.module(
             /**
              * @override
              **/
-            initTypes: function () {
+            initTypes: function() {
 
                 // types
 
@@ -120,7 +114,7 @@ ig.module(
             /**
              * @see ig.Ability.
              **/
-            activate: function () {
+            activate: function() {
 
                 if (this.enabled) {
 
@@ -132,8 +126,7 @@ ig.module(
 
                         this.cast(this.deactivateFromExecuteCastSettings);
 
-                    }
-                    else {
+                    } else {
 
                         this.parent();
 

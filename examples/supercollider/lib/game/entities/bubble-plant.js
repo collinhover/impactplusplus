@@ -5,8 +5,8 @@
  * @author Collin Hover - collinhover.com
  **/
 ig.module(
-        'game.entities.bubble-plant'
-    )
+    'game.entities.bubble-plant'
+)
     .requires(
         'plusplus.core.config',
         'plusplus.core.timer',
@@ -15,8 +15,8 @@ ig.module(
         'plusplus.abilities.glow',
         'game.abilities.glow-bubble',
         'plusplus.helpers.utils'
-    )
-    .defines(function () {
+)
+    .defines(function() {
         "use strict";
 
         var _c = ig.CONFIG;
@@ -28,12 +28,18 @@ ig.module(
 
             // size and sprite
 
-            size: { x: 16, y: 16 },
-            offset: { x: 4, y: 4 },
+            size: {
+                x: 16,
+                y: 16
+            },
+            offset: {
+                x: 4,
+                y: 4
+            },
 
             animSheet: new ig.AnimationSheet(_c.PATH_TO_MEDIA + 'bubble_plant.png', 24, 24),
-			
-			animInit: "idleX",
+
+            animInit: "idleX",
 
             animSettings: {
                 idleX: {
@@ -104,7 +110,7 @@ ig.module(
             /**
              * @override
              **/
-            initTypes: function () {
+            initTypes: function() {
 
                 this.parent();
 
@@ -115,7 +121,7 @@ ig.module(
             /**
              * @override
              **/
-            initProperties: function () {
+            initProperties: function() {
 
                 this.parent();
 
@@ -136,16 +142,16 @@ ig.module(
             /**
              * @override
              **/
-            resetExtras: function () {
+            resetExtras: function() {
 
                 // light color
 
                 var gsl = this.glowSettings.light = this.glowSettings.light || {};
                 var gbsl = this.glowBubbleSettings.light = this.glowBubbleSettings.light || {};
 
-                gsl.r = this.rMin + Math.random() * ( this.rMax - this.rMin );
-                gsl.g = this.gMin + Math.random() * ( this.gMax - this.gMin );
-                gsl.b = this.bMin + Math.random() * ( this.bMax - this.bMin );
+                gsl.r = this.rMin + Math.random() * (this.rMax - this.rMin);
+                gsl.g = this.gMin + Math.random() * (this.gMax - this.gMin);
+                gsl.b = this.bMin + Math.random() * (this.bMax - this.bMin);
 
                 // keep lights relatively bright
 
@@ -175,41 +181,43 @@ ig.module(
                 gbsl.b = gsl.b;
 
                 this.parent();
-            
+
             },
-			
-			/**
-			 * @override
-			 */
-			pause: function () {
-				
-				this.parent();
-				
-				this.abilityTimer.pause();
-				
-			},
-			
-			/**
-			 * @override
-			 */
-			unpause: function () {
-				
-				this.parent();
-				
-				this.abilityTimer.unpause();
-				
-			},
+
+            /**
+             * @override
+             */
+            pause: function() {
+
+                this.parent();
+
+                this.abilityTimer.pause();
+
+            },
+
+            /**
+             * @override
+             */
+            unpause: function() {
+
+                this.parent();
+
+                this.abilityTimer.unpause();
+
+            },
 
             /**
              * @override
              **/
-            updateVisible: function () {
+            updateVisible: function() {
 
                 if (this.abilityDelay && this.abilityTimer.delta() >= 0) {
 
                     this.abilityTimer.set(this.abilityDelay + Math.random() * this.randomDelay);
 
-                    this.glowBubble.activate({ offsetY: -this.size.y * 0.5 });
+                    this.glowBubble.activate({
+                        offsetY: -this.size.y * 0.5
+                    });
 
                 }
 

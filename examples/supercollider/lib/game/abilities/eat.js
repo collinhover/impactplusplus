@@ -1,12 +1,12 @@
 ig.module(
-        'game.abilities.eat'
-    )
+    'game.abilities.eat'
+)
     .requires(
         'plusplus.core.config',
         'plusplus.abilities.melee',
         'plusplus.helpers.utils'
-    )
-    .defines(function () {
+)
+    .defines(function() {
         "use strict";
 
         var _c = ig.CONFIG;
@@ -19,7 +19,7 @@ ig.module(
          * @memberof ig
          * @author Collin Hover - collinhover.com
          */
-        ig.AbilityEat = ig.global.AbilityEat = ig.AbilityMelee.extend(/**@lends ig.AbilityEat.prototype */{
+        ig.AbilityEat = ig.global.AbilityEat = ig.AbilityMelee.extend( /**@lends ig.AbilityEat.prototype */ {
 
             /**
              * @override
@@ -42,7 +42,7 @@ ig.module(
             /**
              * @override
              **/
-            initTypes: function () {
+            initTypes: function() {
 
                 //this.parent();
 
@@ -53,7 +53,7 @@ ig.module(
             /**
              * @override
              **/
-            clone: function (c) {
+            clone: function(c) {
 
                 if (c instanceof ig.AbilityEat !== true) {
 

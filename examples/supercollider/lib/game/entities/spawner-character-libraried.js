@@ -1,6 +1,6 @@
 ig.module(
-        'game.entities.spawner-character-libraried'
-    )
+    'game.entities.spawner-character-libraried'
+)
     .requires(
         'plusplus.abstractities.spawner-character',
         'plusplus.entities.dummy',
@@ -13,8 +13,8 @@ ig.module(
         'game.entities.leech-crab-hungry',
         'game.entities.leech-crab-flying',
         'game.entities.leech-plant'
-    )
-    .defines(function () {
+)
+    .defines(function() {
         "use strict";
 
         /**
@@ -33,4 +33,3 @@ ig.module(
         });
 
     });
-

@@ -1,6 +1,6 @@
 ig.module(
-        'game.entities.player'
-    )
+    'game.entities.player'
+)
     .requires(
         'plusplus.core.config',
         'plusplus.abstractities.player',
@@ -11,8 +11,8 @@ ig.module(
         'plusplus.ui.ui-meter',
         'plusplus.ui.ui-tracker',
         'plusplus.ui.ui-toggle-pause'
-    )
-    .defines(function () {
+)
+    .defines(function() {
         "use strict";
 
         var _c = ig.CONFIG;
@@ -45,19 +45,19 @@ ig.module(
                     frameTime: 0.1
                 },
                 deathX: {
-                    sequence: [ 6, 7, 8 ],
+                    sequence: [6, 7, 8],
                     frameTime: 0.05
                 },
                 spawnX: {
-                    sequence: [ 11, 10, 9, 8, 7, 6 ],
+                    sequence: [11, 10, 9, 8, 7, 6],
                     frameTime: 0.1
                 },
                 moveX: {
-                    sequence: [ 12, 13, 14, 15, 16, 17 ],
+                    sequence: [12, 13, 14, 15, 16, 17],
                     frameTime: 0.1
                 },
                 jumpX: {
-                    sequence: [ 16, 18, 19 ],
+                    sequence: [16, 18, 19],
                     frameTime: 0.05,
                     // animation specific shadow casting!
                     // i.e. when playing this animation
@@ -72,11 +72,11 @@ ig.module(
                     }
                 },
                 fallX: {
-                    sequence: [ 20, 21 ],
+                    sequence: [20, 21],
                     frameTime: 0.1
                 },
                 climbX: {
-                    sequence: [ 24, 25, 26, 27, 28, 29 ],
+                    sequence: [24, 25, 26, 27, 28, 29],
                     frameTime: 0.1,
                     opaqueOffset: {
                         left: 6,
@@ -86,19 +86,19 @@ ig.module(
                     }
                 },
                 stairsX: {
-                    sequence: [ 22, 23 ],
+                    sequence: [22, 23],
                     frameTime: 0.15
                 },
                 talkX: {
-                    sequence: [ 0 ],
+                    sequence: [0],
                     frameTime: 1
                 },
                 listenX: {
-                    sequence: [ 0 ],
+                    sequence: [0],
                     frameTime: 1
                 },
                 meleeX: {
-                    sequence: [ 30, 31 ],
+                    sequence: [30, 31],
                     frameTime: 0.1,
                     opaqueOffset: {
                         left: 6,
@@ -108,27 +108,27 @@ ig.module(
                     }
                 },
                 shootX: {
-                    sequence: [ 32, 33, 32 ],
+                    sequence: [32, 33, 32],
                     frameTime: 0.1
                 },
                 mimicSetupX: {
-                    sequence: [ 32, 33 ],
+                    sequence: [32, 33],
                     frameTime: 0.1
                 },
                 mimicPassX: {
-                    sequence: [ 34, 35 ],
+                    sequence: [34, 35],
                     frameTime: 0.1
                 },
                 mimicFailX: {
-                    sequence: [ 34, 35, 33, 33, 32 ],
+                    sequence: [34, 35, 33, 33, 32],
                     frameTime: 0.1
                 },
                 mimicActivateX: {
-                    sequence: [ 6, 7, 8, 7, 6 ],
+                    sequence: [6, 7, 8, 7, 6],
                     frameTime: 0.1
                 },
                 mimicDeactivateX: {
-                    sequence: [ 32, 33, 32 ],
+                    sequence: [32, 33, 32],
                     frameTime: 0.1
                 }
             },
@@ -185,7 +185,7 @@ ig.module(
             /**
              * @override
              */
-            initProperties: function () {
+            initProperties: function() {
 
                 this.parent();
 
@@ -239,24 +239,33 @@ ig.module(
              * Whenever the player is activated, create the UI if it does not exist.
              * @override
              **/
-            activate: function () {
+            activate: function() {
 
                 this.parent();
 
-                if ( !this._activeUI ) {
+                if (!this._activeUI) {
 
                     this._activatingUI = true;
 
                     // pause / unpause button
 
-                    if ( !this.ui.pauseToggle ) {
+                    if (!this.ui.pauseToggle) {
 
                         this.ui.pauseToggle = ig.game.spawnEntity(ig.UITogglePause, 0, 0, {
-                            posPct: { x: 1, y: 0 },
-                            align: { x: 1, y: 0 },
+                            posPct: {
+                                x: 1,
+                                y: 0
+                            },
+                            align: {
+                                x: 1,
+                                y: 0
+                            },
                             // by default margins are assumed to be a percent
                             marginAsPct: false,
-                            margin: { x: 15, y: 15 }
+                            margin: {
+                                x: 15,
+                                y: 15
+                            }
                         });
 
                         // only create a single ui element
@@ -269,16 +278,22 @@ ig.module(
 
                     // stat meters for health and energy
 
-                    if ( !this.ui.healthMeter ) {
+                    if (!this.ui.healthMeter) {
 
                         this.ui.healthMeter = ig.game.spawnEntity(ig.UIMeter, 0, 0, {
                             animSheetPath: 'icons_stats.png',
                             animSettings: true,
                             fillStyle: 'rgb(255,54,90)',
-                            size: { x: 8, y: 8 },
+                            size: {
+                                x: 8,
+                                y: 8
+                            },
                             // by default margins are assumed to be a percent
                             marginAsPct: false,
-                            margin: { x: 15, y: 15 }
+                            margin: {
+                                x: 15,
+                                y: 15
+                            }
                         });
 
                         // only create a single ui element
@@ -289,19 +304,28 @@ ig.module(
 
                     }
 
-                    if ( !this.ui.energyMeter ) {
+                    if (!this.ui.energyMeter) {
 
                         this.ui.energyMeter = ig.game.spawnEntity(ig.UIMeter, 0, 0, {
                             animSheetPath: 'icons_stats.png',
                             animTileOffset: 1,
                             animSettings: true,
                             fillStyle: 'rgb(69,170,255)',
-                            size: { x: 8, y: 8 },
+                            size: {
+                                x: 8,
+                                y: 8
+                            },
                             linkedTo: this.ui.healthMeter,
-                            linkAlign: { x: 0, y: 1 },
+                            linkAlign: {
+                                x: 0,
+                                y: 1
+                            },
                             // by default margins are assumed to be a percent
                             marginAsPct: false,
-                            margin: { x: 0, y: 10 }
+                            margin: {
+                                x: 0,
+                                y: 10
+                            }
                         });
 
                         // only create a single ui element
@@ -318,7 +342,7 @@ ig.module(
                     // and if clicked or tapped
                     // it will show an arrow pointing to villain
 
-                    if ( !this.ui.tracker ) {
+                    if (!this.ui.tracker) {
 
                         this.ui.tracker = ig.game.spawnEntity(ig.UITracker, 0, 0, {
                             animSheetPath: 'icons_trackers.png',
@@ -326,10 +350,10 @@ ig.module(
                             animSheetHeight: 16,
                             animSettings: {
                                 idleX: {
-                                    sequence: [ 0 ]
+                                    sequence: [0]
                                 },
                                 trackingX: {
-                                    sequence: [ 1 ]
+                                    sequence: [1]
                                 }
                             },
                             // track a specifically named villain first
@@ -337,12 +361,21 @@ ig.module(
                             // but if no named villain, track any
                             entityClass: 'EntityVillain',
                             frozen: false,
-                            size: { x: 16, y: 16 },
+                            size: {
+                                x: 16,
+                                y: 16
+                            },
                             linkedTo: this.ui.pauseToggle,
-                            linkAlign: { x: -1, y: 0 },
+                            linkAlign: {
+                                x: -1,
+                                y: 0
+                            },
                             // by default margins are assumed to be a percent
                             marginAsPct: false,
-                            margin: { x: 10, y: 0 }
+                            margin: {
+                                x: 10,
+                                y: 0
+                            }
                         });
 
                     }
@@ -360,37 +393,37 @@ ig.module(
              * Whenever the player is deactivated, destroy the UI if it does exist.
              * @override
              **/
-            deactivate: function () {
+            deactivate: function() {
 
                 this.parent();
 
-                if ( this._activatingUI || this._activeUI ) {
+                if (this._activatingUI || this._activeUI) {
 
                     this._activeUI = this._activatingUI = false;
 
                     // remove UI from the game
 
-                    if ( this.ui.healthMeter ) {
+                    if (this.ui.healthMeter) {
 
-                        ig.game.removeEntity( this.ui.healthMeter );
+                        ig.game.removeEntity(this.ui.healthMeter);
                         this.ui.healthMeter = null;
 
                     }
-                    if ( this.ui.energyMeter ) {
+                    if (this.ui.energyMeter) {
 
-                        ig.game.removeEntity( this.ui.energyMeter );
+                        ig.game.removeEntity(this.ui.energyMeter);
                         this.ui.energyMeter = null;
 
                     }
-                    if ( this.ui.pauseToggle ) {
+                    if (this.ui.pauseToggle) {
 
-                        ig.game.removeEntity( this.ui.pauseToggle );
+                        ig.game.removeEntity(this.ui.pauseToggle);
                         this.ui.pauseToggle = null;
 
                     }
-                    if ( this.ui.tracker ) {
+                    if (this.ui.tracker) {
 
-                        ig.game.removeEntity( this.ui.tracker );
+                        ig.game.removeEntity(this.ui.tracker);
                         this.ui.tracker = null;
 
                     }
@@ -402,7 +435,7 @@ ig.module(
             /**
              * @override
              **/
-            receiveDamage: function (amount, from, unblockable) {
+            receiveDamage: function(amount, from, unblockable) {
 
                 var killed = this._killed;
                 var applied = this.parent(amount, from, unblockable);
@@ -420,7 +453,7 @@ ig.module(
             /**
              * @override
              **/
-            receiveHealing: function (amount, from) {
+            receiveHealing: function(amount, from) {
 
                 this.parent(amount, from);
 
@@ -435,7 +468,7 @@ ig.module(
             /**
              * @override
              **/
-            drainEnergy: function (amount, from, unblockable) {
+            drainEnergy: function(amount, from, unblockable) {
 
                 var killed = this._killed;
                 var applied = this.parent(amount, from, unblockable);
@@ -451,7 +484,7 @@ ig.module(
             /**
              * @override
              **/
-            receiveEnergy: function (amount, from) {
+            receiveEnergy: function(amount, from) {
 
                 this.parent(amount, from);
 
@@ -467,46 +500,49 @@ ig.module(
              * Adds swipe handling to original player input response.
              * @override
              **/
-            handleInput: function () {
+            handleInput: function() {
 
                 var i, il;
                 var inputPoints;
                 var inputPoint;
-				
-				// when tapping
-				
-				if ( ig.input.released( 'tap' ) ) {
-				
-					// find and check all input points that are tapped
-							
-					var abs = this.abilities.getDescendantsByType( ig.Ability.TYPE.SPAMMABLE );
-					
-					if ( abs.length > 0 ) {
 
-						inputPoints = ig.input.getInputPoints([ 'tapped' ], [ true ]);
-						
-						for (i = 0, il = inputPoints.length; i < il; i++) {
+                // when tapping
 
-							inputPoint = inputPoints[ i ];
+                if (ig.input.released('tap')) {
 
-							if (inputPoint.targets) {
-								
-								for (var j = 0, jl = abs.length; j < jl; j++) {
-								
-									var ab = abs[ j ];
-									
-									ab.setEntityTargetFirst( inputPoint.targets );
-									ab.activate( { x: inputPoint.worldX, y: inputPoint.worldY } );
-									
-								}
+                    // find and check all input points that are tapped
 
-							}
+                    var abs = this.abilities.getDescendantsByType(ig.Ability.TYPE.SPAMMABLE);
 
-						}
-						
-					}
-					
-				}
+                    if (abs.length > 0) {
+
+                        inputPoints = ig.input.getInputPoints(['tapped'], [true]);
+
+                        for (i = 0, il = inputPoints.length; i < il; i++) {
+
+                            inputPoint = inputPoints[i];
+
+                            if (inputPoint.targets) {
+
+                                for (var j = 0, jl = abs.length; j < jl; j++) {
+
+                                    var ab = abs[j];
+
+                                    ab.setEntityTargetFirst(inputPoint.targets);
+                                    ab.activate({
+                                        x: inputPoint.worldX,
+                                        y: inputPoint.worldY
+                                    });
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
 
                 // when swiping
 
@@ -514,11 +550,11 @@ ig.module(
 
                     // find and check all input points that are swiping
 
-                    inputPoints = ig.input.getInputPoints([ 'swiping' ], [ true ]);
+                    inputPoints = ig.input.getInputPoints(['swiping'], [true]);
 
                     for (i = 0, il = inputPoints.length; i < il; i++) {
 
-                        inputPoint = inputPoints[ i ];
+                        inputPoint = inputPoints[i];
 
                         if (inputPoint.swipingUp) {
 
@@ -538,7 +574,7 @@ ig.module(
              * When game is reset and player is cleared from persistent cache, we need to make sure we remove all persistent additions such as UI.
              * @override
              */
-            cleanupPersistent: function () {
+            cleanupPersistent: function() {
 
                 this.deactivate();
 

@@ -1,11 +1,11 @@
 ig.module(
-        'game.entities.checkpoint-start'
-    )
+    'game.entities.checkpoint-start'
+)
     .requires(
         'plusplus.entities.checkpoint',
         'game.entities.player'
-    )
-    .defines(function () {
+)
+    .defines(function() {
         "use strict";
 
         /**
@@ -16,7 +16,7 @@ ig.module(
          * @memberof ig
          * @author Collin Hover - collinhover.com
          */
-        ig.EntityCheckpointStart = ig.global.EntityCheckpointStart = ig.EntityCheckpoint.extend(/**@lends ig.EntityCheckpointStart.prototype */{
+        ig.EntityCheckpointStart = ig.global.EntityCheckpointStart = ig.EntityCheckpoint.extend( /**@lends ig.EntityCheckpointStart.prototype */ {
 
             /**
              * @override

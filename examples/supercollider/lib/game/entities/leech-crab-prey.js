@@ -1,11 +1,11 @@
 ig.module(
-        'game.entities.leech-crab-prey'
-    )
+    'game.entities.leech-crab-prey'
+)
     .requires(
         'game.entities.leech-crab-wander',
         'plusplus.core.config'
-    )
-    .defines(function () {
+)
+    .defines(function() {
         "use strict";
 
         var _c = ig.CONFIG;
@@ -17,7 +17,7 @@ ig.module(
          * @memberof ig
          * @author Collin Hover - collinhover.com
          */
-        ig.EntityLeechCrabPrey = ig.global.EntityLeechCrabPrey = ig.EntityLeechCrabWander.extend(/**@lends ig.EntityLeechCrabPrey.prototype */{
+        ig.EntityLeechCrabPrey = ig.global.EntityLeechCrabPrey = ig.EntityLeechCrabWander.extend( /**@lends ig.EntityLeechCrabPrey.prototype */ {
 
             // short delay before pathfinding again
 
@@ -31,7 +31,10 @@ ig.module(
             // we need to also reduce max vel
             // to match slower velocity set in leech crab base
 
-            maxVelClimbing: { x: 25, y: 25 },
+            maxVelClimbing: {
+                x: 25,
+                y: 25
+            },
 
             // afraid of predator flying leech crabs
 

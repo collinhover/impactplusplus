@@ -1,7 +1,7 @@
 ig.module(
-        'plusplus.config-user'
-    )
-    .defines(function () {
+    'plusplus.config-user'
+)
+    .defines(function() {
 
         /**
          * User configuration of Impact++.
@@ -18,10 +18,10 @@ ig.module(
          * @author Collin Hover - collinhover.com
          **/
         ig.CONFIG_USER = {
-			
-			// no need to do force entity extended checks, we won't mess it up
-			// because we know to have our entities extend ig.EntityExtended
-			FORCE_ENTITY_EXTENDED: false,
+
+            // no need to do force entity extended checks, we won't mess it up
+            // because we know to have our entities extend ig.EntityExtended
+            FORCE_ENTITY_EXTENDED: false,
 
             // auto sort
             AUTO_SORT_LAYERS: true,
@@ -33,11 +33,11 @@ ig.module(
             // dynamic scaling based on dimensions in view (resolution independence)
             GAME_WIDTH_VIEW: 352,
             GAME_HEIGHT_VIEW: 208,
-			
-			// clamped scaling is still dynamic, but within a range
-			// so we can't get too big or too small
-			SCALE_MIN: 1,
-			SCALE_MAX: 4,
+
+            // clamped scaling is still dynamic, but within a range
+            // so we can't get too big or too small
+            SCALE_MIN: 1,
+            SCALE_MAX: 4,
 
             // camera flexibility and smoothness
             CAMERA: {
@@ -46,7 +46,7 @@ ig.module(
                 //KEEP_INSIDE_LEVEL: true,
                 KEEP_CENTERED: false,
                 LERP: 0.025,
-				// trap helps with motion sickness
+                // trap helps with motion sickness
                 BOUNDS_TRAP_AS_PCT: true,
                 BOUNDS_TRAP_PCT_MINX: -0.2,
                 BOUNDS_TRAP_PCT_MINY: -0.3,
@@ -59,27 +59,27 @@ ig.module(
                 MAIN_NAME: "font_helloplusplus_white_16.png",
                 ALT_NAME: "font_helloplusplus_white_8.png",
                 CHAT_NAME: "font_helloplusplus_black_8.png",
-				// we can have the font be scaled relative to system
-				SCALE_OF_SYSTEM_SCALE: 0.5,
-				// and force a min / max
-				SCALE_MIN: 1,
-				SCALE_MAX: 2
+                // we can have the font be scaled relative to system
+                SCALE_OF_SYSTEM_SCALE: 0.5,
+                // and force a min / max
+                SCALE_MIN: 1,
+                SCALE_MAX: 2
             },
-			
-			// text bubble settings
+
+            // text bubble settings
             TEXT_BUBBLE: {
                 // match the visual style
                 PIXEL_PERFECT: true
             },
-			
+
             UI: {
-				// sometimes, we want to keep things at a static scale
-				// for example, UI is a possible target
+                // sometimes, we want to keep things at a static scale
+                // for example, UI is a possible target
                 SCALE: 3,
                 IGNORE_SYSTEM_SCALE: true
             },
-			
-			/*
+
+            /*
 			// to try dynamic clamped UI scaling
 			// uncomment below and delete the UI settings above
             UI: {
@@ -87,7 +87,7 @@ ig.module(
 				SCALE_MAX: 4
 			}
 			*/
-			
+
             // UI should persist across all levels
             UI_LAYER_CLEAR_ON_LOAD: false,
 

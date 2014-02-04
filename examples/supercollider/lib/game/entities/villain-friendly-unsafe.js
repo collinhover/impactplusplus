@@ -1,10 +1,10 @@
 ig.module(
-        'game.entities.villain-friendly-unsafe'
-    )
+    'game.entities.villain-friendly-unsafe'
+)
     .requires(
         'game.entities.villain-friendly'
-    )
-    .defines(function () {
+)
+    .defines(function() {
         "use strict";
 
         /**

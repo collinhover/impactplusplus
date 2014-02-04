@@ -1,11 +1,11 @@
 ig.module(
-        'game.entities.tutorial-move'
-    )
+    'game.entities.tutorial-move'
+)
     .requires(
         'plusplus.entities.tutorial-hold',
         'plusplus.ui.ui-text'
-    )
-    .defines(function () {
+)
+    .defines(function() {
 
         /**
          * Tutorial for moving.
@@ -26,7 +26,7 @@ ig.module(
 
             // looking for player properties
 
-            properties: [ 'moving' ],
+            properties: ['moving'],
 
             // don't isolate
 
@@ -41,10 +41,12 @@ ig.module(
 
             textSettings: {
                 text: 'hold to move!',
-				posPct: {x: 0.5, y: 0.75}
+                posPct: {
+                    x: 0.5,
+                    y: 0.75
+                }
             }
 
         });
 
     });
-

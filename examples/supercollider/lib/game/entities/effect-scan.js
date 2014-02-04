@@ -5,14 +5,14 @@
  * @author Collin Hover - collinhover.com
  */
 ig.module(
-        'game.entities.effect-scan'
-    )
+    'game.entities.effect-scan'
+)
     .requires(
         'plusplus.core.config',
         'plusplus.abstractities.effect',
         'plusplus.helpers.utilsvector2'
-    )
-    .defines(function () {
+)
+    .defines(function() {
 
         var _c = ig.CONFIG;
         var _utv2 = ig.utilsvector2;
@@ -26,7 +26,7 @@ ig.module(
 
             animSettings: {
                 idle: {
-                    sequence: [0,1,2,3,4,5],
+                    sequence: [0, 1, 2, 3, 4, 5],
                     frameTime: 0.1
                 }
             }

@@ -5,15 +5,15 @@
  * @author Collin Hover - collinhover.com
  */
 ig.module(
-        'game.entities.bubble'
-    )
+    'game.entities.bubble'
+)
     .requires(
         'plusplus.core.config',
         'plusplus.abstractities.projectile',
         'plusplus.abilities.glow',
         'plusplus.helpers.utilsvector2'
-    )
-    .defines(function () {
+)
+    .defines(function() {
 
         var _c = ig.CONFIG;
         var _utv2 = ig.utilsvector2;
@@ -22,12 +22,18 @@ ig.module(
 
             // size and sprite
 
-            size: { x: 8, y: 8 },
-            offset: { x: 2, y: 2 },
+            size: {
+                x: 8,
+                y: 8
+            },
+            offset: {
+                x: 2,
+                y: 2
+            },
 
             animSheet: new ig.AnimationSheet(_c.PATH_TO_MEDIA + 'bubble.png', 12, 12),
-			
-			animInit: "moveX",
+
+            animInit: "moveX",
 
             animSettings: {
                 moveX: {
@@ -35,11 +41,11 @@ ig.module(
                     frameTime: 1
                 },
                 spawnX: {
-                    sequence: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ],
+                    sequence: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
                     frameTime: 0.3
                 },
                 deathX: {
-                    sequence: [ 10, 11, 12 ],
+                    sequence: [10, 11, 12],
                     frameTime: 0.05
                 }
             },
@@ -78,7 +84,7 @@ ig.module(
             /**
              * @override
              **/
-            initProperties: function () {
+            initProperties: function() {
 
                 this.parent();
 
@@ -89,7 +95,7 @@ ig.module(
             /**
              * @override
              **/
-            resetExtras: function () {
+            resetExtras: function() {
 
                 // ensure glow fade duration is not longer than part of lifetime
 

@@ -1,11 +1,11 @@
 ig.module(
-        'game.entities.villain-friendly'
-    )
+    'game.entities.villain-friendly'
+)
     .requires(
         'game.entities.villain',
         'plusplus.helpers.utils'
-    )
-    .defines(function () {
+)
+    .defines(function() {
         "use strict";
 
         var _ut = ig.utils;
@@ -50,7 +50,7 @@ ig.module(
             /**
              * @override
              */
-            initTypes: function () {
+            initTypes: function() {
 
                 this.parent();
 
@@ -62,9 +62,9 @@ ig.module(
              * Friendly villain will follow player when activated.
              * @override
              */
-            activate: function ( entity ) {
+            activate: function(entity) {
 
-                this.parent( entity );
+                this.parent(entity);
 
                 this.preyName = "player";
 
@@ -74,9 +74,9 @@ ig.module(
              * Friendly villain will stop following player when deactivated.
              * @override
              */
-            deactivate: function ( entity ) {
+            deactivate: function(entity) {
 
-                this.parent( entity );
+                this.parent(entity);
 
                 // clear prey and name so player is no longer tracked
 

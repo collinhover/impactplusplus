@@ -1,13 +1,13 @@
 ig.module(
-        'game.abilities.glow-bubble'
-    )
+    'game.abilities.glow-bubble'
+)
     .requires(
         'plusplus.core.input',
         'game.entities.bubble',
         'plusplus.abilities.ability-shoot',
         'plusplus.helpers.utils'
-    )
-    .defines(function () {
+)
+    .defines(function() {
         "use strict";
 
         var _ut = ig.utils;
@@ -19,59 +19,59 @@ ig.module(
          * @memberof ig
          * @author Collin Hover - collinhover.com
          **/
-        ig.AbilityGlowBubble = ig.AbilityShoot.extend(/**@lends ig.AbilityGlowBubble.prototype */{
+        ig.AbilityGlowBubble = ig.AbilityShoot.extend( /**@lends ig.AbilityGlowBubble.prototype */ {
 
             /**
              * Glow bubble has an activation cost.
-			 * @override
+             * @override
              */
             costActivate: 4,
 
             /**
              * Entity spawned as projectile.
-			 * @override
+             * @override
              */
             spawningEntity: ig.EntityBubble,
 
             /**
              * Bubbles have extra velocity towards offset.
-			 * @override
+             * @override
              */
             offsetVelX: 60,
 
             /**
              * Bubbles have extra velocity towards offset.
-			 * @override
+             * @override
              */
             offsetVelY: 20,
 
             /**
              * Bubbles have extra velocity with entity horizontal motion.
-			 * @override
+             * @override
              */
             relativeVelPctX: 0.75,
 
             /**
              * Bubbles have extra velocity with entity vertical motion.
-			 * @override
+             * @override
              */
             relativeVelPctY: 0.25,
 
             /**
              * Bubbles can be shot in any direction.
-			 * @override
+             * @override
              */
-			shootLocationMinPctY: 0,
+            shootLocationMinPctY: 0,
 
             /**
              * Bubbles can be shot in any direction.
-			 * @override
+             * @override
              */
-			shootLocationMaxPctY: 1,
+            shootLocationMaxPctY: 1,
 
             /**
              * Cast activate pass by animation 'throwPass'.
-			 * @override
+             * @override
              */
             activatePassCastSettings: {
                 animName: 'throwPass'
@@ -79,7 +79,7 @@ ig.module(
 
             /**
              * Cast activate by animation 'throwActivate'.
-			 * @override
+             * @override
              */
             activateCastSettings: {
                 animName: 'throwActivate'
@@ -88,7 +88,7 @@ ig.module(
             /**
              * @see ig.AbilityShoot
              **/
-            initTypes: function () {
+            initTypes: function() {
 
                 this.parent();
 
@@ -100,7 +100,7 @@ ig.module(
              *
              * @see ig.AbilityShoot.
              **/
-            activateComplete: function (settings) {
+            activateComplete: function(settings) {
 
                 settings = settings || {};
 
@@ -119,7 +119,7 @@ ig.module(
             /**
              * @see ig.AbilityShoot.
              **/
-            clone: function (c) {
+            clone: function(c) {
 
                 if (c instanceof ig.AbilityGlowBubble !== true) {
 

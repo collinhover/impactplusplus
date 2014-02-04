@@ -1,11 +1,11 @@
 ig.module(
-        'game.entities.villain-clone'
-    )
+    'game.entities.villain-clone'
+)
     .requires(
         'game.entities.villain',
         'plusplus.helpers.utils'
-    )
-    .defines(function () {
+)
+    .defines(function() {
         "use strict";
 
         var _ut = ig.utils;
@@ -29,7 +29,7 @@ ig.module(
 
             // stats
 
-            health : 1,
+            health: 1,
 
             // always tries to path to player
             // but use default creature pathing settings from config
@@ -43,7 +43,7 @@ ig.module(
             /**
              * @override
              **/
-            initTypes: function () {
+            initTypes: function() {
 
                 this.parent();
 
@@ -54,13 +54,13 @@ ig.module(
             /**
              * @override
              */
-            attack: function( entity ){
+            attack: function(entity) {
 
-                var closeEnough = this.parent( entity );
+                var closeEnough = this.parent(entity);
 
                 // now lets hit our prey!
 
-                if ( closeEnough ) {
+                if (closeEnough) {
 
                     this.abilityMelee.activate();
 
