@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+    <title>Impact++ / Tutorial: 4. Creatures</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+		<script src="scripts/html5shiv.js"> </script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/main.css">
+</head>
+
+<body data-spy="scroll" data-target="#navdoc">
+
+	
+
+<div id="header">
+	
+	<div class="container">
+		
+		<div id="logo">
+			<a href="index.html"><img src="img/logo_impactplusplus_128.png"></a>
+				
+			<a href='http://github.com/collinhover/impactplusplus/' id="forkBtn">
+				<img src="img/fork_impactplusplus.png" alt="Fork me on GitHub">
+			</a>
+			
+		</div>
+		
+	</div>
+	
+</div>
+
+<div id="docs" class="container">
+	
+	<div id="tutorial">
+
+		<div class="row">
+			
+			<div class="span2">
+				<nav id="mainnav">
+					
+					<div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navTutorialsCollapse">Tutorials</button><div id="navTutorialsCollapse" class="collapse"><ul class="nav nav-list"><li id="navTutorials" class="nav-header hidden-phone">Tutorials</li><li><a href="tutorial-Started.html">1. Getting Started</a></li><li><a href="tutorial-Player.html">2. Player</a></li><li><a href="tutorial-Character.html">3. Character</a></li><li><a href="tutorial-Creatures.html">4. Creatures</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navCoreCollapse">Core</button><div id="navCoreCollapse" class="collapse"><ul class="nav nav-list"><li id="navCore" class="nav-header hidden-phone">Core</li><li><a href="ig.html">ig</a></li><li><a href="ig.CONFIG.html">CONFIG</a></li><li><a href="ig.EntityExtended.COLLIDES.html">COLLIDES</a></li><li><a href="ig.EntityExtended.GROUP.html">GROUP</a></li><li><a href="ig.EntityExtended.PERFORMANCE.html">PERFORMANCE</a></li><li><a href="ig.EntityExtended.TYPE.html">TYPE</a></li><li><a href="ig.Font.FONTS.html">FONTS</a></li><li><a href="ig.AnimationExtended.html">AnimationExtended</a></li><li><a href="ig.AnimationSheet.html">AnimationSheet</a></li><li><a href="ig.BackgroundMapExtended.html">BackgroundMapExtended</a></li><li><a href="ig.Camera.html">Camera</a></li><li><a href="ig.CollisionMap.html">CollisionMap</a></li><li><a href="ig.EntityExtended.html">EntityExtended</a></li><li><a href="ig.Font.html">Font</a></li><li><a href="ig.GameExtended.html">GameExtended</a></li><li><a href="ig.Hierarchy.html">Hierarchy</a></li><li><a href="ig.Image.html">Image</a></li><li><a href="ig.ImageDrawing.html">ImageDrawing</a></li><li><a href="ig.Input.html">Input</a></li><li><a href="ig.InputPoint.html">InputPoint</a></li><li><a href="ig.Layer.html">Layer</a></li><li><a href="ig.LoaderExtended.html">LoaderExtended</a></li><li><a href="ig.PathfindingMap.html">PathfindingMap</a></li><li><a href="ig.PlayerManager.html">PlayerManager</a></li><li><a href="ig.System.html">System</a></li></ul></div></div>
+					
+				</nav>
+			</div>
+			
+			<div class="span8">
+				<div id="maincontent">
+					
+					<div class="hero-unit">
+<h1>
+Creature
+</h1>
+<h3 class="subtext">by @Pattentrick</h3>
+<div class="container-overview">
+<p>
+Oh you heard about the creature abstract, which provides some basic AI that you can use for your character entities, but you don't know how you should use it? Don't look any further, you have come to the right place! In this tutorial we well explain the basics of the creature abstract like attacking, wandering and fleeing, so you can make your very own creatures in no time!
+</p>
+</div>
+</div>
+
+<h3 id="attack-">Attack!</h3>
+<p>One of the core concepts behind the creature abstract is the idea to have prey and predators. A creature can automatically find, move to, and attack prey. You just need to supply it with one of the 4 prey finding options.</p>
+<p>A creature can find prey by name:</p>
+<pre><code class="lang-javascript```">creaturePrey.name = &quot;nameOfPrey&quot;;
+creaturePredator.preyName = &quot;nameOfPrey&quot;;</code></pre>
+<p>By class (this can also be the name of the class as string):</p>
+<pre><code class="lang-javascript```">creaturePrey = ig.game.spawnEntity(ig.EntityPreyClass);
+creaturePredator.preyClass = ig.EntityPreyClass;</code></pre>
+<p>By a specific type:</p>
+<pre><code class="lang-javascript```">ig.utils.addType(ig.EntityExtended, creaturePrey, 'type', &quot;TYPE_OF_PREY&quot;);
+creaturePredator.preyType = ig.utils.getType(ig.EntityExtended, &quot;TYPE_OF_PREY&quot;);</code></pre>
+<p>Or even by a group:</p>
+<pre><code class="lang-javascript```">ig.utils.addType(ig.EntityExtended, creaturePrey, 'group', &quot;GROUP_OF_PREY&quot;, &quot;GROUP&quot;);
+creaturePredator.preyGroup = ig.utils.getType(ig.EntityExtended, &quot;GROUP_OF_PREY&quot;, &quot;GROUP&quot;);</code></pre>
+<p>These same 4 finding options also apply to finding a predator. But keep in mind that a creature will only try to flee, or run away, from a predator. Not from another prey. Normally a creature won't react to prey or predator until they are within a certain range. But you can easily modify that range:</p>
+<p><code>creaturePredator.reactionDistance = 100;</code></p>
+<p>On top of that you can also force the creature to have a line of sight to the prey or predator:</p>
+<pre><code class="lang-javascipt```">creaturePredator.needsLineOfSightPrey = true;
+creaturePrey.needsLineOfSightPredator = true;</code></pre>
+<p>Once a prey or predator is found, the creature will use pathfinding via the <code>moveTo</code> method of the character abstract to move around your level. You can  define your own settings for that pathfinding like this:</p>
+<pre><code class="lang-javascript```">creaturePredator.moveToPreySettings = {...};
+creaturePrey.moveToPredatorSettings = {...};</code></pre>
+<p>One notable setting is the pathfinding search distance which, for best results, should match the reaction distance:</p>
+<pre><code class="lang-javascript```">creaturePredator.moveToPreySettings = {
+     searchDistance: creaturePredator.reactionDistance
+};</code></pre>
+<p>For more pathfinding options see the <code>moveTo</code> method of the character abstract:</p>
+<p>(ig.Character.html#moveTo</p>
+<p>While a predator is approaching its prey, it will call its <code>attack</code> method. By default this method will just do a distance check and returns <code>true</code> if it's near enough and stops the creature movement. Feel free to overwrite that method with your own attack game mechanics. </p>
+<h3 id="fly-you-fools-">Fly, you fools!</h3>
+<p>A creature will automatically flee if it notices a predator in its reaction range. For fleeing the creature will also use pathfinding as mentioned above. You can use the <code>moveToPredatorSettings</code> if you want to change the pathfinding behaviour on fleeing.</p>
+<p>Don't like cowardly prey creatures? You can disable fleeing:</p>
+<p><code>canFlee: false;</code></p>
+<p>And don't forget that your prey needs to know about its predator for proper fleeing:</p>
+<p><code>predatorClass: &quot;EntityWolf&quot;;</code></p>
+<h3 id="let-s-take-a-walk">Let's take a Walk</h3>
+<p>Creatures can wander around your level. Just set the wander properties to true:</p>
+<pre><code class="lang-javascript```">// wandering on the x axis
+canWanderX: true;
+// wandering on the y axis (in top down mode)
+canWanderY: true;</code></pre>
+<p>Wandering also uses pathfinding. You can change the default settings for that via the <code>moveToWanderSettings</code>. Also you can define in percentage how often the creature should switch directions while wandering:</p>
+<pre><code>wanderSwitchChance: 0.004;
+wanderSwitchChanceStopped: 0.010;</code></pre>
+<p>A creature can also wander around its tether. A spawned creature will use its spawner as tether, unless you set the name of another entity as its tether:</p>
+<p><code>tetherName: &quot;carpet&quot;;</code></p>
+<p>When tether distance is <= 0, a creature can go as far as it wants:</p>
+<p><code>tetherDistance = 0;</code></p>
+<p>When tether distance is > 0, a creature will only go up to that distance:</p>
+<p><code>tetherDistance = 100;</code></p>
+<p>Unless it can break its tether to follow prey or flee from a predator:</p>
+<p><code>canBreakTether = true;</code></p>
+<h3 id="learn-more-">Learn More!</h3>
+<p><a href="ig.Creature.html">Creature Class</a><br><a href="ig.Character.html">Character Class</a>  </p>
+					
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+</div> 
+
+<footer>
+	<p class="muted">Impact++ created and maintained by <a href="http://twitter.com/collinhover" target="_blank">@collinhover</a> / <a href="http://collinhover.com/" target="_blank">collinhover.com</a></p>
+	<p class="muted">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha4</a></p>
+</footer>
+
+	
+	<script src="scripts/linenumber.js"> </script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="scripts/jquery-1.9.1.min.js"><\/script>')</script>
+	<script src="scripts/bootstrap.min.js"> </script>
+	<script src="scripts/main.js"> </script>
+	
+</body>
+</html>

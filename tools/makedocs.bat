@@ -1,17 +1,21 @@
 @echo off
 
+call SET ROOT=..\
+
+call cd %ROOT%
+
 call echo Initializing documentation...
 
 call SET TEMPLATE=impactplusplus
 
-call SET OUTPUT=..\impactplusplus\docs
-call SET INPUT=..\impactplusplus\lib\plusplus
+call SET OUTPUT=docs
+call SET INPUT=lib\plusplus\core
+call SET INPUT_TO_ROOT=..\..\..\
+call SET TUTORIALS=tutorials
 
-call SET DEMO=..\impactplusplus\docs\demo
-call SET DEMO_TEMP=..\impactplusplus\tempdemo
+call SET DEMO=docs\demo
+call SET DEMO_TEMP=tempdemo
 call SET DEMO_NEEDS_COPY_BACK=0
-
-call cd ..\..\jsdoc3
 
 IF EXIST "%DEMO%" (
 	
@@ -40,9 +44,19 @@ IF EXIST "%OUTPUT%" (
 
 )
 
+call echo Beautifying
+
+cd %INPUT%
+
+for /r %%f in (*) do (
+	call js-beautify %%f -r
+)
+
+cd  %INPUT_TO_ROOT%
+
 call echo Creating new documentation
 
-call jsdoc -t templates\%TEMPLATE% -d %OUTPUT% -r %INPUT%
+call jsdoc -t templates\%TEMPLATE% -d %OUTPUT% -r %INPUT% -u %TUTORIALS%
 
 IF "%DEMO_NEEDS_COPY_BACK%"=="1" (
 	

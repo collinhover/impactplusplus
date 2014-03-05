@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+    <title>Impact++ / Source: background-map.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+		<script src="scripts/html5shiv.js"> </script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/main.css">
+</head>
+
+<body data-spy="scroll" data-target="#navdoc">
+
+	
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>ig.module(
+    'plusplus.core.background-map'
+).requires(
+    'impact.background-map',
+    'plusplus.core.image-drawing',
+    'plusplus.helpers.utils'
+)
+    .defines(function() {
+        'use strict';
+
+        var _ut = ig.utils;
+
+        /**
+         * Fixes and enhancements for background-maps.
+         * &lt;span class="alert">&lt;strong>IMPORTANT:&lt;/strong> to greatly improve performance by reducing draw calls, all prerendered maps on a layer will be merged into as few maps as possible!&lt;/span>
+         * @class
+         * @extends ig.BackgroundMap
+         * @memberof ig
+         * @author Collin Hover - collinhover.com
+         **/
+        ig.BackgroundMapExtended = ig.BackgroundMap.extend( /**@lends ig.BackgroundMapExtended.prototype */ {
+
+            /**
+             * Scale at which maps were pre rendered.
+             * @type {Number}
+             * @default
+             */
+            preRenderedScale: 0,
+
+            /**
+             * List of maps merged into this map.
+             * @type {Array}
+             * @default
+             */
+            mergedMaps: [],
+
+            /**
+             * @override
+             */
+            setTileset: function(tileset) {
+
+                // handle when tileset is an image drawing
+
+                if (tileset instanceof ig.ImageDrawing) {
+
+                    // should we copy image?
+                    this.tiles = tileset;
+
+                } else {
+                    this.tilesetName = tileset instanceof ig.Image ? tileset.path : tileset;
+                    this.tiles = new ig.Image(this.tilesetName);
+                }
+
+                this.preRenderedChunks = null;
+
+            },
+
+            /**
+             * Merge another map into this map.
+             * &lt;span class="alert">&lt;strong>IMPORTANT:&lt;/strong> only maps with {@link ig.BackgroundMap#preRender} set to true can be merged.&lt;/span>
+             * @param {ig.BackgroundMap} map map to be merged.
+             * @returns {Boolean} true if merged
+             */
+            merge: function(map) {
+
+                if (this.preRender &amp;&amp; !this.repeat &amp;&amp; map instanceof ig.BackgroundMap &amp;&amp; map.preRender &amp;&amp; !map.repeat &amp;&amp; map.distance === this.distance) {
+
+                    // store map
+
+                    _ut.arrayCautiousAdd(this.mergedMaps, map);
+
+                    // reset prerendered chunks to force another render
+
+                    this.preRenderedChunks = null;
+
+                    return true;
+
+                }
+
+                return false;
+
+            },
+
+            /**
+             * @override
+             */
+            preRenderMapToChunks: function() {
+
+                // store current scale
+
+                this.preRenderedScale = ig.system.scale;
+
+                // handle merged prerender
+
+                if (this.mergedMaps.length > 0) {
+
+                    this.preRenderedChunks = [];
+
+                    // combine merged maps with this map first
+
+                    var maps = [this].concat(this.mergedMaps);
+
+                    // find largest chunk values from maps
+
+                    var totalWidth = 0;
+                    var totalHeight = 0;
+                    var totalSize = 0;
+                    var chunkSize = 0;
+
+                    for (var i = 0, il = maps.length; i &lt; il; i++) {
+
+                        var map = maps[i];
+
+                        totalWidth = Math.max(totalWidth, map.width * map.tilesize * ig.system.scale);
+                        totalHeight = Math.max(totalHeight, map.height * map.tilesize * ig.system.scale);
+                        totalSize = Math.max(totalWidth, totalHeight);
+                        chunkSize = Math.max(chunkSize, Math.min(totalSize, map.chunkSize));
+
+                    }
+
+                    var chunkCols = Math.ceil(totalWidth / chunkSize);
+                    var chunkRows = Math.ceil(totalHeight / chunkSize);
+
+                    for (var y = 0; y &lt; chunkRows; y++) {
+
+                        var chunkRow = this.preRenderedChunks[y] = this.preRenderedChunks[y] || [];
+
+                        for (var x = 0; x &lt; chunkCols; x++) {
+
+                            var chunkWidth = (x === chunkCols - 1) ? totalWidth - x * chunkSize : chunkSize;
+                            var chunkHeight = (y === chunkRows - 1) ? totalHeight - y * chunkSize : chunkSize;
+
+                            chunkRow[x] = this.preRenderMergedChunk(maps, chunkSize, x, y, chunkWidth, chunkHeight);
+
+                        }
+
+                    }
+
+                }
+                // default to unmerged prerender
+                else {
+
+                    this.parent();
+
+                }
+
+            },
+
+            /**
+             * Prerenders a merged chunk of a map from a list of maps.
+             * @param {Array} maps maps to render from
+             * @param {Number} chunkSize size of chunk
+             * @param {Number} cx x position of chunk
+             * @param {Number} cy y position of chunk
+             * @param {Number} w width of chunk
+             * @param {Number} h height of chunk
+             * @returns {*}
+             */
+            preRenderMergedChunk: function(maps, chunkSize, cx, cy, w, h) {
+
+                var chunk = ig.$new('canvas');
+                chunk.width = w;
+                chunk.height = h;
+                chunk.style.width = w + "px";
+                chunk.style.height = h + "px";
+                chunk.retinaResolutionEnabled = false;
+
+                var screenContext = ig.system.context;
+                var chunkContext = chunk.getContext("2d");
+                ig.System.scaleMode(chunk, chunkContext);
+                ig.system.context = chunkContext;
+
+                for (var i = 0, il = maps.length; i &lt; il; i++) {
+
+                    this.preRenderChunk(cx, cy, w, h, maps[i], chunkSize, chunk);
+
+                }
+
+                ig.system.context = screenContext;
+
+                return chunk;
+
+            },
+
+            /**
+             * Prerenders a chunk of a map.
+             * @override
+             */
+            preRenderChunk: function(cx, cy, w, h, map, chunkSize, chunk) {
+
+                map = map || this;
+                chunkSize = chunkSize || this.chunkSize;
+
+                var screenContext;
+
+                if (!chunk) {
+
+                    chunk = ig.$new('canvas');
+                    chunk.width = w;
+                    chunk.height = h;
+                    chunk.style.width = w + "px";
+                    chunk.style.height = h + "px";
+                    chunk.retinaResolutionEnabled = false;
+
+                    var chunkContext = chunk.getContext('2d');
+                    ig.System.scaleMode(chunk, chunkContext);
+
+                    screenContext = ig.system.context;
+                    ig.system.context = chunkContext;
+
+                }
+
+                var tw = w / map.tilesize / ig.system.scale + 1,
+                    th = h / map.tilesize / ig.system.scale + 1;
+
+                var nx = (cx * chunkSize / ig.system.scale) % map.tilesize,
+                    ny = (cy * chunkSize / ig.system.scale) % map.tilesize;
+
+                var tx = Math.floor(cx * chunkSize / map.tilesize / ig.system.scale),
+                    ty = Math.floor(cy * chunkSize / map.tilesize / ig.system.scale);
+
+                for (var x = 0; x &lt; tw; x++) {
+
+                    for (var y = 0; y &lt; th; y++) {
+
+                        if (x + tx &lt; map.width &amp;&amp; y + ty &lt; map.height) {
+
+                            var tile = map.data[y + ty][x + tx];
+
+                            if (tile) {
+                                map.tiles.drawTile(
+                                    x * map.tilesize - nx, y * map.tilesize - ny,
+                                    tile - 1, map.tilesize
+                                );
+                            }
+
+                        }
+
+                    }
+
+                }
+
+                if (screenContext) {
+
+                    ig.system.context = screenContext;
+
+                }
+
+                return chunk;
+
+            },
+
+            /**
+             * Draw background map.
+             * @override
+             */
+            draw: function() {
+
+                // add .setScreenPos to the draw method to make the game-wide drawing method much simpler
+
+                this.setScreenPos(ig.game.screen.x, ig.game.screen.y);
+
+                if (!this.tiles.loaded || !this.enabled) return;
+
+                // draw prerendered or by tile
+
+                if (this.preRender) {
+
+                    if (this.preRenderedScale !== ig.system.scale) {
+
+                        // reset prerendered chunks to force another render to scale
+
+                        this.preRenderedChunks = null;
+
+                    }
+
+                    this.drawPreRendered();
+
+                } else {
+
+                    this.drawTiled();
+
+                }
+
+            }
+
+        });
+
+    });
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+	
+	<script src="scripts/linenumber.js"> </script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="scripts/jquery-1.9.1.min.js"><\/script>')</script>
+	<script src="scripts/bootstrap.min.js"> </script>
+	<script src="scripts/main.js"> </script>
+	
+</body>
+</html>
