@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-    <title>Impact++ / Source: layer.js</title>
+    <title>Impact++ / Source: core/layer.js</title>
     
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -742,11 +742,23 @@
 
                     }
 
-                    // check this entities for collisions if this has been changed
+                    if (this.changed) {
 
-                    if (this.changed &amp;&amp; this.itemsChecking.length > 0) {
+                        // check this entities for collisions if this has been changed
 
-                        this.checkEntities();
+                        if (this.itemsChecking.length > 0) {
+
+                            this.checkEntities();
+
+                        }
+
+                        // when auto sorting, resort entities if this has been changed
+
+                        if (this.autoSort) {
+
+                            this.sort();
+
+                        }
 
                     }
 

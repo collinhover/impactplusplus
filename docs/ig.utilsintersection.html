@@ -1,0 +1,4995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+    <title>Impact++ / Namespace: utilsintersection</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+		<script src="scripts/html5shiv.js"> </script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/main.css">
+</head>
+
+<body data-spy="scroll" data-target="#navdoc">
+
+	
+
+
+
+
+	
+<div id="header">
+	
+	<div class="container">
+		
+		<div id="logo">
+			<a href="index.html"><img src="img/logo_impactplusplus_128.png"></a>
+				
+			<a href='http://github.com/collinhover/impactplusplus/' id="forkBtn">
+				<img src="img/fork_impactplusplus.png" alt="Fork me on GitHub">
+			</a>
+			
+		</div>
+		
+	</div>
+	
+</div>
+
+<div id="docs" class="container">
+
+	<div class="row">
+		
+		<div class="span2">
+			<nav id="mainnav">
+				
+				<div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navTutorialsCollapse">Tutorials</button><div id="navTutorialsCollapse" class="collapse"><ul class="nav nav-list"><li id="navTutorials" class="nav-header hidden-phone">Tutorials</li><li><a href="tutorial-Started.html">1. Getting Started</a></li><li><a href="tutorial-Player.html">2. Player</a></li><li><a href="tutorial-Character.html">3. Character</a></li><li><a href="tutorial-Camera.html">4. Camera</a></li><li><a href="tutorial-UI.html">5. UI</a></li><li><a href="tutorial-Pathfinding.html">6. Pathfinding</a></li><li><a href="tutorial-Creatures.html">7. Creatures</a></li><li><a href="tutorial-Lighting.html">8. Lighting</a></li><li><a href="tutorial-Conversations.html">9. Conversations</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navAbilitiesCollapse">Abilities</button><div id="navAbilitiesCollapse" class="collapse"><ul class="nav nav-list"><li id="navAbilities" class="nav-header hidden-phone">Abilities</li><li><a href="ig.Ability.html">Ability</a></li><li><a href="ig.AbilityDamage.html">AbilityDamage</a></li><li><a href="ig.AbilityGlow.html">AbilityGlow</a></li><li><a href="ig.AbilityGlowToggle.html">AbilityGlowToggle</a></li><li><a href="ig.AbilityInteract.html">AbilityInteract</a></li><li><a href="ig.AbilityMelee.html">AbilityMelee</a></li><li><a href="ig.AbilityMimic.html">AbilityMimic</a></li><li><a href="ig.AbilityShoot.html">AbilityShoot</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navAbstractitiesCollapse">Abstractities</button><div id="navAbstractitiesCollapse" class="collapse"><ul class="nav nav-list"><li id="navAbstractities" class="nav-header hidden-phone">Abstractities</li><li><a href="ig.Character.html">Character</a></li><li><a href="ig.Creature.html">Creature</a></li><li><a href="ig.Demo.html">Demo</a></li><li><a href="ig.Door.html">Door</a></li><li><a href="ig.DoorTriggered.html">DoorTriggered</a></li><li><a href="ig.DoorUsable.html">DoorUsable</a></li><li><a href="ig.Effect.html">Effect</a></li><li><a href="ig.Lever.html">Lever</a></li><li><a href="ig.Particle.html">Particle</a></li><li><a href="ig.ParticleFast.html">ParticleFast</a></li><li><a href="ig.Player.html">Player</a></li><li><a href="ig.Projectile.html">Projectile</a></li><li><a href="ig.Shape.html">Shape</a></li><li><a href="ig.Spawner.html">Spawner</a></li><li><a href="ig.SpawnerCharacter.html">SpawnerCharacter</a></li><li><a href="ig.SpawnerFast.html">SpawnerFast</a></li><li><a href="ig.Tutorial.html">Tutorial</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navCoreCollapse">Core</button><div id="navCoreCollapse" class="collapse"><ul class="nav nav-list"><li id="navCore" class="nav-header hidden-phone">Core</li><li><a href="ig.html">ig</a></li><li><a href="ig.CONFIG.html">CONFIG</a></li><li><a href="ig.CONFIG_USER.html">CONFIG_USER</a></li><li><a href="ig.EntityExtended.COLLIDES.html">COLLIDES</a></li><li><a href="ig.EntityExtended.GROUP.html">GROUP</a></li><li><a href="ig.EntityExtended.PERFORMANCE.html">PERFORMANCE</a></li><li><a href="ig.EntityExtended.TYPE.html">TYPE</a></li><li><a href="ig.Font.FONTS.html">FONTS</a></li><li><a href="ig.AnimationExtended.html">AnimationExtended</a></li><li><a href="ig.AnimationSheet.html">AnimationSheet</a></li><li><a href="ig.BackgroundMapExtended.html">BackgroundMapExtended</a></li><li><a href="ig.Camera.html">Camera</a></li><li><a href="ig.CollisionMap.html">CollisionMap</a></li><li><a href="ig.EntityExtended.html">EntityExtended</a></li><li><a href="ig.Font.html">Font</a></li><li><a href="ig.GameExtended.html">GameExtended</a></li><li><a href="ig.Hierarchy.html">Hierarchy</a></li><li><a href="ig.Image.html">Image</a></li><li><a href="ig.ImageDrawing.html">ImageDrawing</a></li><li><a href="ig.Input.html">Input</a></li><li><a href="ig.InputPoint.html">InputPoint</a></li><li><a href="ig.Layer.html">Layer</a></li><li><a href="ig.LoaderExtended.html">LoaderExtended</a></li><li><a href="ig.PathfindingMap.html">PathfindingMap</a></li><li><a href="ig.PlayerManager.html">PlayerManager</a></li><li><a href="ig.System.html">System</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navEntitiesCollapse">Entities</button><div id="navEntitiesCollapse" class="collapse"><ul class="nav nav-list"><li id="navEntities" class="nav-header hidden-phone">Entities</li><li><a href="ig.EntityAbilityActivate.html">EntityAbilityActivate</a></li><li><a href="ig.EntityAbilityEnable.html">EntityAbilityEnable</a></li><li><a href="ig.EntityAbilityUpgrade.html">EntityAbilityUpgrade</a></li><li><a href="ig.EntityCameraAtmosphere.html">EntityCameraAtmosphere</a></li><li><a href="ig.EntityCameraFollow.html">EntityCameraFollow</a></li><li><a href="ig.EntityCameraShake.html">EntityCameraShake</a></li><li><a href="ig.EntityCheckpoint.html">EntityCheckpoint</a></li><li><a href="ig.EntityConversation.html">EntityConversation</a></li><li><a href="ig.EntityDemoHold.html">EntityDemoHold</a></li><li><a href="ig.EntityDemoSwipe.html">EntityDemoSwipe</a></li><li><a href="ig.EntityDemoTap.html">EntityDemoTap</a></li><li><a href="ig.EntityDestructable.html">EntityDestructable</a></li><li><a href="ig.EntityDestructableCollide.html">EntityDestructableCollide</a></li><li><a href="ig.EntityDestructableDamage.html">EntityDestructableDamage</a></li><li><a href="ig.EntityDirection.html">EntityDirection</a></li><li><a href="ig.EntityDummy.html">EntityDummy</a></li><li><a href="ig.EntityEffectElectricity.html">EntityEffectElectricity</a></li><li><a href="ig.EntityEffectPow.html">EntityEffectPow</a></li><li><a href="ig.EntityEventDefense.html">EntityEventDefense</a></li><li><a href="ig.EntityExplosion.html">EntityExplosion</a></li><li><a href="ig.EntityLava.html">EntityLava</a></li><li><a href="ig.EntityLevelchange.html">EntityLevelchange</a></li><li><a href="ig.EntityLight.html">EntityLight</a></li><li><a href="ig.EntityNarrative.html">EntityNarrative</a></li><li><a href="ig.EntityPain.html">EntityPain</a></li><li><a href="ig.EntityPainInstagib.html">EntityPainInstagib</a></li><li><a href="ig.EntityParticleColor.html">EntityParticleColor</a></li><li><a href="ig.EntityParticleDebris.html">EntityParticleDebris</a></li><li><a href="ig.EntityShapeClimbable.html">EntityShapeClimbable</a></li><li><a href="ig.EntityShapeClimbableOneWay.html">EntityShapeClimbableOneWay</a></li><li><a href="ig.EntityShapeSolid.html">EntityShapeSolid</a></li><li><a href="ig.EntitySlime.html">EntitySlime</a></li><li><a href="ig.EntitySwitch.html">EntitySwitch</a></li><li><a href="ig.EntityText.html">EntityText</a></li><li><a href="ig.EntityTrigger.html">EntityTrigger</a></li><li><a href="ig.EntityTriggerConstant.html">EntityTriggerConstant</a></li><li><a href="ig.EntityTriggerController.html">EntityTriggerController</a></li><li><a href="ig.EntityTriggerFunction.html">EntityTriggerFunction</a></li><li><a href="ig.EntityTriggerInput.html">EntityTriggerInput</a></li><li><a href="ig.EntityTriggerKill.html">EntityTriggerKill</a></li><li><a href="ig.EntityTriggerProperty.html">EntityTriggerProperty</a></li><li><a href="ig.EntityTriggerReverse.html">EntityTriggerReverse</a></li><li><a href="ig.EntityTriggerReverseConstant.html">EntityTriggerReverseConstant</a></li><li><a href="ig.EntityTutorialHold.html">EntityTutorialHold</a></li><li><a href="ig.EntityTutorialSwipe.html">EntityTutorialSwipe</a></li><li><a href="ig.EntityTutorialTap.html">EntityTutorialTap</a></li><li><a href="ig.EntityVoid.html">EntityVoid</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navHelpersCollapse">Helpers</button><div id="navHelpersCollapse" class="collapse"><ul class="nav nav-list"><li id="navHelpers" class="nav-header hidden-phone">Helpers</li><li><a href="ig.pathfinding.html">pathfinding</a></li><li><a href="ig.TWEEN.html">TWEEN</a></li><li><a href="ig.utils.html">utils</a></li><li><a href="ig.utilscolor.html">utilscolor</a></li><li><a href="ig.utilsdraw.html">utilsdraw</a></li><li><a href="ig.utilsintersection.html">utilsintersection</a></li><li><a href="ig.utilsmath.html">utilsmath</a></li><li><a href="ig.utilstile.html">utilstile</a></li><li><a href="ig.utilsvector2.html">utilsvector2</a></li><li><a href="ig.xhr.html">xhr</a></li><li><a href="ig.PathNode.html">PathNode</a></li><li><a href="ig.Preloader.html">Preloader</a></li><li><a href="ig.Signal.html">Signal</a></li><li><a href="ig.TWEEN.Tween.html">Tween</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navUiCollapse">Ui</button><div id="navUiCollapse" class="collapse"><ul class="nav nav-list"><li id="navUi" class="nav-header hidden-phone">Ui</li><li><a href="ig.UIButton.html">UIButton</a></li><li><a href="ig.UIElement.html">UIElement</a></li><li><a href="ig.UIInteractive.html">UIInteractive</a></li><li><a href="ig.UIMeter.html">UIMeter</a></li><li><a href="ig.UIOverlay.html">UIOverlay</a></li><li><a href="ig.UIOverlayPause.html">UIOverlayPause</a></li><li><a href="ig.UIText.html">UIText</a></li><li><a href="ig.UITextBox.html">UITextBox</a></li><li><a href="ig.UITextBubble.html">UITextBubble</a></li><li><a href="ig.UIToggle.html">UIToggle</a></li><li><a href="ig.UITogglePause.html">UITogglePause</a></li><li><a href="ig.UIToggleVolume.html">UIToggleVolume</a></li><li><a href="ig.UITracker.html">UITracker</a></li></ul></div></div>
+				
+			</nav>
+		</div>
+		
+		<div class="span10">
+			<div id="maincontent">
+				
+				<ul class="breadcrumb"><li><a href="https://github.com/collinhover/impactplusplus/">Impact++</a><span class="divider">/</span></li><li><a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/helpers" target="_blank">helpers</a><span class="divider">/</span></li><li><a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/helpers/utilsintersection.js" target="_blank">utilsintersection.js</a> <small class="muted">(source)</small></li></ul>
+
+				<div class="row">
+
+					<div id="maincontentColumn8" class="span8">
+					
+						<section id="doc">
+						 
+							<header id="overview">
+								
+								<div class="hero-unit">
+									
+									
+									
+									
+										<h3 class="ancestors"><a href="ig.html">ig</a>.</h3>
+									
+									
+									<h1>
+									utilsintersection
+									
+									</h1>
+									
+									
+									
+									<div class="container-overview">
+									
+									
+									
+									
+										
+											<p class="description">Static utilities for intersections.</p>
+										
+										
+										
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul class="unstyled">
+            <li>Collin Hover - collinhover.com</li>
+        </ul>
+    </dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/helpers/utilsintersection.js#L14" target="_blank"><a href="utilsintersection.js.html">helpers/utilsintersection.js</a>, <a href="utilsintersection.js.html#line14">line 14</a></a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+										
+										
+									
+									</div>
+									
+								</div>
+								
+							</header>  
+
+							<article>
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+									<hr>
+									<div id="methods" class="subsection">
+									<h3 class="subsection-title page-header">Methods</h3>
+									
+									<dl>
+										
+
+	
+	<dt >
+		<h4 class="name" id="AABBContains">
+			<span class="type-signature">&lt;static> </span>AABBContains<span class="signature">(aminX, aminY, amaxX, amaxY, bminX, bminY, bmaxX, bmaxY)</span><span class="type-signature"> &rarr; {Boolean}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Checks two 2D axis aligned bounding boxes: is A contained by B?
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>aminX</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">A left</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>aminY</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">A top</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>amaxX</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">A right</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>amaxY</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">A bottom</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>bminX</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">B left</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>bminY</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">B top</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>bmaxX</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">B right</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>bmaxY</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">B bottom</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/helpers/utilsintersection.js#L361" target="_blank"><a href="utilsintersection.js.html">helpers/utilsintersection.js</a>, <a href="utilsintersection.js.html#line361">line 361</a></a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Boolean</span>
+
+}</span>
+
+whether bounds A contains bounds B
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt >
+		<h4 class="name" id="AABBIntersect">
+			<span class="type-signature">&lt;static> </span>AABBIntersect<span class="signature">(aminX, aminY, amaxX, amaxY, bminX, bminY, bmaxX, bmaxY)</span><span class="type-signature"> &rarr; {Boolean}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Checks two 2D axis aligned bounding boxes: does A intersect B?
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>aminX</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">A left</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>aminY</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">A top</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>amaxX</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">A right</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>amaxY</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">A bottom</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>bminX</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">B left</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>bminY</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">B top</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>bmaxX</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">B right</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>bmaxY</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">B bottom</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/helpers/utilsintersection.js#L383" target="_blank"><a href="utilsintersection.js.html">helpers/utilsintersection.js</a>, <a href="utilsintersection.js.html#line383">line 383</a></a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Boolean</span>
+
+}</span>
+
+whether bounds intersect
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt >
+		<h4 class="name" id="bounds">
+			<span class="type-signature">&lt;static> </span>bounds<span class="signature">(x, y, width, height, <span class="optional">bounds</span>)</span><span class="type-signature"> &rarr; {Object}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Calculates bounds from a position and dimensions.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">x position of top left</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">y position of top left</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>width</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">width</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>height</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">height</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>bounds</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">bounding object</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/helpers/utilsintersection.js#L46" target="_blank"><a href="utilsintersection.js.html">helpers/utilsintersection.js</a>, <a href="utilsintersection.js.html#line46">line 46</a></a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Object</span>
+
+}</span>
+
+bounding object
+</div>
+
+
+
+        
+    
+    
+        <span class="label">Example</span>
+        
+    <pre class="prettyprint linenums"><code>// get bounds
+var bounds = ig.utilsintersection.bounds( 0, 0, 100, 100 );
+// left
+bounds.minX;
+// right
+bounds.maxX;
+// top
+bounds.minY;
+// bottom
+bounds.maxY;
+// width
+bounds.width;
+// height
+bounds.height;</code></pre>
+
+    
+</dd>
+
+									
+										
+
+	
+	<dt >
+		<h4 class="name" id="boundsAABBIntersect">
+			<span class="type-signature">&lt;static> </span>boundsAABBIntersect<span class="signature">(bounds, minX, minY, maxX, maxY)</span><span class="type-signature"> &rarr; {Boolean}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        This is a convenience method to test intersection of two bounding boxes.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>bounds</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">bounding object A</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>minX</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">B left</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>minY</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">B top</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>maxX</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">B right</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>maxY</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">B bottom</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/helpers/utilsintersection.js#L422" target="_blank"><a href="utilsintersection.js.html">helpers/utilsintersection.js</a>, <a href="utilsintersection.js.html#line422">line 422</a></a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.utilsintersection.html#AABBIntersect">ig.utilsintersection.AABBIntersect</a></li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Boolean</span>
+
+}</span>
+
+whether bounds intersect
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt >
+		<h4 class="name" id="boundsClone">
+			<span class="type-signature">&lt;static> </span>boundsClone<span class="signature">(boundsSource, <span class="optional">offsetX</span>, <span class="optional">offsetY</span>, <span class="optional">bounds</span>)</span><span class="type-signature"> &rarr; {Object}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Clones a bounds object, with the addition of optional offset position.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>boundsSource</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">bounds to clone</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>offsetX</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+            
+            <td class="description last">offset x</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>offsetY</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+            
+            <td class="description last">offset y</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>bounds</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">bounding object</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/helpers/utilsintersection.js#L165" target="_blank"><a href="utilsintersection.js.html">helpers/utilsintersection.js</a>, <a href="utilsintersection.js.html#line165">line 165</a></a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.utilsintersection.html#bounds">ig.utilsintersection.bounds</a></li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Object</span>
+
+}</span>
+
+bounding object clone.
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt >
+		<h4 class="name" id="boundsCopy">
+			<span class="type-signature">&lt;static> </span>boundsCopy<span class="signature">(boundsA, boundsB, <span class="optional">offsetX</span>, <span class="optional">offsetY</span>, <span class="optional">scaleX</span>, <span class="optional">scaleY</span>)</span><span class="type-signature"> &rarr; {Object}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Copies a bounds object into another bounds object, with the addition of optional offset position and scale.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>boundsA</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">bounds to copy into</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>boundsB</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">bounds to copy from</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>offsetX</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+            
+            <td class="description last">offset x</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>offsetY</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+            
+            <td class="description last">offset y</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>scaleX</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+            
+            <td class="description last">scale x</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>scaleY</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+            
+            <td class="description last">scale y</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/helpers/utilsintersection.js#L198" target="_blank"><a href="utilsintersection.js.html">helpers/utilsintersection.js</a>, <a href="utilsintersection.js.html#line198">line 198</a></a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.utilsintersection.html#bounds">ig.utilsintersection.bounds</a></li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Object</span>
+
+}</span>
+
+bounding object based on bounds plus offset
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt >
+		<h4 class="name" id="boundsCopyRotated">
+			<span class="type-signature">&lt;static> </span>boundsCopyRotated<span class="signature">(boundsA, boundsB, angle)</span><span class="type-signature"> &rarr; {Object}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Copies bounds after rotated by angle.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>boundsA</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">bounds to copy into</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>boundsB</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">bounds to rotate</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>angle</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">angle in radians</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/helpers/utilsintersection.js#L268" target="_blank"><a href="utilsintersection.js.html">helpers/utilsintersection.js</a>, <a href="utilsintersection.js.html#line268">line 268</a></a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Object</span>
+
+}</span>
+
+boundsA
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt >
+		<h4 class="name" id="boundsCopyX">
+			<span class="type-signature">&lt;static> </span>boundsCopyX<span class="signature">(boundsA, boundsB, <span class="optional">offsetX</span>, <span class="optional">scaleX</span>)</span><span class="type-signature"> &rarr; {Object}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Copies the horizontal properties of a bounds object into another bounds object, with the addition of optional offset position and scale.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>boundsA</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">bounds to copy into</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>boundsB</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">bounds to copy from</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>offsetX</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+            
+            <td class="description last">offset x</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>scaleX</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+            
+            <td class="description last">scale x</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/helpers/utilsintersection.js#L226" target="_blank"><a href="utilsintersection.js.html">helpers/utilsintersection.js</a>, <a href="utilsintersection.js.html#line226">line 226</a></a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.utilsintersection.html#bounds">ig.utilsintersection.bounds</a></li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Object</span>
+
+}</span>
+
+bounding object based on bounds plus offset
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt >
+		<h4 class="name" id="boundsCopyY">
+			<span class="type-signature">&lt;static> </span>boundsCopyY<span class="signature">(boundsA, boundsB, <span class="optional">offsetY</span>, <span class="optional">scaleY</span>)</span><span class="type-signature"> &rarr; {Object}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Copies the vertical properties of a bounds object into another bounds object, with the addition of optional offset position and scale.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		<th>Default</th>
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>boundsA</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">bounds to copy into</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>boundsB</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                </td>
+            
+            
+            <td class="description last">bounds to copy from</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>offsetY</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+            
+            <td class="description last">offset y</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>scaleY</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+            
+            <td class="description last">scale y</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/helpers/utilsintersection.js#L248" target="_blank"><a href="utilsintersection.js.html">helpers/utilsintersection.js</a>, <a href="utilsintersection.js.html#line248">line 248</a></a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.utilsintersection.html#bounds">ig.utilsintersection.bounds</a></li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Object</span>
+
+}</span>
+
+bounding object based on bounds plus offset
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt >
+		<h4 class="name" id="boundsIntersect">
+			<span class="type-signature">&lt;static> </span>boundsIntersect<span class="signature">(boundsA, boundsB)</span><span class="type-signature"> &rarr; {Boolean}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        This is a convenience method to test intersection of two bounding boxes.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>boundsA</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">bounding object A</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>boundsB</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">bounding object B</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/helpers/utilsintersection.js#L401" target="_blank"><a href="utilsintersection.js.html">helpers/utilsintersection.js</a>, <a href="utilsintersection.js.html#line401">line 401</a></a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.utilsintersection.html#AABBIntersect">ig.utilsintersection.AABBIntersect</a></li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Boolean</span>
+
+}</span>
+
+whether bounds intersect
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt >
+		<h4 class="name" id="boundsMinMax">
+			<span class="type-signature">&lt;static> </span>boundsMinMax<span class="signature">(minX, minY, maxX, maxY, <span class="optional">bounds</span>)</span><span class="type-signature"> &rarr; {Object}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Calculates bounds from min/max values.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>minX</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">x position of top left</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>minY</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">y position of top left</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>maxX</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">x position of bottom right</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>maxY</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">y position of bottom right</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>bounds</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">bounding object</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/helpers/utilsintersection.js#L84" target="_blank"><a href="utilsintersection.js.html">helpers/utilsintersection.js</a>, <a href="utilsintersection.js.html#line84">line 84</a></a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Object</span>
+
+}</span>
+
+bounding object
+</div>
+
+
+
+        
+    
+    
+        <span class="label">Example</span>
+        
+    <pre class="prettyprint linenums"><code>// get bounds
+var bounds = ig.utilsintersection.boundsMinMax( 0, 0, 100, 100 );
+// left
+bounds.minX;
+// right
+bounds.maxX;
+// top
+bounds.minY;
+// bottom
+bounds.maxY;
+// width
+bounds.width;
+// height
+bounds.height;</code></pre>
+
+    
+</dd>
+
+									
+										
+
+	
+	<dt >
+		<h4 class="name" id="boundsOfPoints">
+			<span class="type-signature">&lt;static> </span>boundsOfPoints<span class="signature">(points, <span class="optional">bounds</span>)</span><span class="type-signature"> &rarr; {Object}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Returns bounds from a set of points.
+<span class="alert alert-info"><strong>Tip:</strong> each point should be an object with x and y values.</span>
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>points</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">Array of points.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>bounds</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">bounding object</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/helpers/utilsintersection.js#L125" target="_blank"><a href="utilsintersection.js.html">helpers/utilsintersection.js</a>, <a href="utilsintersection.js.html#line125">line 125</a></a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Object</span>
+
+}</span>
+
+bounding object
+</div>
+
+
+
+        
+    
+    
+        <span class="label">Example</span>
+        
+    <pre class="prettyprint linenums"><code>// get bounds
+var bounds = ig.utilsintersection.boundsOfPoints( [
+     {x: 0, y: 0},
+     {x: 100, y: 0},
+     {x: 100, y: 100},
+     {x: 0, y: 100}
+]);
+// left
+bounds.minX;
+// right
+bounds.maxX;
+// top
+bounds.minY;
+// bottom
+bounds.maxY;
+// width
+bounds.width;
+// height
+bounds.height;</code></pre>
+
+    
+</dd>
+
+									
+										
+
+	
+	<dt >
+		<h4 class="name" id="entitiesInAABB">
+			<span class="type-signature">&lt;static> </span>entitiesInAABB<span class="signature">(minX, minY, maxX, maxY, <span class="optional">targetable</span>, <span class="optional">layerName</span>, <span class="optional">unsorted</span>)</span><span class="type-signature"> &rarr; {Array}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Finds all entities intersecting an axis aligned bounding box in world space coordinates.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>minX</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">left position.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>minY</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">top position.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>maxX</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">right position.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>maxY</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">bottom position.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>targetable</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">only find entities that are targetable.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>layerName</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">name of layer to search.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>unsorted</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">whether to sort.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/helpers/utilsintersection.js#L550" target="_blank"><a href="utilsintersection.js.html">helpers/utilsintersection.js</a>, <a href="utilsintersection.js.html#line550">line 550</a></a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Array</span>
+
+}</span>
+
+list of all entities intersecting box.
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt >
+		<h4 class="name" id="getIsAABBInScreen">
+			<span class="type-signature">&lt;static> </span>getIsAABBInScreen<span class="signature">(x, y, width, height)</span><span class="type-signature"> &rarr; {Boolean}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Gets if an axis aligned bounding box is in the screen.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">bounds top left x position</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">bounds top left y position</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>width</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">bounds width</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>height</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">bounds height</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/helpers/utilsintersection.js#L634" target="_blank"><a href="utilsintersection.js.html">helpers/utilsintersection.js</a>, <a href="utilsintersection.js.html#line634">line 634</a></a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Boolean</span>
+
+}</span>
+
+whether bounds is in screen
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt >
+		<h4 class="name" id="pointInAABB">
+			<span class="type-signature">&lt;static> </span>pointInAABB<span class="signature">(x, y, minX, minY, maxX, maxY)</span><span class="type-signature"> &rarr; {Boolean}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        This is a convenience method to test intersection of a point with a bounding box.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">point x</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">point y</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>minX</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">bounds left</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>minY</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">bounds top</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>maxX</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">bounds right</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>maxY</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">bounds bottom</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/helpers/utilsintersection.js#L444" target="_blank"><a href="utilsintersection.js.html">helpers/utilsintersection.js</a>, <a href="utilsintersection.js.html#line444">line 444</a></a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.utilsintersection.html#AABBIntersect">ig.utilsintersection.AABBIntersect</a></li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Boolean</span>
+
+}</span>
+
+whether point is inside bounds
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt >
+		<h4 class="name" id="pointInBounds">
+			<span class="type-signature">&lt;static> </span>pointInBounds<span class="signature">(x, y, bounds)</span><span class="type-signature"> &rarr; {Boolean}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        This is a convenience method to test intersection of a point with a bounding box.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">point x</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">point y</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>bounds</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">bounding object</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/helpers/utilsintersection.js#L463" target="_blank"><a href="utilsintersection.js.html">helpers/utilsintersection.js</a>, <a href="utilsintersection.js.html#line463">line 463</a></a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul class="unstyled">
+            <li><a href="ig.utilsintersection.html#AABBIntersect">ig.utilsintersection.AABBIntersect</a></li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Boolean</span>
+
+}</span>
+
+whether point is inside bounds
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt >
+		<h4 class="name" id="pointInCircle">
+			<span class="type-signature">&lt;static> </span>pointInCircle<span class="signature">(x, y, cx, cy, radius)</span><span class="type-signature"> &rarr; {Boolean}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Checks if a point lies inside or on the edge of a circle.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">point x</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">point y</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>cx</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">center x of circle</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>cy</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">center y of circle</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>radius</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">radius of circle</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/helpers/utilsintersection.js#L483" target="_blank"><a href="utilsintersection.js.html">helpers/utilsintersection.js</a>, <a href="utilsintersection.js.html#line483">line 483</a></a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Boolean</span>
+
+}</span>
+
+whether point is inside circle
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt >
+		<h4 class="name" id="pointInPolygon">
+			<span class="type-signature">&lt;static> </span>pointInPolygon<span class="signature">(x, y, vertices)</span><span class="type-signature"> &rarr; {Boolean}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Determine if a point is inside a polygon.
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">point x</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">point y</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>vertices</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">array of vertices that defines a polygon</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/helpers/utilsintersection.js#L501" target="_blank"><a href="utilsintersection.js.html">helpers/utilsintersection.js</a>, <a href="utilsintersection.js.html#line501">line 501</a></a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Boolean</span>
+
+}</span>
+
+true if polygon contains the given point
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+									
+										
+
+	
+	<dt >
+		<h4 class="name" id="sortByDistance">
+			<span class="type-signature">&lt;static> </span>sortByDistance<span class="signature">(x, y, entities)</span><span class="type-signature"> &rarr; {Array}</span>
+		</h4>
+		
+	</dt>
+	
+<dd >
+    
+    
+    <p class="description">
+        Sort a list of entities by distance to a point in world space coordinates.
+<span class="alert"><strong>IMPORTANT:</strong> this modifies the array in place.</span>
+    </p>
+    
+
+   
+    
+    
+    
+    
+        <span class="label">Parameters:</span>
+        
+
+<table class="params table table-bordered">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">x position</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">y position</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>entities</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">list of entities</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details dl-horizontal">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="unstyled dummy"><li>
+		
+		
+		<a href="https://github.com/collinhover/impactplusplus/tree/master/lib/plusplus/helpers/utilsintersection.js#L651" target="_blank"><a href="utilsintersection.js.html">helpers/utilsintersection.js</a>, <a href="utilsintersection.js.html#line651">line 651</a></a>
+		
+	</li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <span class="label">Returns:</span>
+    
+            
+<div class="param-desc">
+
+	<span class="type-signature">{
+<span class="param-type">Array</span>
+
+}</span>
+
+list of entities modified in place.
+</div>
+
+
+
+        
+    
+    
+</dd>
+
+									</dl>
+									</div>
+								
+								
+								
+								
+								
+							</article>
+
+						</section>  
+						
+					</div>
+
+					<div id="maincontentColumn2" class="span2">
+						
+						<div id="navdocs" class="hidden-phone"><div id="navdoc"><ul class="nav nav-list sidenav"><li class="nav-header">utilsintersection</li><li><a href="#docs"><div class="icon-chevron-left pull-left"></div> Overview</a></li><li><a href="#methods" type="button"><div class="icon-chevron-left pull-left"></div> Methods</a></li></ul></div><ul class="nav nav-list sidenav"><li class="nav-header"><img src="img/logo_impactplusplus_25.png"> Impact++</li><li><a href="#navTutorials" class="mainnavLink">Tutorials</a></li><li><a href="#navAbilities" class="mainnavLink">Abilities</a></li><li><a href="#navAbstractities" class="mainnavLink">Abstractities</a></li><li><a href="#navCore" class="mainnavLink">Core</a></li><li><a href="#navEntities" class="mainnavLink">Entities</a></li><li><a href="#navHelpers" class="mainnavLink">Helpers</a></li><li><a href="#navUi" class="mainnavLink">Ui</a></li></ul></div>
+
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+		
+	</div>
+	
+</div>
+
+
+<footer>
+	<p class="muted">Impact++ created and maintained by <a href="http://twitter.com/collinhover" target="_blank">@collinhover</a> / <a href="http://collinhover.com/" target="_blank">collinhover.com</a></p>
+	<p class="muted">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha4</a></p>
+</footer>
+		
+
+
+
+
+	
+	<script src="scripts/linenumber.js"> </script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="scripts/jquery-1.9.1.min.js"><\/script>')</script>
+	<script src="scripts/bootstrap.min.js"> </script>
+	<script src="scripts/main.js"> </script>
+	
+</body>
+</html>

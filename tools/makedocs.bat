@@ -9,8 +9,8 @@ call echo Initializing documentation...
 call SET TEMPLATE=impactplusplus
 
 call SET OUTPUT=docs
-call SET INPUT=lib\plusplus\core
-call SET INPUT_TO_ROOT=..\..\..\
+call SET INPUT=lib\plusplus
+call SET INPUT_TO_ROOT=..\..\
 call SET TUTORIALS=tutorials
 
 call SET DEMO=docs\demo

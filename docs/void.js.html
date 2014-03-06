@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+    <title>Impact++ / Source: entities/void.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+		<script src="scripts/html5shiv.js"> </script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/main.css">
+</head>
+
+<body data-spy="scroll" data-target="#navdoc">
+
+	
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>ig.module(
+    'plusplus.entities.void'
+)
+    .requires(
+        'plusplus.core.entity'
+)
+    .defines(function() {
+
+        /**
+         * Entity that does nothing and can be used as a target.
+         * @class
+         * @extends ig.EntityExtended
+         * @memberof ig
+         * @author Collin Hover - collinhover.com
+         * @author Dominic Szablewski
+         **/
+        ig.EntityVoid = ig.global.EntityVoid = ig.EntityExtended.extend( /**@lends ig.EntityVoid.prototype */ {
+
+            // editor properties
+
+            _wmScalable: true,
+            _wmDrawBox: true,
+            _wmBoxColor: 'rgba(100, 100, 100, 0.7)',
+
+            frozen: true,
+
+            /**
+             * Void entity have no update.
+             * @override
+             */
+            update: function() {}
+
+        });
+
+    });
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+	
+	<script src="scripts/linenumber.js"> </script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="scripts/jquery-1.9.1.min.js"><\/script>')</script>
+	<script src="scripts/bootstrap.min.js"> </script>
+	<script src="scripts/main.js"> </script>
+	
+</body>
+</html>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-    <title>Impact++ / Source: game.js</title>
+    <title>Impact++ / Source: core/game.js</title>
     
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -2541,6 +2541,23 @@
             }
 
         });
+
+        /**
+         * Updated sorting methods to handle different types of items in layers.
+         */
+        ig.Game.SORT.Z_INDEX = function(a, b) {
+            return (a.zIndex || 0) - (b.zIndex || 0);
+        };
+
+        ig.Game.SORT.POS_X = function(a, b) {
+            return ((a.pos &amp;&amp; a.size &amp;&amp; (a.pos.x + a.size.x)) || 0) - ((b.pos &amp;&amp; b.size &amp;&amp; (b.pos.x + b.size.x)) || 0);
+        };
+
+        ig.Game.SORT.POS_Y = function(a, b) {
+            return ((a.pos &amp;&amp; a.size &amp;&amp; (a.pos.y + a.size.y)) || 0) - ((b.pos &amp;&amp; b.size &amp;&amp; (b.pos.y + b.size.y)) || 0);
+        };
+
+        ig.GameExtended.SORT = ig.Game.SORT;
 
     });
 </code></pre>

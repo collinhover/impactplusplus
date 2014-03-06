@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+    <title>Impact++ / Source: entities/levelchange.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+		<script src="scripts/html5shiv.js"> </script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/main.css">
+</head>
+
+<body data-spy="scroll" data-target="#navdoc">
+
+	
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>ig.module(
+    'plusplus.entities.levelchange'
+)
+    .requires(
+        'plusplus.entities.trigger'
+)
+    .defines(function() {
+
+        /**
+         * Entity that loads a level on activation.
+         * @class
+         * @extends ig.EntityTrigger
+         * @memberof ig
+         * @author Collin Hover - collinhover.com
+         * @author Dominic Szablewski
+         **/
+        ig.EntityLevelchange = ig.global.EntityLevelchange = ig.EntityTrigger.extend( /**@lends ig.EntityLevelchange.prototype */ {
+
+            // editor properties
+
+            _wmBoxColor: 'rgba(0, 0, 255, 0.7)',
+
+            /**
+             * Name of the level to load.
+             * @type String
+             * @default
+             * @example
+             * // these will all load the 'LevelTest1' level
+             * levelchange.level = "LevelTest1";
+             * levelchange.level = "Test1";
+             * levelchange.level = "test1";
+             */
+            levelName: '',
+
+            /**
+             * Name of entity in new level to set as player spawn location.
+             * &lt;span class="alert alert-info>&lt;strong>Tip:&lt;/strong> this should probably be a checkpoint, so that if the player dies they always have somewhere to respawn!&lt;/span>
+             * @type String
+             * @default
+             */
+            playerSpawnerName: '',
+
+            /**
+             * Whether persistent player should be cleared from game cache.
+             * &lt;span class="alert alert-info>&lt;strong>Tip:&lt;/strong> use this if you want a level change to make sure the player does not auto spawn.&lt;/span>
+             * @type Boolean
+             * @default
+             */
+            clearPersistentPlayer: false,
+
+            /**
+             * Whether all persistent entities should be cleared from game cache.
+             * &lt;span class="alert alert-info>&lt;strong>Tip:&lt;/strong> use this if you want a level change to reset the game.&lt;/span>
+             * @type Boolean
+             * @default
+             */
+            clearPersistentEntities: false,
+
+            /**
+             * Formats level name and attempts to load deferred.
+             * @override
+             **/
+            activate: function(entity) {
+
+                this.parent(entity);
+
+                if (this.clearPersistentEntities) {
+
+                    ig.game.clearPersistentEntities();
+
+                } else if (this.clearPersistentPlayer) {
+
+                    var player = ig.game.getPlayer();
+                    var playerName = "player";
+
+                    if (player) {
+
+                        playerName = player.name || playerName;
+
+                    }
+
+                    ig.game.clearPersistentEntity(playerName);
+
+                }
+
+                ig.game.loadLevelDeferred(this.levelName, this.playerSpawnerName);
+
+            }
+
+        });
+
+    });
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+	
+	<script src="scripts/linenumber.js"> </script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="scripts/jquery-1.9.1.min.js"><\/script>')</script>
+	<script src="scripts/bootstrap.min.js"> </script>
+	<script src="scripts/main.js"> </script>
+	
+</body>
+</html>

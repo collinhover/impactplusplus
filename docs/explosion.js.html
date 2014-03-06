@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+    <title>Impact++ / Source: entities/explosion.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+		<script src="scripts/html5shiv.js"> </script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/main.css">
+</head>
+
+<body data-spy="scroll" data-target="#navdoc">
+
+	
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>ig.module(
+    'plusplus.entities.explosion'
+)
+    .requires(
+        'plusplus.abstractities.spawner-fast',
+        'plusplus.entities.particle-color'
+)
+    .defines(function() {
+        "use strict";
+
+        /**
+         * Entity for creating explosions, optionally based on another entity.
+         * @class
+         * @extends ig.SpawnerFast
+         * @memberof ig
+         * @author Collin Hover - collinhover.com
+         */
+        ig.EntityExplosion = ig.global.EntityExplosion = ig.SpawnerFast.extend( /**@lends ig.EntityExplosion.prototype */ {
+
+            /**
+             * Spawn colored particle.
+             * @override
+             * @default ig.EntityParticleColor
+             */
+            spawningEntity: ig.EntityParticleColor,
+
+            /**
+             * @override
+             * @default
+             */
+            spawnCountMax: 3,
+
+            /**
+             * @override
+             * @property {Vector2} vel 100 x 100
+             * @property {Number} animTileOffset ig.EntityParticleColor.colorOffsets.YELLOW
+             */
+            spawnSettings: {
+                vel: {
+                    x: 100,
+                    y: 100
+                },
+                animTileOffset: ig.EntityParticleColor.colorOffsets.YELLOW
+            },
+
+            /**
+             * Spawn entities on ready.
+             * @override
+             * @default
+             */
+            activated: true,
+
+            /**
+             * Unfrozen for high likely-hood of self animation.
+             * @override
+             * @default
+             */
+            frozen: false
+
+        });
+
+    });
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+	
+	<script src="scripts/linenumber.js"> </script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="scripts/jquery-1.9.1.min.js"><\/script>')</script>
+	<script src="scripts/bootstrap.min.js"> </script>
+	<script src="scripts/main.js"> </script>
+	
+</body>
+</html>

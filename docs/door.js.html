@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+    <title>Impact++ / Source: abstractities/door.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+		<script src="scripts/html5shiv.js"> </script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/main.css">
+</head>
+
+<body data-spy="scroll" data-target="#navdoc">
+
+	
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>ig.module(
+    'plusplus.abstractities.door'
+)
+    .requires(
+        'plusplus.entities.switch',
+        'plusplus.helpers.utils'
+)
+    .defines(function() {
+
+        var _ut = ig.utils;
+
+        /**
+         * Entity that acts as an automatic door, opening and closing as an entity passes through.
+         * &lt;span class="alert alert-error">&lt;strong>IMPORTANT:&lt;/strong> this is an abstract entity that should be extended.&lt;/span>
+         * @class
+         * @extends ig.EntitySwitch
+         * @memberof ig
+         * @author Collin Hover - collinhover.com
+         */
+        ig.Door = ig.EntitySwitch.extend( /**@lends ig.Door.prototype */ {
+
+            _wmDrawBox: false,
+            _wmScalable: false,
+
+            /**
+             * @override
+             * @default fixed
+             */
+            collides: ig.EntityExtended.COLLIDES.FIXED,
+
+            /**
+             * @override
+             * @default
+             */
+            collidesChanges: true,
+
+            /**
+             * @override
+             */
+            frozen: false,
+
+            /**
+             * Doors can be locked. Will play directional "locked" animation.
+             * @type Boolean
+             * @default
+             */
+            locked: false,
+
+            /**
+             * Whether to automatically lock after close.
+             * @type Boolean
+             * @default
+             */
+            autoLock: false,
+
+            /**
+             * Inits door types.
+             * &lt;br>- adds {@link ig.EntityExtended.TYPE.DOOR} to {@link ig.EntityExtended#type}
+             * &lt;br>- adds {@link ig.EntityExtended.TYPE.CHARACTER} to {@link ig.EntityExtended#checkAgainst}
+             * @override
+             */
+            initTypes: function() {
+
+                this.parent();
+
+                _ut.addType(ig.EntityExtended, this, 'type', "DOOR");
+                _ut.addType(ig.EntityExtended, this, 'checkAgainst', "CHARACTER");
+
+            },
+
+            /**
+             * Doors always collide with one way entities.
+             * @override
+             */
+            getIsCollidingWithOneWay: function() {
+
+                return true;
+
+            },
+
+            /**
+             * @override
+             */
+            spawn: function() {
+
+                // start locked
+
+                if (this.locked) {
+
+                    this.lock();
+
+                }
+
+                this.parent();
+
+            },
+
+            /**
+             * Checks whether door can open and adds check for if door is {@link ig.EntityExtended#oneWay}.
+             * @override
+             */
+            getCanOpen: function(entity) {
+
+                return this.parent(entity) &amp;&amp; !this.locked &amp;&amp; (!this.oneWay || (entity &amp;&amp; !entity.getIsCollidingWithOneWay(this)));
+
+            },
+
+            /**
+             * Opens door and sets {@link ig.Door#collides} to {@link ig.EntityExtended.COLLIDES.NEVER}.
+             * @override
+             */
+            open: function() {
+
+                this.parent();
+
+                this.collides = ig.EntityExtended.COLLIDES.NEVER;
+
+            },
+
+            /**
+             * Closes door and resets {@link ig.Door#collides} to {@link ig.EntityExtended.COLLIDES.FIXED}.
+             * @override
+             */
+            close: function() {
+
+                this.parent();
+
+                this.collides = ig.EntityExtended.COLLIDES.FIXED;
+
+                if (this.autoLock) {
+
+                    this.lock();
+
+                }
+
+            },
+
+            /**
+             * Locks door and plays directional "locked" animation.
+             */
+            lock: function() {
+
+                this.locked = true;
+                this.collides = ig.EntityExtended.COLLIDES.FIXED;
+
+                this.animOverride(this.getDirectionalAnimName("locked"), {
+                    lock: true
+                });
+
+            },
+
+            /**
+             * Unlocks door and stops playing directional "locked" animation.
+             */
+            unlock: function() {
+
+                this.locked = false;
+
+                this.animRelease(this.getDirectionalAnimName("locked"));
+
+            }
+
+        });
+
+    });
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+	
+	<script src="scripts/linenumber.js"> </script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="scripts/jquery-1.9.1.min.js"><\/script>')</script>
+	<script src="scripts/bootstrap.min.js"> </script>
+	<script src="scripts/main.js"> </script>
+	
+</body>
+</html>
