@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+    <title>Impact++ / Source: entities/particle-debris.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+		<script src="scripts/html5shiv.js"> </script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/main.css">
+</head>
+
+<body data-spy="scroll" data-target="#navdoc">
+
+	
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>ig.module(
+    'plusplus.entities.particle-debris'
+)
+    .requires(
+        'plusplus.core.config',
+        'plusplus.abstractities.particle'
+)
+    .defines(function() {
+        "use strict";
+
+        var _c = ig.CONFIG;
+
+        /**
+         * Entity particle debris.
+         * &lt;span class="alert">&lt;strong>IMPORTANT:&lt;/strong> this entity has a defined size and animation sheet!&lt;/span>
+         * &lt;br>- debris particle sprite sheet courtesy of Dominic Szablewski
+         * @class
+         * @extends ig.Particle
+         * @memberof ig
+         * @author Collin Hover - collinhover.com
+         * @author Dominic Szablewski
+         **/
+        ig.EntityParticleDebris = ig.global.EntityParticleDebris = ig.Particle.extend( /**@lends ig.EntityParticleDebris.prototype */ {
+
+            /**
+             * @override
+             * @default 4x4
+             */
+            size: {
+                x: 4,
+                y: 4
+            },
+
+            /**
+             * @override
+             * @default debris.png
+             */
+            animSheet: new ig.AnimationSheet(_c.PATH_TO_MEDIA + 'debris.png', 4, 4),
+
+            /**
+             * @override
+             * @default
+             */
+            animInit: 'moveX',
+
+            /**
+             * @override
+             */
+            animSettings: {
+                moveX: {
+                    sequence: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+                    frameTime: 3
+                }
+            },
+
+            /**
+             * @override
+             * @default
+             */
+            animAutomatic: false,
+
+            /**
+             * @override
+             * @default 60x10
+             */
+            vel: {
+                x: 60,
+                y: 10
+            },
+
+            /**
+             * @override
+             * @default 100x100
+             */
+            friction: {
+                x: 100,
+                y: 100
+            },
+
+            /**
+             * @override
+             * @default
+             */
+            lifeDuration: 3,
+
+            /**
+             * Called just after particle added to game world, and randomizes current animation frame.
+             * @override
+             **/
+            ready: function() {
+
+                this.parent();
+
+                if (this.currentAnim) {
+
+                    this.currentAnim.gotoRandomFrame();
+
+                }
+
+            }
+
+        });
+
+    });
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+	
+	<script src="scripts/linenumber.js"> </script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="scripts/jquery-1.9.1.min.js"><\/script>')</script>
+	<script src="scripts/bootstrap.min.js"> </script>
+	<script src="scripts/main.js"> </script>
+	
+</body>
+</html>

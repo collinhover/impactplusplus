@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+    <title>Impact++ / Tutorial: 3. Character</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+		<script src="scripts/html5shiv.js"> </script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/main.css">
+</head>
+
+<body data-spy="scroll" data-target="#navdoc">
+
+	
+
+<div id="header">
+	
+	<div class="container">
+		
+		<div id="logo">
+			<a href="index.html"><img src="img/logo_impactplusplus_128.png"></a>
+				
+			<a href='http://github.com/collinhover/impactplusplus/' id="forkBtn">
+				<img src="img/fork_impactplusplus.png" alt="Fork me on GitHub">
+			</a>
+			
+		</div>
+		
+	</div>
+	
+</div>
+
+<div id="docs" class="container">
+	
+	<div id="tutorial">
+
+		<div class="row">
+			
+			<div class="span2">
+				<nav id="mainnav">
+					
+					<div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navTutorialsCollapse">Tutorials</button><div id="navTutorialsCollapse" class="collapse"><ul class="nav nav-list"><li id="navTutorials" class="nav-header hidden-phone">Tutorials</li><li><a href="tutorial-Started.html">1. Getting Started</a></li><li><a href="tutorial-Player.html">2. Player</a></li><li><a href="tutorial-Character.html">3. Character</a></li><li><a href="tutorial-Camera.html">4. Camera</a></li><li><a href="tutorial-UI.html">5. UI</a></li><li><a href="tutorial-Pathfinding.html">6. Pathfinding</a></li><li><a href="tutorial-Creatures.html">7. Creatures</a></li><li><a href="tutorial-Lighting.html">8. Lighting</a></li><li><a href="tutorial-Conversations.html">9. Conversations</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navAbilitiesCollapse">Abilities</button><div id="navAbilitiesCollapse" class="collapse"><ul class="nav nav-list"><li id="navAbilities" class="nav-header hidden-phone">Abilities</li><li><a href="ig.Ability.html">Ability</a></li><li><a href="ig.AbilityDamage.html">AbilityDamage</a></li><li><a href="ig.AbilityGlow.html">AbilityGlow</a></li><li><a href="ig.AbilityGlowToggle.html">AbilityGlowToggle</a></li><li><a href="ig.AbilityInteract.html">AbilityInteract</a></li><li><a href="ig.AbilityMelee.html">AbilityMelee</a></li><li><a href="ig.AbilityMimic.html">AbilityMimic</a></li><li><a href="ig.AbilityShoot.html">AbilityShoot</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navAbstractitiesCollapse">Abstractities</button><div id="navAbstractitiesCollapse" class="collapse"><ul class="nav nav-list"><li id="navAbstractities" class="nav-header hidden-phone">Abstractities</li><li><a href="ig.Character.html">Character</a></li><li><a href="ig.Creature.html">Creature</a></li><li><a href="ig.Demo.html">Demo</a></li><li><a href="ig.Door.html">Door</a></li><li><a href="ig.DoorTriggered.html">DoorTriggered</a></li><li><a href="ig.DoorUsable.html">DoorUsable</a></li><li><a href="ig.Effect.html">Effect</a></li><li><a href="ig.Lever.html">Lever</a></li><li><a href="ig.Particle.html">Particle</a></li><li><a href="ig.ParticleFast.html">ParticleFast</a></li><li><a href="ig.Player.html">Player</a></li><li><a href="ig.Projectile.html">Projectile</a></li><li><a href="ig.Shape.html">Shape</a></li><li><a href="ig.Spawner.html">Spawner</a></li><li><a href="ig.SpawnerCharacter.html">SpawnerCharacter</a></li><li><a href="ig.SpawnerFast.html">SpawnerFast</a></li><li><a href="ig.Tutorial.html">Tutorial</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navCoreCollapse">Core</button><div id="navCoreCollapse" class="collapse"><ul class="nav nav-list"><li id="navCore" class="nav-header hidden-phone">Core</li><li><a href="ig.html">ig</a></li><li><a href="ig.CONFIG.html">CONFIG</a></li><li><a href="ig.CONFIG_USER.html">CONFIG_USER</a></li><li><a href="ig.EntityExtended.COLLIDES.html">COLLIDES</a></li><li><a href="ig.EntityExtended.GROUP.html">GROUP</a></li><li><a href="ig.EntityExtended.PERFORMANCE.html">PERFORMANCE</a></li><li><a href="ig.EntityExtended.TYPE.html">TYPE</a></li><li><a href="ig.Font.FONTS.html">FONTS</a></li><li><a href="ig.AnimationExtended.html">AnimationExtended</a></li><li><a href="ig.AnimationSheet.html">AnimationSheet</a></li><li><a href="ig.BackgroundMapExtended.html">BackgroundMapExtended</a></li><li><a href="ig.Camera.html">Camera</a></li><li><a href="ig.CollisionMap.html">CollisionMap</a></li><li><a href="ig.EntityExtended.html">EntityExtended</a></li><li><a href="ig.Font.html">Font</a></li><li><a href="ig.GameExtended.html">GameExtended</a></li><li><a href="ig.Hierarchy.html">Hierarchy</a></li><li><a href="ig.Image.html">Image</a></li><li><a href="ig.ImageDrawing.html">ImageDrawing</a></li><li><a href="ig.Input.html">Input</a></li><li><a href="ig.InputPoint.html">InputPoint</a></li><li><a href="ig.Layer.html">Layer</a></li><li><a href="ig.LoaderExtended.html">LoaderExtended</a></li><li><a href="ig.PathfindingMap.html">PathfindingMap</a></li><li><a href="ig.PlayerManager.html">PlayerManager</a></li><li><a href="ig.System.html">System</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navEntitiesCollapse">Entities</button><div id="navEntitiesCollapse" class="collapse"><ul class="nav nav-list"><li id="navEntities" class="nav-header hidden-phone">Entities</li><li><a href="ig.EntityAbilityActivate.html">EntityAbilityActivate</a></li><li><a href="ig.EntityAbilityEnable.html">EntityAbilityEnable</a></li><li><a href="ig.EntityAbilityUpgrade.html">EntityAbilityUpgrade</a></li><li><a href="ig.EntityCameraAtmosphere.html">EntityCameraAtmosphere</a></li><li><a href="ig.EntityCameraFollow.html">EntityCameraFollow</a></li><li><a href="ig.EntityCameraShake.html">EntityCameraShake</a></li><li><a href="ig.EntityCheckpoint.html">EntityCheckpoint</a></li><li><a href="ig.EntityConversation.html">EntityConversation</a></li><li><a href="ig.EntityDemoHold.html">EntityDemoHold</a></li><li><a href="ig.EntityDemoSwipe.html">EntityDemoSwipe</a></li><li><a href="ig.EntityDemoTap.html">EntityDemoTap</a></li><li><a href="ig.EntityDestructable.html">EntityDestructable</a></li><li><a href="ig.EntityDestructableCollide.html">EntityDestructableCollide</a></li><li><a href="ig.EntityDestructableDamage.html">EntityDestructableDamage</a></li><li><a href="ig.EntityDirection.html">EntityDirection</a></li><li><a href="ig.EntityDummy.html">EntityDummy</a></li><li><a href="ig.EntityEffectElectricity.html">EntityEffectElectricity</a></li><li><a href="ig.EntityEffectPow.html">EntityEffectPow</a></li><li><a href="ig.EntityEventDefense.html">EntityEventDefense</a></li><li><a href="ig.EntityExplosion.html">EntityExplosion</a></li><li><a href="ig.EntityLava.html">EntityLava</a></li><li><a href="ig.EntityLevelchange.html">EntityLevelchange</a></li><li><a href="ig.EntityLight.html">EntityLight</a></li><li><a href="ig.EntityNarrative.html">EntityNarrative</a></li><li><a href="ig.EntityPain.html">EntityPain</a></li><li><a href="ig.EntityPainInstagib.html">EntityPainInstagib</a></li><li><a href="ig.EntityParticleColor.html">EntityParticleColor</a></li><li><a href="ig.EntityParticleDebris.html">EntityParticleDebris</a></li><li><a href="ig.EntityShapeClimbable.html">EntityShapeClimbable</a></li><li><a href="ig.EntityShapeClimbableOneWay.html">EntityShapeClimbableOneWay</a></li><li><a href="ig.EntityShapeSolid.html">EntityShapeSolid</a></li><li><a href="ig.EntitySlime.html">EntitySlime</a></li><li><a href="ig.EntitySwitch.html">EntitySwitch</a></li><li><a href="ig.EntityText.html">EntityText</a></li><li><a href="ig.EntityTrigger.html">EntityTrigger</a></li><li><a href="ig.EntityTriggerConstant.html">EntityTriggerConstant</a></li><li><a href="ig.EntityTriggerController.html">EntityTriggerController</a></li><li><a href="ig.EntityTriggerFunction.html">EntityTriggerFunction</a></li><li><a href="ig.EntityTriggerInput.html">EntityTriggerInput</a></li><li><a href="ig.EntityTriggerKill.html">EntityTriggerKill</a></li><li><a href="ig.EntityTriggerProperty.html">EntityTriggerProperty</a></li><li><a href="ig.EntityTriggerReverse.html">EntityTriggerReverse</a></li><li><a href="ig.EntityTriggerReverseConstant.html">EntityTriggerReverseConstant</a></li><li><a href="ig.EntityTutorialHold.html">EntityTutorialHold</a></li><li><a href="ig.EntityTutorialSwipe.html">EntityTutorialSwipe</a></li><li><a href="ig.EntityTutorialTap.html">EntityTutorialTap</a></li><li><a href="ig.EntityVoid.html">EntityVoid</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navHelpersCollapse">Helpers</button><div id="navHelpersCollapse" class="collapse"><ul class="nav nav-list"><li id="navHelpers" class="nav-header hidden-phone">Helpers</li><li><a href="ig.pathfinding.html">pathfinding</a></li><li><a href="ig.TWEEN.html">TWEEN</a></li><li><a href="ig.utils.html">utils</a></li><li><a href="ig.utilscolor.html">utilscolor</a></li><li><a href="ig.utilsdraw.html">utilsdraw</a></li><li><a href="ig.utilsintersection.html">utilsintersection</a></li><li><a href="ig.utilsmath.html">utilsmath</a></li><li><a href="ig.utilstile.html">utilstile</a></li><li><a href="ig.utilsvector2.html">utilsvector2</a></li><li><a href="ig.xhr.html">xhr</a></li><li><a href="ig.PathNode.html">PathNode</a></li><li><a href="ig.Preloader.html">Preloader</a></li><li><a href="ig.Signal.html">Signal</a></li><li><a href="ig.TWEEN.Tween.html">Tween</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navUiCollapse">Ui</button><div id="navUiCollapse" class="collapse"><ul class="nav nav-list"><li id="navUi" class="nav-header hidden-phone">Ui</li><li><a href="ig.UIButton.html">UIButton</a></li><li><a href="ig.UIElement.html">UIElement</a></li><li><a href="ig.UIInteractive.html">UIInteractive</a></li><li><a href="ig.UIMeter.html">UIMeter</a></li><li><a href="ig.UIOverlay.html">UIOverlay</a></li><li><a href="ig.UIOverlayPause.html">UIOverlayPause</a></li><li><a href="ig.UIText.html">UIText</a></li><li><a href="ig.UITextBox.html">UITextBox</a></li><li><a href="ig.UITextBubble.html">UITextBubble</a></li><li><a href="ig.UIToggle.html">UIToggle</a></li><li><a href="ig.UITogglePause.html">UITogglePause</a></li><li><a href="ig.UIToggleVolume.html">UIToggleVolume</a></li><li><a href="ig.UITracker.html">UITracker</a></li></ul></div></div>
+					
+				</nav>
+			</div>
+			
+			<div class="span8">
+				<div id="maincontent">
+					
+					<div class="hero-unit">
+<h1>
+Character
+</h1>
+<h3 class="subtext">by @collinhover</h3>
+<div class="container-overview">
+<p>
+Characters are Impact++'s way of separating &quot;living&quot; things from all other entities. Our definition of living is pretty loose, but the basic idea is that if an entity needs to either pathfind, jump, climb, use abilities, automatically animate, or regenerate, then you may want that entity to extend the <code>ig.Character</code> abstract.
+</p>
+</div>
+</div>
+
+<h3 id="movement-and-performance">Movement and Performance</h3>
+<p>Do you want your characters to move? Of course you do! When we're talking about very basic movement, with no extra features and no pathfinding to another entity/point, you'll need to do two things: set the performance level and use the move methods.</p>
+<p>First, a couple words on performance. An entity's <code>performance</code> property controls how it behaves with regard to movement and physics in the update phase of your game. Think of it like a cascade, where the three levels are static, movable, and dynamic. Static entities skip all movement code in the update loop and only update their animations. Movable entities can move in addition to everything static entities do, but they ignore physics forces such as gravity and don't collide with the collision map. Dynamic entities have full collisions and physics forces in addition to everything movable entities do. The default performance for <code>ig.EntityExtended</code> is static, while the default for <code>ig.Character</code> is movable, and the default for <code>ig.Player</code> is dynamic.</p>
+<p>So, if we need a character that can move itself, the character's <code>performance</code> property should be <code>ig.EntityExtended.PERFORMANCE.DYNAMIC</code>. Then, to get the character moving, just call its <code>moveLeft</code>, <code>moveRight</code>, <code>moveUp</code>, and <code>moveDown</code> functions. Note that if you want your character to fly, you should set its <code>gravityFactor</code> to 0, otherwise <code>moveUp</code> and <code>moveDown</code> won't do much of anything.</p>
+<h3 id="pathfinding">Pathfinding</h3>
+<p>Quite often, basic movement is fine, but there are many instances where it just won't cut it. For that, we can bring in pathfinding. We won't cover it here, because @Pattentrick has written an awesome tutorial on it already, but know two things: first, all characters have pathfinding built in, and second, if you need characters with AI such as attacking and fleeing, then you should take a look at the Creature abstract (which also has a great tutorial of its by @Pattentrick).</p>
+<h3 id="colliding">Colliding</h3>
+<p>Collisions? Sign me up! Collisions work the same as in ImpactJS, just set the <code>collides</code> property of the entity to one of the options other than <code>ig.EntityExtended.COLLIDES.NEVER</code>. Your options are:</p>
+<ul>
+<li><code>ig.EntityExtended.COLLIDES.LITE</code> will get pushed around and never push back</li>
+<li><code>ig.EntityExtended.COLLIDES.ACTIVE</code> will get pushed around and push back sometimes</li>
+<li><code>ig.EntityExtended.COLLIDES.FIXED</code> will push everything else around and never budge  </li>
+</ul>
+<p>(note it is possible to get fixed entities to collide, but it is disabled by default by <code>ig.CONFIG.COLLISION.ALLOW_FIXED</code>)</p>
+<h3 id="jumping">Jumping</h3>
+<p>If you want your character to jump like mario, make sure you've set its <code>canJump</code> property to true, and then call its <code>jump</code> method to get hopping. Check out the <code>jumpSteps</code>, <code>jumpForce</code>, and <code>jumpControl</code> for ways to change the jump itself.</p>
+<h3 id="climbing">Climbing</h3>
+<p>Climbing is another integral part of platformers, and it works exactly like jumping. Make sure you've set your character's <code>canClimb</code> property to true, and then call its <code>climbUp</code> or <code>climbDown</code> method. Check out the <code>climbingControl</code> for one way to change the speed of climbing.</p>
+<h3 id="states-and-animation">States and Animation</h3>
+<p>Characters looks for a set of animations to use as the current animation based on various properties. You can think of this as automatic animation handling. The set itself is controlled by the <code>animsExpected</code> property, and is set to <code>[ &quot;idle&quot;, &quot;move&quot;, &quot;stairs&quot;, &quot;climb&quot;, &quot;jump&quot;, &quot;fall&quot; ]</code> by default. You can see how it covers all of the basic states the character may encounter, and then you can expand from there. If you don't like automatic animation handling, you can turn it off by setting the <code>animAutomatic</code> property to false.</p>
+<p>Now, before you go and add a bunch of extra expected animations, you'll also need to override the animation switching method. The actual animation switching is done in the <code>updateCurrentAnim</code> method. As an example, when the character is moving, this method will set the animation to move, something like this:</p>
+<pre><code>if ( character.moving ) {
+     character.currentAnim = character.anims[ character.getDirectionalAnimName( &quot;move&quot; ) ];
+}</code></pre>
+<p>Note here the directional animation name, found by <code>getDirectionalAnimName</code>.  Animations in Impact++ are directional and based on flip and facing. So, for example, if a character has both <code>canFlipX</code> and <code>canFlipY</code> set to true, your character should have &quot;moveX&quot; and &quot;moveY&quot; animations. On the other hand, if an entity cannot flip X and Y, then the character should have animations for up, down, left, and right, i.e. &quot;moveUp&quot;, &quot;moveDown&quot;, &quot;moveLeft&quot;, &quot;moveRight&quot;.</p>
+<h3 id="regeneration">Regeneration</h3>
+<p>Characters have both health and energy stats, and also have options to regenerate them over time. By default, the <code>regen</code> property is set to false, so you'll need to enable it if you want any regeneration to happen. From there, you can set the <code>regenRateHealth</code> to control how much the character regenerates per tick, set the <code>regenDelay</code> to control how much time passes between each tick, and set the <code>regenAsPctHealth</code> if you want the character to regenerate a percentage of their health instead of a fixed value. The energy regeneration options are all the same, except the word &quot;Energy&quot; replaces the word &quot;Health&quot; in the above properties.</p>
+<p>Good luck with characters!</p>
+<h3 id="learn-more-">Learn More!</h3>
+<p><a href="ig.Player.html">Player</a><br><a href="ig.Character.html">Character</a><br><a href="ig.CONFIG.html">Config file</a>  </p>
+					
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+</div> 
+
+<footer>
+	<p class="muted">Impact++ created and maintained by <a href="http://twitter.com/collinhover" target="_blank">@collinhover</a> / <a href="http://collinhover.com/" target="_blank">collinhover.com</a></p>
+	<p class="muted">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha4</a></p>
+</footer>
+
+	
+	<script src="scripts/linenumber.js"> </script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="scripts/jquery-1.9.1.min.js"><\/script>')</script>
+	<script src="scripts/bootstrap.min.js"> </script>
+	<script src="scripts/main.js"> </script>
+	
+</body>
+</html>

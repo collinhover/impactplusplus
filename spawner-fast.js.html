@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+    <title>Impact++ / Source: abstractities/spawner-fast.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+		<script src="scripts/html5shiv.js"> </script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/main.css">
+</head>
+
+<body data-spy="scroll" data-target="#navdoc">
+
+	
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>ig.module(
+    'plusplus.abstractities.spawner-fast'
+)
+    .requires(
+        'plusplus.abstractities.spawner',
+        'plusplus.helpers.utils',
+        'plusplus.helpers.utilsmath'
+)
+    .defines(function() {
+
+        var _ut = ig.utils;
+        var _utm = ig.utilsmath;
+
+        /**
+         * Spawner that removes some spawner functionality for speed, such as spawn targets.
+         * &lt;span class="alert alert-error">&lt;strong>IMPORTANT:&lt;/strong> this is an abstract entity that should be extended.&lt;/span>
+         * @class
+         * @extends ig.Spawner
+         * @memberof ig
+         * @author Collin Hover - collinhover.com
+         */
+        ig.SpawnerFast = ig.global.SpawnerFast = ig.Spawner.extend( /**@lends ig.SpawnerFast.prototype */ {
+
+            /**
+             * Fast spawners remove some spawner functionality for speed, such direct spawning.
+             * @override
+             **/
+            spawnNext: function(entity) {
+
+                if (this.pool.length > 0) {
+
+                    entity = this.pool.pop();
+
+                    if (entity) {
+
+                        entity = ig.game.spawnEntity(entity, 0, 0, this.spawnSettings);
+
+                        this.entities.push(entity);
+
+                    }
+
+                }
+                // create new until reached entity count
+                else if (this.spawningEntity &amp;&amp; this.spawnedCount &lt; this.spawnCountMax) {
+
+                    entity = ig.game.spawnEntity(this.spawningEntity, 0, 0, this.spawnSettings);
+
+                    this.entities.push(entity);
+
+                    // only link on first create
+
+                    this.linkSpawned(entity);
+
+                }
+
+                // after spawn handling
+
+                if (entity) {
+
+                    this.spawnCount = Math.min(this.spawnCountMax, this.spawnCount + 1);
+                    this.spawnedCount = Math.min(this.spawnCountMax, this.spawnedCount + 1);
+                    this.spawned(entity);
+
+                }
+
+                return entity;
+
+            },
+
+            /**
+             * Fast spawners do not unlink spawned each unspawn and assume it is always safe to push entities back into pool.
+             * @override
+             **/
+            unspawn: function(entity) {
+
+                // normally, entity will be automatically unspawned after killed and right before final removal
+                // but if unspawned requested before killed, we should kill and wait for auto unspawn
+
+                if (!entity._killed) {
+
+                    entity.kill(true);
+
+                } else {
+
+                    this.spawnCount = Math.max(0, this.spawnCount - 1);
+
+                    _ut.arrayCautiousRemove(this.entities, entity);
+                    this.pool.push(entity);
+
+                    // we need to activate, but it is best to defer until next update to make sure pooled entities are all properly removed
+
+                    if (this.activated &amp;&amp; this.duration === -1 &amp;&amp; !this.spawning &amp;&amp; (this.spawnDelay > 0 || this.spawnCount === 0)) {
+
+                        this.spawnedCount = this.spawnCount;
+                        this.respawnTimer.set(this.respawnDelay);
+                        this._reactivate = true;
+
+                    }
+
+                }
+
+            },
+
+            /**
+             * Fast spawners only link spawned on first create and assume they will always return to spawner.
+             * @override
+             **/
+            spawned: function(entity) {
+
+                var width = entity.size.x;
+                var height = entity.size.y;
+                var spawnAtWidth = this.size.x;
+                var spawnAtHeight = this.size.y;
+                var spawnAtMinX = this.pos.x;
+                var spawnAtMinY = this.pos.y;
+                var spawnAtMaxX = spawnAtMinX + spawnAtWidth;
+                var spawnAtMaxY = spawnAtMinY + spawnAtHeight;
+
+                entity.pos.x = _utm.map(Math.random(), 0, 1, spawnAtMinX, spawnAtMaxX - width) - width * 0.5;
+                entity.pos.y = _utm.map(Math.random(), 0, 1, spawnAtMinY, spawnAtMaxY - height) - height * 0.5;
+
+            }
+
+        });
+
+    });
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+	
+	<script src="scripts/linenumber.js"> </script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="scripts/jquery-1.9.1.min.js"><\/script>')</script>
+	<script src="scripts/bootstrap.min.js"> </script>
+	<script src="scripts/main.js"> </script>
+	
+</body>
+</html>

@@ -1,3 +1,11 @@
+html, body {
+	background-color: #FFFFFF;
+}
+
+#docs {
+	padding-top: 60px;
+}
+
 #header {
 	position: relative;
 	padding-top: 20px;
@@ -39,10 +47,9 @@
 	max-height: 256px;
 }
 #intro {
-	padding-top: 20px;
-	padding-bottom: 30px;
 	text-align: center;
 	color: #555;
+	padding-bottom: 100px;
 }
 #intro, #intro a {
 	color: #444;
@@ -66,12 +73,20 @@
 	font-size: 32px;
 	line-height: 100%;
 }
-#features {
-	padding-top: 30px;
-	padding-bottom: 20px;
+.main-section {
+	padding-bottom: 40px;
+	text-align: center;
 }
-#features a:hover {
+.main-section a:hover {
 	text-decoration: none;
+}
+.main-section h3 {
+	color: #999;
+	display: inline-block;
+	top: -54px;
+	position: relative;
+	background: #FFFFFF;
+	padding: 0 20px;
 }
 .feature a {
 	display: inline-block;
@@ -83,12 +98,23 @@
 	-o-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
 }
+#tutorials a.hero-unit {
+	background-color: #eee;
+	padding: 10px 0;
+	width: 100%;
+}
+#tutorials h4 {
+	margin-bottom: 0;
+}
 .feature a:hover {
 	background-color: #eee;
 	border: solid 1px #ccc;
 	-webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
 	-moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
 	box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+}
+.feature .hero-unit {
+	padding: 30px;
 }
 #logo {
 	display: inline-block;
@@ -112,6 +138,10 @@ h2 .icon {
 }
 h3 .icon {
 	margin-top: 4px !important;
+}
+hr {
+	border-top: 1px solid #e9e9e9;
+	border-bottom: 1px solid #eeeeee;
 }
 li {
 	line-height: 21px;
@@ -208,9 +238,6 @@ dl {
 .label {
 	margin-bottom: 5px;
 }
-#docs {
-	padding-top: 30px;
-}
 #mainnav .mainnav-list {
 	font-size: 13px;
 	padding: 0;
@@ -243,9 +270,13 @@ dl {
 #mainnav .mainnav-list:first-child .nav-header{
 	margin-top: -30px;
 }
-#doc {
+#doc, #tutorial {
 	margin-top: -30px;
 	border-top: 30px solid transparent;
+}
+#tutorial p {
+	line-height: 24px;
+	margin-bottom: 25px;
 }
 #overview {
 	position: relative;

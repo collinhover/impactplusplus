@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+    <title>Impact++ / Tutorial: 1. Getting Started</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+		<script src="scripts/html5shiv.js"> </script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/main.css">
+</head>
+
+<body data-spy="scroll" data-target="#navdoc">
+
+	
+
+<div id="header">
+	
+	<div class="container">
+		
+		<div id="logo">
+			<a href="index.html"><img src="img/logo_impactplusplus_128.png"></a>
+				
+			<a href='http://github.com/collinhover/impactplusplus/' id="forkBtn">
+				<img src="img/fork_impactplusplus.png" alt="Fork me on GitHub">
+			</a>
+			
+		</div>
+		
+	</div>
+	
+</div>
+
+<div id="docs" class="container">
+	
+	<div id="tutorial">
+
+		<div class="row">
+			
+			<div class="span2">
+				<nav id="mainnav">
+					
+					<div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navTutorialsCollapse">Tutorials</button><div id="navTutorialsCollapse" class="collapse"><ul class="nav nav-list"><li id="navTutorials" class="nav-header hidden-phone">Tutorials</li><li><a href="tutorial-Started.html">1. Getting Started</a></li><li><a href="tutorial-Player.html">2. Player</a></li><li><a href="tutorial-Character.html">3. Character</a></li><li><a href="tutorial-Camera.html">4. Camera</a></li><li><a href="tutorial-UI.html">5. UI</a></li><li><a href="tutorial-Pathfinding.html">6. Pathfinding</a></li><li><a href="tutorial-Creatures.html">7. Creatures</a></li><li><a href="tutorial-Lighting.html">8. Lighting</a></li><li><a href="tutorial-Conversations.html">9. Conversations</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navAbilitiesCollapse">Abilities</button><div id="navAbilitiesCollapse" class="collapse"><ul class="nav nav-list"><li id="navAbilities" class="nav-header hidden-phone">Abilities</li><li><a href="ig.Ability.html">Ability</a></li><li><a href="ig.AbilityDamage.html">AbilityDamage</a></li><li><a href="ig.AbilityGlow.html">AbilityGlow</a></li><li><a href="ig.AbilityGlowToggle.html">AbilityGlowToggle</a></li><li><a href="ig.AbilityInteract.html">AbilityInteract</a></li><li><a href="ig.AbilityMelee.html">AbilityMelee</a></li><li><a href="ig.AbilityMimic.html">AbilityMimic</a></li><li><a href="ig.AbilityShoot.html">AbilityShoot</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navAbstractitiesCollapse">Abstractities</button><div id="navAbstractitiesCollapse" class="collapse"><ul class="nav nav-list"><li id="navAbstractities" class="nav-header hidden-phone">Abstractities</li><li><a href="ig.Character.html">Character</a></li><li><a href="ig.Creature.html">Creature</a></li><li><a href="ig.Demo.html">Demo</a></li><li><a href="ig.Door.html">Door</a></li><li><a href="ig.DoorTriggered.html">DoorTriggered</a></li><li><a href="ig.DoorUsable.html">DoorUsable</a></li><li><a href="ig.Effect.html">Effect</a></li><li><a href="ig.Lever.html">Lever</a></li><li><a href="ig.Particle.html">Particle</a></li><li><a href="ig.ParticleFast.html">ParticleFast</a></li><li><a href="ig.Player.html">Player</a></li><li><a href="ig.Projectile.html">Projectile</a></li><li><a href="ig.Shape.html">Shape</a></li><li><a href="ig.Spawner.html">Spawner</a></li><li><a href="ig.SpawnerCharacter.html">SpawnerCharacter</a></li><li><a href="ig.SpawnerFast.html">SpawnerFast</a></li><li><a href="ig.Tutorial.html">Tutorial</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navCoreCollapse">Core</button><div id="navCoreCollapse" class="collapse"><ul class="nav nav-list"><li id="navCore" class="nav-header hidden-phone">Core</li><li><a href="ig.html">ig</a></li><li><a href="ig.CONFIG.html">CONFIG</a></li><li><a href="ig.CONFIG_USER.html">CONFIG_USER</a></li><li><a href="ig.EntityExtended.COLLIDES.html">COLLIDES</a></li><li><a href="ig.EntityExtended.GROUP.html">GROUP</a></li><li><a href="ig.EntityExtended.PERFORMANCE.html">PERFORMANCE</a></li><li><a href="ig.EntityExtended.TYPE.html">TYPE</a></li><li><a href="ig.Font.FONTS.html">FONTS</a></li><li><a href="ig.AnimationExtended.html">AnimationExtended</a></li><li><a href="ig.AnimationSheet.html">AnimationSheet</a></li><li><a href="ig.BackgroundMapExtended.html">BackgroundMapExtended</a></li><li><a href="ig.Camera.html">Camera</a></li><li><a href="ig.CollisionMap.html">CollisionMap</a></li><li><a href="ig.EntityExtended.html">EntityExtended</a></li><li><a href="ig.Font.html">Font</a></li><li><a href="ig.GameExtended.html">GameExtended</a></li><li><a href="ig.Hierarchy.html">Hierarchy</a></li><li><a href="ig.Image.html">Image</a></li><li><a href="ig.ImageDrawing.html">ImageDrawing</a></li><li><a href="ig.Input.html">Input</a></li><li><a href="ig.InputPoint.html">InputPoint</a></li><li><a href="ig.Layer.html">Layer</a></li><li><a href="ig.LoaderExtended.html">LoaderExtended</a></li><li><a href="ig.PathfindingMap.html">PathfindingMap</a></li><li><a href="ig.PlayerManager.html">PlayerManager</a></li><li><a href="ig.System.html">System</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navEntitiesCollapse">Entities</button><div id="navEntitiesCollapse" class="collapse"><ul class="nav nav-list"><li id="navEntities" class="nav-header hidden-phone">Entities</li><li><a href="ig.EntityAbilityActivate.html">EntityAbilityActivate</a></li><li><a href="ig.EntityAbilityEnable.html">EntityAbilityEnable</a></li><li><a href="ig.EntityAbilityUpgrade.html">EntityAbilityUpgrade</a></li><li><a href="ig.EntityCameraAtmosphere.html">EntityCameraAtmosphere</a></li><li><a href="ig.EntityCameraFollow.html">EntityCameraFollow</a></li><li><a href="ig.EntityCameraShake.html">EntityCameraShake</a></li><li><a href="ig.EntityCheckpoint.html">EntityCheckpoint</a></li><li><a href="ig.EntityConversation.html">EntityConversation</a></li><li><a href="ig.EntityDemoHold.html">EntityDemoHold</a></li><li><a href="ig.EntityDemoSwipe.html">EntityDemoSwipe</a></li><li><a href="ig.EntityDemoTap.html">EntityDemoTap</a></li><li><a href="ig.EntityDestructable.html">EntityDestructable</a></li><li><a href="ig.EntityDestructableCollide.html">EntityDestructableCollide</a></li><li><a href="ig.EntityDestructableDamage.html">EntityDestructableDamage</a></li><li><a href="ig.EntityDirection.html">EntityDirection</a></li><li><a href="ig.EntityDummy.html">EntityDummy</a></li><li><a href="ig.EntityEffectElectricity.html">EntityEffectElectricity</a></li><li><a href="ig.EntityEffectPow.html">EntityEffectPow</a></li><li><a href="ig.EntityEventDefense.html">EntityEventDefense</a></li><li><a href="ig.EntityExplosion.html">EntityExplosion</a></li><li><a href="ig.EntityLava.html">EntityLava</a></li><li><a href="ig.EntityLevelchange.html">EntityLevelchange</a></li><li><a href="ig.EntityLight.html">EntityLight</a></li><li><a href="ig.EntityNarrative.html">EntityNarrative</a></li><li><a href="ig.EntityPain.html">EntityPain</a></li><li><a href="ig.EntityPainInstagib.html">EntityPainInstagib</a></li><li><a href="ig.EntityParticleColor.html">EntityParticleColor</a></li><li><a href="ig.EntityParticleDebris.html">EntityParticleDebris</a></li><li><a href="ig.EntityShapeClimbable.html">EntityShapeClimbable</a></li><li><a href="ig.EntityShapeClimbableOneWay.html">EntityShapeClimbableOneWay</a></li><li><a href="ig.EntityShapeSolid.html">EntityShapeSolid</a></li><li><a href="ig.EntitySlime.html">EntitySlime</a></li><li><a href="ig.EntitySwitch.html">EntitySwitch</a></li><li><a href="ig.EntityText.html">EntityText</a></li><li><a href="ig.EntityTrigger.html">EntityTrigger</a></li><li><a href="ig.EntityTriggerConstant.html">EntityTriggerConstant</a></li><li><a href="ig.EntityTriggerController.html">EntityTriggerController</a></li><li><a href="ig.EntityTriggerFunction.html">EntityTriggerFunction</a></li><li><a href="ig.EntityTriggerInput.html">EntityTriggerInput</a></li><li><a href="ig.EntityTriggerKill.html">EntityTriggerKill</a></li><li><a href="ig.EntityTriggerProperty.html">EntityTriggerProperty</a></li><li><a href="ig.EntityTriggerReverse.html">EntityTriggerReverse</a></li><li><a href="ig.EntityTriggerReverseConstant.html">EntityTriggerReverseConstant</a></li><li><a href="ig.EntityTutorialHold.html">EntityTutorialHold</a></li><li><a href="ig.EntityTutorialSwipe.html">EntityTutorialSwipe</a></li><li><a href="ig.EntityTutorialTap.html">EntityTutorialTap</a></li><li><a href="ig.EntityVoid.html">EntityVoid</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navHelpersCollapse">Helpers</button><div id="navHelpersCollapse" class="collapse"><ul class="nav nav-list"><li id="navHelpers" class="nav-header hidden-phone">Helpers</li><li><a href="ig.pathfinding.html">pathfinding</a></li><li><a href="ig.TWEEN.html">TWEEN</a></li><li><a href="ig.utils.html">utils</a></li><li><a href="ig.utilscolor.html">utilscolor</a></li><li><a href="ig.utilsdraw.html">utilsdraw</a></li><li><a href="ig.utilsintersection.html">utilsintersection</a></li><li><a href="ig.utilsmath.html">utilsmath</a></li><li><a href="ig.utilstile.html">utilstile</a></li><li><a href="ig.utilsvector2.html">utilsvector2</a></li><li><a href="ig.xhr.html">xhr</a></li><li><a href="ig.PathNode.html">PathNode</a></li><li><a href="ig.Preloader.html">Preloader</a></li><li><a href="ig.Signal.html">Signal</a></li><li><a href="ig.TWEEN.Tween.html">Tween</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navUiCollapse">Ui</button><div id="navUiCollapse" class="collapse"><ul class="nav nav-list"><li id="navUi" class="nav-header hidden-phone">Ui</li><li><a href="ig.UIButton.html">UIButton</a></li><li><a href="ig.UIElement.html">UIElement</a></li><li><a href="ig.UIInteractive.html">UIInteractive</a></li><li><a href="ig.UIMeter.html">UIMeter</a></li><li><a href="ig.UIOverlay.html">UIOverlay</a></li><li><a href="ig.UIOverlayPause.html">UIOverlayPause</a></li><li><a href="ig.UIText.html">UIText</a></li><li><a href="ig.UITextBox.html">UITextBox</a></li><li><a href="ig.UITextBubble.html">UITextBubble</a></li><li><a href="ig.UIToggle.html">UIToggle</a></li><li><a href="ig.UITogglePause.html">UITogglePause</a></li><li><a href="ig.UIToggleVolume.html">UIToggleVolume</a></li><li><a href="ig.UITracker.html">UITracker</a></li></ul></div></div>
+					
+				</nav>
+			</div>
+			
+			<div class="span8">
+				<div id="maincontent">
+					
+					<div class="hero-unit">
+<h1>
+Getting Started
+</h1>
+<h3 class="subtext">by @collinhover</h3>
+<div class="container-overview">
+<p>
+Welcome to Impact++! Our goal in this tutorial is to get you up and running as fast as possible, without wasting your time whether you're new to ImpactJS or a long time user. Let's break this down into a step-by-step:
+</p>
+</div>
+</div>
+
+<h3 id="1-the-html-file">1. The HTML file</h3>
+<p>We'll assume you're starting simple, so make sure you have an <code>index.html</code> file in your game's root directory. In this file, you'll need the basic HTML code for any page (head, title, css, body), as well as two additional pieces: the canvas and the core javascript files for ImpactJS and your game.</p>
+<pre><code>/* HTML */
+Canvas element with id=&quot;canvas&quot;
+
+/* Scripts */
+&quot;lib/impact/impact.js&quot;
+&quot;lib/game/main.js&quot;
+
+/* CSS (optional) */
+html,body {
+    background-color: #111111;
+    color: #fff;
+    font-family: helvetica, arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 12pt;
+}
+#canvas {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}</code></pre>
+<h3 id="2-the-main-js-file-and-the-main-module">2. The main.js file and the main module</h3>
+<p>Open your main.js file, and setup the basics of a module (this assumes your main.js is blank):</p>
+<pre><code>ig.module('game.main').requires('plusplus.core.plusplus').defines(function () {});</code></pre>
+<p>The above is calling <code>ig.module</code> to create a new module in the &quot;game&quot; folder with a name of &quot;main&quot;, then telling that module to require another module in the &quot;plusplus/core&quot; folder with a name of &quot;plusplus&quot;, and finally defining a function to be executed when all requirements are loaded.</p>
+<h3 id="3-create-a-custom-game-class">3. Create a custom game class</h3>
+<p>Inside the defined function for our main module we'll add the code to make a custom game class:</p>
+<pre><code>ig.module('game.main').requires('plusplus.core.plusplus').defines(function () {
+     var myGameClass = ig.GameExtended.extend({ /* game settings go here */ });
+});</code></pre>
+<p>This creates a new game class for your game and assigns it to the <code>myGameClass</code> variable. <code>ig.GameExtended</code> is a layer Impact++ adds on top of ImpactJS's <code>ig.Game</code>, and it will coordinate all of your main game logic such as updates and rendering. Remember, you can always get a reference to the currently running game using <code>ig.game</code> (note the lowercase).</p>
+<h3 id="4-starting-a-blank-game">4. Starting a blank game</h3>
+<pre><code>ig.module('game.main').requires('plusplus.core.plusplus').defines(function () {
+    var myGameClass = ig.GameExtended.extend({ /* game settings go here */ });
+    ig.main( '#canvas', myGameClass, 60, 320, 240, 1, ig.LoaderExtended );
+});</code></pre>
+<p>The new line above tells ImpactJS to start a new game that will draw into the HTML element with an id of &quot;canvas&quot;, using <code>myGameClass</code> to control the game, to run at 60 fps, to have a size of 320 x 240 and a scale of 1, and to use the Impact++ customizable loader. Remember, Impact++ can scale dynamically based on the screen size and can be resolution independent (see step 8 on config).</p>
+<h3 id="5-structure">5. Structure</h3>
+<p>Before you can add anything to your game, you'll need media such as images, sprite sheets, and sound files. ImpactJS has a strong opinion on the organization of your project, and Impact++ has been built with the same opinions in mind. Your game directory should look something like this:</p>
+<pre><code>index.html
+lib/
+    game/
+        main.js
+        entities/
+            (your game entities)
+        levels/
+            (your game levels)
+    impact/ 
+        (ImpactJS engine files)
+    plusplus/ 
+        (Impact++ files)
+    weltmeister/ 
+        (ImpactJS and Impact++ editor files)
+media/ 
+    (images, sprite sheets, sounds)</code></pre>
+<h3 id="6-loading-a-level">6. Loading a level</h3>
+<p>Making levels with Impact++ is no different than with ImpactJS, so go ahead and make a level using the Weltmeister editor, called &quot;test&quot;. While you're working with the editor, don't forget to copy the <code>lib/weltmeister/</code> from your Impact++ download into your project's <code>lib/weltmeister</code> directory. Now, let's add your test level to the game:</p>
+<pre><code>ig.module('game.main')
+.requires(
+    'plusplus.core.plusplus',
+    'game.levels.test'
+)
+.defines(function () {
+    var myGameClass = ig.GameExtended.extend({
+        init: function () {
+            this.parent();
+            this.loadLevel(ig.global.LevelTest);
+        }
+    });
+    ig.main( '#canvas', myGameClass, 60, 320, 240, 1, ig.LoaderExtended );
+});</code></pre>
+<h3 id="7-creating-a-player-character">7. Creating a player character</h3>
+<p>We'll need a player character so we can explore our test level. In the game's entities folder, located at <code>lib/game/entities/</code>, create a new file called <code>player.js</code>. To create the most basic of player characters, place the following code into the new file:</p>
+<pre><code>ig.module( 'game.entities.player' )
+.requires(
+    'plusplus.abstractities.player'
+)
+.defines(function () {
+    ig.EntityPlayer = ig.global.EntityPlayer = ig.Player.extend({
+        animSheet: new ig.AnimationSheet( &quot;media/player.png&quot;, 32, 32),
+        animInit: &quot;idleX&quot;,
+        animSettings: {
+            idleX: { sequence: [0], frameTime: 0.1 }
+        }
+    });
+});</code></pre>
+<p>The idea here is to create a new entity, <code>ig.EntityPlayer</code>, that extends Impact++'s player abstract which has all sorts of built in functionality. Next, open up / refresh the level editor, Weltmeister, and add the player entity to your test level's entities layer. Once your restart your game, Impact++ will hook the player entity automatically and you should be able to move, jump, and climb all around the level. You can add animations to an entity the ImpactJS way, or you can add them through the <code>animSettings</code> object by following the format of the &quot;idle&quot; animation example above. If you need a test player sprite sheet, check out the Run N' Jump or SUPERCOLLIDER example media folders.</p>
+<p>Remember, Impact++ expects animations in a &quot;name&quot; + &quot;direction&quot; format, and entities that extend the <code>ig.Character</code> abstract, such as the player abstract above, expect specific animation names for various action. For example, when moving the player entity will automatically try to play &quot;moveX&quot; and &quot;moveY&quot; if we can flip/mirror on the x-axis and y-axis, otherwise it will try to play &quot;moveLeft&quot; or &quot;moveRight&quot; and &quot;moveUp&quot; or &quot;moveDown&quot;, if we cannot flip on the x-axis and y-axis. The full list of automatic animation can be found in the docs for <code>ig.Character</code></p>
+<h3 id="8-the-configuration-files">8. The configuration files</h3>
+<p>One last optional thing we can do is fiddle with settings. In the <code>lib/plusplus/core</code> folder, you'll find a <code>config.js</code> file, and in the <code>lib/plusplus/</code> folder, you'll find a <code>config-user.js</code> file. The config file has a huge list of settings for almost every option in Impact++, and any of those settings can be overwritten by the user config file. For example, let's have Impact++ to do some heavy lifting for us when it comes to resizing the screen. Place the following into your <code>config-user.js</code> file, inside the module definition:</p>
+<pre><code>ig.CONFIG_USER = {
+    // make the game fullscreen!
+    GAME_WIDTH_PCT: 1,
+    GAME_HEIGHT_PCT: 1,
+    // dynamic scaling based on dimensions in view (resolution independence)
+    GAME_WIDTH_VIEW: 320,
+    GAME_HEIGHT_VIEW: 240
+};</code></pre>
+<h3 id="10-learn-more-">10. Learn More!</h3>
+<p><a href="ig.PlayerManager.html">Player Manager</a><br><a href="ig.Player.html">Player Abstract</a><br><a href="ig.Character.html">Character Abstract</a><br><a href="ig.CONFIG.html">Config file</a>  </p>
+					
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+</div> 
+
+<footer>
+	<p class="muted">Impact++ created and maintained by <a href="http://twitter.com/collinhover" target="_blank">@collinhover</a> / <a href="http://collinhover.com/" target="_blank">collinhover.com</a></p>
+	<p class="muted">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha4</a></p>
+</footer>
+
+	
+	<script src="scripts/linenumber.js"> </script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="scripts/jquery-1.9.1.min.js"><\/script>')</script>
+	<script src="scripts/bootstrap.min.js"> </script>
+	<script src="scripts/main.js"> </script>
+	
+</body>
+</html>
