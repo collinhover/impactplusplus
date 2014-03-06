@@ -1,4 +1,4 @@
-Impact++ (r6)
+Impact++ (r7)
 ========
 
 ###[DOCS](http://collinhover.github.com/impactplusplus) / [DEMO](http://collinhover.github.com/impactplusplus)  
