@@ -1,0 +1,975 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+    <title>Impact++ / Source: core/hierarchy.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+		<script src="scripts/html5shiv.js"> </script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/main.css">
+</head>
+
+<body data-spy="scroll" data-target="#navdoc">
+
+	
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>ig.module(
+    'plusplus.core.hierarchy'
+)
+    .requires(
+        'plusplus.helpers.utils'
+)
+    .defines(function() {
+        "use strict";
+
+        var _ut = ig.utils;
+
+        var count = 0;
+
+        /**
+         * Hierarchy structure using ancestor/descendant instead of child/parent.
+         * &lt;br>- child/parent is avoided due to Impact's class using parent to reference prototype functions.
+         * @class
+         * @extends ig.Class
+         * @memberof ig
+         * @author Collin Hover - collinhover.com
+         **/
+        ig.Hierarchy = ig.Class.extend( /**@lends ig.Hierarchy.prototype */ {
+
+            /**
+             * Unique instance id.
+             * @type String
+             */
+            id: count++,
+
+            /**
+             * Unique instance name.
+             * &lt;br>- usually names are used to map instances for faster searching.
+             * @type String
+             */
+            name: '',
+
+            /**
+             * List of descendants.
+             * @type Array
+             */
+            descendants: [],
+
+            /**
+             * Map of descendants.
+             * @type Object
+             */
+            descendantsMap: {},
+
+            /**
+             * Ancestor hierarchy.
+             * @type Object
+             * @default
+             */
+            ancestor: null,
+
+            /**
+             * Method to sort descendants by.
+             * &lt;br>- set during init
+             * @type Function
+             * @default
+             */
+            sortBy: null,
+
+            /**
+             * Initializes hierarchy.
+             * @param {Object} [settings] settings object.
+             **/
+            init: function(settings) {
+
+                this.id = count++;
+                this.sortBy = ig.Hierarchy.SORT.PRIORITY;
+
+                ig.merge(this, settings);
+
+            },
+
+            /**
+             * Sets the ancestor of this.
+             * @param {ig.Hierarchy} ancestor hierarchy object.
+             **/
+            setAncestor: function(ancestor) {
+
+                this.ancestor = ancestor;
+
+            },
+
+            /**
+             * Sets the name of this and remaps this within ancestor for quick by-name lookups.
+             * @param {String} name name of this.
+             **/
+            setName: function(name) {
+
+                if (this.name !== name) {
+
+                    if (this.ancestor instanceof ig.Hierarchy) {
+
+                        this.ancestor.unmapDescendant(this);
+
+                    }
+
+                    this.name = name;
+
+                    if (this.ancestor instanceof ig.Hierarchy) {
+
+                        this.ancestor.mapDescendant(this);
+
+                    }
+
+                }
+
+            },
+
+            /**
+             * Sets the fallback hierarchy of this for when a lookup by name is done and nothing found.
+             * @param {ig.Hierarchy} [fallback] hierarchy object.
+             **/
+            setFallback: function(fallback) {
+
+                this.fallback = fallback;
+
+            },
+
+            /**
+             * Adds one or more descendants.
+             * @param {ig.Hierarchy|Array} adding object or array of objects.
+             **/
+            addDescendants: function(adding) {
+
+                adding = _ut.toArray(adding);
+
+                for (var i = 0, il = adding.length; i &lt; il; i++) {
+
+                    this.addDescendant(adding[i]);
+
+                }
+
+            },
+
+            /**
+             * Adds a descendant.
+             * @param {*} adding descendant object.
+             **/
+            addDescendant: function(adding) {
+
+                // handle hierarchy objects specially
+
+                if (adding instanceof ig.Hierarchy) {
+
+                    // don't allow circular hierarchy
+
+                    if (this.isAncestor(adding) === true) {
+
+                        return;
+
+                    }
+
+                    // remove from previous hierarchy
+
+                    if (adding.ancestor !== undefined) {
+
+                        adding.ancestor.removeDescendant(adding);
+
+                    }
+
+                    adding.setAncestor(this);
+
+                }
+
+                this.mapDescendant(adding);
+                this.descendants.push(adding);
+
+                this.sortDescendants();
+
+            },
+
+            /**
+             * Removes one or more descendants.
+             * @param {*|Array} removing descendant object or array of objects.
+             **/
+            removeDescendants: function(removing) {
+
+                removing = _ut.toArray(removing);
+
+                for (var i = 0, il = removing.length; i &lt; il; i++) {
+
+                    this.removeDescendant(removing[i]);
+
+                }
+
+            },
+
+            /**
+             * Removes a descendant.
+             * @param {*} removing descendant object.
+             **/
+            removeDescendant: function(removing) {
+
+                var index = _ut.indexOfValue(this.descendants, removing);
+
+                if (index !== -1) {
+
+                    // handle hierarchy objects specially
+
+                    if (removing instanceof ig.Hierarchy) {
+
+                        removing.setAncestor();
+
+                    }
+
+                    this.descendants.splice(index, 1);
+                    this.unmapDescendant(removing);
+
+                } else {
+
+                    for (var i = 0, il = this.descendants.length; i &lt; il; i++) {
+
+                        var descendant = this.descendants[i]
+
+                        if (descendant instanceof ig.Hierarchy) {
+
+                            descendant.removeDescendant(removing);
+
+                        }
+
+                    }
+
+                }
+
+            },
+
+            /**
+             * Removes all descendants.
+             **/
+            clearDescendants: function() {
+
+                for (var i = this.descendants.length - 1; i >= 0; i--) {
+
+                    var descendant = this.descendants[i];
+
+                    if (descendant instanceof ig.Hierarchy) {
+
+                        descendant.setAncestor();
+
+                    }
+
+                    this.descendants.length--;
+                    this.unmapDescendant(descendant);
+
+                }
+
+            },
+
+            /**
+             * Sort descendants.
+             */
+            sortDescendants: function() {
+
+                this.descendants.sort(this.sortBy);
+
+            },
+
+            /**
+             * Maps a descendant by name for faster lookups.
+             * @param {*} descendant descendant object.
+             **/
+            mapDescendant: function(descendant) {
+
+                if (descendant.name) {
+
+                    var existing = this.descendantsMap[descendant.name];
+
+                    if (existing instanceof ig.Hierarchy) {
+
+                        existing.ancestor.removeDescendant(existing);
+
+                    }
+
+                    this.descendantsMap[descendant.name] = descendant;
+
+                }
+
+            },
+
+            /**
+             * Unmaps a descendant by name.
+             * @param {*} descendant descendant object.
+             **/
+            unmapDescendant: function(descendant) {
+
+                if (descendant.name) {
+
+                    var mapped = this.descendantsMap[descendant.name];
+
+                    if (descendant === mapped) {
+
+                        delete this.descendantsMap[descendant.name];
+
+                    }
+
+                }
+
+            },
+
+            /**
+             * Searches for a descendant by name and, optionally, searches recursively.
+             * @param {String} name name of descendant.
+             * @param {Boolean} [recursive] search recursively.
+             * @returns {*} descendant if found.
+             **/
+            getDescendantByName: function(name, recursive) {
+
+                var named = this._getDescendantByName(name, recursive);
+
+                if (!named &amp;&amp; this.fallback) {
+
+                    named = this.fallback._getDescendantByName(name, recursive);
+
+                }
+
+                return named;
+
+            },
+
+            /**
+             * Internal search by name method.
+             * @param {String} name name of descendant.
+             * @param {Boolean} [recursive] search recursively.
+             * @returns {*} descendant if found.
+             * @private
+             **/
+            _getDescendantByName: function(name, recursive) {
+
+                var named = this.descendantsMap[name];
+
+                if (recursive === true &amp;&amp; !named) {
+
+                    for (var i = 0, il = this.descendants.length; i &lt; il; i++) {
+
+                        var descendant = this.descendants[i];
+
+                        if (descendant instanceof ig.Hierarchy) {
+
+                            named = descendant.getDescendantByName(name, recursive);
+
+                            if (named) {
+
+                                break;
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+                return named;
+
+            },
+
+            /**
+             * Searches for descendants by type and, optionally, searches recursively.
+             * @param {Number} type type of descendant.
+             * @param {Boolean} [recursive] search recursively.
+             * @returns {Array} descendants if found.
+             **/
+            getDescendantsByType: function(type, recursive) {
+
+                var matching = this._getDescendantsByType(type, recursive, []);
+
+                if (!matching.length &amp;&amp; this.fallback) {
+
+                    matching = this.fallback._getDescendantsByType(type, recursive, matching);
+
+                }
+
+                return matching;
+
+            },
+
+            /**
+             * Internal search by type method.
+             * @param {Number} type type of descendant.
+             * @param {Boolean} [recursive] search recursively.
+             * @param {Array} matching list of matching descendants, passed automatically by getDescendantByType.
+             * @returns {Array} descendants if found.
+             * @private
+             **/
+            _getDescendantsByType: function(type, recursive, matching) {
+
+                for (var i = 0, il = this.descendants.length; i &lt; il; i++) {
+
+                    var descendant = this.descendants[i];
+
+                    // descendant matches type
+
+                    if (descendant.type &amp; type) {
+
+                        matching.push(descendant);
+
+                    }
+
+                    // search recursively
+
+                    if (recursive === true &amp;&amp; descendant instanceof ig.Hierarchy) {
+
+                        descendant._getDescendantsByType(name, recursive, matching);
+
+                    }
+
+                }
+
+                return matching;
+
+            },
+
+            /**
+             * Gets all descendants from here to last descendant.
+             * @param {String} [array] list of descendants already found.
+             * @returns {Array} array of all descendants.
+             **/
+            getDescendants: function(array) {
+
+                array = _ut.toArray(array).concat(this.descendants);
+
+                for (var i = 0, il = this.descendants.length; i &lt; il; i++) {
+
+                    var descendant = this.descendants[i];
+
+                    if (descendant instanceof ig.Hierarchy) {
+
+                        array = descendant.getDescendants(array);
+
+                    }
+
+                }
+
+                return array;
+
+            },
+
+            /**
+             * Gets root ancestor.
+             * @returns {ig.Hierarchy} root if found.
+             **/
+            getRoot: function() {
+
+                var ancestor = this;
+                var root;
+
+                while (ancestor) {
+
+                    root = ancestor;
+                    ancestor = ancestor.ancestor;
+
+                }
+
+                return root;
+
+            },
+
+            /**
+             * Gets if a target is an ancestor.
+             * @param {ig.Hierarchy} target hierarchy object.
+             * @returns {Boolean} true if ancestors, false if not.
+             **/
+            isAncestor: function(target) {
+
+                var ancestor = this.ancestor;
+
+                while (ancestor) {
+
+                    if (ancestor === target) {
+
+                        return true;
+
+                    }
+
+                    ancestor = ancestor.ancestor;
+
+                }
+
+                return false;
+
+            },
+
+            /**
+             * Executes a function in the context of self and each descendant.
+             * @param {Function} callback function.
+             **/
+            forAll: function(callback) {
+
+                var args = Array.prototype.slice.call(arguments, 1);
+
+                callback.apply(this, args);
+
+                this.forAllDescendants.apply(this, arguments);
+
+            },
+
+            /**
+             * Executes a function in the context of ONLY descendants.
+             * @param {Function} callback function.
+             **/
+            forAllDescendants: function(callback) {
+
+                var args = Array.prototype.slice.call(arguments, 1);
+
+                for (var i = 0, il = this.descendants.length; i &lt; il; i++) {
+
+                    var descendant = this.descendants[i];
+
+                    callback.apply(descendant, args);
+
+                    if (descendant instanceof ig.Hierarchy) {
+
+                        descendant.forAllDescendants.apply(descendant, arguments);
+
+                    }
+
+                }
+
+            },
+
+            /**
+             * Executes a function in the context of this and each descendant that has a function with a matching name.
+             * @param {String} callbackName callback function name.
+             **/
+            forAllWithCallback: function(callbackName) {
+
+                var callback = this[callbackName];
+
+                if (typeof callback === 'function') {
+
+                    var args = Array.prototype.slice.call(arguments, 1);
+                    callback.apply(this, args);
+
+                }
+
+                this.forAllDescendantsWithCallback.apply(this, arguments);
+
+            },
+
+            /**
+             * Executes a function in the context of each descendant that has a function with a matching name.
+             * @param {String} callbackName callback function name.
+             **/
+            forAllDescendantsWithCallback: function(callbackName) {
+
+                var args = Array.prototype.slice.call(arguments, 1);
+
+                for (var i = 0, il = this.descendants.length; i &lt; il; i++) {
+
+                    var descendant = this.descendants[i];
+                    var callback = descendant[callbackName];
+
+                    if (typeof callback === 'function') {
+
+                        callback.apply(descendant, args);
+
+                    }
+
+                    if (descendant instanceof ig.Hierarchy) {
+
+                        descendant.forAllWithCallback.apply(descendant, arguments);
+
+                    }
+
+                }
+
+            },
+
+            /**
+             * Executes a function in the context of each immediate descendant.
+             * @param {Function} callback callback function.
+             **/
+            forImmediate: function(callback) {
+
+                var args = Array.prototype.slice.call(arguments, 1);
+
+                callback.apply(this, args);
+
+                for (var i = 0, il = this.descendants.length; i &lt; il; i++) {
+
+                    callback.apply(this.descendants[i], args);
+
+                }
+
+            },
+
+            /**
+             * Executes a function in the context of each immediate descendant that has a function with a matching name.
+             * @param {String} callbackName callback function name.
+             **/
+            forImmediateWithCallback: function(callbackName) {
+
+                var callback = this[callbackName];
+
+                if (typeof callback === 'function') {
+
+                    var args = Array.prototype.slice.call(arguments, 1);
+                    callback.apply(this, args);
+
+                }
+
+                for (var i = 0, il = this.descendants.length; i &lt; il; i++) {
+
+                    var descendant = this.descendants[i];
+
+                    callback = descendant[callbackName];
+
+                    if (typeof callback === 'function') {
+
+                        callback.apply(descendant, args);
+
+                    }
+
+                }
+
+            },
+
+            /**
+             * Activate all descendants with blocking check and cleans up descendants that are blocked.
+             * @returns {Boolean} whether at least one ability was successfully activated.
+             **/
+            activate: function() {
+
+                var activated = false;
+                var blocked = false;
+                var method = "activate";
+
+                for (var i = 0, il = this.descendants.length; i &lt; il; i++) {
+
+                    var descendant = this.descendants[i];
+
+                    descendant[method].apply(descendant, arguments);
+
+                    // check if descendant is activated or in use
+
+                    if (!blocked &amp;&amp; (descendant.activated || descendant.getUsing())) {
+
+                        activated = true;
+
+                        // when blocking, cleanup all lower priority
+
+                        if (descendant.blocking) {
+
+                            blocked = true;
+                            method = "cleanup";
+
+                        }
+
+                    }
+
+                }
+
+                // also check fallback as it is possible that fallback descendants are being used
+
+                if (this.fallback) {
+
+                    activated = this.fallback[method].apply(descendant, arguments) || activated;
+
+                }
+
+                return activated;
+
+            },
+
+            /**
+             * Deactivate all descendants.
+             **/
+            deactivate: function() {
+
+                for (var i = 0, il = this.descendants.length; i &lt; il; i++) {
+
+                    this.descendants[i].deactivate();
+
+                }
+
+                // also check fallback as it is possible that fallback descendants are being used
+
+                if (this.fallback) {
+
+                    this.fallback.deactivate();
+
+                }
+
+            },
+
+            /**
+             * Update all descendants.
+             **/
+            update: function() {
+
+                for (var i = 0, il = this.descendants.length; i &lt; il; i++) {
+
+                    this.descendants[i].update();
+
+                }
+
+                // also check fallback as it is possible that fallback descendants are being used
+
+                if (this.fallback) {
+
+                    this.fallback.update();
+
+                }
+
+            },
+
+            /**
+             * Cleanup all descendants.
+             **/
+            cleanup: function() {
+
+                for (var i = 0, il = this.descendants.length; i &lt; il; i++) {
+
+                    this.descendants[i].cleanup();
+
+                }
+
+                // also check fallback as it is possible that fallback descendants are being used
+
+                if (this.fallback) {
+
+                    this.fallback.cleanup();
+
+                }
+
+            },
+
+            /**
+             * Set entity of all descendants.
+             **/
+            setEntity: function(entity) {
+
+                for (var i = 0, il = this.descendants.length; i &lt; il; i++) {
+
+                    this.descendants[i].setEntity(entity);
+
+                }
+
+                // also check fallback as it is possible that fallback descendants are being used
+
+                if (this.fallback) {
+
+                    this.fallback.setEntity(entity);
+
+                }
+
+            },
+
+            /**
+             * Set entity target of all descendants.
+             **/
+            setEntityTarget: function(entity) {
+
+                for (var i = 0, il = this.descendants.length; i &lt; il; i++) {
+
+                    this.descendants[i].setEntityTarget(entity);
+
+                }
+
+                // also check fallback as it is possible that fallback descendants are being used
+
+                if (this.fallback) {
+
+                    this.fallback.setEntityTarget(entity);
+
+                }
+
+            },
+
+            /**
+             * Set entity target of all descendants from a list of targets.
+             **/
+            setEntityTargetFirst: function(entities) {
+
+                for (var i = 0, il = this.descendants.length; i &lt; il; i++) {
+
+                    this.descendants[i].setEntityTargetFirst(entities);
+
+                }
+
+                // also check fallback as it is possible that fallback descendants are being used
+
+                if (this.fallback) {
+
+                    this.fallback.setEntityTargetFirst(entities);
+
+                }
+
+            },
+
+            /**
+             * Set entity options of all descendants.
+             **/
+            setEntityOptions: function(entity) {
+
+                for (var i = 0, il = this.descendants.length; i &lt; il; i++) {
+
+                    this.descendants[i].setEntityOptions(entity);
+
+                }
+
+                // also check fallback as it is possible that fallback descendants are being used
+
+                if (this.fallback) {
+
+                    this.fallback.setEntityOptions(entity);
+
+                }
+
+            },
+
+            /**
+             * Check if any descendants are in use and should not be disturbed.
+             **/
+            getUsing: function() {
+
+                for (var i = 0, il = this.descendants.length; i &lt; il; i++) {
+
+                    if (this.descendants[i].getUsing()) {
+
+                        return true;
+
+                    }
+
+                }
+
+                // also check fallback as it is possible that fallback descendants are being used
+
+                if (this.fallback) {
+
+                    return this.fallback.getUsing();
+
+                }
+
+                return false;
+
+            },
+
+            /**
+             * Pauses all descendants.
+             **/
+            pause: function() {
+
+                for (var i = 0, il = this.descendants.length; i &lt; il; i++) {
+
+                    this.descendants[i].pause();
+
+                }
+
+                // also check fallback as it is possible that fallback descendants are being used
+
+                if (this.fallback) {
+
+                    this.fallback.pause();
+
+                }
+
+            },
+
+            /**
+             * Unpauses all descendants.
+             **/
+            unpause: function() {
+
+                for (var i = 0, il = this.descendants.length; i &lt; il; i++) {
+
+                    this.descendants[i].unpause();
+
+                }
+
+                // also check fallback as it is possible that fallback descendants are being used
+
+                if (this.fallback) {
+
+                    this.fallback.unpause();
+
+                }
+
+            },
+
+            /**
+             * Clones this hierarchy object.
+             * @param {ig.Hierarchy} [c] hierarchy object to clone into.
+             * @returns {ig.Hierarchy} copy of this.
+             **/
+            clone: function(c) {
+
+                if (c instanceof ig.Hierarchy !== true) {
+
+                    c = new ig.Hierarchy();
+
+                }
+
+                c.name = this.name;
+
+                for (var i = 0, il = this.descendants.length; i &lt; il; i++) {
+
+                    var descendant = this.descendants[i];
+
+                    if (typeof descendant.clone === 'function') {
+
+                        c.addDescendant(descendant.clone());
+
+                    }
+
+                }
+
+                return c;
+
+            }
+
+        });
+
+        /**
+         * Sorting methods for hierarchy descendants.
+         * @static
+         * @memberof ig.Hierarchy
+         */
+        ig.Hierarchy.SORT = {
+            PRIORITY: function(a, b) {
+                return b.priority - a.priority;
+            },
+            Z_INDEX: function(a, b) {
+                return b.zIndex - a.zIndex;
+            }
+        };
+
+    });
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+	
+	<script src="scripts/linenumber.js"> </script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="scripts/jquery-1.9.1.min.js"><\/script>')</script>
+	<script src="scripts/bootstrap.min.js"> </script>
+	<script src="scripts/main.js"> </script>
+	
+</body>
+</html>

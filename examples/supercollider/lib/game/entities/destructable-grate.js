@@ -1,13 +1,13 @@
 ig.module(
-        'game.entities.destructable-grate'
-    )
+    'game.entities.destructable-grate'
+)
     .requires(
         'plusplus.core.config',
         'plusplus.helpers.utilsvector2',
         'plusplus.entities.destructable-collide',
         'game.entities.particle-debris-grate'
-    )
-    .defines(function () {
+)
+    .defines(function() {
         "use strict";
 
         var _c = ig.CONFIG;
@@ -20,7 +20,7 @@ ig.module(
          * @memberof ig
          * @author Collin Hover - collinhover.com
          */
-        ig.EntityDestructableGrate = ig.global.EntityDestructableGrate = ig.EntityDestructableCollide.extend(/**@lends ig.EntityDestructableGrate.prototype */{
+        ig.EntityDestructableGrate = ig.global.EntityDestructableGrate = ig.EntityDestructableCollide.extend( /**@lends ig.EntityDestructableGrate.prototype */ {
 
             _wmDrawBox: false,
             _wmScalable: false,
@@ -34,18 +34,18 @@ ig.module(
              * @override
              * @default 64 x 16
              */
-            size: _utv2.vector( 48, 16 ),
+            size: _utv2.vector(48, 16),
 
             /**
              * @override
              * @default 4 x 0
              */
-            offset: _utv2.vector( 8, 0 ),
+            offset: _utv2.vector(8, 0),
 
             /**
              * @override
              */
-            animSheet: new ig.AnimationSheet( _c.PATH_TO_MEDIA + "grate.png", 64, 16),
+            animSheet: new ig.AnimationSheet(_c.PATH_TO_MEDIA + "grate.png", 64, 16),
 
             /**
              * @override

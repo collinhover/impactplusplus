@@ -1,11 +1,11 @@
 ig.module(
-        'game.entities.explosion-horizontal'
-    )
+    'game.entities.explosion-horizontal'
+)
     .requires(
         'plusplus.entities.explosion',
         'game.entities.particle-color-random'
-    )
-    .defines(function () {
+)
+    .defines(function() {
         "use strict";
 
         /**
@@ -15,7 +15,7 @@ ig.module(
          * @memberof ig
          * @author Collin Hover - collinhover.com
          */
-        ig.EntityExplosionHorizontal = ig.global.EntityExplosionHorizontal = ig.EntityExplosion.extend(/**@lends ig.EntityExplosionHorizontal.prototype */{
+        ig.EntityExplosionHorizontal = ig.global.EntityExplosionHorizontal = ig.EntityExplosion.extend( /**@lends ig.EntityExplosionHorizontal.prototype */ {
 
             // spawn the random colored particle
 
@@ -40,7 +40,10 @@ ig.module(
 
             spawnSettings: {
                 // starting velocity of particles
-                vel: { x: 200, y: 0 },
+                vel: {
+                    x: 200,
+                    y: 0
+                },
                 // long life duration
                 lifeDuration: 3,
                 // fade in after spawning

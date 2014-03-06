@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+    <title>Impact++ / Source: ui/ui-text-box.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+		<script src="scripts/html5shiv.js"> </script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/main.css">
+</head>
+
+<body data-spy="scroll" data-target="#navdoc">
+
+	
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>ig.module(
+    'plusplus.ui.ui-text-box'
+)
+    .requires(
+        'plusplus.ui.ui-text-bubble'
+)
+    .defines(function() {
+        "use strict";
+
+        /**
+         * UI text bubble to be used for displaying text in a box, like a comic book narrative.
+         * &lt;span class="alert alert-info">&lt;strong>IMPORTANT:&lt;/strong>UI text box is an {@link ig.UIOverlay}, which means it creates an {@link ig.UIText} and uses {@link ig.UIOverlay#textSettings} to control the settings!&lt;/span>
+         * @class
+         * @extends ig.UITextBubble
+         * @memberof ig
+         * @author Collin Hover - collinhover.com
+         * @example
+         * // see the UI overlay for a basic example of using overlays with text
+         */
+        ig.UITextBox = ig.global.UITextBox = ig.UITextBubble.extend( /**@lends ig.UITextBox.prototype */ {
+
+            /**
+             * @override
+             * @default
+             */
+            cornerRadius: 0,
+
+            /**
+             * @override
+             * @default
+             */
+            triangleLength: 0
+
+        });
+
+    });
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+	
+	<script src="scripts/linenumber.js"> </script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="scripts/jquery-1.9.1.min.js"><\/script>')</script>
+	<script src="scripts/bootstrap.min.js"> </script>
+	<script src="scripts/main.js"> </script>
+	
+</body>
+</html>

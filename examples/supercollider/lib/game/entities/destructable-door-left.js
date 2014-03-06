@@ -1,12 +1,12 @@
 ig.module(
-        'game.entities.destructable-door-left'
-    )
+    'game.entities.destructable-door-left'
+)
     .requires(
         'plusplus.core.config',
         'plusplus.entities.destructable-damage',
         'game.entities.particle-debris-door'
-    )
-    .defines(function () {
+)
+    .defines(function() {
         "use strict";
 
         var _c = ig.CONFIG;
@@ -18,7 +18,7 @@ ig.module(
          * @memberof ig
          * @author Collin Hover - collinhover.com
          */
-        ig.EntityDestructableDoorLeft = ig.global.EntityDestructableDoorLeft = ig.EntityDestructableDamage.extend(/**@lends ig.EntityDestructableDoorLeft.prototype */{
+        ig.EntityDestructableDoorLeft = ig.global.EntityDestructableDoorLeft = ig.EntityDestructableDamage.extend( /**@lends ig.EntityDestructableDoorLeft.prototype */ {
 
             _wmDrawBox: false,
             _wmScalable: false,
@@ -32,12 +32,15 @@ ig.module(
              * @override
              * @default 16 x 56
              */
-            size: {x:16, y: 56},
+            size: {
+                x: 16,
+                y: 56
+            },
 
             /**
              * @override
              */
-            animSheet: new ig.AnimationSheet( _c.PATH_TO_MEDIA + "door_left.png", 16, 56),
+            animSheet: new ig.AnimationSheet(_c.PATH_TO_MEDIA + "door_left.png", 16, 56),
 
             /**
              * @override
@@ -65,7 +68,10 @@ ig.module(
              * @override
              */
             spawnSettings: {
-                vel: { x: 120, y: 120 }
+                vel: {
+                    x: 120,
+                    y: 120
+                }
             }
 
         });

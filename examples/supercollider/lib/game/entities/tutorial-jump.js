@@ -1,11 +1,11 @@
 ig.module(
-        'game.entities.tutorial-jump'
-    )
+    'game.entities.tutorial-jump'
+)
     .requires(
         'plusplus.entities.tutorial-swipe',
         'plusplus.ui.ui-overlay'
-    )
-    .defines(function () {
+)
+    .defines(function() {
 
         /**
          * Tutorial for jumping.
@@ -22,7 +22,7 @@ ig.module(
 
             // looking for player jumping
 
-            properties: [ 'jumping' ],
+            properties: ['jumping'],
 
             // overlay
 
@@ -37,4 +37,3 @@ ig.module(
         });
 
     });
-

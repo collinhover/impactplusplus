@@ -1,11 +1,11 @@
 ig.module(
-        'game.entities.tutorial-spam'
-    )
+    'game.entities.tutorial-spam'
+)
     .requires(
         'plusplus.entities.tutorial-tap',
         'plusplus.ui.ui-overlay'
-    )
-    .defines(function () {
+)
+    .defines(function() {
 
         /**
          * Tutorial for spammable abilities.
@@ -29,4 +29,3 @@ ig.module(
         });
 
     });
-

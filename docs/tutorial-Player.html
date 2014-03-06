@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+    <title>Impact++ / Tutorial: 2. Player</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+		<script src="scripts/html5shiv.js"> </script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/main.css">
+</head>
+
+<body data-spy="scroll" data-target="#navdoc">
+
+	
+
+<div id="header">
+	
+	<div class="container">
+		
+		<div id="logo">
+			<a href="index.html"><img src="img/logo_impactplusplus_128.png"></a>
+				
+			<a href='http://github.com/collinhover/impactplusplus/' id="forkBtn">
+				<img src="img/fork_impactplusplus.png" alt="Fork me on GitHub">
+			</a>
+			
+		</div>
+		
+	</div>
+	
+</div>
+
+<div id="docs" class="container">
+	
+	<div id="tutorial">
+
+		<div class="row">
+			
+			<div class="span2">
+				<nav id="mainnav">
+					
+					<div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navTutorialsCollapse">Tutorials</button><div id="navTutorialsCollapse" class="collapse"><ul class="nav nav-list"><li id="navTutorials" class="nav-header hidden-phone">Tutorials</li><li><a href="tutorial-Started.html">1. Getting Started</a></li><li><a href="tutorial-Player.html">2. Player</a></li><li><a href="tutorial-Character.html">3. Character</a></li><li><a href="tutorial-Camera.html">4. Camera</a></li><li><a href="tutorial-UI.html">5. UI</a></li><li><a href="tutorial-Pathfinding.html">6. Pathfinding</a></li><li><a href="tutorial-Creatures.html">7. Creatures</a></li><li><a href="tutorial-Lighting.html">8. Lighting</a></li><li><a href="tutorial-Conversations.html">9. Conversations</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navAbilitiesCollapse">Abilities</button><div id="navAbilitiesCollapse" class="collapse"><ul class="nav nav-list"><li id="navAbilities" class="nav-header hidden-phone">Abilities</li><li><a href="ig.Ability.html">Ability</a></li><li><a href="ig.AbilityDamage.html">AbilityDamage</a></li><li><a href="ig.AbilityGlow.html">AbilityGlow</a></li><li><a href="ig.AbilityGlowToggle.html">AbilityGlowToggle</a></li><li><a href="ig.AbilityInteract.html">AbilityInteract</a></li><li><a href="ig.AbilityMelee.html">AbilityMelee</a></li><li><a href="ig.AbilityMimic.html">AbilityMimic</a></li><li><a href="ig.AbilityShoot.html">AbilityShoot</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navAbstractitiesCollapse">Abstractities</button><div id="navAbstractitiesCollapse" class="collapse"><ul class="nav nav-list"><li id="navAbstractities" class="nav-header hidden-phone">Abstractities</li><li><a href="ig.Character.html">Character</a></li><li><a href="ig.Creature.html">Creature</a></li><li><a href="ig.Demo.html">Demo</a></li><li><a href="ig.Door.html">Door</a></li><li><a href="ig.DoorTriggered.html">DoorTriggered</a></li><li><a href="ig.DoorUsable.html">DoorUsable</a></li><li><a href="ig.Effect.html">Effect</a></li><li><a href="ig.Lever.html">Lever</a></li><li><a href="ig.Particle.html">Particle</a></li><li><a href="ig.ParticleFast.html">ParticleFast</a></li><li><a href="ig.Player.html">Player</a></li><li><a href="ig.Projectile.html">Projectile</a></li><li><a href="ig.Shape.html">Shape</a></li><li><a href="ig.Spawner.html">Spawner</a></li><li><a href="ig.SpawnerCharacter.html">SpawnerCharacter</a></li><li><a href="ig.SpawnerFast.html">SpawnerFast</a></li><li><a href="ig.Tutorial.html">Tutorial</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navCoreCollapse">Core</button><div id="navCoreCollapse" class="collapse"><ul class="nav nav-list"><li id="navCore" class="nav-header hidden-phone">Core</li><li><a href="ig.html">ig</a></li><li><a href="ig.CONFIG.html">CONFIG</a></li><li><a href="ig.CONFIG_USER.html">CONFIG_USER</a></li><li><a href="ig.EntityExtended.COLLIDES.html">COLLIDES</a></li><li><a href="ig.EntityExtended.GROUP.html">GROUP</a></li><li><a href="ig.EntityExtended.PERFORMANCE.html">PERFORMANCE</a></li><li><a href="ig.EntityExtended.TYPE.html">TYPE</a></li><li><a href="ig.Font.FONTS.html">FONTS</a></li><li><a href="ig.AnimationExtended.html">AnimationExtended</a></li><li><a href="ig.AnimationSheet.html">AnimationSheet</a></li><li><a href="ig.BackgroundMapExtended.html">BackgroundMapExtended</a></li><li><a href="ig.Camera.html">Camera</a></li><li><a href="ig.CollisionMap.html">CollisionMap</a></li><li><a href="ig.EntityExtended.html">EntityExtended</a></li><li><a href="ig.Font.html">Font</a></li><li><a href="ig.GameExtended.html">GameExtended</a></li><li><a href="ig.Hierarchy.html">Hierarchy</a></li><li><a href="ig.Image.html">Image</a></li><li><a href="ig.ImageDrawing.html">ImageDrawing</a></li><li><a href="ig.Input.html">Input</a></li><li><a href="ig.InputPoint.html">InputPoint</a></li><li><a href="ig.Layer.html">Layer</a></li><li><a href="ig.LoaderExtended.html">LoaderExtended</a></li><li><a href="ig.PathfindingMap.html">PathfindingMap</a></li><li><a href="ig.PlayerManager.html">PlayerManager</a></li><li><a href="ig.System.html">System</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navEntitiesCollapse">Entities</button><div id="navEntitiesCollapse" class="collapse"><ul class="nav nav-list"><li id="navEntities" class="nav-header hidden-phone">Entities</li><li><a href="ig.EntityAbilityActivate.html">EntityAbilityActivate</a></li><li><a href="ig.EntityAbilityEnable.html">EntityAbilityEnable</a></li><li><a href="ig.EntityAbilityUpgrade.html">EntityAbilityUpgrade</a></li><li><a href="ig.EntityCameraAtmosphere.html">EntityCameraAtmosphere</a></li><li><a href="ig.EntityCameraFollow.html">EntityCameraFollow</a></li><li><a href="ig.EntityCameraShake.html">EntityCameraShake</a></li><li><a href="ig.EntityCheckpoint.html">EntityCheckpoint</a></li><li><a href="ig.EntityConversation.html">EntityConversation</a></li><li><a href="ig.EntityDemoHold.html">EntityDemoHold</a></li><li><a href="ig.EntityDemoSwipe.html">EntityDemoSwipe</a></li><li><a href="ig.EntityDemoTap.html">EntityDemoTap</a></li><li><a href="ig.EntityDestructable.html">EntityDestructable</a></li><li><a href="ig.EntityDestructableCollide.html">EntityDestructableCollide</a></li><li><a href="ig.EntityDestructableDamage.html">EntityDestructableDamage</a></li><li><a href="ig.EntityDirection.html">EntityDirection</a></li><li><a href="ig.EntityDummy.html">EntityDummy</a></li><li><a href="ig.EntityEffectElectricity.html">EntityEffectElectricity</a></li><li><a href="ig.EntityEffectPow.html">EntityEffectPow</a></li><li><a href="ig.EntityEventDefense.html">EntityEventDefense</a></li><li><a href="ig.EntityExplosion.html">EntityExplosion</a></li><li><a href="ig.EntityLava.html">EntityLava</a></li><li><a href="ig.EntityLevelchange.html">EntityLevelchange</a></li><li><a href="ig.EntityLight.html">EntityLight</a></li><li><a href="ig.EntityNarrative.html">EntityNarrative</a></li><li><a href="ig.EntityPain.html">EntityPain</a></li><li><a href="ig.EntityPainInstagib.html">EntityPainInstagib</a></li><li><a href="ig.EntityParticleColor.html">EntityParticleColor</a></li><li><a href="ig.EntityParticleDebris.html">EntityParticleDebris</a></li><li><a href="ig.EntityShapeClimbable.html">EntityShapeClimbable</a></li><li><a href="ig.EntityShapeClimbableOneWay.html">EntityShapeClimbableOneWay</a></li><li><a href="ig.EntityShapeSolid.html">EntityShapeSolid</a></li><li><a href="ig.EntitySlime.html">EntitySlime</a></li><li><a href="ig.EntitySwitch.html">EntitySwitch</a></li><li><a href="ig.EntityText.html">EntityText</a></li><li><a href="ig.EntityTrigger.html">EntityTrigger</a></li><li><a href="ig.EntityTriggerConstant.html">EntityTriggerConstant</a></li><li><a href="ig.EntityTriggerController.html">EntityTriggerController</a></li><li><a href="ig.EntityTriggerFunction.html">EntityTriggerFunction</a></li><li><a href="ig.EntityTriggerInput.html">EntityTriggerInput</a></li><li><a href="ig.EntityTriggerKill.html">EntityTriggerKill</a></li><li><a href="ig.EntityTriggerProperty.html">EntityTriggerProperty</a></li><li><a href="ig.EntityTriggerReverse.html">EntityTriggerReverse</a></li><li><a href="ig.EntityTriggerReverseConstant.html">EntityTriggerReverseConstant</a></li><li><a href="ig.EntityTutorialHold.html">EntityTutorialHold</a></li><li><a href="ig.EntityTutorialSwipe.html">EntityTutorialSwipe</a></li><li><a href="ig.EntityTutorialTap.html">EntityTutorialTap</a></li><li><a href="ig.EntityVoid.html">EntityVoid</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navHelpersCollapse">Helpers</button><div id="navHelpersCollapse" class="collapse"><ul class="nav nav-list"><li id="navHelpers" class="nav-header hidden-phone">Helpers</li><li><a href="ig.pathfinding.html">pathfinding</a></li><li><a href="ig.TWEEN.html">TWEEN</a></li><li><a href="ig.utils.html">utils</a></li><li><a href="ig.utilscolor.html">utilscolor</a></li><li><a href="ig.utilsdraw.html">utilsdraw</a></li><li><a href="ig.utilsintersection.html">utilsintersection</a></li><li><a href="ig.utilsmath.html">utilsmath</a></li><li><a href="ig.utilstile.html">utilstile</a></li><li><a href="ig.utilsvector2.html">utilsvector2</a></li><li><a href="ig.xhr.html">xhr</a></li><li><a href="ig.PathNode.html">PathNode</a></li><li><a href="ig.Preloader.html">Preloader</a></li><li><a href="ig.Signal.html">Signal</a></li><li><a href="ig.TWEEN.Tween.html">Tween</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navUiCollapse">Ui</button><div id="navUiCollapse" class="collapse"><ul class="nav nav-list"><li id="navUi" class="nav-header hidden-phone">Ui</li><li><a href="ig.UIButton.html">UIButton</a></li><li><a href="ig.UIElement.html">UIElement</a></li><li><a href="ig.UIInteractive.html">UIInteractive</a></li><li><a href="ig.UIMeter.html">UIMeter</a></li><li><a href="ig.UIOverlay.html">UIOverlay</a></li><li><a href="ig.UIOverlayPause.html">UIOverlayPause</a></li><li><a href="ig.UIText.html">UIText</a></li><li><a href="ig.UITextBox.html">UITextBox</a></li><li><a href="ig.UITextBubble.html">UITextBubble</a></li><li><a href="ig.UIToggle.html">UIToggle</a></li><li><a href="ig.UITogglePause.html">UITogglePause</a></li><li><a href="ig.UIToggleVolume.html">UIToggleVolume</a></li><li><a href="ig.UITracker.html">UITracker</a></li></ul></div></div>
+					
+				</nav>
+			</div>
+			
+			<div class="span8">
+				<div id="maincontent">
+					
+					<div class="hero-unit">
+<h1>
+Player
+</h1>
+<h3 class="subtext">by @collinhover</h3>
+<div class="container-overview">
+<p>
+In this tutorial, we're going to setup a simple side-scrolling player character, make a laser gun ability, and attach some input handlers so we can shoot some bad guys. You can extend this setup into a top-down game by flipping the <code>TOP_DOWN</code> config switch. Boom, headshot!
+</p>
+</div>
+</div>
+
+<h3 id="prerequisites">Prerequisites</h3>
+<p>We're assuming you've read at least the Getting Started tutorial and have a game with at least one level for testing purposes. You'll also need to grab the following media if you want to work through this with us:</p>
+<ol>
+<li>The player sprite sheet at <code>examples/jumpnrun/media/player.png</code>.</li>
+<li>The projectile sprite sheet at <code>examples/jumpnrun/media/projectile.png</code>.
+(these can both be found in the Impact++ repo).</li>
+</ol>
+<h3 id="the-player-character">The Player Character</h3>
+<p>Lets start with a player character. In your game's entities folder, located at <code>lib/game/entities/</code>, create a new file called <code>player.js</code>. To create the most basic of player characters, place the following code into the new file:</p>
+<pre><code>ig.module( 'game.entities.player' )
+.requires(
+    'plusplus.abstractities.player'
+)
+.defines(function () {
+    ig.EntityPlayer = ig.global.EntityPlayer = ig.Player.extend({
+        size: {x: 8, y: 14},
+        offset: {x: 4, y: 2},
+        animSheet: new ig.AnimationSheet( &quot;media/player.png&quot;, 16, 16),
+        animInit: &quot;idleX&quot;,
+        animSettings: {
+            idleX: { sequence: [0], frameTime: 0.1 }
+        }
+    });
+});</code></pre>
+<p>The idea here is to create a new entity, <code>ig.EntityPlayer</code>, that extends Impact++'s player abstract which has all sorts of built in functionality. We've set the sprite frame size to 16x16, set the player bounding box or collision box to 8x14, and offset the sprite frame slightly to account for the collision box's size.</p>
+<p>Lets also add a few animations preemptively, which the player character will use automatically based on what they are doing at any given moment. Inside the <code>animSettings</code> property of your player character, add:</p>
+<pre><code>moveX: { sequence: [0, 1, 2, 3, 4, 5], frameTime: 0.07 },
+jumpX: { sequence: [8, 9], frameTime: 0.1 },
+fallX: { sequence: [6, 7], frameTime: 0.4 }</code></pre>
+<h3 id="the-laser-beam">The Laser Beam</h3>
+<p>Before we can shoot anything, we need something to shoot out of something that does the shooting. Lets start with the thing we'll shoot, a laser beam. In your game's entities folder, located at <code>lib/game/entities/</code>, create a new file called <code>laser.js</code> and place the following code into the new file:</p>
+<pre><code>ig.module( 'game.entities.laser' )
+.requires(
+    'plusplus.abstractities.projectile'
+)
+.defines(function () {
+    ig.EntityLaser = ig.global.EntityLaser = ig.Projectile.extend({
+        collides: ig.EntityExtended.COLLIDES.LITE,
+        size: {x: 4, y: 4},
+        offset: {x: 2, y: 2},
+        animSheet: new ig.AnimationSheet( &quot;media/projectile.png', 8, 8),
+        animInit: &quot;idleX&quot;,
+        animSettings: {
+            moveX: { sequence: [0], frameTime: 1 },
+            deathX: { sequence: [1,2,3,4,5], frameTime: 0.05 }
+        }
+    });
+});</code></pre>
+<p>The idea here is to create a new entity, <code>ig.EntityLaser</code>, that extends Impact++'s projectile abstract which has all sorts of built in functionality. Similar to the player and character abstracts, the projectile can automatically play certain animations based on its state. Lets add a few more properties in the class definition to make use of these automatically handled states:</p>
+<pre><code>damage: 2, // lasers hurt
+lifeDuration: 2, // lasers eventually fade (like a particle)
+gravityFactor: 0, // lasers ignore gravity
+friction: {x:0, y:0}, // lasers have no friction
+bounciness: 0, // lasers don't bounce
+collisionKills: true, // lasers stop if they hit a wall</code></pre>
+<h3 id="the-laser-gun">The Laser Gun</h3>
+<p>To be fair, we won't actually make a laser gun. What we're going to do now is tap into the Impact++ abilities and use the shoot ability to create a character usable ability for our player character. In your game folder, located at <code>lib/game/</code>, add a new folder named <code>abilities</code> and inside it create a new file called <code>laser-gun.js</code>. Place the following code into the new file:</p>
+<pre><code>ig.module( 'game.abilities.laser-gun' )
+.requires(
+    'plusplus.abilities.ability-shoot',
+    'game.entities.laser'
+)
+.defines(function () {
+    ig.LaserGun = ig.AbilityShoot.extend({
+        spawningEntity: ig.EntityLaser,
+        offsetVelX: 200
+    });
+});</code></pre>
+<p>All we're doing here is extending the shoot ability to make a specific shooting ability that shoots lasers with a specific velocity in the direction our character is facing. Note that we're requiring the laser beam projectile and setting it as the <code>spawningEntity</code> (or thing we want to shoot out) of our laser gun ability.</p>
+<h3 id="bringing-it-together">Bringing it Together</h3>
+<p>Back to the player entity, we need to add a few things to hook the laser gun into place. Require the ability: <code>'game.abilities.laser-gun'</code>, and add the shooting animation to the <code>animSettings</code>: <code>shootX: { sequence: [2], frameTime: 0.25 }</code>. Next, create the ability and store it with the player:</p>
+<pre><code>initProperties: function() {
+    this.parent();
+    this.shoot = new ig.LaserGun(this);
+    this.abilities.addDescendants([this.shoot]);
+}</code></pre>
+<p>The <code>initProperties</code> method is part of the Impact++ entity init pattern. It is recommended to use <code>initType</code> or <code>initProperties</code> for any properties that will only be created once in an entity's existence, and <code>resetCore</code> or <code>resetExtras</code> for any properties that need to be reset each time an entity to added to the game.</p>
+<p>Fourth, handle input to activate the ability:</p>
+<pre><code>handleInput: function() {
+    this.parent();
+    if (ig.input.pressed('shoot')) {
+        this.shoot.activate({
+            x: this.flip.x ? this.pos.x : this.pos.x + this.size.x,
+            y: this.pos.y + this.size.y * 0.5
+        });
+    }
+}</code></pre>
+<p>And finally, add the input to the game by opening your game's main file, located at <code>lib/game/main.js</code>. Here, we'll set it so that our game binds the &quot;F&quot; key to the &quot;shoot&quot; input, which our player is already waiting for:</p>
+<pre><code>inputStart: function () {
+    this.parent();
+    ig.input.bind(ig.KEY.F, 'shoot');
+},
+inputEnd: function () {
+    this.parent();
+    ig.input.unbind(ig.KEY.F, 'shoot');
+}</code></pre>
+<p>Now you're all set to run n' jump n' blast!</p>
+<h3 id="learn-more-">Learn More!</h3>
+<p><a href="ig.Player.html">Player</a><br><a href="ig.PlayerManager.html">Player Manager</a><br><a href="ig.AbilityShoot.html">Ability Shoot</a><br><a href="ig.CONFIG.html">Config file</a>  </p>
+					
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+</div> 
+
+<footer>
+	<p class="muted">Impact++ created and maintained by <a href="http://twitter.com/collinhover" target="_blank">@collinhover</a> / <a href="http://collinhover.com/" target="_blank">collinhover.com</a></p>
+	<p class="muted">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha4</a></p>
+</footer>
+
+	
+	<script src="scripts/linenumber.js"> </script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="scripts/jquery-1.9.1.min.js"><\/script>')</script>
+	<script src="scripts/bootstrap.min.js"> </script>
+	<script src="scripts/main.js"> </script>
+	
+</body>
+</html>

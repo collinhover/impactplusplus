@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+    <title>Impact++ / Source: core/pathfinding-map.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+		<script src="scripts/html5shiv.js"> </script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/main.css">
+</head>
+
+<body data-spy="scroll" data-target="#navdoc">
+
+	
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>ig.module(
+    'plusplus.core.pathfinding-map'
+)
+    .requires(
+        'impact.map',
+        'plusplus.core.config',
+        'plusplus.core.image'
+)
+    .defines(function() {
+        "use strict";
+
+        var _c = ig.CONFIG;
+
+        /**
+         * Map for pathfinding, drawn in the editor on a separate layer (just like the collision map).
+         * &lt;br>- set a layer's name to "pathfinding" to have the game automatically set it as the pathfinding map.
+         * &lt;br>- use the "media/pathfindingtiles_plusplus_*.png" as the layer tileset, or define your own custom one.
+         * &lt;span class="alert">&lt;strong>Tip:&lt;/strong> base pathfinding works best when entity size is &amp;lt;= 3x the tilesize. For larger entities, add a {@link ig.PathfindingMap} with green tiles around the middle of your entity's path of travel for best results!&lt;/span>
+         * &lt;span class="alert alert-danger">&lt;strong>IMPORTANT:&lt;/strong> if using a {@link ig.PathfindingMap}, the tilesize must match the {@link ig.CollisionMap}'s tilesize!&lt;/span>
+         * @class
+         * @extends ig.Map
+         * @memberof ig
+         * @author Collin Hover - collinhover.com
+         */
+        ig.PathfindingMap = ig.Map.extend( /**@lends ig.PathfindingMap.prototype */ {
+
+            /**
+             * Tile definition mapping tiles to settings such as weight.
+             * @type {Object}
+             * @see ig.CONFIG.PATHFINDING.TILE_DEF
+             */
+            tiledef: null,
+
+            /**
+             * Initializes pathfinding map.
+             * @param {Number} tilesize size of tiles
+             * @param {Array} data tile data in a 2D array of rows x columns
+             * @param {Object} [tiledef=ig.PathfindingMap.defaultTileDef] tile definition mapping tiles to settings such as weight.
+             */
+            init: function(tilesize, data, tiledef) {
+
+                this.parent(tilesize, data);
+
+                this.tiledef = tiledef || _c.PATHFINDING.TILE_DEF;
+
+            }
+
+        });
+
+    });
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+	
+	<script src="scripts/linenumber.js"> </script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="scripts/jquery-1.9.1.min.js"><\/script>')</script>
+	<script src="scripts/bootstrap.min.js"> </script>
+	<script src="scripts/main.js"> </script>
+	
+</body>
+</html>

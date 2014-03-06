@@ -195,15 +195,16 @@ function buildNav(members) {
         hasClassList = false,
         classNav = '',
         globalNav = '';
-	/*
+		
     if (members.tutorials.length) {
-        nav += '<ul class="nav nav-list"><li class="nav-header">Tutorials</h3></li>';
+			var navTutorials = '<div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navTutorialsCollapse">Tutorials</button><div id="navTutorialsCollapse" class="collapse"><ul class="nav nav-list"><li id="navTutorials" class="nav-header hidden-phone">Tutorials</li>';
         members.tutorials.forEach(function(t) {
-            nav += '<li>'+tutoriallink(t.name)+'</li>';
+            navTutorials += '<li>'+tutoriallink(t.name)+'</li>';
         });
-		nav += '</ul>';
+				navTutorials += '</ul></div></div>';
+				nav += navTutorials;
     }
-    */
+		
     if (members.classes.length) {
 		
 		var folderClassesMap = {};
@@ -576,7 +577,9 @@ exports.publish = function(taffyData, opts, tutorials) {
         var docletPath;
         if (doclet.meta) {
             docletPath = getPathFromDoclet(doclet);
-            docletPath = sourceFiles[docletPath].shortened;
+            if (sourceFiles[docletPath]) {
+							docletPath = sourceFiles[docletPath].shortened;
+						}
             if (docletPath) {
                 doclet.meta.filename = docletPath;
             }

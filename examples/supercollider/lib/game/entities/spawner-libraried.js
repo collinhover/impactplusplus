@@ -1,14 +1,14 @@
 ig.module(
-        'game.entities.spawner-libraried'
-    )
+    'game.entities.spawner-libraried'
+)
     .requires(
         'plusplus.abstractities.spawner',
         /* particles */
         'plusplus.entities.particle-color',
         'plusplus.entities.particle-debris',
         'plusplus.entities.effect-electricity'
-    )
-    .defines(function () {
+)
+    .defines(function() {
         "use strict";
 
         /**
@@ -27,4 +27,3 @@ ig.module(
         });
 
     });
-

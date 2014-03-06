@@ -1,13 +1,13 @@
 ig.module(
-        'game.abilities.laser-gun'
-    )
+    'game.abilities.laser-gun'
+)
     .requires(
         'plusplus.core.config',
         'plusplus.abilities.ability-shoot',
         'game.entities.projectile-laser',
         'plusplus.helpers.utils'
-    )
-    .defines(function () {
+)
+    .defines(function() {
         "use strict";
 
         var _c = ig.CONFIG;
@@ -20,7 +20,7 @@ ig.module(
          * @memberof ig
          * @author Collin Hover - collinhover.com
          **/
-        ig.AbilityLaserGun = ig.AbilityShoot.extend( {
+        ig.AbilityLaserGun = ig.AbilityShoot.extend({
 
             // this ability spawns a laser beam
 
@@ -35,7 +35,7 @@ ig.module(
             // since we are using bitwise flags
             // we can take advantage of the fact that they can be added
 
-            initTypes: function () {
+            initTypes: function() {
 
                 this.parent();
 
@@ -43,6 +43,6 @@ ig.module(
 
             }
 
-        } );
+        });
 
     });

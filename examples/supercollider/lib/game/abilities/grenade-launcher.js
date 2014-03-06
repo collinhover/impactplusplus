@@ -1,12 +1,12 @@
 ig.module(
-        'game.abilities.grenade-launcher'
-    )
+    'game.abilities.grenade-launcher'
+)
     .requires(
         'plusplus.abilities.ability-shoot',
         'game.entities.projectile-grenade',
         'plusplus.helpers.utils'
-    )
-    .defines(function () {
+)
+    .defines(function() {
         "use strict";
 
         var _ut = ig.utils;
@@ -18,7 +18,7 @@ ig.module(
          * @memberof ig
          * @author Collin Hover - collinhover.com
          **/
-        ig.AbilityGrenadeLauncher = ig.AbilityShoot.extend( {
+        ig.AbilityGrenadeLauncher = ig.AbilityShoot.extend({
 
             // this ability spawns a grenade
 
@@ -49,7 +49,7 @@ ig.module(
             // since we are using bitwise flags
             // we can take advantage of the fact that they can be added
 
-            initTypes: function () {
+            initTypes: function() {
 
                 this.parent();
 
@@ -57,6 +57,6 @@ ig.module(
 
             }
 
-        } );
+        });
 
     });

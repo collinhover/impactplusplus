@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+    <title>Impact++ / Tutorial: 5. UI</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+		<script src="scripts/html5shiv.js"> </script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/main.css">
+</head>
+
+<body data-spy="scroll" data-target="#navdoc">
+
+	
+
+<div id="header">
+	
+	<div class="container">
+		
+		<div id="logo">
+			<a href="index.html"><img src="img/logo_impactplusplus_128.png"></a>
+				
+			<a href='http://github.com/collinhover/impactplusplus/' id="forkBtn">
+				<img src="img/fork_impactplusplus.png" alt="Fork me on GitHub">
+			</a>
+			
+		</div>
+		
+	</div>
+	
+</div>
+
+<div id="docs" class="container">
+	
+	<div id="tutorial">
+
+		<div class="row">
+			
+			<div class="span2">
+				<nav id="mainnav">
+					
+					<div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navTutorialsCollapse">Tutorials</button><div id="navTutorialsCollapse" class="collapse"><ul class="nav nav-list"><li id="navTutorials" class="nav-header hidden-phone">Tutorials</li><li><a href="tutorial-Started.html">1. Getting Started</a></li><li><a href="tutorial-Player.html">2. Player</a></li><li><a href="tutorial-Character.html">3. Character</a></li><li><a href="tutorial-Camera.html">4. Camera</a></li><li><a href="tutorial-UI.html">5. UI</a></li><li><a href="tutorial-Pathfinding.html">6. Pathfinding</a></li><li><a href="tutorial-Creatures.html">7. Creatures</a></li><li><a href="tutorial-Lighting.html">8. Lighting</a></li><li><a href="tutorial-Conversations.html">9. Conversations</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navAbilitiesCollapse">Abilities</button><div id="navAbilitiesCollapse" class="collapse"><ul class="nav nav-list"><li id="navAbilities" class="nav-header hidden-phone">Abilities</li><li><a href="ig.Ability.html">Ability</a></li><li><a href="ig.AbilityDamage.html">AbilityDamage</a></li><li><a href="ig.AbilityGlow.html">AbilityGlow</a></li><li><a href="ig.AbilityGlowToggle.html">AbilityGlowToggle</a></li><li><a href="ig.AbilityInteract.html">AbilityInteract</a></li><li><a href="ig.AbilityMelee.html">AbilityMelee</a></li><li><a href="ig.AbilityMimic.html">AbilityMimic</a></li><li><a href="ig.AbilityShoot.html">AbilityShoot</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navAbstractitiesCollapse">Abstractities</button><div id="navAbstractitiesCollapse" class="collapse"><ul class="nav nav-list"><li id="navAbstractities" class="nav-header hidden-phone">Abstractities</li><li><a href="ig.Character.html">Character</a></li><li><a href="ig.Creature.html">Creature</a></li><li><a href="ig.Demo.html">Demo</a></li><li><a href="ig.Door.html">Door</a></li><li><a href="ig.DoorTriggered.html">DoorTriggered</a></li><li><a href="ig.DoorUsable.html">DoorUsable</a></li><li><a href="ig.Effect.html">Effect</a></li><li><a href="ig.Lever.html">Lever</a></li><li><a href="ig.Particle.html">Particle</a></li><li><a href="ig.ParticleFast.html">ParticleFast</a></li><li><a href="ig.Player.html">Player</a></li><li><a href="ig.Projectile.html">Projectile</a></li><li><a href="ig.Shape.html">Shape</a></li><li><a href="ig.Spawner.html">Spawner</a></li><li><a href="ig.SpawnerCharacter.html">SpawnerCharacter</a></li><li><a href="ig.SpawnerFast.html">SpawnerFast</a></li><li><a href="ig.Tutorial.html">Tutorial</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navCoreCollapse">Core</button><div id="navCoreCollapse" class="collapse"><ul class="nav nav-list"><li id="navCore" class="nav-header hidden-phone">Core</li><li><a href="ig.html">ig</a></li><li><a href="ig.CONFIG.html">CONFIG</a></li><li><a href="ig.CONFIG_USER.html">CONFIG_USER</a></li><li><a href="ig.EntityExtended.COLLIDES.html">COLLIDES</a></li><li><a href="ig.EntityExtended.GROUP.html">GROUP</a></li><li><a href="ig.EntityExtended.PERFORMANCE.html">PERFORMANCE</a></li><li><a href="ig.EntityExtended.TYPE.html">TYPE</a></li><li><a href="ig.Font.FONTS.html">FONTS</a></li><li><a href="ig.AnimationExtended.html">AnimationExtended</a></li><li><a href="ig.AnimationSheet.html">AnimationSheet</a></li><li><a href="ig.BackgroundMapExtended.html">BackgroundMapExtended</a></li><li><a href="ig.Camera.html">Camera</a></li><li><a href="ig.CollisionMap.html">CollisionMap</a></li><li><a href="ig.EntityExtended.html">EntityExtended</a></li><li><a href="ig.Font.html">Font</a></li><li><a href="ig.GameExtended.html">GameExtended</a></li><li><a href="ig.Hierarchy.html">Hierarchy</a></li><li><a href="ig.Image.html">Image</a></li><li><a href="ig.ImageDrawing.html">ImageDrawing</a></li><li><a href="ig.Input.html">Input</a></li><li><a href="ig.InputPoint.html">InputPoint</a></li><li><a href="ig.Layer.html">Layer</a></li><li><a href="ig.LoaderExtended.html">LoaderExtended</a></li><li><a href="ig.PathfindingMap.html">PathfindingMap</a></li><li><a href="ig.PlayerManager.html">PlayerManager</a></li><li><a href="ig.System.html">System</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navEntitiesCollapse">Entities</button><div id="navEntitiesCollapse" class="collapse"><ul class="nav nav-list"><li id="navEntities" class="nav-header hidden-phone">Entities</li><li><a href="ig.EntityAbilityActivate.html">EntityAbilityActivate</a></li><li><a href="ig.EntityAbilityEnable.html">EntityAbilityEnable</a></li><li><a href="ig.EntityAbilityUpgrade.html">EntityAbilityUpgrade</a></li><li><a href="ig.EntityCameraAtmosphere.html">EntityCameraAtmosphere</a></li><li><a href="ig.EntityCameraFollow.html">EntityCameraFollow</a></li><li><a href="ig.EntityCameraShake.html">EntityCameraShake</a></li><li><a href="ig.EntityCheckpoint.html">EntityCheckpoint</a></li><li><a href="ig.EntityConversation.html">EntityConversation</a></li><li><a href="ig.EntityDemoHold.html">EntityDemoHold</a></li><li><a href="ig.EntityDemoSwipe.html">EntityDemoSwipe</a></li><li><a href="ig.EntityDemoTap.html">EntityDemoTap</a></li><li><a href="ig.EntityDestructable.html">EntityDestructable</a></li><li><a href="ig.EntityDestructableCollide.html">EntityDestructableCollide</a></li><li><a href="ig.EntityDestructableDamage.html">EntityDestructableDamage</a></li><li><a href="ig.EntityDirection.html">EntityDirection</a></li><li><a href="ig.EntityDummy.html">EntityDummy</a></li><li><a href="ig.EntityEffectElectricity.html">EntityEffectElectricity</a></li><li><a href="ig.EntityEffectPow.html">EntityEffectPow</a></li><li><a href="ig.EntityEventDefense.html">EntityEventDefense</a></li><li><a href="ig.EntityExplosion.html">EntityExplosion</a></li><li><a href="ig.EntityLava.html">EntityLava</a></li><li><a href="ig.EntityLevelchange.html">EntityLevelchange</a></li><li><a href="ig.EntityLight.html">EntityLight</a></li><li><a href="ig.EntityNarrative.html">EntityNarrative</a></li><li><a href="ig.EntityPain.html">EntityPain</a></li><li><a href="ig.EntityPainInstagib.html">EntityPainInstagib</a></li><li><a href="ig.EntityParticleColor.html">EntityParticleColor</a></li><li><a href="ig.EntityParticleDebris.html">EntityParticleDebris</a></li><li><a href="ig.EntityShapeClimbable.html">EntityShapeClimbable</a></li><li><a href="ig.EntityShapeClimbableOneWay.html">EntityShapeClimbableOneWay</a></li><li><a href="ig.EntityShapeSolid.html">EntityShapeSolid</a></li><li><a href="ig.EntitySlime.html">EntitySlime</a></li><li><a href="ig.EntitySwitch.html">EntitySwitch</a></li><li><a href="ig.EntityText.html">EntityText</a></li><li><a href="ig.EntityTrigger.html">EntityTrigger</a></li><li><a href="ig.EntityTriggerConstant.html">EntityTriggerConstant</a></li><li><a href="ig.EntityTriggerController.html">EntityTriggerController</a></li><li><a href="ig.EntityTriggerFunction.html">EntityTriggerFunction</a></li><li><a href="ig.EntityTriggerInput.html">EntityTriggerInput</a></li><li><a href="ig.EntityTriggerKill.html">EntityTriggerKill</a></li><li><a href="ig.EntityTriggerProperty.html">EntityTriggerProperty</a></li><li><a href="ig.EntityTriggerReverse.html">EntityTriggerReverse</a></li><li><a href="ig.EntityTriggerReverseConstant.html">EntityTriggerReverseConstant</a></li><li><a href="ig.EntityTutorialHold.html">EntityTutorialHold</a></li><li><a href="ig.EntityTutorialSwipe.html">EntityTutorialSwipe</a></li><li><a href="ig.EntityTutorialTap.html">EntityTutorialTap</a></li><li><a href="ig.EntityVoid.html">EntityVoid</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navHelpersCollapse">Helpers</button><div id="navHelpersCollapse" class="collapse"><ul class="nav nav-list"><li id="navHelpers" class="nav-header hidden-phone">Helpers</li><li><a href="ig.pathfinding.html">pathfinding</a></li><li><a href="ig.TWEEN.html">TWEEN</a></li><li><a href="ig.utils.html">utils</a></li><li><a href="ig.utilscolor.html">utilscolor</a></li><li><a href="ig.utilsdraw.html">utilsdraw</a></li><li><a href="ig.utilsintersection.html">utilsintersection</a></li><li><a href="ig.utilsmath.html">utilsmath</a></li><li><a href="ig.utilstile.html">utilstile</a></li><li><a href="ig.utilsvector2.html">utilsvector2</a></li><li><a href="ig.xhr.html">xhr</a></li><li><a href="ig.PathNode.html">PathNode</a></li><li><a href="ig.Preloader.html">Preloader</a></li><li><a href="ig.Signal.html">Signal</a></li><li><a href="ig.TWEEN.Tween.html">Tween</a></li></ul></div></div><div class="mainnav-list"><button class="btn btn-link btn-collapse visible-phone nav-header" data-toggle="collapse" data-target="#navUiCollapse">Ui</button><div id="navUiCollapse" class="collapse"><ul class="nav nav-list"><li id="navUi" class="nav-header hidden-phone">Ui</li><li><a href="ig.UIButton.html">UIButton</a></li><li><a href="ig.UIElement.html">UIElement</a></li><li><a href="ig.UIInteractive.html">UIInteractive</a></li><li><a href="ig.UIMeter.html">UIMeter</a></li><li><a href="ig.UIOverlay.html">UIOverlay</a></li><li><a href="ig.UIOverlayPause.html">UIOverlayPause</a></li><li><a href="ig.UIText.html">UIText</a></li><li><a href="ig.UITextBox.html">UITextBox</a></li><li><a href="ig.UITextBubble.html">UITextBubble</a></li><li><a href="ig.UIToggle.html">UIToggle</a></li><li><a href="ig.UITogglePause.html">UITogglePause</a></li><li><a href="ig.UIToggleVolume.html">UIToggleVolume</a></li><li><a href="ig.UITracker.html">UITracker</a></li></ul></div></div>
+					
+				</nav>
+			</div>
+			
+			<div class="span8">
+				<div id="maincontent">
+					
+					<div class="hero-unit">
+<h1>
+User Interfaces
+</h1>
+<h3 class="subtext">by @Pattentrick</h3>
+<div class="container-overview">
+<p>
+Welcome to the exciting and wonderful world of UI elements! Impact++ offers a variety of simple UI elements right out of the box. There are ready to use elements for buttons, displaying text, meters, overlays and much more. In this guide we will take a closer look at the idea behind UI elements in Impact++ and how you can use them for your game.
+</p>
+</div>
+</div>
+
+<p><img src="https://f.cloud.github.com/assets/1792087/2332898/9833a40a-a460-11e3-8017-f64ac2e831a0.png" alt="ui"></p>
+<h3 id="the-basics">The Basics</h3>
+<p>First of all, please keep in mind that the UI elements of Impact++ should be used for simple user interfaces. If you need something big and complicated, you should consider to use the good old DOM instead. Using the DOM is a lot cheaper regarding to performance. And complex user interfaces are also easier to implement with classic DOM elements.</p>
+<p>But for simple user interfaces Impact++ provides us with very cool UI elements. All UI elements inherit from the <code>UIElement</code> base class, which is located by default under <code>plusplus/ui/ui-element.js</code> inside the project folder. You will also find every other UI element under <code>plusplus/ui/</code>.</p>
+<p>The <code>UIElement</code> class itself again is an entity which extends the <code>EntityExtended</code> class. Because of that, UI elements behave very similar to your ordinary Impact++ entities. For example, you can define an animation sheet, or a size, like you would for every other normal entity. However,  there are a few things that are specific to UI elements.</p>
+<p>UI elements are <code>frozen: true</code> by default. An entity with <code>frozen: true</code> will skip updating, which is good for performance, and UI elements usually don't need to be updated. Also, all UI elements are on an own layer called <code>ui</code>, so they won't interfere with your other entities. And they are fixed to the screen too, so you don't have to worry about reposition them manually, if you move your camera around. But you can disable this behaviour if you set <code>fixed: false</code> on your UI element if you like.</p>
+<p>Additionally UI elements won't be destroyed if you change levels and they ignore game pauses. If you want to change this behaviour, take a look at the <code>CLEAR_ON_LOAD_UI_LAYER</code> and <code>IGNORE_PAUSE_UI_LAYER</code> property in the Impact++ config file located under <code>plusplus/core/config.js</code>. But make sure that your overwrite these properties in your own <code>config-user.js</code> and not in the <code>config.js</code>. </p>
+<p>Also keep in mind that like all other <code>EntityExtended</code> entities, UI elements are static by default. If you change the <code>performance</code> to <code>dynamic</code> the UI element will be automatically removed from the UI layer and will be added to the entities layer.</p>
+<h3 id="positioning">Positioning</h3>
+<p>If you spawn a new UI element, it will appear in the top left corner of your game. This is the default behaviour, but you can reposition it or even set a margin if needed. Let's take at look at some examples. </p>
+<p>You can spawn a new UI element like this:</p>
+<pre><code class="lang-javascript```">var ui = ig.game.spawnEntity(ig.UIElement, 0, 0);</code></pre>
+<p>Let's add a margin of 2% for a little more space:</p>
+<pre><code class="lang-javascript```">var ui = ig.game.spawnEntity(ig.UIElement, 0, 0, {
+    margin: {
+        x: 0.02,
+        y: 0.02
+    }
+});</code></pre>
+<p>Note that margins on UI elements are actually pseudo margins. That means that they don't really keep other entities away, they are used to offset the element based on the pivot.</p>
+<p>Of course you could also set a new position based on percentages in values from 0 to 1, but make sure that <code>posAsPct</code> is set to <code>true</code> if you use the <code>posPct</code> property:</p>
+<pre><code class="lang-javascript```">var ui = ig.game.spawnEntity(ig.UIElement, 0, 0, {
+    posPct: {
+        x: 0.5,
+        y: 0.5
+    }
+});</code></pre>
+<p>Additionally you can set <code>posAsPct</code> to <code>false</code> and set the <code>pos</code> as normal:</p>
+<pre><code class="lang-javascript```">var ui = ig.game.spawnEntity(ig.UIElement, 0, 0, {
+    posAsPct: false,
+    pos: {
+        x: 30,
+        y: 10
+    }
+});</code></pre>
+<p>There is also the <code>moveTo</code> method which moves an UI element to another entity or position, which might come in handy in some situations of your game. </p>
+<p>By the way, you don't have to define all of the properties of your UI element in the <code>spawnEntity</code> method, as seen in the examples above. For a better code organization you can also make a new class, which extends the <code>UIElement</code> class, and just spawn an entity with it.</p>
+<h3 id="interactive-ui-elements">Interactive UI Elements</h3>
+<p>Now that we understand the basics about UI elements, and how we can move them around, we should examine interactive UI elements. Impact++ has a base class for interactive UI elements called <code>UIInteractive</code> which offers some cool stuff for your game.</p>
+<p>When a <code>UIInteractive</code> entity is touched or clicked it, will automatically call  its <code>activateComplete</code> or its <code>deactivateComplete</code> method. Look at the code of this custom <code>UIInteractive</code> entity for example:</p>
+<pre><code class="lang-javascript```">ig.UICustomElement = ig.global.UICustomElement = ig.UIInteractive.extend({
+
+
+   // size, animation sheet and other stuff goes here ...
+
+
+   // override the activate method to do something special when button interacted with   
+   activateComplete: function ( entity ) {
+
+       // call parent activate
+       this.parent();
+
+       // do some activation behavior
+
+   },
+
+   // and since interactive elements are toggled by default
+   // you can also do something when deactivated
+   deactivateComplete: function ( entity ) {
+
+       this.parent();
+
+       // do some deactivation behavior
+
+   }
+
+});</code></pre>
+<p>As you can see, you could easily add your own game mechanics to the <code>activateComplete</code> or <code>deactivateComplete</code> method after <code>this.parent()</code> is called. By default an <code>UIInteractive</code> element will toggle between the <code>activateComplete</code> and <code>deactivateComplete</code> methods.</p>
+<p>In some cases you don't want this behaviour. You may just want that the <code>activateComplete</code> method gets called every time your element is interacted with, without any toggle at all. In  that case you can set the <code>alwaysToggleActivate</code> property of your UI element to <code>true</code>. </p>
+<p>Setting <code>alwaysToggleActivate: true</code> will result in always calling the <code>activateComplete</code> method if you click or touch the element, no matter how often you click or touch it.</p>
+<p>Another useful feature is, that you can also hook into the activated or deactivated signals of the  <code>UIInteractive</code> element, as you can see in the example below:</p>
+<pre><code class="lang-javascript```">var ui = ig.game.spawnEntity(ig.UIInteractive, 0, 0);
+
+ui.onActivated.add( player.pickUpItem, player );
+ui.onDeactivated.add( player.dropItem, player );</code></pre>
+<p>The first parameter of the add method is the callback method you want to call, and the second one is the context of the callback. So in the example above the player will pick up, or drop, an item when the corresponding UI element is clicked or touched.</p>
+<p>Like that you can even use abilities:</p>
+<pre><code class="lang-javascript```">var ui = ig.game.spawnEntity(ig.UIInteractive, 0, 0);
+
+ui.onActivated.add( myPlayer.specialAbility.activate, myPlayer.specialAbility );</code></pre>
+<p>As you may have guessed, the <code>UIInteractive</code> element is highly useful for buttons. Impact++ provides us with a ready to use button class called <code>UIButton</code>, which is based on the <code>UIInteractive</code> element. </p>
+<p>The <code>UIButton</code> class disables toggling between the <code>activateComplete</code> and <code>deactivateComplete</code> methods by default, so that only the activate method gets called. On top of that the <code>UIButton</code> class helps with some basic animation handling.</p>
+<h3 id="text-for-user-interfaces">Text for User Interfaces</h3>
+<p>Impact++ provides us with a class called <code>UIText</code>, which is highly useful for displaying text in your game world. A good example of use for the <code>UIText</code> class, would be displaying the player score in your game, or the amount of collected coins. </p>
+<p>Let's take a closer look at this code example :</p>
+<pre><code class="lang-javascript```">var _c = ig.CONFIG;
+
+var score = ig.game.spawnEntity(ig.UIText, 0, 0, {
+
+    font: new ig.Font( _c.PATH_TO_MEDIA + 'font_04b03_white_16.png' ),
+
+    text: 'Score: 9000'
+
+});</code></pre>
+<p>Please note that you need to define a font for your <code>UIText</code> entity. If you don't it will use the font mentioned in <code>ig.CONFIG.FONT.MAIN_NAME</code> of your config file. The value of the <code>text</code> property gets displayed in the game. You can of course easily change the value of the text property later on to update it:</p>
+<pre><code class="lang-javascript```">score.text = 'Score: 9001';</code></pre>
+<p>With the <code>maxWidth</code> and <code>maxHeight</code> properties you can define the maximum width or height of the text area. If you have multiple lines, you can set the text alignment via the <code>textAlign</code> property. Possible values for <code>textAlign</code> are <code>ig.Font.ALIGN.CENTER</code>, <code>ig.Font.ALIGN.LEFT</code> and <code>ig.Font.ALIGN.RIGHT</code>.  </p>
+<h3 id="more-ui-elements">More UI Elements</h3>
+<p>We looked at the basics of UI elements, at interactive UI elements and at UI elements for text. But you know what? There are a lot more in Impact++! Taken as a whole, Impact++ offers 13 UI related classes that are really awesome and can help you with your current game!</p>
+<p>There are toggle classes like <code>UITogglePause</code> or <code>UIToggleVolume</code>, which are useful for toggling the game pause or the volume of the game music. The <code>UIMeter</code> class displays horizontally or vertically meters that are perfect for health bars. <code>UITracker</code> is an UI element for tracking the closest entity of a type or name in a level. And with the <code>UIOverlay</code> you can add all sorts of overlays to your game. </p>
+<p>Have a closer look at the <code>plusplus/ui/</code> folder of your Impact++ project, or take a look at the docs under http://collinhover.github.io/impactplusplus/ig.html, to get an overview of all the UI classes.</p>
+<h3 id="learn-more-">Learn More!</h3>
+<p><a href="ig.UIElement.html">UI Element</a><br><a href="ig.UIInteractive.html">UI Interactive</a><br><a href="ig.UIButton.html">UI Button</a><br><a href="ig.UIText.html">UI Text</a>  </p>
+					
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+</div> 
+
+<footer>
+	<p class="muted">Impact++ created and maintained by <a href="http://twitter.com/collinhover" target="_blank">@collinhover</a> / <a href="http://collinhover.com/" target="_blank">collinhover.com</a></p>
+	<p class="muted">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha4</a></p>
+</footer>
+
+	
+	<script src="scripts/linenumber.js"> </script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="scripts/jquery-1.9.1.min.js"><\/script>')</script>
+	<script src="scripts/bootstrap.min.js"> </script>
+	<script src="scripts/main.js"> </script>
+	
+</body>
+</html>

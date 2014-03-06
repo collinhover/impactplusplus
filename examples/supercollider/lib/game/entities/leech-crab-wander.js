@@ -1,10 +1,10 @@
 ig.module(
-        'game.entities.leech-crab-wander'
-    )
+    'game.entities.leech-crab-wander'
+)
     .requires(
         'game.entities.leech-crab'
-    )
-    .defines(function () {
+)
+    .defines(function() {
         "use strict";
 
         /**
@@ -14,7 +14,7 @@ ig.module(
          * @memberof ig
          * @author Collin Hover - collinhover.com
          */
-        ig.EntityLeechCrabWander = ig.global.EntityLeechCrabWander = ig.EntityLeechCrab.extend(/**@lends ig.EntityLeechCrabWander.prototype */{
+        ig.EntityLeechCrabWander = ig.global.EntityLeechCrabWander = ig.EntityLeechCrab.extend( /**@lends ig.EntityLeechCrabWander.prototype */ {
 
             // wander on horizontal
 

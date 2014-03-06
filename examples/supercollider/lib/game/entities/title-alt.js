@@ -1,11 +1,11 @@
 ig.module(
-        'game.entities.title-alt'
-    )
+    'game.entities.title-alt'
+)
     .requires(
         'plusplus.core.config',
         'plusplus.core.entity'
-    )
-    .defines(function () {
+)
+    .defines(function() {
         "use strict";
 
         var _c = ig.CONFIG;
@@ -17,11 +17,14 @@ ig.module(
          * @memberof ig
          * @author Collin Hover - collinhover.com
          */
-        ig.EntityTitleAlt = ig.global.EntityTitleAlt = ig.EntityExtended.extend(/**@lends ig.EntityTitleAlt.prototype */{
+        ig.EntityTitleAlt = ig.global.EntityTitleAlt = ig.EntityExtended.extend( /**@lends ig.EntityTitleAlt.prototype */ {
 
-            size: { x: 256, y: 44 },
+            size: {
+                x: 256,
+                y: 44
+            },
 
-            animSheet: new ig.AnimationSheet(_c.PATH_TO_MEDIA + 'title_alt.png', 256, 44 ),
+            animSheet: new ig.AnimationSheet(_c.PATH_TO_MEDIA + 'title_alt.png', 256, 44),
 
             animInit: "blinkX",
 
@@ -50,11 +53,11 @@ ig.module(
              * When title activated, change animation to idle.
              * @override
              */
-            activate: function ( entity ) {
+            activate: function(entity) {
 
-                this.parent( entity );
+                this.parent(entity);
 
-                this.currentAnim = this.anims[ "idleX" ];
+                this.currentAnim = this.anims["idleX"];
 
             }
 

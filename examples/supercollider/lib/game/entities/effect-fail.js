@@ -5,14 +5,14 @@
  * @author Collin Hover - collinhover.com
  */
 ig.module(
-        'game.entities.effect-fail'
-    )
+    'game.entities.effect-fail'
+)
     .requires(
         'plusplus.core.config',
         'plusplus.abstractities.effect',
         'plusplus.helpers.utilsvector2'
-    )
-    .defines(function () {
+)
+    .defines(function() {
 
         var _c = ig.CONFIG;
         var _utv2 = ig.utilsvector2;

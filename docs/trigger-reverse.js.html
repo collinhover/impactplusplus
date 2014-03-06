@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+    <title>Impact++ / Source: entities/trigger-reverse.js</title>
+    
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+		<script src="scripts/html5shiv.js"> </script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/main.css">
+</head>
+
+<body data-spy="scroll" data-target="#navdoc">
+
+	
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source"><code>ig.module(
+    'plusplus.entities.trigger-reverse'
+)
+    .requires(
+        'plusplus.entities.trigger'
+)
+    .defines(function() {
+        "use strict";
+
+        /**
+         * Trigger that deactivates instead of activating.
+         * @class
+         * @extends ig.EntityTrigger
+         * @memberof ig
+         * @author Collin Hover - collinhover.com
+         **/
+        ig.EntityTriggerReverse = ig.global.EntityTriggerReverse = ig.EntityTrigger.extend( /**@lends ig.EntityTriggerReverse.prototype */ {
+
+            // editor properties
+
+            _wmBoxColor: 'rgba( 255, 200, 0, 0.7 )',
+
+            /**
+             * @override
+             */
+            handleTargets: function(entity, needsActivation) {
+
+                if (needsActivation !== false) {
+
+                    this.deactivate(entity);
+
+                }
+
+                for (var i = 0, il = this.targetSequence.length; i &lt; il; i++) {
+
+                    var target = this.targetSequence[i];
+
+                    if (target instanceof ig.EntityTriggerReverse) {
+
+                        target.trigger(entity);
+
+                    } else {
+
+                        target.deactivate(entity);
+
+                    }
+
+                }
+
+            },
+
+            /**
+             * Reverse trigger deactivates on activate.
+             * @override
+             **/
+            activate: function(entity) {
+
+                if (this.needsTeardown) {
+
+                    this.teardown();
+
+                }
+
+                this.activated = false;
+
+                if (this.deactivateCallback) {
+
+                    this.deactivateCallback.call(this.deactivateContext || this, entity);
+
+                }
+
+            },
+
+            /**
+             * Reverse trigger activates on deactivate.
+             * @override
+             */
+            deactivate: function(entity) {
+
+                if (!this.needsTeardown) {
+
+                    this.setup();
+
+                }
+
+                this.activated = true;
+
+                if (this.activateCallback) {
+
+                    this.activateCallback.call(this.activateContext || this, entity);
+
+                }
+
+                if (!this.triggering) {
+
+                    this.trigger(entity, false);
+
+                }
+
+            }
+
+        });
+
+    });
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+	
+	<script src="scripts/linenumber.js"> </script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="scripts/jquery-1.9.1.min.js"><\/script>')</script>
+	<script src="scripts/bootstrap.min.js"> </script>
+	<script src="scripts/main.js"> </script>
+	
+</body>
+</html>

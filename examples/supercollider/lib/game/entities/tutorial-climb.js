@@ -1,11 +1,11 @@
 ig.module(
-        'game.entities.tutorial-climb'
-    )
+    'game.entities.tutorial-climb'
+)
     .requires(
         'plusplus.entities.tutorial-hold',
         'plusplus.ui.ui-overlay'
-    )
-    .defines(function () {
+)
+    .defines(function() {
 
         /**
          * Tutorial for climbing.
@@ -22,7 +22,7 @@ ig.module(
 
             // looking for player properties
 
-            properties: [ 'climbing' ],
+            properties: ['climbing'],
 
             // overlay
 
@@ -37,4 +37,3 @@ ig.module(
         });
 
     });
-
