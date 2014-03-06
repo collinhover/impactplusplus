@@ -46,13 +46,13 @@ IF EXIST "%OUTPUT%" (
 
 call echo Beautifying
 
-cd %INPUT%
+call cd %INPUT%
 
 for /r %%f in (*) do (
 	call js-beautify %%f -r
 )
 
-cd  %INPUT_TO_ROOT%
+call cd  %INPUT_TO_ROOT%
 
 call echo Creating new documentation
 
