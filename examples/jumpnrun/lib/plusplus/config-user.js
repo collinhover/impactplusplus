@@ -22,17 +22,28 @@ ig.module(
             /**
              * Needs a top-down style game? Uncomment below!
              */
-            /*
-			TOP_DOWN: true,
-			ENTITY: {
-				CAN_FLIP_X: true,
-				CAN_FLIP_Y: true
-			},
-			CREATURE: {
-				CAN_WANDER_X: true,
-				CAN_WANDER_Y: true
-			},
-			*/
+            /**
+            TOP_DOWN: true,
+            ENTITY: {
+                CAN_FLIP_X: true,
+                CAN_FLIP_Y: true
+            },
+            CREATURE: {
+                CAN_WANDER_X: true,
+                CAN_WANDER_Y: true
+            },
+            */
+
+            /**
+             * Want to enable a touch dpad? Uncomment below!
+             */
+            /**
+            PLAYER_MANAGER : {
+                HOLD_TO_MOVE: false,
+                SWIPE_TO_JUMP: false,
+                TOUCH_DPAD_ENABLED: true
+            },
+            */
 
             /**
              * Fullscreen!
