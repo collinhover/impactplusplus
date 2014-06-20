@@ -1,7 +1,7 @@
 Impact++ (r7)
 ========
 
-###[DOCS](http://collinhover.github.com/impactplusplus) / [DEMO](http://collinhover.github.com/impactplusplus)  
+###[DOCS](http://collinhover.github.com/impactplusplus) / [DEMO](http://collinhover.github.com/impactplusplus/demo)  / [GENERATOR](https://github.com/racingcow/generator-impactplusplus)
   
 ####Overview
 
@@ -41,16 +41,18 @@ Impact++ is stable for ImpactJS v1.20 - v1.23
 ](http://github.com/collinhover/impactplusplus/tarball/master/)
   
 ##Getting Started
-####First Steps
+####Generator Method
+1. Use the killer [Yeoman Generator](https://github.com/racingcow/generator-impactplusplus) put together by @racingcow
+  
+####Manual Method
 1. Download using one of the "Download" links and extract the files.
 2. Copy the **impactplusplus/lib/plusplus** folder into your new or existing ImpactJS project **lib** directory.
 3. Either copy the **impactplusplus/lib/weltmeister/config.js** into your projet's **lib/weltmeister** directory...
 4. Or, if you have a custom Weltmeister config:
 	* add ```'lib/plusplus/entities/*.js'``` to the ```entityFiles``` setting
 	* change the ```collisionTiles.path``` setting to ```'lib/weltmeister/collisiontiles_plusplus_64.png'```
-5. Make sure you're comfortable with the [ImpactJS Documentation](http://impactjs.com/documentation)
-6. Load up the Impact++ Jump N' Run demo (see below) to review the basics
-7. Dive into the [Impact++ Documentation](http://collinhover.github.com/impactplusplus)
+  
+Next, make sure you're comfortable with the [ImpactJS Documentation](http://impactjs.com/documentation). Then load up the Impact++ Jump N' Run demo (see below) to review the basics, and dive into the [Impact++ Documentation](http://collinhover.github.com/impactplusplus).
   
 ####Demo: Jump N' Run
 Check out the Jump N' Run demo for an overview of getting started with Impact++, located in the 'examples/jumpnrun' directory. Don't forget to copy the ImpactJS engine and Weltmeister files into the demo directory!
